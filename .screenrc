@@ -1,0 +1,11 @@
+defutf8 on
+defflow off
+vbell off
+startup_message off
+
+bindkey -d -k kb stuff "\010"
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce "on"
+hardstatus alwayslastline
+hardstatus string '%{= 9b}[ %{B}%H %{b}][%= %{= 9w}%?%-Lw%?%{=b 9R}(%{W}%n*%f %t%?(%u)%?%{=b 9R})%{= 9w}%?%+Lw%?%?%= %{b}][%{B}%l%{b}]%{=b C}[ %d %M %c ]%{W}':

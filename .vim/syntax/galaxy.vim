@@ -1,0 +1,2325 @@
+" SC2 Galaxy Language Syntax File
+" Language: Galaxy
+" Maintainer: Bill 'jb55' Casarin <jb@jb55.com>
+" Last Change:  March 3, 2010
+
+" Quit when a (custom) syntax file was already loaded
+if exists("b:current_syntax")
+  finish
+endif
+
+" Basics {{{
+syn keyword galStatement    goto break return continue asm
+syn keyword galLabel        case default
+syn keyword galConditional  if else switch
+syn keyword galRepeat       while for do
+
+syn keyword galType         int char void float double
+syn keyword galType         fixed byte bool string text
+syn keyword galBoolean      true false
+
+syn keyword	galStorageClass	static const
+
+" }}}
+
+" Struct {{{
+syn keyword galStructure    abilcmd actor actorscope animtarget bank
+syn keyword galStructure    camerainfo color doodad handle marker
+syn keyword galStructure    order playergroup point region revealer
+syn keyword galStructure    sound soundlink timer transmissionsource
+syn keyword galStructure    trigger unit unitfilter unitgroup unitref
+syn keyword galStructure    aifilter wave waveinfo wavetarget
+" }}}
+
+" Built-in Functions {{{
+
+if !exists("b:galaxy_no_builtins")
+  syn keyword galFunction ACos
+  syn keyword galFunction AIAddBully
+  syn keyword galFunction AIAddDetectionDanger
+  syn keyword galFunction AIAddHealer
+  syn keyword galFunction AIAddStringInt
+  syn keyword galFunction AIAddToExtraScoutGroup
+  syn keyword galFunction AIAllyEnemyRatio
+  syn keyword galFunction AIAnyAllyAttacking
+  syn keyword galFunction AIAnyAllyNeedsDefending
+  syn keyword galFunction AIAnyWorkersFleeingNearby
+  syn keyword galFunction AIAttackWaveAddEscortType
+  syn keyword galFunction AIAttackWaveAddEscortUnit
+  syn keyword galFunction AIAttackWaveAddUnits
+  syn keyword galFunction AIAttackWaveAddWaypoint
+  syn keyword galFunction AIAttackWaveCancel
+  syn keyword galFunction AIAttackWaveClearWaypoints
+  syn keyword galFunction AIAttackWaveSend
+  syn keyword galFunction AIAttackWaveSetGatherEarlyNoReplace
+  syn keyword galFunction AIAttackWaveSetGatherPoint
+  syn keyword galFunction AIAttackWaveSetKeepAlive
+  syn keyword galFunction AIAttackWaveSetTargetEscort
+  syn keyword galFunction AIAttackWaveSetTargetEscortNL
+  syn keyword galFunction AIAttackWaveSetTargetGatherD
+  syn keyword galFunction AIAttackWaveSetTargetGatherO
+  syn keyword galFunction AIAttackWaveSetTargetMelee
+  syn keyword galFunction AIAttackWaveSetTargetMeleeDefend
+  syn keyword galFunction AIAttackWaveSetTargetMeleeDrop
+  syn keyword galFunction AIAttackWaveSetTargetMeleeHarass
+  syn keyword galFunction AIAttackWaveSetTargetMerge
+  syn keyword galFunction AIAttackWaveSetTargetPatrol
+  syn keyword galFunction AIAttackWaveSetTargetPlayer
+  syn keyword galFunction AIAttackWaveSetTargetPoint
+  syn keyword galFunction AIAttackWaveSetTargetRegion
+  syn keyword galFunction AIAttackWaveSetTargetUnit
+  syn keyword galFunction AIAttackWaveSetTargetUnitGroup
+  syn keyword galFunction AIAttackWaveSetTargetUnitPoint
+  syn keyword galFunction AIAttackWaveUseGroup
+  syn keyword galFunction AIAttackWaveUseUnit
+  syn keyword galFunction AIBaseThink
+  syn keyword galFunction AIBestAllyAttackPoint
+  syn keyword galFunction AIBestAllyDefendPoint
+  syn keyword galFunction AIBestTargetPoint
+  syn keyword galFunction AIBuild
+  syn keyword galFunction AICast
+  syn keyword galFunction AICastCooldown
+  syn keyword galFunction AICastFlee
+  syn keyword galFunction AIChooseSubState
+  syn keyword galFunction AIClearAllBullies
+  syn keyword galFunction AIClearBuildQueue
+  syn keyword galFunction AIClearCampaignScout
+  syn keyword galFunction AIClearCloakedAttacker
+  syn keyword galFunction AIClearLimitTech
+  syn keyword galFunction AIClearResearchQueue
+  syn keyword galFunction AIClearStock
+  syn keyword galFunction AIClearTrainQueue
+  syn keyword galFunction AICloakEvaluate
+  syn keyword galFunction AICombatDiffFlagCatSortBuildingsPrio
+  syn keyword galFunction AICombatDiffFlagCatSpecialHighPrio
+  syn keyword galFunction AICombatDiffFlagCatSplashHighPrio
+  syn keyword galFunction AICombatDiffFlagCatTimedLowPrio
+  syn keyword galFunction AICombatDiffFlagCatWorkersNormalPrio
+  syn keyword galFunction AICombatDiffFlagTieBreakBonusDamage
+  syn keyword galFunction AICombatDiffFlagTieBreakDetector
+  syn keyword galFunction AICombatDiffFlagTieBreakHealers
+  syn keyword galFunction AICombatDiffFlagTieBreakInjured
+  syn keyword galFunction AICombatDiffFlagTieBreakLowHP
+  syn keyword galFunction AICombatDiffFlagTieBreakRange
+  syn keyword galFunction AIControlForceToMove
+  syn keyword galFunction AIControlForceUnburrow
+  syn keyword galFunction AIControlWantsToBurrow
+  syn keyword galFunction AIControlWantsToMove
+  syn keyword galFunction AIControlWantsToUnburrow
+  syn keyword galFunction AICounterUnitSetup
+  syn keyword galFunction AICounterUnitsAnyTech
+  syn keyword galFunction AICounterUnitsSameTech
+  syn keyword galFunction AIDeclareTown
+  syn keyword galFunction AIDefaultCombatPriority
+  syn keyword galFunction AIDefaultEconomy
+  syn keyword galFunction AIDefaultExpansion
+  syn keyword galFunction AIDefaultGetFirstMissingReq
+  syn keyword galFunction AIDefaultGetFirstUnfinishedReq
+  syn keyword galFunction AIDefaultGetFullMakeTime
+  syn keyword galFunction AIDefaultGetMaker
+  syn keyword galFunction AIDefaultGetObjectType
+  syn keyword galFunction AIDefaultSuspectDetectionDanger
+  syn keyword galFunction AIDefenseThreat
+  syn keyword galFunction AIDisableAllScouting
+  syn keyword galFunction AIEnableStock
+  syn keyword galFunction AIEvalAllAllied
+  syn keyword galFunction AIEvalLargestEnemy
+  syn keyword galFunction AIEvalRatio
+  syn keyword galFunction AIEvalSetCustomIndex
+  syn keyword galFunction AIEvalTacticalData
+  syn keyword galFunction AIExpand
+  syn keyword galFunction AIFilter
+  syn keyword galFunction AIFilterCasters
+  syn keyword galFunction AIFilterGathering
+  syn keyword galFunction AIFilterPathable
+  syn keyword galFunction AIFilterProduction
+  syn keyword galFunction AIFindDropAttackTarget
+  syn keyword galFunction AIFindUnits
+  syn keyword galFunction AIGetAirStartLocs
+  syn keyword galFunction AIGetAirTownLocs
+  syn keyword galFunction AIGetAllEscorts
+  syn keyword galFunction AIGetAllEscortsGroup
+  syn keyword galFunction AIGetBaseName
+  syn keyword galFunction AIGetBestCreepSpot
+  syn keyword galFunction AIGetBestTarget
+  syn keyword galFunction AIGetBestUserAllyHelpLocation
+  syn keyword galFunction AIGetBuildAtName
+  syn keyword galFunction AIGetBuildingCountInTown
+  syn keyword galFunction AIGetBuildingGroup
+  syn keyword galFunction AIGetBullyType
+  syn keyword galFunction AIGetCloakedAttacker
+  syn keyword galFunction AIGetClosestTown
+  syn keyword galFunction AIGetClosestUnit
+  syn keyword galFunction AIGetCurPeonCount
+  syn keyword galFunction AIGetDifficulty
+  syn keyword galFunction AIGetFilterGroup
+  syn keyword galFunction AIGetFlag
+  syn keyword galFunction AIGetGasAmountLeft
+  syn keyword galFunction AIGetGatherDefLocation
+  syn keyword galFunction AIGetGatherLocation
+  syn keyword galFunction AIGetGroundStartLocs
+  syn keyword galFunction AIGetGroundTownLocs
+  syn keyword galFunction AIGetHomePosition
+  syn keyword galFunction AIGetMainTown
+  syn keyword galFunction AIGetMaxPeonCount
+  syn keyword galFunction AIGetMinPeonCount
+  syn keyword galFunction AIGetMineralAmountLeft
+  syn keyword galFunction AIGetMineralNumSpots
+  syn keyword galFunction AIGetNextDropTimeCheck
+  syn keyword galFunction AIGetNextScoutLoc
+  syn keyword galFunction AIGetNextUnusedTownSlot
+  syn keyword galFunction AIGetNumAllies
+  syn keyword galFunction AIGetNumEnemies
+  syn keyword galFunction AIGetNumMobileTransports
+  syn keyword galFunction AIGetObstruction
+  syn keyword galFunction AIGetPlayerGroup
+  syn keyword galFunction AIGetRallyPoint
+  syn keyword galFunction AIGetRawGasNumSpots
+  syn keyword galFunction AIGetTime
+  syn keyword galFunction AIGetTotalStartLocs
+  syn keyword galFunction AIGetTotalTownLocs
+  syn keyword galFunction AIGetTownEstablishedTime
+  syn keyword galFunction AIGetTownLocation
+  syn keyword galFunction AIGetTownState
+  syn keyword galFunction AIGetTownThreats
+  syn keyword galFunction AIGetUnitsInWavesWithTarget
+  syn keyword galFunction AIGetUserInt
+  syn keyword galFunction AIGetUserString
+  syn keyword galFunction AIGivingUp
+  syn keyword galFunction AIGlobalSuicide
+  syn keyword galFunction AIGoodGame
+  syn keyword galFunction AIGrabUnit
+  syn keyword galFunction AIHarvest
+  syn keyword galFunction AIHarvestBonus
+  syn keyword galFunction AIHarvestRate
+  syn keyword galFunction AIHasHumanAlly
+  syn keyword galFunction AIHasNearbyOpenExpansion
+  syn keyword galFunction AIHasRes
+  syn keyword galFunction AIHasStock
+  syn keyword galFunction AIHasStockFromTown
+  syn keyword galFunction AIImportantTech
+  syn keyword galFunction AIInitCampaignHarvest
+  syn keyword galFunction AIInitCampaignTowns
+  syn keyword galFunction AIIsCampaign
+  syn keyword galFunction AIIsFollowingUnit
+  syn keyword galFunction AIIsIgnoredByWave
+  syn keyword galFunction AIIsNotUsableInWaves
+  syn keyword galFunction AIIsScriptControlled
+  syn keyword galFunction AIIsSuicideUnit
+  syn keyword galFunction AIIsTownFull
+  syn keyword galFunction AIIsTownHarvestRunning
+  syn keyword galFunction AIKnownUnitCount
+  syn keyword galFunction AILastAttack
+  syn keyword galFunction AILastAttackRatio
+  syn keyword galFunction AILastAttackStartEval
+  syn keyword galFunction AILastAttacker
+  syn keyword galFunction AILastDropGoal
+  syn keyword galFunction AILastDropLocation
+  syn keyword galFunction AILastWaveEvalStaticRatio
+  syn keyword galFunction AILimitStockLarva
+  syn keyword galFunction AILimitTech
+  syn keyword galFunction AIMakeAlways
+  syn keyword galFunction AIMakeOnce
+  syn keyword galFunction AINearbyPlaneTest
+  syn keyword galFunction AINearbyUnits
+  syn keyword galFunction AINearestTownBullyRebuild
+  syn keyword galFunction AINearestTownLimitWaveGather
+  syn keyword galFunction AINewChooseSubState
+  syn keyword galFunction AINewTechStock
+  syn keyword galFunction AIOfferNewScout
+  syn keyword galFunction AIPathingCostMap
+  syn keyword galFunction AIPathingCostUnit
+  syn keyword galFunction AIPlacementNearbyFindTest
+  syn keyword galFunction AIRandomSpawnPoint
+  syn keyword galFunction AIRandomVal
+  syn keyword galFunction AIRemoveGroupFromAnyWaves
+  syn keyword galFunction AIRemoveGroupFromAnyWavesAndSetHome
+  syn keyword galFunction AIRemoveStockFromTown
+  syn keyword galFunction AIRemoveUnitFromAnyWaves
+  syn keyword galFunction AIRemoveUnitFromAnyWavesAndSetHome
+  syn keyword galFunction AIReqAddSpecialMaker
+  syn keyword galFunction AIReqCountAsBuiltObject
+  syn keyword galFunction AIResearch
+  syn keyword galFunction AIResetBullyRebuildCountsInRegion
+  syn keyword galFunction AIResetCounterUnits
+  syn keyword galFunction AIResetUserData
+  syn keyword galFunction AISameCommand
+  syn keyword galFunction AISawCloakedUnit
+  syn keyword galFunction AIScout
+  syn keyword galFunction AISelfDefenseThreatEval
+  syn keyword galFunction AISetAPM
+  syn keyword galFunction AISetAllStates
+  syn keyword galFunction AISetBullyAttackWavePercent
+  syn keyword galFunction AISetCooldown
+  syn keyword galFunction AISetCreepBuilding
+  syn keyword galFunction AISetDifficulty
+  syn keyword galFunction AISetFilterAlliance
+  syn keyword galFunction AISetFilterBehaviorCount
+  syn keyword galFunction AISetFilterBits
+  syn keyword galFunction AISetFilterCanAttackAlly
+  syn keyword galFunction AISetFilterCanAttackEnemy
+  syn keyword galFunction AISetFilterEnergy
+  syn keyword galFunction AISetFilterLife
+  syn keyword galFunction AISetFilterLifeLost
+  syn keyword galFunction AISetFilterLifeMod
+  syn keyword galFunction AISetFilterLifePerMarker
+  syn keyword galFunction AISetFilterLifePercent
+  syn keyword galFunction AISetFilterLifeSortReference
+  syn keyword galFunction AISetFilterMarker
+  syn keyword galFunction AISetFilterPlane
+  syn keyword galFunction AISetFilterRange
+  syn keyword galFunction AISetFilterSelf
+  syn keyword galFunction AISetFilterShields
+  syn keyword galFunction AISetFlag
+  syn keyword galFunction AISetGasPeonCountOverride
+  syn keyword galFunction AISetGeneralRebuildCount
+  syn keyword galFunction AISetGroupNotUsableInWaves
+  syn keyword galFunction AISetGroupScriptControlled
+  syn keyword galFunction AISetGroupSuicide
+  syn keyword galFunction AISetIgnoredByWave
+  syn keyword galFunction AISetMainTown
+  syn keyword galFunction AISetMaxBestAttackersLimit
+  syn keyword galFunction AISetMinimumBullyCount
+  syn keyword galFunction AISetNextDropTimeCheck
+  syn keyword galFunction AISetNukeCloak
+  syn keyword galFunction AISetNukeCloakAbilLink
+  syn keyword galFunction AISetNukeCloakCost
+  syn keyword galFunction AISetNukeCloakRegenRate
+  syn keyword galFunction AISetNukeDamage
+  syn keyword galFunction AISetNukeGhost
+  syn keyword galFunction AISetNukeNukeAbilLink
+  syn keyword galFunction AISetNukeNukeCastTime
+  syn keyword galFunction AISetNukeNukeEffect
+  syn keyword galFunction AISetNukeRadiusClose
+  syn keyword galFunction AISetNukeRadiusFar
+  syn keyword galFunction AISetNukeRadiusMedium
+  syn keyword galFunction AISetNumScouts
+  syn keyword galFunction AISetPowerBuilding
+  syn keyword galFunction AISetScoutTimes
+  syn keyword galFunction AISetSpecificRebuildCount
+  syn keyword galFunction AISetSpecificState
+  syn keyword galFunction AISetStock
+  syn keyword galFunction AISetStockEx
+  syn keyword galFunction AISetStockExpand
+  syn keyword galFunction AISetStockExtra
+  syn keyword galFunction AISetStockFarms
+  syn keyword galFunction AISetStockOpt
+  syn keyword galFunction AISetStockPeons
+  syn keyword galFunction AISetStockTechNext
+  syn keyword galFunction AISetStockTown
+  syn keyword galFunction AISetStockUnitNext
+  syn keyword galFunction AISetSubStateChance
+  syn keyword galFunction AISetTacticalAttackTargetPoint
+  syn keyword galFunction AISetTacticalAttackTargetUnit
+  syn keyword galFunction AISetUnitNotUsableInWaves
+  syn keyword galFunction AISetUnitScriptControlled
+  syn keyword galFunction AISetUnitSuicide
+  syn keyword galFunction AISetUserInt
+  syn keyword galFunction AISetUserString
+  syn keyword galFunction AISetWantsMultipleTransport
+  syn keyword galFunction AISetWantsToUpgrade
+  syn keyword galFunction AIShouldHelpUserAlly
+  syn keyword galFunction AIStart
+  syn keyword galFunction AIState
+  syn keyword galFunction AITactCooldownAllow
+  syn keyword galFunction AITechCount
+  syn keyword galFunction AITechCountFixupEither
+  syn keyword galFunction AITechCountFixupInOrder
+  syn keyword galFunction AITechCountFixupSingle
+  syn keyword galFunction AITechFlag
+  syn keyword galFunction AITechStockAdd
+  syn keyword galFunction AITimeIsPaused
+  syn keyword galFunction AITimePause
+  syn keyword galFunction AIToggleBulliesInRegion
+  syn keyword galFunction AITrain
+  syn keyword galFunction AITransportIgnore
+  syn keyword galFunction AITransportSetPanic
+  syn keyword galFunction AITransportSetReturn
+  syn keyword galFunction AIUnitAreaEvalRatio
+  syn keyword galFunction AIUnitGetWave
+  syn keyword galFunction AIUnitGroupGetValidOrder
+  syn keyword galFunction AIUnitGroupStrength
+  syn keyword galFunction AIUnitIsInCombat
+  syn keyword galFunction AIUpdateMainTown
+  syn keyword galFunction AIWantsMultipleTransport
+  syn keyword galFunction AIWaveAddUnit
+  syn keyword galFunction AIWaveAddUnitPriority
+  syn keyword galFunction AIWaveCreate
+  syn keyword galFunction AIWaveDelete
+  syn keyword galFunction AIWaveDetectorCount
+  syn keyword galFunction AIWaveEval
+  syn keyword galFunction AIWaveEvalRatio
+  syn keyword galFunction AIWaveGet
+  syn keyword galFunction AIWaveGetTarget
+  syn keyword galFunction AIWaveGetTimeInCombat
+  syn keyword galFunction AIWaveGetTimeSinceCombat
+  syn keyword galFunction AIWaveGetTimeSinceOrdered
+  syn keyword galFunction AIWaveGetTimeSinceRetreat
+  syn keyword galFunction AIWaveGetUnits
+  syn keyword galFunction AIWaveGetUserData
+  syn keyword galFunction AIWaveGoal
+  syn keyword galFunction AIWaveHarassRetreat
+  syn keyword galFunction AIWaveInfo
+  syn keyword galFunction AIWaveInfoAdd
+  syn keyword galFunction AIWaveInfoAttack
+  syn keyword galFunction AIWaveInfoCreate
+  syn keyword galFunction AIWaveInfoScout
+  syn keyword galFunction AIWaveInfoSuicide
+  syn keyword galFunction AIWaveIsInCombat
+  syn keyword galFunction AIWaveMerge
+  syn keyword galFunction AIWaveMergeMelee
+  syn keyword galFunction AIWaveRemoveUnit
+  syn keyword galFunction AIWaveSet
+  syn keyword galFunction AIWaveSetType
+  syn keyword galFunction AIWaveSetUserData
+  syn keyword galFunction AIWaveState
+  syn keyword galFunction AIWaveTargetAddWaypoint
+  syn keyword galFunction AIWaveTargetClearWaypoints
+  syn keyword galFunction AIWaveTargetEscort
+  syn keyword galFunction AIWaveTargetEscortNL
+  syn keyword galFunction AIWaveTargetGatherD
+  syn keyword galFunction AIWaveTargetGatherDPoint
+  syn keyword galFunction AIWaveTargetGatherO
+  syn keyword galFunction AIWaveTargetGatherOPoint
+  syn keyword galFunction AIWaveTargetGetUnit
+  syn keyword galFunction AIWaveTargetGetUnitGroup
+  syn keyword galFunction AIWaveTargetMelee
+  syn keyword galFunction AIWaveTargetMeleeDefend
+  syn keyword galFunction AIWaveTargetMeleeDrop
+  syn keyword galFunction AIWaveTargetMeleeHarass
+  syn keyword galFunction AIWaveTargetMerge
+  syn keyword galFunction AIWaveTargetPatrol
+  syn keyword galFunction AIWaveTargetPlayer
+  syn keyword galFunction AIWaveTargetPoint
+  syn keyword galFunction AIWaveTargetRegion
+  syn keyword galFunction AIWaveTargetUnit
+  syn keyword galFunction AIWaveTargetUnitGroup
+  syn keyword galFunction AIWaveTargetUnitPoint
+  syn keyword galFunction AIWaveToString
+  syn keyword galFunction AIWaveToText
+  syn keyword galFunction AIWaveType
+  syn keyword galFunction AIWaveUnitCount
+  syn keyword galFunction ASin
+  syn keyword galFunction ATan
+  syn keyword galFunction ATan2
+  syn keyword galFunction AbilityClass
+  syn keyword galFunction AbilityCommand
+  syn keyword galFunction AbilityCommandGetAbility
+  syn keyword galFunction AbilityCommandGetAction
+  syn keyword galFunction AbilityCommandGetCommand
+  syn keyword galFunction AbsF
+  syn keyword galFunction AbsI
+  syn keyword galFunction AchievementAward
+  syn keyword galFunction AchievementErase
+  syn keyword galFunction AchievementPanelSetVisible
+  syn keyword galFunction AchievementTermQuantitySet
+  syn keyword galFunction AchievementsDisable
+  syn keyword galFunction ActorCreate
+  syn keyword galFunction ActorFrom
+  syn keyword galFunction ActorFromActor
+  syn keyword galFunction ActorFromDoodad
+  syn keyword galFunction ActorFromPortrait
+  syn keyword galFunction ActorFromScope
+  syn keyword galFunction ActorGetText
+  syn keyword galFunction ActorLookAtStart
+  syn keyword galFunction ActorLookAtStop
+  syn keyword galFunction ActorLookAtTypeStart
+  syn keyword galFunction ActorLookAtTypeStop
+  syn keyword galFunction ActorRefGet
+  syn keyword galFunction ActorRefSet
+  syn keyword galFunction ActorRegionCreate
+  syn keyword galFunction ActorRegionSend
+  syn keyword galFunction ActorScopeCreate
+  syn keyword galFunction ActorScopeFrom
+  syn keyword galFunction ActorScopeFromActor
+  syn keyword galFunction ActorScopeFromPortrait
+  syn keyword galFunction ActorScopeFromUnit
+  syn keyword galFunction ActorScopeGetText
+  syn keyword galFunction ActorScopeKill
+  syn keyword galFunction ActorScopeOrphan
+  syn keyword galFunction ActorScopeRefGet
+  syn keyword galFunction ActorScopeRefSet
+  syn keyword galFunction ActorScopeSend
+  syn keyword galFunction ActorSend
+  syn keyword galFunction ActorSendTo
+  syn keyword galFunction ActorTextureGroupApplyGlobal
+  syn keyword galFunction ActorTextureGroupRemoveGlobal
+  syn keyword galFunction ActorWorldParticleFXDestroy
+  syn keyword galFunction AngleBetweenPoints
+  syn keyword galFunction BankDeleteCampaignBanks
+  syn keyword galFunction BankExists
+  syn keyword galFunction BankKeyCount
+  syn keyword galFunction BankKeyExists
+  syn keyword galFunction BankKeyName
+  syn keyword galFunction BankKeyRemove
+  syn keyword galFunction BankLastCreated
+  syn keyword galFunction BankLastRestoredUnit
+  syn keyword galFunction BankLoad
+  syn keyword galFunction BankName
+  syn keyword galFunction BankPlayer
+  syn keyword galFunction BankRemove
+  syn keyword galFunction BankSave
+  syn keyword galFunction BankSectionCount
+  syn keyword galFunction BankSectionExists
+  syn keyword galFunction BankSectionName
+  syn keyword galFunction BankSectionRemove
+  syn keyword galFunction BankValueGetAsFixed
+  syn keyword galFunction BankValueGetAsFlag
+  syn keyword galFunction BankValueGetAsInt
+  syn keyword galFunction BankValueGetAsPoint
+  syn keyword galFunction BankValueGetAsString
+  syn keyword galFunction BankValueGetAsText
+  syn keyword galFunction BankValueGetAsUnit
+  syn keyword galFunction BankValueIsType
+  syn keyword galFunction BankValueSetFromFixed
+  syn keyword galFunction BankValueSetFromFlag
+  syn keyword galFunction BankValueSetFromInt
+  syn keyword galFunction BankValueSetFromPoint
+  syn keyword galFunction BankValueSetFromString
+  syn keyword galFunction BankValueSetFromText
+  syn keyword galFunction BankValueSetFromUnit
+  syn keyword galFunction BattleReportAddAchievement
+  syn keyword galFunction BattleReportCreate
+  syn keyword galFunction BattleReportDestroy
+  syn keyword galFunction BattleReportLastCreated
+  syn keyword galFunction BattleReportPanelGetSelectedBattleReport
+  syn keyword galFunction BattleReportPanelSetSelectedBattleReport
+  syn keyword galFunction BattleReportSetAchievementTitle
+  syn keyword galFunction BattleReportSetBestTimeText
+  syn keyword galFunction BattleReportSetBonusText
+  syn keyword galFunction BattleReportSetBonusTitle
+  syn keyword galFunction BattleReportSetButtonImage
+  syn keyword galFunction BattleReportSetButtonText
+  syn keyword galFunction BattleReportSetDifficultyLevelBestTimeText
+  syn keyword galFunction BattleReportSetDifficultyLevelCompleted
+  syn keyword galFunction BattleReportSetMissionImage
+  syn keyword galFunction BattleReportSetMissionText
+  syn keyword galFunction BattleReportSetObjectiveText
+  syn keyword galFunction BattleReportSetObjectiveTitle
+  syn keyword galFunction BattleReportSetPriority
+  syn keyword galFunction BattleReportSetResearchText
+  syn keyword galFunction BattleReportSetResearchTitle
+  syn keyword galFunction BattleReportSetSceneImage
+  syn keyword galFunction BattleReportSetSceneText
+  syn keyword galFunction BattleReportSetState
+  syn keyword galFunction BattleReportSetWorldText
+  syn keyword galFunction BoardCreate
+  syn keyword galFunction BoardDestroy
+  syn keyword galFunction BoardItemSetAlignment
+  syn keyword galFunction BoardItemSetBackgroundColor
+  syn keyword galFunction BoardItemSetFontSize
+  syn keyword galFunction BoardItemSetIcon
+  syn keyword galFunction BoardItemSetProgressColor
+  syn keyword galFunction BoardItemSetProgressRange
+  syn keyword galFunction BoardItemSetProgressShow
+  syn keyword galFunction BoardItemSetProgressValue
+  syn keyword galFunction BoardItemSetSortValue
+  syn keyword galFunction BoardItemSetText
+  syn keyword galFunction BoardItemSetTextColor
+  syn keyword galFunction BoardLastCreated
+  syn keyword galFunction BoardMinimizeEnable
+  syn keyword galFunction BoardMinimizeSetColor
+  syn keyword galFunction BoardMinimizeSetState
+  syn keyword galFunction BoardMinimizeShow
+  syn keyword galFunction BoardPlayerAdd
+  syn keyword galFunction BoardPlayerRemove
+  syn keyword galFunction BoardRowSetGroup
+  syn keyword galFunction BoardSetColumnCount
+  syn keyword galFunction BoardSetColumnWidth
+  syn keyword galFunction BoardSetGroupCount
+  syn keyword galFunction BoardSetName
+  syn keyword galFunction BoardSetPlayerColumn
+  syn keyword galFunction BoardSetRowCount
+  syn keyword galFunction BoardSetState
+  syn keyword galFunction BoardShowAll
+  syn keyword galFunction BoardSort
+  syn keyword galFunction BoardTitleSetAlignment
+  syn keyword galFunction BoardTitleSetClickable
+  syn keyword galFunction BoardTitleSetColor
+  syn keyword galFunction BoardTitleSetIcon
+  syn keyword galFunction BoardTitleSetText
+  syn keyword galFunction BoardTitleShow
+  syn keyword galFunction BoolToInt
+  syn keyword galFunction CameraApplyInfo
+  syn keyword galFunction CameraClearChannel
+  syn keyword galFunction CameraClearChannelOnPortrait
+  syn keyword galFunction CameraFollowUnitGroup
+  syn keyword galFunction CameraForceMouseRelative
+  syn keyword galFunction CameraGetPitch
+  syn keyword galFunction CameraGetTarget
+  syn keyword galFunction CameraGetYaw
+  syn keyword galFunction CameraInfoDefault
+  syn keyword galFunction CameraInfoFromId
+  syn keyword galFunction CameraInfoGetTarget
+  syn keyword galFunction CameraInfoGetValue
+  syn keyword galFunction CameraInfoSetTarget
+  syn keyword galFunction CameraInfoSetValue
+  syn keyword galFunction CameraLockInput
+  syn keyword galFunction CameraLookAt
+  syn keyword galFunction CameraLookAtActor
+  syn keyword galFunction CameraLookAtUnit
+  syn keyword galFunction CameraPan
+  syn keyword galFunction CameraRestore
+  syn keyword galFunction CameraSave
+  syn keyword galFunction CameraSetBounds
+  syn keyword galFunction CameraSetChannel
+  syn keyword galFunction CameraSetChannelOnPortrait
+  syn keyword galFunction CameraSetMouseRotates
+  syn keyword galFunction CameraSetMouseRotationSpeed
+  syn keyword galFunction CameraSetValue
+  syn keyword galFunction CameraSetVerticalFieldOfView
+  syn keyword galFunction CameraShakeStart
+  syn keyword galFunction CameraShakeStop
+  syn keyword galFunction CameraUseHeightDisplacement
+  syn keyword galFunction CameraUseHeightSmoothing
+  syn keyword galFunction CameraUseModel
+  syn keyword galFunction CampaignInitAI
+  syn keyword galFunction CampaignMode
+  syn keyword galFunction CampaignProgressSetCampaignFinished
+  syn keyword galFunction CampaignProgressSetImageFilePath
+  syn keyword galFunction CampaignProgressSetText
+  syn keyword galFunction CampaignProgressSetTutorialFinished
+  syn keyword galFunction CatalogEntryClass
+  syn keyword galFunction CatalogEntryCount
+  syn keyword galFunction CatalogEntryGet
+  syn keyword galFunction CatalogEntryIsValid
+  syn keyword galFunction CatalogEntryParent
+  syn keyword galFunction CatalogEntryScope
+  syn keyword galFunction CatalogFieldCount
+  syn keyword galFunction CatalogFieldGet
+  syn keyword galFunction CatalogFieldIsArray
+  syn keyword galFunction CatalogFieldIsScope
+  syn keyword galFunction CatalogFieldType
+  syn keyword galFunction CatalogFieldValueCount
+  syn keyword galFunction CatalogFieldValueGet
+  syn keyword galFunction CatalogFieldValueSet
+  syn keyword galFunction CharacterSheetPanelSetDescriptionText
+  syn keyword galFunction CharacterSheetPanelSetNameText
+  syn keyword galFunction CharacterSheetPanelSetPortraitModelLink
+  syn keyword galFunction CinematicDataRun
+  syn keyword galFunction CinematicDataStop
+  syn keyword galFunction CinematicFade
+  syn keyword galFunction CinematicMode
+  syn keyword galFunction CinematicOverlay
+  syn keyword galFunction CliffLevel
+  syn keyword galFunction Color
+  syn keyword galFunction Color255FromFixed
+  syn keyword galFunction ColorFromIndex
+  syn keyword galFunction ColorGetComponent
+  syn keyword galFunction ColorWithAlpha
+  syn keyword galFunction ConsoleCommand
+  syn keyword galFunction ConversationCreate
+  syn keyword galFunction ConversationDataActiveCamera
+  syn keyword galFunction ConversationDataActiveSound
+  syn keyword galFunction ConversationDataCanRun
+  syn keyword galFunction ConversationDataChoiceCount
+  syn keyword galFunction ConversationDataChoiceGetPicked
+  syn keyword galFunction ConversationDataChoiceGetPickedCount
+  syn keyword galFunction ConversationDataChoiceGetState
+  syn keyword galFunction ConversationDataChoiceId
+  syn keyword galFunction ConversationDataChoiceSetPicked
+  syn keyword galFunction ConversationDataChoiceSetPickedCount
+  syn keyword galFunction ConversationDataChoiceSetState
+  syn keyword galFunction ConversationDataLineCount
+  syn keyword galFunction ConversationDataLineGetPickedCount
+  syn keyword galFunction ConversationDataLineId
+  syn keyword galFunction ConversationDataLineSetPickedCount
+  syn keyword galFunction ConversationDataLoadNodeState
+  syn keyword galFunction ConversationDataLoadStateValues
+  syn keyword galFunction ConversationDataPreloadLines
+  syn keyword galFunction ConversationDataRegisterCamera
+  syn keyword galFunction ConversationDataRegisterPortrait
+  syn keyword galFunction ConversationDataRegisterUnit
+  syn keyword galFunction ConversationDataResetNodeState
+  syn keyword galFunction ConversationDataResetStateValues
+  syn keyword galFunction ConversationDataRun
+  syn keyword galFunction ConversationDataSaveNodeState
+  syn keyword galFunction ConversationDataSaveStateValues
+  syn keyword galFunction ConversationDataStateAbilCmd
+  syn keyword galFunction ConversationDataStateAttachPoint
+  syn keyword galFunction ConversationDataStateFixedValue
+  syn keyword galFunction ConversationDataStateGetValue
+  syn keyword galFunction ConversationDataStateImageEdge
+  syn keyword galFunction ConversationDataStateImagePath
+  syn keyword galFunction ConversationDataStateIndex
+  syn keyword galFunction ConversationDataStateIndexCount
+  syn keyword galFunction ConversationDataStateModel
+  syn keyword galFunction ConversationDataStateMoviePath
+  syn keyword galFunction ConversationDataStateName
+  syn keyword galFunction ConversationDataStateSetValue
+  syn keyword galFunction ConversationDataStateText
+  syn keyword galFunction ConversationDataStateUpgrade
+  syn keyword galFunction ConversationDataStop
+  syn keyword galFunction ConversationDestroy
+  syn keyword galFunction ConversationDestroyAll
+  syn keyword galFunction ConversationLastCreated
+  syn keyword galFunction ConversationReplyCreate
+  syn keyword galFunction ConversationReplyDestroy
+  syn keyword galFunction ConversationReplyDestroyAll
+  syn keyword galFunction ConversationReplyGetIndex
+  syn keyword galFunction ConversationReplyGetState
+  syn keyword galFunction ConversationReplyGetText
+  syn keyword galFunction ConversationReplyLastCreated
+  syn keyword galFunction ConversationReplySetState
+  syn keyword galFunction ConversationReplySetText
+  syn keyword galFunction ConversationShow
+  syn keyword galFunction ConversationVisible
+  syn keyword galFunction Cos
+  syn keyword galFunction CreepAdjacent
+  syn keyword galFunction CreepIsPresent
+  syn keyword galFunction CreepModify
+  syn keyword galFunction CreepSetSpeed
+  syn keyword galFunction DataTableClear
+  syn keyword galFunction DataTableGetAIFilter
+  syn keyword galFunction DataTableGetAbilCmd
+  syn keyword galFunction DataTableGetActor
+  syn keyword galFunction DataTableGetActorScope
+  syn keyword galFunction DataTableGetBank
+  syn keyword galFunction DataTableGetBool
+  syn keyword galFunction DataTableGetByte
+  syn keyword galFunction DataTableGetCameraInfo
+  syn keyword galFunction DataTableGetCinematic
+  syn keyword galFunction DataTableGetColor
+  syn keyword galFunction DataTableGetControl
+  syn keyword galFunction DataTableGetConversation
+  syn keyword galFunction DataTableGetDialog
+  syn keyword galFunction DataTableGetDoodad
+  syn keyword galFunction DataTableGetFixed
+  syn keyword galFunction DataTableGetInt
+  syn keyword galFunction DataTableGetMarker
+  syn keyword galFunction DataTableGetObjective
+  syn keyword galFunction DataTableGetOrder
+  syn keyword galFunction DataTableGetPing
+  syn keyword galFunction DataTableGetPlanet
+  syn keyword galFunction DataTableGetPlayerGroup
+  syn keyword galFunction DataTableGetPoint
+  syn keyword galFunction DataTableGetPortrait
+  syn keyword galFunction DataTableGetRegion
+  syn keyword galFunction DataTableGetReply
+  syn keyword galFunction DataTableGetRevealer
+  syn keyword galFunction DataTableGetRoom
+  syn keyword galFunction DataTableGetSound
+  syn keyword galFunction DataTableGetSoundLink
+  syn keyword galFunction DataTableGetString
+  syn keyword galFunction DataTableGetText
+  syn keyword galFunction DataTableGetTimer
+  syn keyword galFunction DataTableGetTransmission
+  syn keyword galFunction DataTableGetTransmissionSource
+  syn keyword galFunction DataTableGetTrigger
+  syn keyword galFunction DataTableGetUnit
+  syn keyword galFunction DataTableGetUnitFilter
+  syn keyword galFunction DataTableGetUnitGroup
+  syn keyword galFunction DataTableGetUnitRef
+  syn keyword galFunction DataTableGetWave
+  syn keyword galFunction DataTableGetWaveInfo
+  syn keyword galFunction DataTableGetWaveTarget
+  syn keyword galFunction DataTableSetAIFilter
+  syn keyword galFunction DataTableSetAbilCmd
+  syn keyword galFunction DataTableSetActor
+  syn keyword galFunction DataTableSetActorScope
+  syn keyword galFunction DataTableSetBank
+  syn keyword galFunction DataTableSetBool
+  syn keyword galFunction DataTableSetByte
+  syn keyword galFunction DataTableSetCameraInfo
+  syn keyword galFunction DataTableSetCinematic
+  syn keyword galFunction DataTableSetColor
+  syn keyword galFunction DataTableSetControl
+  syn keyword galFunction DataTableSetConversation
+  syn keyword galFunction DataTableSetDialog
+  syn keyword galFunction DataTableSetDoodad
+  syn keyword galFunction DataTableSetFixed
+  syn keyword galFunction DataTableSetInt
+  syn keyword galFunction DataTableSetMarker
+  syn keyword galFunction DataTableSetObjective
+  syn keyword galFunction DataTableSetOrder
+  syn keyword galFunction DataTableSetPing
+  syn keyword galFunction DataTableSetPlanet
+  syn keyword galFunction DataTableSetPlayerGroup
+  syn keyword galFunction DataTableSetPoint
+  syn keyword galFunction DataTableSetPortrait
+  syn keyword galFunction DataTableSetRegion
+  syn keyword galFunction DataTableSetReply
+  syn keyword galFunction DataTableSetRevealer
+  syn keyword galFunction DataTableSetRoom
+  syn keyword galFunction DataTableSetSound
+  syn keyword galFunction DataTableSetSoundLink
+  syn keyword galFunction DataTableSetString
+  syn keyword galFunction DataTableSetText
+  syn keyword galFunction DataTableSetTimer
+  syn keyword galFunction DataTableSetTransmission
+  syn keyword galFunction DataTableSetTransmissionSource
+  syn keyword galFunction DataTableSetTrigger
+  syn keyword galFunction DataTableSetUnit
+  syn keyword galFunction DataTableSetUnitFilter
+  syn keyword galFunction DataTableSetUnitGroup
+  syn keyword galFunction DataTableSetUnitRef
+  syn keyword galFunction DataTableSetWave
+  syn keyword galFunction DataTableSetWaveInfo
+  syn keyword galFunction DataTableSetWaveTarget
+  syn keyword galFunction DataTableValueCount
+  syn keyword galFunction DataTableValueExists
+  syn keyword galFunction DataTableValueName
+  syn keyword galFunction DataTableValueRemove
+  syn keyword galFunction DataTableValueType
+  syn keyword galFunction DebugDump
+  syn keyword galFunction DebugFixed
+  syn keyword galFunction DebugInt
+  syn keyword galFunction DebugPoint
+  syn keyword galFunction DebugString
+  syn keyword galFunction DebugUnit
+  syn keyword galFunction DialogClearSubtitlePositionOverride
+  syn keyword galFunction DialogControlAddItem
+  syn keyword galFunction DialogControlCreate
+  syn keyword galFunction DialogControlCreateFromTemplate
+  syn keyword galFunction DialogControlDestroy
+  syn keyword galFunction DialogControlDestroyAll
+  syn keyword galFunction DialogControlFadeTransparency
+  syn keyword galFunction DialogControlGetAnchor
+  syn keyword galFunction DialogControlGetHeight
+  syn keyword galFunction DialogControlGetItemCount
+  syn keyword galFunction DialogControlGetOffsetX
+  syn keyword galFunction DialogControlGetOffsetY
+  syn keyword galFunction DialogControlGetPropertyAsBool
+  syn keyword galFunction DialogControlGetPropertyAsColor
+  syn keyword galFunction DialogControlGetPropertyAsControl
+  syn keyword galFunction DialogControlGetPropertyAsFixed
+  syn keyword galFunction DialogControlGetPropertyAsInt
+  syn keyword galFunction DialogControlGetPropertyAsString
+  syn keyword galFunction DialogControlGetPropertyAsText
+  syn keyword galFunction DialogControlGetRelativeAnchor
+  syn keyword galFunction DialogControlGetRelativeControl
+  syn keyword galFunction DialogControlGetSelectedItem
+  syn keyword galFunction DialogControlGetType
+  syn keyword galFunction DialogControlGetWidth
+  syn keyword galFunction DialogControlInvokeAsString
+  syn keyword galFunction DialogControlInvokeAsText
+  syn keyword galFunction DialogControlIsEnabled
+  syn keyword galFunction DialogControlIsFullDialog
+  syn keyword galFunction DialogControlIsVisible
+  syn keyword galFunction DialogControlLastCreated
+  syn keyword galFunction DialogControlRemoveAllItems
+  syn keyword galFunction DialogControlRemoveItem
+  syn keyword galFunction DialogControlSelectItem
+  syn keyword galFunction DialogControlSetEnabled
+  syn keyword galFunction DialogControlSetFullDialog
+  syn keyword galFunction DialogControlSetPosition
+  syn keyword galFunction DialogControlSetPositionRelative
+  syn keyword galFunction DialogControlSetPropertyAsBool
+  syn keyword galFunction DialogControlSetPropertyAsColor
+  syn keyword galFunction DialogControlSetPropertyAsControl
+  syn keyword galFunction DialogControlSetPropertyAsFixed
+  syn keyword galFunction DialogControlSetPropertyAsInt
+  syn keyword galFunction DialogControlSetPropertyAsString
+  syn keyword galFunction DialogControlSetPropertyAsText
+  syn keyword galFunction DialogControlSetSize
+  syn keyword galFunction DialogControlSetVisible
+  syn keyword galFunction DialogCreate
+  syn keyword galFunction DialogDestroy
+  syn keyword galFunction DialogDestroyAll
+  syn keyword galFunction DialogGetAnchor
+  syn keyword galFunction DialogGetChannel
+  syn keyword galFunction DialogGetHeight
+  syn keyword galFunction DialogGetImage
+  syn keyword galFunction DialogGetOffsetX
+  syn keyword galFunction DialogGetOffsetY
+  syn keyword galFunction DialogGetRelativeAnchor
+  syn keyword galFunction DialogGetRelativeDialog
+  syn keyword galFunction DialogGetTitle
+  syn keyword galFunction DialogGetTransparency
+  syn keyword galFunction DialogGetWidth
+  syn keyword galFunction DialogIsFullscreen
+  syn keyword galFunction DialogIsImageVisible
+  syn keyword galFunction DialogIsModal
+  syn keyword galFunction DialogIsOffscreen
+  syn keyword galFunction DialogIsVisible
+  syn keyword galFunction DialogLastCreated
+  syn keyword galFunction DialogSetChannel
+  syn keyword galFunction DialogSetFullscreen
+  syn keyword galFunction DialogSetImage
+  syn keyword galFunction DialogSetImageVisible
+  syn keyword galFunction DialogSetOffscreen
+  syn keyword galFunction DialogSetPosition
+  syn keyword galFunction DialogSetPositionRelative
+  syn keyword galFunction DialogSetSize
+  syn keyword galFunction DialogSetSubtitlePositionOverride
+  syn keyword galFunction DialogSetTitle
+  syn keyword galFunction DialogSetTransparency
+  syn keyword galFunction DialogSetVisible
+  syn keyword galFunction DifficultyAPM
+  syn keyword galFunction DifficultyEnabled
+  syn keyword galFunction DifficultyName
+  syn keyword galFunction DifficultyNameCampaign
+  syn keyword galFunction DistanceBetweenPoints
+  syn keyword galFunction DoodadFromId
+  syn keyword galFunction EngineReset
+  syn keyword galFunction EnvironmentShow
+  syn keyword galFunction EventBattleReportPanelDifficultySelected
+  syn keyword galFunction EventBattleReportPanelMissionSelected
+  syn keyword galFunction EventBattleReportPanelSceneSelected
+  syn keyword galFunction EventButtonPressed
+  syn keyword galFunction EventCameraMoveReason
+  syn keyword galFunction EventChatMessage
+  syn keyword galFunction EventConversation
+  syn keyword galFunction EventConversationReply
+  syn keyword galFunction EventConversationState
+  syn keyword galFunction EventCustomDialogResult
+  syn keyword galFunction EventDialogControl
+  syn keyword galFunction EventDialogControlEventType
+  syn keyword galFunction EventGameMenuItemSelected
+  syn keyword galFunction EventKeyAlt
+  syn keyword galFunction EventKeyControl
+  syn keyword galFunction EventKeyPressed
+  syn keyword galFunction EventKeyShift
+  syn keyword galFunction EventMouseClickedButton
+  syn keyword galFunction EventMouseClickedPosXUI
+  syn keyword galFunction EventMouseClickedPosXWorld
+  syn keyword galFunction EventMouseClickedPosYUI
+  syn keyword galFunction EventMouseClickedPosYWorld
+  syn keyword galFunction EventMouseClickedPosZWorld
+  syn keyword galFunction EventPlanetPanelDifficultySelected
+  syn keyword galFunction EventPlanetPanelMissionSelected
+  syn keyword galFunction EventPlayer
+  syn keyword galFunction EventPlayerProperty
+  syn keyword galFunction EventPurchaseMade
+  syn keyword galFunction EventRoomPanelButtonPressed
+  syn keyword galFunction EventTimer
+  syn keyword galFunction EventUnit
+  syn keyword galFunction EventUnitAbility
+  syn keyword galFunction EventUnitAbilityStage
+  syn keyword galFunction EventUnitAttributePoints
+  syn keyword galFunction EventUnitBehavior
+  syn keyword galFunction EventUnitCargo
+  syn keyword galFunction EventUnitCreatedAbil
+  syn keyword galFunction EventUnitCreatedBehavior
+  syn keyword galFunction EventUnitCreatedUnit
+  syn keyword galFunction EventUnitDamageAmount
+  syn keyword galFunction EventUnitDamageDeathCheck
+  syn keyword galFunction EventUnitDamageEffect
+  syn keyword galFunction EventUnitDamageSourcePlayer
+  syn keyword galFunction EventUnitDamageSourcePoint
+  syn keyword galFunction EventUnitDamageSourceUnit
+  syn keyword galFunction EventUnitOrder
+  syn keyword galFunction EventUnitPowerupUnit
+  syn keyword galFunction EventUnitProgressObjectType
+  syn keyword galFunction EventUnitProgressUnit
+  syn keyword galFunction EventUnitRegion
+  syn keyword galFunction EventUnitTarget
+  syn keyword galFunction EventUnitTargetPoint
+  syn keyword galFunction EventUnitTargetUnit
+  syn keyword galFunction EventUnitXPDelta
+  syn keyword galFunction EventVictoryPanelDifficultySelected
+  syn keyword galFunction FixedToInt
+  syn keyword galFunction FixedToString
+  syn keyword galFunction FixedToText
+  syn keyword galFunction FogSetColor
+  syn keyword galFunction FogSetDensity
+  syn keyword galFunction FogSetEnabled
+  syn keyword galFunction FogSetFallOff
+  syn keyword galFunction FogSetStartHeight
+  syn keyword galFunction FormatDuration
+  syn keyword galFunction FormatNumber
+  syn keyword galFunction GameAddChargeRegen
+  syn keyword galFunction GameAddChargeUsed
+  syn keyword galFunction GameAddCooldown
+  syn keyword galFunction GameAttributeGameValue
+  syn keyword galFunction GameAttributePlayerValue
+  syn keyword galFunction GameDestroyEffects
+  syn keyword galFunction GameGetAbsoluteTimeRemaining
+  syn keyword galFunction GameGetAbsoluteTimeRemainingPaused
+  syn keyword galFunction GameGetChargeRegen
+  syn keyword galFunction GameGetChargeUsed
+  syn keyword galFunction GameGetCooldown
+  syn keyword galFunction GameGetSpeed
+  syn keyword galFunction GameGetSpeedValue
+  syn keyword galFunction GameGetSpeedValueMinimum
+  syn keyword galFunction GameIsDebugOptionSet
+  syn keyword galFunction GameIsSeedLocked
+  syn keyword galFunction GameIsSpeedLocked
+  syn keyword galFunction GameIsTestMap
+  syn keyword galFunction GameIsTransitionMap
+  syn keyword galFunction GameMapDescription
+  syn keyword galFunction GameMapName
+  syn keyword galFunction GameOver
+  syn keyword galFunction GamePauseAllCharges
+  syn keyword galFunction GamePauseAllCooldowns
+  syn keyword galFunction GameSaveCreate
+  syn keyword galFunction GameSetAbsoluteTimeRemaining
+  syn keyword galFunction GameSetAbsoluteTimeRemainingPaused
+  syn keyword galFunction GameSetBackground
+  syn keyword galFunction GameSetLighting
+  syn keyword galFunction GameSetNextMap
+  syn keyword galFunction GameSetSeedLocked
+  syn keyword galFunction GameSetSpeedLocked
+  syn keyword galFunction GameSetSpeedValue
+  syn keyword galFunction GameSetSpeedValueMinimum
+  syn keyword galFunction GameSetToDLighting
+  syn keyword galFunction GameSetTransitionMap
+  syn keyword galFunction GameTerrainSet
+  syn keyword galFunction GameTimeOfDayGet
+  syn keyword galFunction GameTimeOfDayGetLength
+  syn keyword galFunction GameTimeOfDayIsPaused
+  syn keyword galFunction GameTimeOfDayPause
+  syn keyword galFunction GameTimeOfDaySet
+  syn keyword galFunction GameTimeOfDaySetLength
+  syn keyword galFunction GameWaitForResourcesToComplete
+  syn keyword galFunction HelpPanelAddHint
+  syn keyword galFunction HelpPanelAddTip
+  syn keyword galFunction HelpPanelAddTutorial
+  syn keyword galFunction HelpPanelDisplayPage
+  syn keyword galFunction HelpPanelEnableTechGlossaryButton
+  syn keyword galFunction HelpPanelEnableTechTreeButton
+  syn keyword galFunction HelpPanelShowTechTreeRace
+  syn keyword galFunction IntLoopBegin
+  syn keyword galFunction IntLoopCurrent
+  syn keyword galFunction IntLoopDone
+  syn keyword galFunction IntLoopEnd
+  syn keyword galFunction IntLoopStep
+  syn keyword galFunction IntToFixed
+  syn keyword galFunction IntToString
+  syn keyword galFunction IntToText
+  syn keyword galFunction MakeMsgAnimBracketResume
+  syn keyword galFunction MakeMsgAnimBracketStart
+  syn keyword galFunction MakeMsgAnimBracketStop
+  syn keyword galFunction MakeMsgAnimGroupApply
+  syn keyword galFunction MakeMsgAnimGroupRemove
+  syn keyword galFunction MakeMsgAnimPlay
+  syn keyword galFunction MakeMsgRefCreate
+  syn keyword galFunction MakeMsgRefSetFromRequest
+  syn keyword galFunction MakeMsgRefTableDump
+  syn keyword galFunction MakeMsgSetPhysicsState
+  syn keyword galFunction MakeMsgTextureSelectByMatch
+  syn keyword galFunction MakeMsgTextureSelectBySlot
+  syn keyword galFunction MakeMsgTextureVideoPlay
+  syn keyword galFunction MakeMsgTextureVideoSetFrame
+  syn keyword galFunction MakeMsgTextureVideoSetPaused
+  syn keyword galFunction MakeMsgTextureVideoSetTime
+  syn keyword galFunction MakeMsgTextureVideoStop
+  syn keyword galFunction MakeMsgTransition
+  syn keyword galFunction Marker
+  syn keyword galFunction MarkerCastingPlayer
+  syn keyword galFunction MarkerCastingUnit
+  syn keyword galFunction MarkerGetCastingPlayer
+  syn keyword galFunction MarkerGetCastingUnit
+  syn keyword galFunction MarkerGetMatchFlag
+  syn keyword galFunction MarkerGetMismatchFlag
+  syn keyword galFunction MarkerSetCastingPlayer
+  syn keyword galFunction MarkerSetCastingUnit
+  syn keyword galFunction MarkerSetMatchFlag
+  syn keyword galFunction MarkerSetMismatchFlag
+  syn keyword galFunction MaxF
+  syn keyword galFunction MaxI
+  syn keyword galFunction MeleeGetOption
+  syn keyword galFunction MeleeInitAI
+  syn keyword galFunction MeleeInitOptions
+  syn keyword galFunction MeleeInitResources
+  syn keyword galFunction MeleeInitResourcesForPlayer
+  syn keyword galFunction MeleeInitUnits
+  syn keyword galFunction MeleeInitUnitsForPlayer
+  syn keyword galFunction MeleeSetOption
+  syn keyword galFunction MercenaryCreate
+  syn keyword galFunction MercenaryDestroy
+  syn keyword galFunction MercenaryGetSelected
+  syn keyword galFunction MercenaryIsRecentlyPurchased
+  syn keyword galFunction MercenaryLastCreated
+  syn keyword galFunction MercenaryPurchase
+  syn keyword galFunction MercenarySetAvailabilityText
+  syn keyword galFunction MercenarySetCost
+  syn keyword galFunction MercenarySetCostText
+  syn keyword galFunction MercenarySetDescriptionText
+  syn keyword galFunction MercenarySetImageFilePath
+  syn keyword galFunction MercenarySetModelLink
+  syn keyword galFunction MercenarySetPlayerGroup
+  syn keyword galFunction MercenarySetRecentlyPurchased
+  syn keyword galFunction MercenarySetScenePath
+  syn keyword galFunction MercenarySetSelected
+  syn keyword galFunction MercenarySetSpecialText
+  syn keyword galFunction MercenarySetState
+  syn keyword galFunction MercenarySetTitleText
+  syn keyword galFunction MercenarySetTooltipText
+  syn keyword galFunction MercenarySetUnitText
+  syn keyword galFunction MinF
+  syn keyword galFunction MinI
+  syn keyword galFunction MinimapPing
+  syn keyword galFunction ModF
+  syn keyword galFunction ModI
+  syn keyword galFunction ModelAnimationLoad
+  syn keyword galFunction ModelAnimationUnload
+  syn keyword galFunction MovieAddSubTitle
+  syn keyword galFunction MovieAddSubTitleText
+  syn keyword galFunction MovieAddTriggerFunction
+  syn keyword galFunction MoviePlayAfterGame
+  syn keyword galFunction MovieStartRecording
+  syn keyword galFunction MovieStopRecording
+  syn keyword galFunction ObjectiveCreate
+  syn keyword galFunction ObjectiveCreate3
+  syn keyword galFunction ObjectiveDestroy
+  syn keyword galFunction ObjectiveDestroyAll
+  syn keyword galFunction ObjectiveGetDescription
+  syn keyword galFunction ObjectiveGetName
+  syn keyword galFunction ObjectiveGetPlayerGroup
+  syn keyword galFunction ObjectiveGetPrimary
+  syn keyword galFunction ObjectiveGetState
+  syn keyword galFunction ObjectiveLastCreated
+  syn keyword galFunction ObjectiveSetDescription
+  syn keyword galFunction ObjectiveSetName
+  syn keyword galFunction ObjectiveSetPlayerGroup
+  syn keyword galFunction ObjectiveSetPrimary
+  syn keyword galFunction ObjectiveSetState
+  syn keyword galFunction ObjectiveShow
+  syn keyword galFunction ObjectiveVisible
+  syn keyword galFunction Order
+  syn keyword galFunction OrderGetAbilityCommand
+  syn keyword galFunction OrderGetFlag
+  syn keyword galFunction OrderGetPlayer
+  syn keyword galFunction OrderGetTargetItem
+  syn keyword galFunction OrderGetTargetPoint
+  syn keyword galFunction OrderGetTargetPosition
+  syn keyword galFunction OrderGetTargetType
+  syn keyword galFunction OrderGetTargetUnit
+  syn keyword galFunction OrderSetAbilityCommand
+  syn keyword galFunction OrderSetAutoCast
+  syn keyword galFunction OrderSetFlag
+  syn keyword galFunction OrderSetPlayer
+  syn keyword galFunction OrderSetTargetItem
+  syn keyword galFunction OrderSetTargetPassenger
+  syn keyword galFunction OrderSetTargetPlacement
+  syn keyword galFunction OrderSetTargetPoint
+  syn keyword galFunction OrderSetTargetUnit
+  syn keyword galFunction OrderTargetingItem
+  syn keyword galFunction OrderTargetingPoint
+  syn keyword galFunction OrderTargetingRelativePoint
+  syn keyword galFunction OrderTargetingUnit
+  syn keyword galFunction OrderTargetingUnitGroup
+  syn keyword galFunction PathingModify
+  syn keyword galFunction PathingReset
+  syn keyword galFunction PathingUpdate
+  syn keyword galFunction PerfTestGetFPS
+  syn keyword galFunction PerfTestStart
+  syn keyword galFunction PerfTestStop
+  syn keyword galFunction PingCreate
+  syn keyword galFunction PingDestroy
+  syn keyword galFunction PingDestroyAll
+  syn keyword galFunction PingGetColor
+  syn keyword galFunction PingGetDuration
+  syn keyword galFunction PingGetPlayerGroup
+  syn keyword galFunction PingGetPosition
+  syn keyword galFunction PingGetRotation
+  syn keyword galFunction PingGetScale
+  syn keyword galFunction PingGetTooltip
+  syn keyword galFunction PingGetUnit
+  syn keyword galFunction PingIsVisible
+  syn keyword galFunction PingLastCreated
+  syn keyword galFunction PingSetColor
+  syn keyword galFunction PingSetDuration
+  syn keyword galFunction PingSetModel
+  syn keyword galFunction PingSetPlayerGroup
+  syn keyword galFunction PingSetPosition
+  syn keyword galFunction PingSetRotation
+  syn keyword galFunction PingSetScale
+  syn keyword galFunction PingSetTooltip
+  syn keyword galFunction PingSetUnit
+  syn keyword galFunction PingSetVisible
+  syn keyword galFunction PlanetClearSelected
+  syn keyword galFunction PlanetCreate
+  syn keyword galFunction PlanetDestroy
+  syn keyword galFunction PlanetDestroyAll
+  syn keyword galFunction PlanetGetSelected
+  syn keyword galFunction PlanetLastCreated
+  syn keyword galFunction PlanetPanelGetContactButtonState
+  syn keyword galFunction PlanetPanelSetBackButtonEnabled
+  syn keyword galFunction PlanetPanelSetBackgroundImage
+  syn keyword galFunction PlanetPanelSetContactButtonState
+  syn keyword galFunction PlanetSetBackgroundModelLink
+  syn keyword galFunction PlanetSetBonusText
+  syn keyword galFunction PlanetSetBonusTitle
+  syn keyword galFunction PlanetSetContactModelLink
+  syn keyword galFunction PlanetSetContactName
+  syn keyword galFunction PlanetSetContactTitle
+  syn keyword galFunction PlanetSetContactTooltipText
+  syn keyword galFunction PlanetSetDescriptionText
+  syn keyword galFunction PlanetSetMissionName
+  syn keyword galFunction PlanetSetMissionTitle
+  syn keyword galFunction PlanetSetPlanetModelLink
+  syn keyword galFunction PlanetSetPlanetName
+  syn keyword galFunction PlanetSetPlanetText
+  syn keyword galFunction PlanetSetPlayerGroup
+  syn keyword galFunction PlanetSetPrimaryObjectiveText
+  syn keyword galFunction PlanetSetPrimaryObjectiveTitle
+  syn keyword galFunction PlanetSetResearchText
+  syn keyword galFunction PlanetSetResearchTitle
+  syn keyword galFunction PlanetSetRewardText
+  syn keyword galFunction PlanetSetRewardTitle
+  syn keyword galFunction PlanetSetSecondaryObjectiveText
+  syn keyword galFunction PlanetSetSecondaryObjectiveTitle
+  syn keyword galFunction PlanetSetSelected
+  syn keyword galFunction PlanetSetState
+  syn keyword galFunction PlanetSetTechnologyIconFilePath
+  syn keyword galFunction PlanetSetTechnologyName
+  syn keyword galFunction PlanetSetTechnologyText
+  syn keyword galFunction PlanetSetTechnologyTitle
+  syn keyword galFunction PlanetSetTechnologyTooltipText
+  syn keyword galFunction PlanetSetTechnologyUnitLink
+  syn keyword galFunction PlanetSetTooltipText
+  syn keyword galFunction PlayerAddChargeRegen
+  syn keyword galFunction PlayerAddChargeUsed
+  syn keyword galFunction PlayerAddCooldown
+  syn keyword galFunction PlayerBeaconAlert
+  syn keyword galFunction PlayerBeaconClearTarget
+  syn keyword galFunction PlayerBeaconGetTargetPoint
+  syn keyword galFunction PlayerBeaconGetTargetUnit
+  syn keyword galFunction PlayerBeaconIsAutoCast
+  syn keyword galFunction PlayerBeaconIsFromUser
+  syn keyword galFunction PlayerBeaconIsSet
+  syn keyword galFunction PlayerBeaconSetAutoCast
+  syn keyword galFunction PlayerBeaconSetTargetPoint
+  syn keyword galFunction PlayerBeaconSetTargetUnit
+  syn keyword galFunction PlayerColorName
+  syn keyword galFunction PlayerCreateEffectPoint
+  syn keyword galFunction PlayerCreateEffectUnit
+  syn keyword galFunction PlayerDifficulty
+  syn keyword galFunction PlayerGetAlliance
+  syn keyword galFunction PlayerGetChargeRegen
+  syn keyword galFunction PlayerGetChargeUsed
+  syn keyword galFunction PlayerGetColorIndex
+  syn keyword galFunction PlayerGetCooldown
+  syn keyword galFunction PlayerGetPropertyFixed
+  syn keyword galFunction PlayerGetPropertyInt
+  syn keyword galFunction PlayerGetState
+  syn keyword galFunction PlayerGroupActive
+  syn keyword galFunction PlayerGroupAdd
+  syn keyword galFunction PlayerGroupAll
+  syn keyword galFunction PlayerGroupAlliance
+  syn keyword galFunction PlayerGroupClear
+  syn keyword galFunction PlayerGroupCopy
+  syn keyword galFunction PlayerGroupCount
+  syn keyword galFunction PlayerGroupEmpty
+  syn keyword galFunction PlayerGroupHasPlayer
+  syn keyword galFunction PlayerGroupLoopBegin
+  syn keyword galFunction PlayerGroupLoopCurrent
+  syn keyword galFunction PlayerGroupLoopDone
+  syn keyword galFunction PlayerGroupLoopEnd
+  syn keyword galFunction PlayerGroupLoopStep
+  syn keyword galFunction PlayerGroupPlayer
+  syn keyword galFunction PlayerGroupRemove
+  syn keyword galFunction PlayerGroupSingle
+  syn keyword galFunction PlayerModifyPropertyFixed
+  syn keyword galFunction PlayerModifyPropertyInt
+  syn keyword galFunction PlayerName
+  syn keyword galFunction PlayerPauseAllCharges
+  syn keyword galFunction PlayerPauseAllCooldowns
+  syn keyword galFunction PlayerRace
+  syn keyword galFunction PlayerScoreValueEnable
+  syn keyword galFunction PlayerScoreValueGetAsFixed
+  syn keyword galFunction PlayerScoreValueGetAsInt
+  syn keyword galFunction PlayerScoreValueSetFromFixed
+  syn keyword galFunction PlayerScoreValueSetFromInt
+  syn keyword galFunction PlayerSetAlliance
+  syn keyword galFunction PlayerSetColorIndex
+  syn keyword galFunction PlayerSetDifficulty
+  syn keyword galFunction PlayerSetState
+  syn keyword galFunction PlayerStartLocation
+  syn keyword galFunction PlayerStatus
+  syn keyword galFunction PlayerType
+  syn keyword galFunction PlayerValidateEffectPoint
+  syn keyword galFunction PlayerValidateEffectUnit
+  syn keyword galFunction Point
+  syn keyword galFunction PointFromId
+  syn keyword galFunction PointGetFacing
+  syn keyword galFunction PointGetHeight
+  syn keyword galFunction PointGetX
+  syn keyword galFunction PointGetY
+  syn keyword galFunction PointPathingCliffLevel
+  syn keyword galFunction PointPathingCost
+  syn keyword galFunction PointPathingIsConnected
+  syn keyword galFunction PointPathingPassable
+  syn keyword galFunction PointReflect
+  syn keyword galFunction PointSet
+  syn keyword galFunction PointSetFacing
+  syn keyword galFunction PointSetHeight
+  syn keyword galFunction PointWithOffset
+  syn keyword galFunction PointWithOffsetPolar
+  syn keyword galFunction PointsInRange
+  syn keyword galFunction PortraitCreate
+  syn keyword galFunction PortraitDestroy
+  syn keyword galFunction PortraitDestroyAll
+  syn keyword galFunction PortraitForceTransition
+  syn keyword galFunction PortraitGetGame
+  syn keyword galFunction PortraitGetPlanetPanel
+  syn keyword galFunction PortraitLastCreated
+  syn keyword galFunction PortraitSetAnim
+  syn keyword galFunction PortraitSetBackgroundVisible
+  syn keyword galFunction PortraitSetBorderTexture
+  syn keyword galFunction PortraitSetBorderVisible
+  syn keyword galFunction PortraitSetCamera
+  syn keyword galFunction PortraitSetChannel
+  syn keyword galFunction PortraitSetChannelPortrait
+  syn keyword galFunction PortraitSetFullscreen
+  syn keyword galFunction PortraitSetLight
+  syn keyword galFunction PortraitSetModel
+  syn keyword galFunction PortraitSetMuted
+  syn keyword galFunction PortraitSetOffscreen
+  syn keyword galFunction PortraitSetPaused
+  syn keyword galFunction PortraitSetPosition
+  syn keyword galFunction PortraitSetRenderType
+  syn keyword galFunction PortraitSetSize
+  syn keyword galFunction PortraitSetTintColor
+  syn keyword galFunction PortraitSetTransitionModel
+  syn keyword galFunction PortraitSetVisible
+  syn keyword galFunction PortraitUseTransition
+  syn keyword galFunction PortraitVisible
+  syn keyword galFunction PortraitWaitForLoad
+  syn keyword galFunction Pow
+  syn keyword galFunction PowerIsProvidedBy
+  syn keyword galFunction PowerLevel
+  syn keyword galFunction PreloadAsset
+  syn keyword galFunction PreloadImage
+  syn keyword galFunction PreloadModel
+  syn keyword galFunction PreloadMovie
+  syn keyword galFunction PreloadObject
+  syn keyword galFunction PreloadScene
+  syn keyword galFunction PreloadScript
+  syn keyword galFunction PreloadSound
+  syn keyword galFunction PurchaseCategoryCreate
+  syn keyword galFunction PurchaseCategoryDestroy
+  syn keyword galFunction PurchaseCategoryDestroyAll
+  syn keyword galFunction PurchaseCategoryLastCreated
+  syn keyword galFunction PurchaseCategorySetNameText
+  syn keyword galFunction PurchaseCategorySetPlayerGroup
+  syn keyword galFunction PurchaseCategorySetSlot
+  syn keyword galFunction PurchaseCategorySetState
+  syn keyword galFunction PurchaseGetSelectedPurchaseCategory
+  syn keyword galFunction PurchaseGetSelectedPurchaseItem
+  syn keyword galFunction PurchaseGroupCreate
+  syn keyword galFunction PurchaseGroupDestroy
+  syn keyword galFunction PurchaseGroupDestroyAll
+  syn keyword galFunction PurchaseGroupLastCreated
+  syn keyword galFunction PurchaseGroupSetIconFilePath
+  syn keyword galFunction PurchaseGroupSetNameText
+  syn keyword galFunction PurchaseGroupSetPlayerGroup
+  syn keyword galFunction PurchaseGroupSetSlot
+  syn keyword galFunction PurchaseGroupSetState
+  syn keyword galFunction PurchaseGroupSetTooltipText
+  syn keyword galFunction PurchaseGroupSetUnitLink
+  syn keyword galFunction PurchaseItemCreate
+  syn keyword galFunction PurchaseItemDestroy
+  syn keyword galFunction PurchaseItemDestroyAll
+  syn keyword galFunction PurchaseItemIsRecentlyPurchased
+  syn keyword galFunction PurchaseItemLastCreated
+  syn keyword galFunction PurchaseItemPurchase
+  syn keyword galFunction PurchaseItemSetCost
+  syn keyword galFunction PurchaseItemSetDescriptionText
+  syn keyword galFunction PurchaseItemSetIconFilePath
+  syn keyword galFunction PurchaseItemSetMovieFilePath
+  syn keyword galFunction PurchaseItemSetNameText
+  syn keyword galFunction PurchaseItemSetPlayerGroup
+  syn keyword galFunction PurchaseItemSetRecentlyPurchased
+  syn keyword galFunction PurchaseItemSetSlot
+  syn keyword galFunction PurchaseItemSetState
+  syn keyword galFunction PurchaseItemSetTooltipText
+  syn keyword galFunction PurchaseSetSelectedPurchaseCategory
+  syn keyword galFunction PurchaseSetSelectedPurchaseItem
+  syn keyword galFunction RandomFixed
+  syn keyword galFunction RandomInt
+  syn keyword galFunction RegionAddCircle
+  syn keyword galFunction RegionAddRect
+  syn keyword galFunction RegionAddRegion
+  syn keyword galFunction RegionAttachToUnit
+  syn keyword galFunction RegionCircle
+  syn keyword galFunction RegionContainsPoint
+  syn keyword galFunction RegionEmpty
+  syn keyword galFunction RegionEntireMap
+  syn keyword galFunction RegionFromId
+  syn keyword galFunction RegionGetAttachUnit
+  syn keyword galFunction RegionGetBoundsMax
+  syn keyword galFunction RegionGetBoundsMin
+  syn keyword galFunction RegionGetCenter
+  syn keyword galFunction RegionGetOffset
+  syn keyword galFunction RegionPlayableMap
+  syn keyword galFunction RegionPlayableMapSet
+  syn keyword galFunction RegionRandomPoint
+  syn keyword galFunction RegionRect
+  syn keyword galFunction RegionSetCenter
+  syn keyword galFunction RegionSetOffset
+  syn keyword galFunction ResearchCategoryCreate
+  syn keyword galFunction ResearchCategoryDestroy
+  syn keyword galFunction ResearchCategoryDestroyAll
+  syn keyword galFunction ResearchCategoryLastCreated
+  syn keyword galFunction ResearchCategorySetCurrentLevel
+  syn keyword galFunction ResearchCategorySetLastLevel
+  syn keyword galFunction ResearchCategorySetNameText
+  syn keyword galFunction ResearchCategorySetPlayerGroup
+  syn keyword galFunction ResearchCategorySetSlot
+  syn keyword galFunction ResearchItemCreate
+  syn keyword galFunction ResearchItemDestroy
+  syn keyword galFunction ResearchItemDestroyAll
+  syn keyword galFunction ResearchItemGetSelected
+  syn keyword galFunction ResearchItemIsRecentlyPurchased
+  syn keyword galFunction ResearchItemLastCreated
+  syn keyword galFunction ResearchItemPurchase
+  syn keyword galFunction ResearchItemSetConfirmationText
+  syn keyword galFunction ResearchItemSetDescriptionText
+  syn keyword galFunction ResearchItemSetIconFilePath
+  syn keyword galFunction ResearchItemSetMovieFilePath
+  syn keyword galFunction ResearchItemSetNameText
+  syn keyword galFunction ResearchItemSetPlayerGroup
+  syn keyword galFunction ResearchItemSetRecentlyPurchased
+  syn keyword galFunction ResearchItemSetSelected
+  syn keyword galFunction ResearchItemSetSlot
+  syn keyword galFunction ResearchItemSetState
+  syn keyword galFunction ResearchItemSetTooltipText
+  syn keyword galFunction ResearchTierCreate
+  syn keyword galFunction ResearchTierDestroy
+  syn keyword galFunction ResearchTierDestroyAll
+  syn keyword galFunction ResearchTierLastCreated
+  syn keyword galFunction ResearchTierSetMaxPurchasesAllowed
+  syn keyword galFunction ResearchTierSetPlayerGroup
+  syn keyword galFunction ResearchTierSetRequiredLevel
+  syn keyword galFunction ResearchTierSetSlot
+  syn keyword galFunction RestartGame
+  syn keyword galFunction RoomPanelAddButton
+  syn keyword galFunction RoomPanelLastAdded
+  syn keyword galFunction RoomPanelRemoveAllButtons
+  syn keyword galFunction RoomPanelRemoveButton
+  syn keyword galFunction RoomPanelSetButtonEnabled
+  syn keyword galFunction RoomPanelSetButtonPressedIcon
+  syn keyword galFunction RoomPanelSetPositionUnit
+  syn keyword galFunction RoomPanelShowRoomButton
+  syn keyword galFunction SelectMainShadowLight
+  syn keyword galFunction SetNextMissionDifficulty
+  syn keyword galFunction Sin
+  syn keyword galFunction SoundAttachUnit
+  syn keyword galFunction SoundChannelMute
+  syn keyword galFunction SoundChannelPause
+  syn keyword galFunction SoundChannelSetVolume
+  syn keyword galFunction SoundChannelStop
+  syn keyword galFunction SoundLastPlayed
+  syn keyword galFunction SoundLengthQuery
+  syn keyword galFunction SoundLengthQueryWait
+  syn keyword galFunction SoundLengthSync
+  syn keyword galFunction SoundLink
+  syn keyword galFunction SoundLinkAsset
+  syn keyword galFunction SoundLinkId
+  syn keyword galFunction SoundPlay
+  syn keyword galFunction SoundPlayAtPoint
+  syn keyword galFunction SoundPlayOnUnit
+  syn keyword galFunction SoundPlayScene
+  syn keyword galFunction SoundPlaySceneFile
+  syn keyword galFunction SoundSetFactors
+  syn keyword galFunction SoundSetOffset
+  syn keyword galFunction SoundSetPosition
+  syn keyword galFunction SoundSetReverb
+  syn keyword galFunction SoundSetVolume
+  syn keyword galFunction SoundStop
+  syn keyword galFunction SoundStopAllModelSounds
+  syn keyword galFunction SoundStopAllTriggerSounds
+  syn keyword galFunction SoundSubtitleText
+  syn keyword galFunction SoundWait
+  syn keyword galFunction SoundtrackDefault
+  syn keyword galFunction SoundtrackPause
+  syn keyword galFunction SoundtrackPlay
+  syn keyword galFunction SoundtrackSetContinuous
+  syn keyword galFunction SoundtrackSetDelay
+  syn keyword galFunction SoundtrackSetShuffle
+  syn keyword galFunction SoundtrackStop
+  syn keyword galFunction SoundtrackWait
+  syn keyword galFunction SquareRoot
+  syn keyword galFunction StoryMode
+  syn keyword galFunction StorySetChange
+  syn keyword galFunction StringCase
+  syn keyword galFunction StringContains
+  syn keyword galFunction StringEqual
+  syn keyword galFunction StringExternal
+  syn keyword galFunction StringFind
+  syn keyword galFunction StringLength
+  syn keyword galFunction StringReplace
+  syn keyword galFunction StringReplaceWord
+  syn keyword galFunction StringSub
+  syn keyword galFunction StringToFixed
+  syn keyword galFunction StringToInt
+  syn keyword galFunction StringToText
+  syn keyword galFunction StringWord
+  syn keyword galFunction Tan
+  syn keyword galFunction TechTreeAbilityAllow
+  syn keyword galFunction TechTreeAbilityCount
+  syn keyword galFunction TechTreeAbilityIsAllowed
+  syn keyword galFunction TechTreeBehaviorAllow
+  syn keyword galFunction TechTreeBehaviorCount
+  syn keyword galFunction TechTreeBehaviorIsAllowed
+  syn keyword galFunction TechTreeBehaviorProducedAbilCmd
+  syn keyword galFunction TechTreeBehaviorProducedAbilCmdCount
+  syn keyword galFunction TechTreeRequirementsEnable
+  syn keyword galFunction TechTreeRequirementsEnabled
+  syn keyword galFunction TechTreeRestrictionsEnable
+  syn keyword galFunction TechTreeRestrictionsEnabled
+  syn keyword galFunction TechTreeUnitAliasCount
+  syn keyword galFunction TechTreeUnitAllow
+  syn keyword galFunction TechTreeUnitCount
+  syn keyword galFunction TechTreeUnitCountEx
+  syn keyword galFunction TechTreeUnitHelp
+  syn keyword galFunction TechTreeUnitHelpDefault
+  syn keyword galFunction TechTreeUnitIsAllowed
+  syn keyword galFunction TechTreeUnitProducedAbilCmd
+  syn keyword galFunction TechTreeUnitProducedAbilCmdCount
+  syn keyword galFunction TechTreeUnitProducesUnit
+  syn keyword galFunction TechTreeUnitProducesUnitCount
+  syn keyword galFunction TechTreeUnitProducesUpgrade
+  syn keyword galFunction TechTreeUnitProducesUpgradeCount
+  syn keyword galFunction TechTreeUpgradeAddLevel
+  syn keyword galFunction TechTreeUpgradeAllow
+  syn keyword galFunction TechTreeUpgradeCount
+  syn keyword galFunction TechTreeUpgradeIsAllowed
+  syn keyword galFunction TechTreeUpgradeProducedAbilCmd
+  syn keyword galFunction TechTreeUpgradeProducedAbilCmdCount
+  syn keyword galFunction TerrainShowRegion
+  syn keyword galFunction TextCase
+  syn keyword galFunction TextReplaceWord
+  syn keyword galFunction TextTagAttachToUnit
+  syn keyword galFunction TextTagAttachToUnitPoint
+  syn keyword galFunction TextTagCreate
+  syn keyword galFunction TextTagDestroy
+  syn keyword galFunction TextTagFogofWar
+  syn keyword galFunction TextTagLastCreated
+  syn keyword galFunction TextTagPause
+  syn keyword galFunction TextTagSetAlignment
+  syn keyword galFunction TextTagSetBackgroundBorderSize
+  syn keyword galFunction TextTagSetBackgroundImage
+  syn keyword galFunction TextTagSetBackgroundOffset
+  syn keyword galFunction TextTagSetColor
+  syn keyword galFunction TextTagSetEdgeImage
+  syn keyword galFunction TextTagSetFadedTransparency
+  syn keyword galFunction TextTagSetFontSize
+  syn keyword galFunction TextTagSetMaxSize
+  syn keyword galFunction TextTagSetPosition
+  syn keyword galFunction TextTagSetText
+  syn keyword galFunction TextTagSetTextAlignment
+  syn keyword galFunction TextTagSetTextShadow
+  syn keyword galFunction TextTagSetTime
+  syn keyword galFunction TextTagSetVelocity
+  syn keyword galFunction TextTagShow
+  syn keyword galFunction TextTagShowBackground
+  syn keyword galFunction TextTagVisible
+  syn keyword galFunction TextTimeFormat
+  syn keyword galFunction TextWithColor
+  syn keyword galFunction TextureGetSlotComponent
+  syn keyword galFunction TextureGetSlotName
+  syn keyword galFunction TimerCreate
+  syn keyword galFunction TimerGetDuration
+  syn keyword galFunction TimerGetElapsed
+  syn keyword galFunction TimerGetRemaining
+  syn keyword galFunction TimerIsPaused
+  syn keyword galFunction TimerLastStarted
+  syn keyword galFunction TimerPause
+  syn keyword galFunction TimerRestart
+  syn keyword galFunction TimerStart
+  syn keyword galFunction TimerWindowCreate
+  syn keyword galFunction TimerWindowDestroy
+  syn keyword galFunction TimerWindowLastCreated
+  syn keyword galFunction TimerWindowSetColor
+  syn keyword galFunction TimerWindowSetFormat
+  syn keyword galFunction TimerWindowSetGapWidth
+  syn keyword galFunction TimerWindowSetStyle
+  syn keyword galFunction TimerWindowSetTimer
+  syn keyword galFunction TimerWindowSetTitle
+  syn keyword galFunction TimerWindowShow
+  syn keyword galFunction TimerWindowVisible
+  syn keyword galFunction TipAlertPanelClear
+  syn keyword galFunction TransmissionClear
+  syn keyword galFunction TransmissionClearAll
+  syn keyword galFunction TransmissionLastSent
+  syn keyword galFunction TransmissionSend
+  syn keyword galFunction TransmissionSource
+  syn keyword galFunction TransmissionSourceFromModel
+  syn keyword galFunction TransmissionSourceFromMovie
+  syn keyword galFunction TransmissionSourceFromUnit
+  syn keyword galFunction TransmissionSourceFromUnitType
+  syn keyword galFunction TransmissionWait
+  syn keyword galFunction TriggerAddEventAbortMission
+  syn keyword galFunction TriggerAddEventBattleReportPanelExit
+  syn keyword galFunction TriggerAddEventBattleReportPanelPlayMission
+  syn keyword galFunction TriggerAddEventBattleReportPanelPlayScene
+  syn keyword galFunction TriggerAddEventBattleReportPanelSelectionChanged
+  syn keyword galFunction TriggerAddEventButtonPressed
+  syn keyword galFunction TriggerAddEventCameraMove
+  syn keyword galFunction TriggerAddEventChatMessage
+  syn keyword galFunction TriggerAddEventConversationReplySelected
+  syn keyword galFunction TriggerAddEventConversationStateChanged
+  syn keyword galFunction TriggerAddEventCustomDialogDismissed
+  syn keyword galFunction TriggerAddEventDialogControl
+  syn keyword galFunction TriggerAddEventGameCreditsFinished
+  syn keyword galFunction TriggerAddEventGameMenuItemSelected
+  syn keyword galFunction TriggerAddEventKeyPressed
+  syn keyword galFunction TriggerAddEventMapInit
+  syn keyword galFunction TriggerAddEventMercenaryPanelExit
+  syn keyword galFunction TriggerAddEventMercenaryPanelPurchase
+  syn keyword galFunction TriggerAddEventMercenaryPanelSelectionChanged
+  syn keyword galFunction TriggerAddEventMouseClicked
+  syn keyword galFunction TriggerAddEventMovieFinished
+  syn keyword galFunction TriggerAddEventMovieFunction
+  syn keyword galFunction TriggerAddEventMovieStarted
+  syn keyword galFunction TriggerAddEventPlanetMissionLaunched
+  syn keyword galFunction TriggerAddEventPlanetMissionSelected
+  syn keyword galFunction TriggerAddEventPlanetPanelBirthComplete
+  syn keyword galFunction TriggerAddEventPlanetPanelCanceled
+  syn keyword galFunction TriggerAddEventPlanetPanelDeathComplete
+  syn keyword galFunction TriggerAddEventPlanetPanelReplayPressed
+  syn keyword galFunction TriggerAddEventPlayerAIWave
+  syn keyword galFunction TriggerAddEventPlayerAllianceChange
+  syn keyword galFunction TriggerAddEventPlayerLeft
+  syn keyword galFunction TriggerAddEventPlayerPropChange
+  syn keyword galFunction TriggerAddEventPurchaseExit
+  syn keyword galFunction TriggerAddEventPurchaseMade
+  syn keyword galFunction TriggerAddEventResearchPanelExit
+  syn keyword galFunction TriggerAddEventResearchPanelPurchase
+  syn keyword galFunction TriggerAddEventResearchPanelSelectionChanged
+  syn keyword galFunction TriggerAddEventRoomPanelCanceled
+  syn keyword galFunction TriggerAddEventRoomPanelMouseRollOut
+  syn keyword galFunction TriggerAddEventRoomPanelMouseRollOver
+  syn keyword galFunction TriggerAddEventRoomPanelPressedButton
+  syn keyword galFunction TriggerAddEventSaveGame
+  syn keyword galFunction TriggerAddEventSelectedPurchaseCategoryChanged
+  syn keyword galFunction TriggerAddEventSelectedPurchaseItemChanged
+  syn keyword galFunction TriggerAddEventTimeElapsed
+  syn keyword galFunction TriggerAddEventTimePeriodic
+  syn keyword galFunction TriggerAddEventTimer
+  syn keyword galFunction TriggerAddEventUnitAbility
+  syn keyword galFunction TriggerAddEventUnitAcquiredTarget
+  syn keyword galFunction TriggerAddEventUnitArmMagazineProgress
+  syn keyword galFunction TriggerAddEventUnitAttacked
+  syn keyword galFunction TriggerAddEventUnitAttributeChange
+  syn keyword galFunction TriggerAddEventUnitBecomesIdle
+  syn keyword galFunction TriggerAddEventUnitCargo
+  syn keyword galFunction TriggerAddEventUnitClick
+  syn keyword galFunction TriggerAddEventUnitConstructProgress
+  syn keyword galFunction TriggerAddEventUnitCreated
+  syn keyword galFunction TriggerAddEventUnitDamaged
+  syn keyword galFunction TriggerAddEventUnitDied
+  syn keyword galFunction TriggerAddEventUnitGainExperience
+  syn keyword galFunction TriggerAddEventUnitGainLevel
+  syn keyword galFunction TriggerAddEventUnitHighlight
+  syn keyword galFunction TriggerAddEventUnitOrder
+  syn keyword galFunction TriggerAddEventUnitPowerup
+  syn keyword galFunction TriggerAddEventUnitProperty
+  syn keyword galFunction TriggerAddEventUnitRange
+  syn keyword galFunction TriggerAddEventUnitRangePoint
+  syn keyword galFunction TriggerAddEventUnitRegion
+  syn keyword galFunction TriggerAddEventUnitRemoved
+  syn keyword galFunction TriggerAddEventUnitResearchProgress
+  syn keyword galFunction TriggerAddEventUnitRevive
+  syn keyword galFunction TriggerAddEventUnitSelected
+  syn keyword galFunction TriggerAddEventUnitSpecializeProgress
+  syn keyword galFunction TriggerAddEventUnitStartedAttack
+  syn keyword galFunction TriggerAddEventUnitTrainProgress
+  syn keyword galFunction TriggerAddEventVictoryPanelExit
+  syn keyword galFunction TriggerAddEventVictoryPanelPlayMissionAgain
+  syn keyword galFunction TriggerCreate
+  syn keyword galFunction TriggerDebugOutput
+  syn keyword galFunction TriggerDebugSetTypeColor
+  syn keyword galFunction TriggerDebugSetTypeFile
+  syn keyword galFunction TriggerDebugSetTypeName
+  syn keyword galFunction TriggerDebugWindowOpen
+  syn keyword galFunction TriggerDestroy
+  syn keyword galFunction TriggerEnable
+  syn keyword galFunction TriggerEvaluate
+  syn keyword galFunction TriggerExecute
+  syn keyword galFunction TriggerGetCurrent
+  syn keyword galFunction TriggerGetEvalCount
+  syn keyword galFunction TriggerGetExecCount
+  syn keyword galFunction TriggerIsEnabled
+  syn keyword galFunction TriggerQueueClear
+  syn keyword galFunction TriggerQueueEnter
+  syn keyword galFunction TriggerQueueExit
+  syn keyword galFunction TriggerQueueIsEmpty
+  syn keyword galFunction TriggerQueuePause
+  syn keyword galFunction TriggerResetCounts
+  syn keyword galFunction TriggerSkippableBegin
+  syn keyword galFunction TriggerSkippableEnd
+  syn keyword galFunction TriggerStop
+  syn keyword galFunction TriggerWaitForTrigger
+  syn keyword galFunction UIAlert
+  syn keyword galFunction UIAlertClear
+  syn keyword galFunction UIAlertPoint
+  syn keyword galFunction UIAlertUnit
+  syn keyword galFunction UIClearCustomMenuItemList
+  syn keyword galFunction UIClearMessages
+  syn keyword galFunction UICustomMenuItemVisible
+  syn keyword galFunction UIDisplayMessage
+  syn keyword galFunction UIFrameVisible
+  syn keyword galFunction UIGameMenuItemVisible
+  syn keyword galFunction UIHideCinematicText
+  syn keyword galFunction UIHideTextCrawl
+  syn keyword galFunction UISetButtonHighlighted
+  syn keyword galFunction UISetChallengeCompleted
+  syn keyword galFunction UISetChallengeHighScore
+  syn keyword galFunction UISetChallengeMode
+  syn keyword galFunction UISetChallengeScoreText
+  syn keyword galFunction UISetCommandAllowed
+  syn keyword galFunction UISetCommandDisallowedMessage
+  syn keyword galFunction UISetCursorAutoHide
+  syn keyword galFunction UISetCursorVisible
+  syn keyword galFunction UISetCustomMenuItemText
+  syn keyword galFunction UISetCustomMenuItemVisible
+  syn keyword galFunction UISetFrameVisible
+  syn keyword galFunction UISetGameMenuItemText
+  syn keyword galFunction UISetGameMenuItemVisible
+  syn keyword galFunction UISetMiniMapBackGroundColor
+  syn keyword galFunction UISetMode
+  syn keyword galFunction UISetNextLoadingScreen
+  syn keyword galFunction UISetNextLoadingScreenImageScale
+  syn keyword galFunction UISetNextLoadingScreenTextPosition
+  syn keyword galFunction UISetResourceTradeCountdownTime
+  syn keyword galFunction UISetRestartLoadingScreen
+  syn keyword galFunction UISetWorldVisible
+  syn keyword galFunction UIShowCinematicText
+  syn keyword galFunction UIShowCustomDialog
+  syn keyword galFunction UIShowCustomMenu
+  syn keyword galFunction UIShowTextCrawl
+  syn keyword galFunction UIUnitColorStyleClearOverride
+  syn keyword galFunction UIUnitColorStyleOverride
+  syn keyword galFunction UnitAbilityAddChargeRegen
+  syn keyword galFunction UnitAbilityAddChargeUsed
+  syn keyword galFunction UnitAbilityAddCooldown
+  syn keyword galFunction UnitAbilityChangeLevel
+  syn keyword galFunction UnitAbilityChargeInfo
+  syn keyword galFunction UnitAbilityCheck
+  syn keyword galFunction UnitAbilityCount
+  syn keyword galFunction UnitAbilityEnable
+  syn keyword galFunction UnitAbilityExists
+  syn keyword galFunction UnitAbilityGet
+  syn keyword galFunction UnitAbilityGetChargeRegen
+  syn keyword galFunction UnitAbilityGetChargeUsed
+  syn keyword galFunction UnitAbilityGetCooldown
+  syn keyword galFunction UnitAbilityGetLevel
+  syn keyword galFunction UnitAbilityMaxLevel
+  syn keyword galFunction UnitAbilityReset
+  syn keyword galFunction UnitAbilityShow
+  syn keyword galFunction UnitAbilitySpend
+  syn keyword galFunction UnitAddChargeRegen
+  syn keyword galFunction UnitAddChargeUsed
+  syn keyword galFunction UnitAddCooldown
+  syn keyword galFunction UnitAgent
+  syn keyword galFunction UnitBehaviorAdd
+  syn keyword galFunction UnitBehaviorAddChargeRegen
+  syn keyword galFunction UnitBehaviorAddChargeUsed
+  syn keyword galFunction UnitBehaviorAddCooldown
+  syn keyword galFunction UnitBehaviorAddPlayer
+  syn keyword galFunction UnitBehaviorCount
+  syn keyword galFunction UnitBehaviorCountAll
+  syn keyword galFunction UnitBehaviorDuration
+  syn keyword galFunction UnitBehaviorEnabled
+  syn keyword galFunction UnitBehaviorGet
+  syn keyword galFunction UnitBehaviorGetChargeRegen
+  syn keyword galFunction UnitBehaviorGetChargeUsed
+  syn keyword galFunction UnitBehaviorGetCooldown
+  syn keyword galFunction UnitBehaviorHasFlag
+  syn keyword galFunction UnitBehaviorRemove
+  syn keyword galFunction UnitBehaviorRemoveCategory
+  syn keyword galFunction UnitBehaviorRemovePlayer
+  syn keyword galFunction UnitBehaviorSetDuration
+  syn keyword galFunction UnitBehaviorTransfer
+  syn keyword galFunction UnitCargo
+  syn keyword galFunction UnitCargoCreate
+  syn keyword galFunction UnitCargoGroup
+  syn keyword galFunction UnitCargoLastCreated
+  syn keyword galFunction UnitCargoLastCreatedGroup
+  syn keyword galFunction UnitCargoValue
+  syn keyword galFunction UnitCheckAbilCmdState
+  syn keyword galFunction UnitCheckProgressState
+  syn keyword galFunction UnitClearInfoText
+  syn keyword galFunction UnitClearSelection
+  syn keyword galFunction UnitControlGroupAddUnit
+  syn keyword galFunction UnitControlGroupAddUnits
+  syn keyword galFunction UnitControlGroupClear
+  syn keyword galFunction UnitControlGroupRemoveUnit
+  syn keyword galFunction UnitControlGroupRemoveUnits
+  syn keyword galFunction UnitCreate
+  syn keyword galFunction UnitCreateEffectPoint
+  syn keyword galFunction UnitCreateEffectUnit
+  syn keyword galFunction UnitFilter
+  syn keyword galFunction UnitFilterGetState
+  syn keyword galFunction UnitFilterMatch
+  syn keyword galFunction UnitFilterSetState
+  syn keyword galFunction UnitFilterStr
+  syn keyword galFunction UnitFlashSelection
+  syn keyword galFunction UnitForceStatusBar
+  syn keyword galFunction UnitFromId
+  syn keyword galFunction UnitGetAIOption
+  syn keyword galFunction UnitGetAttachmentPoint
+  syn keyword galFunction UnitGetChargeRegen
+  syn keyword galFunction UnitGetChargeUsed
+  syn keyword galFunction UnitGetCooldown
+  syn keyword galFunction UnitGetCustomValue
+  syn keyword galFunction UnitGetFacing
+  syn keyword galFunction UnitGetHeight
+  syn keyword galFunction UnitGetOwner
+  syn keyword galFunction UnitGetPosition
+  syn keyword galFunction UnitGetProgressComplete
+  syn keyword galFunction UnitGetPropertyFixed
+  syn keyword galFunction UnitGetPropertyInt
+  syn keyword galFunction UnitGetType
+  syn keyword galFunction UnitGroup
+  syn keyword galFunction UnitGroupAdd
+  syn keyword galFunction UnitGroupAlliance
+  syn keyword galFunction UnitGroupClear
+  syn keyword galFunction UnitGroupCopy
+  syn keyword galFunction UnitGroupCount
+  syn keyword galFunction UnitGroupEmpty
+  syn keyword galFunction UnitGroupFilter
+  syn keyword galFunction UnitGroupFilterAlliance
+  syn keyword galFunction UnitGroupFilterPlane
+  syn keyword galFunction UnitGroupFilterPlayer
+  syn keyword galFunction UnitGroupFilterRegion
+  syn keyword galFunction UnitGroupFilterThreat
+  syn keyword galFunction UnitGroupFromId
+  syn keyword galFunction UnitGroupHasUnit
+  syn keyword galFunction UnitGroupIdle
+  syn keyword galFunction UnitGroupIssueOrder
+  syn keyword galFunction UnitGroupLoopBegin
+  syn keyword galFunction UnitGroupLoopCurrent
+  syn keyword galFunction UnitGroupLoopDone
+  syn keyword galFunction UnitGroupLoopEnd
+  syn keyword galFunction UnitGroupLoopStep
+  syn keyword galFunction UnitGroupNearestUnit
+  syn keyword galFunction UnitGroupRandomUnit
+  syn keyword galFunction UnitGroupRemove
+  syn keyword galFunction UnitGroupSelect
+  syn keyword galFunction UnitGroupSelected
+  syn keyword galFunction UnitGroupTestPlane
+  syn keyword galFunction UnitGroupUnit
+  syn keyword galFunction UnitGroupWaitUntilIdle
+  syn keyword galFunction UnitHasBehavior
+  syn keyword galFunction UnitInventoryCount
+  syn keyword galFunction UnitInventoryCreate
+  syn keyword galFunction UnitInventoryGroup
+  syn keyword galFunction UnitInventoryItem
+  syn keyword galFunction UnitInventoryLastCreated
+  syn keyword galFunction UnitIsAlive
+  syn keyword galFunction UnitIsHarvesting
+  syn keyword galFunction UnitIsSelected
+  syn keyword galFunction UnitIsValid
+  syn keyword galFunction UnitIssueOrder
+  syn keyword galFunction UnitKill
+  syn keyword galFunction UnitLastCreated
+  syn keyword galFunction UnitLastCreatedGroup
+  syn keyword galFunction UnitLevel
+  syn keyword galFunction UnitLoadModel
+  syn keyword galFunction UnitMagazineArm
+  syn keyword galFunction UnitMagazineCount
+  syn keyword galFunction UnitMarker
+  syn keyword galFunction UnitMarkerAdd
+  syn keyword galFunction UnitMarkerCount
+  syn keyword galFunction UnitMarkerRemove
+  syn keyword galFunction UnitMoverExists
+  syn keyword galFunction UnitOrder
+  syn keyword galFunction UnitOrderCount
+  syn keyword galFunction UnitOrderHasAbil
+  syn keyword galFunction UnitOrderIsValid
+  syn keyword galFunction UnitPauseAll
+  syn keyword galFunction UnitQueueGetProperty
+  syn keyword galFunction UnitQueueItemCount
+  syn keyword galFunction UnitQueueItemGet
+  syn keyword galFunction UnitQueueItemTime
+  syn keyword galFunction UnitQueueItemTypeCheck
+  syn keyword galFunction UnitRallyPoint
+  syn keyword galFunction UnitRallyPointCount
+  syn keyword galFunction UnitRallyPointTargetCount
+  syn keyword galFunction UnitRallyPointTargetPoint
+  syn keyword galFunction UnitRallyPointTargetUnit
+  syn keyword galFunction UnitRefFromUnit
+  syn keyword galFunction UnitRefFromVariable
+  syn keyword galFunction UnitRefToUnit
+  syn keyword galFunction UnitRemove
+  syn keyword galFunction UnitResetSpeed
+  syn keyword galFunction UnitResetTeamColorIndex
+  syn keyword galFunction UnitRevive
+  syn keyword galFunction UnitSelect
+  syn keyword galFunction UnitSetAIOption
+  syn keyword galFunction UnitSetCursor
+  syn keyword galFunction UnitSetCustomValue
+  syn keyword galFunction UnitSetFacing
+  syn keyword galFunction UnitSetHeight
+  syn keyword galFunction UnitSetInfoText
+  syn keyword galFunction UnitSetOwner
+  syn keyword galFunction UnitSetPosition
+  syn keyword galFunction UnitSetProgressComplete
+  syn keyword galFunction UnitSetProgressStage
+  syn keyword galFunction UnitSetPropertyFixed
+  syn keyword galFunction UnitSetPropertyInt
+  syn keyword galFunction UnitSetScale
+  syn keyword galFunction UnitSetState
+  syn keyword galFunction UnitSetTeamColorIndex
+  syn keyword galFunction UnitStatsStart
+  syn keyword galFunction UnitStatsStop
+  syn keyword galFunction UnitTechTreeBehaviorCount
+  syn keyword galFunction UnitTechTreeUnitCount
+  syn keyword galFunction UnitTechTreeUpgradeCount
+  syn keyword galFunction UnitTestPlane
+  syn keyword galFunction UnitTestState
+  syn keyword galFunction UnitTransport
+  syn keyword galFunction UnitTypeAnimationLoad
+  syn keyword galFunction UnitTypeAnimationUnload
+  syn keyword galFunction UnitTypeFromString
+  syn keyword galFunction UnitTypeGetCost
+  syn keyword galFunction UnitTypeGetName
+  syn keyword galFunction UnitTypeGetProperty
+  syn keyword galFunction UnitTypeIsAffectedByUpgrade
+  syn keyword galFunction UnitTypeTestAttribute
+  syn keyword galFunction UnitTypeTestFlag
+  syn keyword galFunction UnitUnloadModel
+  syn keyword galFunction UnitValidateEffectPoint
+  syn keyword galFunction UnitValidateEffectUnit
+  syn keyword galFunction UnitWaitUntilIdle
+  syn keyword galFunction UnitWeaponAdd
+  syn keyword galFunction UnitWeaponCheck
+  syn keyword galFunction UnitWeaponCount
+  syn keyword galFunction UnitWeaponGet
+  syn keyword galFunction UnitWeaponIsEnabled
+  syn keyword galFunction UnitWeaponPeriod
+  syn keyword galFunction UnitWeaponRemove
+  syn keyword galFunction UnitWeaponsPlaneTest
+  syn keyword galFunction UnitXPGainEnable
+  syn keyword galFunction UnitXPTotal
+  syn keyword galFunction VictoryPanelAddAchievement
+  syn keyword galFunction VictoryPanelAddCustomStatisticLine
+  syn keyword galFunction VictoryPanelAddTrackedStatistic
+  syn keyword galFunction VictoryPanelClearCustomStatisticTable
+  syn keyword galFunction VictoryPanelSetAchievementsTitle
+  syn keyword galFunction VictoryPanelSetCustomStatisticText
+  syn keyword galFunction VictoryPanelSetCustomStatisticValue
+  syn keyword galFunction VictoryPanelSetMissionText
+  syn keyword galFunction VictoryPanelSetMissionTimeText
+  syn keyword galFunction VictoryPanelSetMissionTimeTitle
+  syn keyword galFunction VictoryPanelSetMissionTitle
+  syn keyword galFunction VictoryPanelSetPlanetModelLink
+  syn keyword galFunction VictoryPanelSetRewardCredits
+  syn keyword galFunction VictoryPanelSetRewardText
+  syn keyword galFunction VictoryPanelSetRewardTitle
+  syn keyword galFunction VictoryPanelSetStatisticsTitle
+  syn keyword galFunction VisEnable
+  syn keyword galFunction VisExploreArea
+  syn keyword galFunction VisIsEnabled
+  syn keyword galFunction VisRevealArea
+  syn keyword galFunction VisRevealerCreate
+  syn keyword galFunction VisRevealerDestroy
+  syn keyword galFunction VisRevealerEnable
+  syn keyword galFunction VisRevealerLastCreated
+  syn keyword galFunction VisRevealerUpdate
+  syn keyword galFunction Wait
+  syn keyword galFunction WaterSetState
+  syn keyword galFunction WaveLastCreated
+  syn keyword galFunction WorldHeight
+endif
+
+" }}}
+
+" Constants {{{
+
+" Units {{{
+syn keyword galConstant     c_NU_HighYieldMinerals
+syn keyword galConstant     c_NU_VespeneGeyser
+syn keyword galConstant     c_PU_Archon
+syn keyword galConstant     c_PU_Carrier
+syn keyword galConstant     c_PU_Colossus
+syn keyword galConstant     c_PU_DarkTemplar
+syn keyword galConstant     c_PU_Disruptor
+syn keyword galConstant     c_PU_HighTemplar
+syn keyword galConstant     c_PU_Immortal
+syn keyword galConstant     c_PU_Mothership
+syn keyword galConstant     c_PU_Observer
+syn keyword galConstant     c_PU_Phoenix
+syn keyword galConstant     c_PU_Probe
+syn keyword galConstant     c_PU_Stalker
+syn keyword galConstant     c_PU_VoidRay
+syn keyword galConstant     c_PU_WarpPrism
+syn keyword galConstant     c_PU_WarpPrismPhasing
+syn keyword galConstant     c_PU_Zealot
+syn keyword galConstant     c_TU_AutoTurret
+syn keyword galConstant     c_TU_Banshee
+syn keyword galConstant     c_TU_Battlecruiser
+syn keyword galConstant     c_TU_BattlecruiserClass
+syn keyword galConstant     c_TU_BattlecruiserDefensive
+syn keyword galConstant     c_TU_BattlecruiserMissile
+syn keyword galConstant     c_TU_BattlecruiserYamato
+syn keyword galConstant     c_TU_D8Charge
+syn keyword galConstant     c_TU_Ghost
+syn keyword galConstant     c_TU_Hellion
+syn keyword galConstant     c_TU_Marauder
+syn keyword galConstant     c_TU_Marine
+syn keyword galConstant     c_TU_Medivac
+syn keyword galConstant     c_TU_Raven
+syn keyword galConstant     c_TU_Reaper
+syn keyword galConstant     c_TU_SCV
+syn keyword galConstant     c_TU_SiegeTank
+syn keyword galConstant     c_TU_SiegeTankSieged
+syn keyword galConstant     c_TU_SiegeTank_Alias
+syn keyword galConstant     c_TU_Thor
+syn keyword galConstant     c_TU_Viking
+syn keyword galConstant     c_TU_VikingAir
+syn keyword galConstant     c_TU_VikingGnd
+syn keyword galConstant     c_TU_Viking_Alias
+syn keyword galConstant     c_ZU_Baneling
+syn keyword galConstant     c_ZU_BanelingEgg
+syn keyword galConstant     c_ZU_BroodLord
+syn keyword galConstant     c_ZU_Broodling
+syn keyword galConstant     c_ZU_Changeling
+syn keyword galConstant     c_ZU_ChangelingMarine
+syn keyword galConstant     c_ZU_ChangelingMarineShield
+syn keyword galConstant     c_ZU_ChangelingZealot
+syn keyword galConstant     c_ZU_ChangelingZergling
+syn keyword galConstant     c_ZU_ChangelingZerglingWings
+syn keyword galConstant     c_ZU_Cocoon
+syn keyword galConstant     c_ZU_Corruptor
+syn keyword galConstant     c_ZU_CreepTumor
+syn keyword galConstant     c_ZU_Drone
+syn keyword galConstant     c_ZU_Hydralisk
+syn keyword galConstant     c_ZU_InfestedTerran
+syn keyword galConstant     c_ZU_InfestedTerranEgg
+syn keyword galConstant     c_ZU_Infestor
+syn keyword galConstant     c_ZU_Larva
+syn keyword galConstant     c_ZU_Lurker
+syn keyword galConstant     c_ZU_LurkerEgg
+syn keyword galConstant     c_ZU_Mantaling
+syn keyword galConstant     c_ZU_Mutalisk
+syn keyword galConstant     c_ZU_Overlord
+syn keyword galConstant     c_ZU_OverlordCocoon
+syn keyword galConstant     c_ZU_Overlord_Alias
+syn keyword galConstant     c_ZU_Overseer
+syn keyword galConstant     c_ZU_Queen
+syn keyword galConstant     c_ZU_Roach
+syn keyword galConstant     c_ZU_Ultralisk
+syn keyword galConstant     c_ZU_Zergling
+" }}}
+
+" Building Type {{{
+syn keyword galConstant     c_PB_Assimilator
+syn keyword galConstant     c_PB_CyberneticsCore
+syn keyword galConstant     c_PB_DarkShrine
+syn keyword galConstant     c_PB_Obelisk
+syn keyword galConstant     c_PB_FleetBeacon
+syn keyword galConstant     c_PB_Forge
+syn keyword galConstant     c_PB_Gateway
+syn keyword galConstant     c_PB_Nexus
+syn keyword galConstant     c_PB_PhotonCannon
+syn keyword galConstant     c_PB_Pylon
+syn keyword galConstant     c_PB_RoboticsBay
+syn keyword galConstant     c_PB_RoboticsFacility
+syn keyword galConstant     c_PB_Stargate
+syn keyword galConstant     c_PB_WarpGate
+syn keyword galConstant     c_PB_TemplarArchives
+syn keyword galConstant     c_PB_TwilightCouncil
+syn keyword galConstant     c_TB_Armory
+syn keyword galConstant     c_TB_Barracks
+syn keyword galConstant     c_TB_BarracksReactor
+syn keyword galConstant     c_TB_BarracksTechLab
+syn keyword galConstant     c_TB_Bunker
+syn keyword galConstant     c_TB_CommandCenter
+syn keyword galConstant     c_TB_CommandCenter_Alias
+syn keyword galConstant     c_TB_EngineeringBay
+syn keyword galConstant     c_TB_Factory
+syn keyword galConstant     c_TB_FactoryReactor
+syn keyword galConstant     c_TB_FactoryTechLab
+syn keyword galConstant     c_TB_FusionCore
+syn keyword galConstant     c_TB_GenericTechLab
+syn keyword galConstant     c_TB_GhostAcademy
+syn keyword galConstant     c_TB_MercCompound
+syn keyword galConstant     c_TB_MissileTurret
+syn keyword galConstant     c_TB_NuclearReactor
+syn keyword galConstant     c_TB_OrbitalCommand
+syn keyword galConstant     c_TB_PlanetaryFortress
+syn keyword galConstant     c_TB_Refinery
+syn keyword galConstant     c_TB_SensorTower
+syn keyword galConstant     c_TB_Starport
+syn keyword galConstant     c_TB_StarportReactor
+syn keyword galConstant     c_TB_StarportTechLab
+syn keyword galConstant     c_TB_SupplyDepot
+syn keyword galConstant     c_TB_SupplyDepot_Alias
+syn keyword galConstant     c_ZB_BanelingNest
+syn keyword galConstant     c_ZB_CreepTumor
+syn keyword galConstant     c_ZB_EvolutionChamber
+syn keyword galConstant     c_ZB_Extractor
+syn keyword galConstant     c_ZB_GreaterSpire
+syn keyword galConstant     c_ZB_Hatchery
+syn keyword galConstant     c_ZB_Hatchery_Alias
+syn keyword galConstant     c_ZB_Hive
+syn keyword galConstant     c_ZB_HydraliskDen
+syn keyword galConstant     c_ZB_HydraliskDen_Alias
+syn keyword galConstant     c_ZB_InfestationPit
+syn keyword galConstant     c_ZB_Lair
+syn keyword galConstant     c_ZB_Lair_Alias
+syn keyword galConstant     c_ZB_LurkerDen
+syn keyword galConstant     c_ZB_NydusNetwork
+syn keyword galConstant     c_ZB_NydusWorm
+syn keyword galConstant     c_ZB_RoachWarren
+syn keyword galConstant     c_ZB_SpawningPool
+syn keyword galConstant     c_ZB_SpineCrawler
+syn keyword galConstant     c_ZB_SpineCrawlerUp
+syn keyword galConstant     c_ZB_Spire
+syn keyword galConstant     c_ZB_Spire_Alias
+syn keyword galConstant     c_ZB_SporeCrawler
+syn keyword galConstant     c_ZB_SporeCrawlerUp
+syn keyword galConstant     c_ZB_UltraliskCavern
+" }}}
+
+" Research Type  {{{
+syn keyword galConstant     c_PR_AirArmor1
+syn keyword galConstant     c_PR_AirArmor2
+syn keyword galConstant     c_PR_AirArmor3
+syn keyword galConstant     c_PR_AirWeapons1
+syn keyword galConstant     c_PR_AirWeapons2
+syn keyword galConstant     c_PR_AirWeapons3
+syn keyword galConstant     c_PR_ColossusRange
+syn keyword galConstant     c_PR_GroundArmor1
+syn keyword galConstant     c_PR_GroundArmor2
+syn keyword galConstant     c_PR_GroundArmor3
+syn keyword galConstant     c_PR_GroundWeapons1
+syn keyword galConstant     c_PR_GroundWeapons2
+syn keyword galConstant     c_PR_GroundWeapons3
+syn keyword galConstant     c_PR_HighTemplarEnergy
+syn keyword galConstant     c_PR_HighTemplarPsiStorm
+syn keyword galConstant     c_PR_DisruptorHallucination
+syn keyword galConstant     c_PR_ObserverSpeed
+syn keyword galConstant     c_PR_Shields1
+syn keyword galConstant     c_PR_Shields2
+syn keyword galConstant     c_PR_Shields3
+syn keyword galConstant     c_PR_StalkerBlink
+syn keyword galConstant     c_PR_WarpGateResearch
+syn keyword galConstant     c_PR_WarpPrismSpeed
+syn keyword galConstant     c_PR_ZealotCharge
+syn keyword galConstant     c_TR_BansheeCloak
+syn keyword galConstant     c_TR_BattlecruiserEnergy
+syn keyword galConstant     c_TR_BuildingArmor
+syn keyword galConstant     c_TR_BunkerSpace
+syn keyword galConstant     c_TR_GhostCloak
+syn keyword galConstant     c_TR_GhostEnergy
+syn keyword galConstant     c_TR_HellionDamage
+syn keyword galConstant     c_TR_InfantryArmor1
+syn keyword galConstant     c_TR_InfantryArmor2
+syn keyword galConstant     c_TR_InfantryArmor3
+syn keyword galConstant     c_TR_InfantryWeapons1
+syn keyword galConstant     c_TR_InfantryWeapons2
+syn keyword galConstant     c_TR_InfantryWeapons3
+syn keyword galConstant     c_TR_MarineShield
+syn keyword galConstant     c_TR_MarineStimPack
+syn keyword galConstant     c_TR_MedivacEnergy
+syn keyword galConstant     c_TR_MissileTurretRange
+syn keyword galConstant     c_TR_RavenEnergy
+syn keyword galConstant     c_TR_RavenMissiles
+syn keyword galConstant     c_TR_ReaperSpeed
+syn keyword galConstant     c_TR_ShipPlating1
+syn keyword galConstant     c_TR_ShipPlating2
+syn keyword galConstant     c_TR_ShipPlating3
+syn keyword galConstant     c_TR_ShipWeapons1
+syn keyword galConstant     c_TR_ShipWeapons2
+syn keyword galConstant     c_TR_ShipWeapons3
+syn keyword galConstant     c_TR_SiegeTankSiege
+syn keyword galConstant     c_TR_VehiclePlating1
+syn keyword galConstant     c_TR_VehiclePlating2
+syn keyword galConstant     c_TR_VehiclePlating3
+syn keyword galConstant     c_TR_VehicleWeapons1
+syn keyword galConstant     c_TR_VehicleWeapons2
+syn keyword galConstant     c_TR_VehicleWeapons3
+syn keyword galConstant     c_ZR_Burrow
+syn keyword galConstant     c_ZR_BanelingSpeed
+syn keyword galConstant     c_ZR_CorruptorAttack
+syn keyword galConstant     c_ZR_FlyerAttacks1
+syn keyword galConstant     c_ZR_FlyerAttacks2
+syn keyword galConstant     c_ZR_FlyerAttacks3
+syn keyword galConstant     c_ZR_FlyerCarapace1
+syn keyword galConstant     c_ZR_FlyerCarapace2
+syn keyword galConstant     c_ZR_FlyerCarapace3
+syn keyword galConstant     c_ZR_GroundCarapace1
+syn keyword galConstant     c_ZR_GroundCarapace2
+syn keyword galConstant     c_ZR_GroundCarapace3
+syn keyword galConstant     c_ZR_HydraliskSpeed
+syn keyword galConstant     c_ZR_InfestorEnergy
+syn keyword galConstant     c_ZR_InfestorSpell
+syn keyword galConstant     c_ZR_MeleeAttacks1
+syn keyword galConstant     c_ZR_MeleeAttacks2
+syn keyword galConstant     c_ZR_MeleeAttacks3
+syn keyword galConstant     c_ZR_MissileAttacks1
+syn keyword galConstant     c_ZR_MissileAttacks2
+syn keyword galConstant     c_ZR_MissileAttacks3
+syn keyword galConstant     c_ZR_OverseerSpeed
+syn keyword galConstant     c_ZR_OverlordTransport
+syn keyword galConstant     c_ZR_QueenDamagePlague
+syn keyword galConstant     c_ZR_RoachRegen
+syn keyword galConstant     c_ZR_RoachSpeed
+syn keyword galConstant     c_ZR_ZerglingHaste
+syn keyword galConstant     c_ZR_ZerglingSpeed
+" }}}
+
+" Unit Flag {{{
+syn keyword galConstant     c_unitFlagBounce
+syn keyword galConstant     c_unitFlagTurnable
+syn keyword galConstant     c_unitFlagMovable
+syn keyword galConstant     c_unitFlagWorker
+syn keyword galConstant     c_unitFlagCreateVisible
+syn keyword galConstant     c_unitFlagUnclickable
+syn keyword galConstant     c_unitFlagUncommandable
+syn keyword galConstant     c_unitFlagUnhighlightable
+syn keyword galConstant     c_unitFlagUntooltipable
+syn keyword galConstant     c_unitFlagUnselectable
+syn keyword galConstant     c_unitFlagUntargetable
+syn keyword galConstant     c_unitFlagUncursorable
+syn keyword galConstant     c_unitFlagHero
+syn keyword galConstant     c_unitFlagIndividualSubgroups
+syn keyword galConstant     c_unitFlagNoDraw
+syn keyword galConstant     c_unitFlagPreventReveal
+syn keyword galConstant     c_unitFlagPreventDefeat
+syn keyword galConstant     c_unitFlagPreventDestroy
+syn keyword galConstant     c_unitFlagDefeatReveal
+syn keyword galConstant     c_unitFlagUncloakable
+syn keyword galConstant     c_unitFlagMissile
+syn keyword galConstant     c_unitFlagUndetectable
+syn keyword galConstant     c_unitFlagUnradarable
+syn keyword galConstant     c_unitFlagUseLineOfSight
+syn keyword galConstant     c_unitFlagPressForwardDisabled
+syn keyword galConstant     c_unitFlagKillCredit
+syn keyword galConstant     c_unitFlagTownAlert
+syn keyword galConstant     c_unitFlagInvulnerable
+syn keyword galConstant     c_unitFlagDestructible
+syn keyword galConstant     c_unitFlagCloaked
+syn keyword galConstant     c_unitFlagBuried
+syn keyword galConstant     c_unitFlagNoScore
+syn keyword galConstant     c_unitFlagIgnoreTerrainZInit
+syn keyword galConstant     c_unitFlagTurnBeforeMove
+syn keyword galConstant     c_unitFlagAlwaysThreatens
+syn keyword galConstant     c_unitFlagNoDeathEvent
+syn keyword galConstant     c_unitFlagNoPortraitTalk
+syn keyword galConstant     c_unitFlagTownCamera
+syn keyword galConstant     c_unitFlagAIThreatGround
+syn keyword galConstant     c_unitFlagAIThreatAir
+syn keyword galConstant     c_unitFlagAILifetime
+syn keyword galConstant     c_unitFlagAISiege
+syn keyword galConstant     c_unitFlagAIDefense
+syn keyword galConstant     c_unitFlagAICaster
+syn keyword galConstant     c_unitFlagAISupport
+syn keyword galConstant     c_unitFlagShowResources
+syn keyword galConstant     c_unitFlagArmorDisabledWhileConstructing
+syn keyword galConstant     c_unitFlagPawnable
+" }}}
+
+" Color {{{
+syn keyword galConstant     ColorGray0
+syn keyword galConstant     ColorGray1
+syn keyword galConstant     ColorGray2
+syn keyword galConstant     ColorGray3
+syn keyword galConstant     ColorGray4
+syn keyword galConstant     ColorGray5
+syn keyword galConstant     ColorGray6
+syn keyword galConstant     ColorGray7
+syn keyword galConstant     ColorGray8
+syn keyword galConstant     ColorRed
+syn keyword galConstant     ColorBlue
+syn keyword galConstant     ColorGreen
+syn keyword galConstant     ColorWhite
+syn keyword galConstant     ColorBlack
+syn keyword galConstant     ColorGlueLabel
+syn keyword galConstant     ColorGlueValue
+syn keyword galConstant     ColorGlueHeading
+syn keyword galConstant     ColorAutocastInfo
+syn keyword galConstant     ColorAttackInfo
+syn keyword galConstant     ColorDetectorInfo
+syn keyword galConstant     ColorProtosLabel
+syn keyword galConstant     ColorTerranLabel
+syn keyword galConstant     ColorZergLabel
+syn keyword galConstant     ObjectiveCategory
+syn keyword galConstant     ObjectiveNew
+syn keyword galConstant     ObjectiveActive
+syn keyword galConstant     ObjectiveCompleted
+syn keyword galConstant     ObjectiveFailed
+syn keyword galConstant     ColorLoadingPercentage
+syn keyword galConstant     ColorChallengeValue
+syn keyword galConstant     ColorProtossHighlightLabel
+syn keyword galConstant     ColorTerranHighlightLabel
+syn keyword galConstant     ColorZergHighlightLabel
+syn keyword galConstant     ColorStandardVerticalTabButton
+syn keyword galConstant     ColorProtossStandardVerticalTabButton
+syn keyword galConstant     ColorTerranStandardVerticalTabButton
+syn keyword galConstant     ColorZergStandardVerticalTabButton
+syn keyword galConstant     ColorStandardVerticalTabButtonHotkey
+syn keyword galConstant     ColorProtossStandardVerticalTabButtonHotkey
+syn keyword galConstant     ColorTerranStandardVerticalTabButtonHotkey
+syn keyword galConstant     ColorZergStandardVerticalTabButtonHotkey
+syn keyword galConstant     ColorStandardButton
+syn keyword galConstant     ColorStandardButtonHotkey
+syn keyword galConstant     ColorStandardButtonHighlight
+" }}}
+
+" }}}
+
+" Other Syntax {{{
+
+syn match   galInclude  display "^\s*include\s*" contains=galIncluded
+
+syn cluster galParenGroup contains=galParenError,galIncluded,galSpecial,galNumber
+if exists("c_no_curly_error")
+  syn region  galParen    transparent start='(' end=')' contains=ALLBUT,@galParenGroup,@Spell
+  syn match   galParenError display ")"
+  syn match   galErrInParen display contained "^[{}]\|^<%\|^%>"
+elseif exists("c_no_bracket_error")
+  syn region  galParen    transparent start='(' end=')' contains=ALLBUT,@galParenGroup,@Spell
+  syn match   galParenError display ")"
+  syn match   galErrInParen display contained "[{}]\|<%\|%>"
+else
+  syn region  galParen    transparent start='(' end=')' contains=ALLBUT,@galParenGroup,galErrInBracket,@Spell
+  syn match   galParenError display "[\])]"
+  syn match   galErrInParen display contained "[\]{}]\|<%\|%>"
+  syn region  galBracket  transparent start='\[\|<::\@!' end=']\|:>' contains=ALLBUT,@galParenGroup,galErrInParen,@Spell
+  syn match   galErrInBracket display contained "[);{}]\|<%\|%>"
+endif
+
+syn case ignore
+syn match galNumbers    display transparent "\<\d\|\.\d" contains=galNumber
+syn match galNumber     display contained "\d\+\(u\=l\{0,2}\|ll\=u\)\>"
+syn match galNumber     display contained "0x\x\+\(u\=l\{0,2}\|ll\=u\)\>"
+syn case match
+
+syn match galSpecial          display contained "\\\(x\x\+\|\o\{1,3}\|.\|$\)"
+syn match galCharacter        "L\='[^\\]'"
+syn match galCharacter        "L'[^']*'" contains=galSpecial
+syn match galSpecialError     "L\='\\[^'\"?\\abefnrtv]'"
+syn match galSpecialCharacter "L\='\\['\"?\\abefnrtv]'"
+syn match galSpecialCharacter display "L\='\\\o\{1,3}'"
+syn match galSpecialCharacter display "'\\x\x\{1,2}'"
+syn match galSpecialCharacter display "L'\\x\x\+'"
+
+syn region galString          start=+L\="+ skip=+\\\\\|\\"+ end=+"+ contains=galSpecial,@Spell
+syntax region  galComment     start="//" skip="\\$" end="$" keepend contains=@galCommentGroup,galComment2String,galCharacter,galNumbersCom,galSpaceError,@Spell
+
+"when wanted, highlight trailing white space
+if exists("c_space_errors")
+  if !exists("c_no_trail_space_error")
+    syn match cSpaceError display excludenl "\s\+$"
+  endif
+  if !exists("c_no_tab_space_error")
+    syn match cSpaceError display " \+\t"me=e-1
+  endif
+endif
+
+" }}}
+
+" Highlight Defines {{{
+
+hi def link galStatement        Statement
+hi def link galSpecial          SpecialChar
+hi def link galSpecialCharacter galSpecial
+hi def link galLabel            Label
+hi def link galType             Type
+hi def link galConstant         Constant
+hi def link galRepeat           Repeat
+hi def link galComment          Comment
+hi def link galNumber           Number
+hi def link galConditional      Conditional
+hi def link galStructure        Structure
+hi def link galStorageClass     StorageClass
+hi def link galInclude          Include
+hi def link galIncluded         galString
+hi def link galError            Error
+hi def link galString           String
+hi def link galBoolean          Boolean
+hi def link galFunction         Function
+
+" }}}
+
+let b:current_syntax = "galaxy"
+
