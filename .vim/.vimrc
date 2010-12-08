@@ -83,8 +83,9 @@ au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 au BufRead,BufNewFile nginx.conf set ft=nginx
 au BufRead,BufNewFile *.json set ft=json 
 au BufRead,BufNewFile *.coffee set ft=coffee 
-au BufRead,BufNewFile *.md,*.mkd,*.markdown set ft=mkd 
+au BufRead,BufNewFile *.md,*.mkd,*.markdown set ft=pdc 
 au BufRead,BufNewFile *.go set syntax=go
+au BufRead,BufNewFile *.clay set syntax=clay
 au BufRead,BufNewFile *.clj set syntax=clojure
 au BufRead,BufNewFile *.galaxy set syn=galaxy
 au BufRead,BufNewFile *.clay set syn=clay
@@ -92,5 +93,8 @@ au BufRead,BufNewFile *.thrift set syn=thrift
 au BufRead,BufNewFile *.material set syn=ogre3d_material
 au BufRead,BufNewFile wscript set syn=python
 au BufRead,BufNewFile *.c,*.cpp,*.h set cindent
+au BufRead,BufNewFile *.rs set syn=rust
+au BufRead,BufNewFile *.gnu set syn=gnuplot
+au BufRead,BufNewFile *.swig set syn=swig
 
 " }}}
