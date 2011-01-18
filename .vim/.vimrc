@@ -12,7 +12,6 @@ set nocp
 set ruler
 set colorcolumn=81
 set relativenumber
-set cino=(0
 set dir=~/.vim/tmp
 
 exe 'set t_kB=' . nr2char(27) . '[Z'
@@ -51,6 +50,8 @@ map <Leader>p :tprev<CR>
 map <C-N> :cn<CR>
 map <C-P> :cN<CR>
 map <Leader>y :Lodgeit<CR>
+map <Leader>e ma:%s/\s\+$//g<CR>`a
+nmap <Leader>rr :call ReloadSnippets(snippets_dir, &filetype)<CR>
 
 cmap w!! %!sudo tee > /dev/null %
 
@@ -63,7 +64,7 @@ nnoremap X "_X
 
 " MiniBufExl {{{
 let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1 
+let g:miniBufExplModSelTarget = 1
 " }}}
 
 " VimClojure {{{
@@ -78,23 +79,64 @@ let g:SuperTabDefaultCompletionType = "context"
 " }}}
 
 " Autocommands {{{
-
-au BufRead,BufNewFile /etc/nginx/* set ft=nginx
-au BufRead,BufNewFile nginx.conf set ft=nginx
-au BufRead,BufNewFile *.json set ft=json 
-au BufRead,BufNewFile *.coffee set ft=coffee 
-au BufRead,BufNewFile *.md,*.mkd,*.markdown set ft=pdc 
-au BufRead,BufNewFile *.go set syntax=go
+au BufRead,BufNewFile *.c,*.cpp,*.h set cindent
+au BufRead,BufNewFile *.c,*.cpp,*.h set cino=(0
+au BufRead,BufNewFile *.clay set syn=clay
 au BufRead,BufNewFile *.clay set syntax=clay
 au BufRead,BufNewFile *.clj set syntax=clojure
+au BufRead,BufNewFile *.coffee set ft=coffee
 au BufRead,BufNewFile *.galaxy set syn=galaxy
-au BufRead,BufNewFile *.clay set syn=clay
-au BufRead,BufNewFile *.thrift set syn=thrift
-au BufRead,BufNewFile *.material set syn=ogre3d_material
-au BufRead,BufNewFile wscript set syn=python
-au BufRead,BufNewFile *.c,*.cpp,*.h set cindent
-au BufRead,BufNewFile *.rs set syn=rust
+au BufRead,BufNewFile *.glsl set syntax=glsl
 au BufRead,BufNewFile *.gnu set syn=gnuplot
+au BufRead,BufNewFile *.go set syntax=go
+au BufRead,BufNewFile *.json set ft=json
+au BufRead,BufNewFile *.material set syn=ogre3d_material
+au BufRead,BufNewFile *.md,*.mkd,*.markdown set ft=pdc
+au BufRead,BufNewFile *.rs set syn=rust
 au BufRead,BufNewFile *.swig set syn=swig
-
+au BufRead,BufNewFile *.thrift set syn=thrift
+au BufRead,BufNewFile /etc/nginx/* set ft=nginx
+au BufRead,BufNewFile nginx.conf set ft=nginx
+au BufRead,BufNewFile wscript set syn=python
 " }}}
+
+function! PlaySound()
+" silent! exec '!afplay ~/audio/typewriter_keystroke.wav &'
+endfunction
+autocmd CursorMovedI * call PlaySound()
+
+function! ReloadSnippets( snippets_dir, ft )
+    if strlen( a:ft ) == 0
+        let filetype = "_"
+    else
+        let filetype = a:ft
+    endif
+
+    call ResetSnippets()
+    call GetSnippets( a:snippets_dir, filetype )
+endfunction
+
+" Tabular bindings
+
+if exists(":Tabularize")
+  nmap <Leader>t= :Tabularize /=<CR>
+  vmap <Leader>t= :Tabularize /=<CR>
+  nmap <Leader>t: :Tabularize /:\zs<CR>
+  vmap <Leader>t: :Tabularize /:\zs<CR>
+endif
+
+" Auto-align bar tables
+
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+

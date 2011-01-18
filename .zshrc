@@ -33,6 +33,7 @@ export GOARCH=386
 
 # alias
 alias githist="git reflog show | grep '}: commit' | nl | sort -nr | nl | sort -nr | cut --fields=1,3 | sed s/commit://g | sed -e 's/HEAD*@{[0-9]*}://g'"
+alias ack="ack --pager='less -R'"
 alias glg="git log --graph"
 alias csv="column -s, -t <"
 alias vimless="~/.vimless.sh"
