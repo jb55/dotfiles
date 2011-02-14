@@ -8,7 +8,7 @@ fi
 
 # set up symlinks
 echo "Creating sym links..."
-FILES=`ls -al | awk '{print $8}' | grep "^\." | sed "1,2d"`
+FILES=`ls -al | awk '{print $9}' | grep "^\." | sed "1,2d"`
 for FILE in $FILES
 do
   DEST=$HOME/$FILE
