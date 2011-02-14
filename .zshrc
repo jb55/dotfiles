@@ -39,3 +39,6 @@ alias csv="column -s, -t <"
 alias vimless="~/.vimless.sh"
 alias cpptags="ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++"
 alias vnc_once="x11vnc -safer -nopw -once -display :0"
+
+eval `dircolors ~/.dircolors`
+

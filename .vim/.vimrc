@@ -140,3 +140,5 @@ function! s:align()
   endif
 endfunction
 
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
