@@ -31,8 +31,8 @@ filetype plugin on
 
 " Mappings {{{
 
-let mapleader = ","
-let maplocalleader = ","
+let mapleader = "\\"
+let maplocalleader = "\\"
 
 nnoremap <F10> :set invpaste paste?<CR>
 imap <F10> <C-O><F10>
@@ -140,3 +140,5 @@ function! s:align()
   endif
 endfunction
 
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
