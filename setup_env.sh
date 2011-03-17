@@ -8,7 +8,14 @@ fi
 
 # set up symlinks
 echo "Creating sym links..."
-FILES=`ls -al | awk '{print $9}' | grep "^\." | sed "1,2d"`
+
+FILES=`ls -a | grep "^\." \
+  | sed \
+      -e "1,2d" \
+      -e "/\.git$/d" \
+      -e "/\.gitmodules$/d" \
+`
+
 for FILE in $FILES
 do
   DEST=$HOME/$FILE
