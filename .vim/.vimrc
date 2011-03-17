@@ -98,6 +98,9 @@ au BufRead,BufNewFile *.thrift set syn=thrift
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 au BufRead,BufNewFile nginx.conf set ft=nginx
 au BufRead,BufNewFile wscript set syn=python
+au BufRead,BufNewFile *.xsl let g:xml_syntax_folding = 1
+au BufRead,BufNewFile *.xsl set syn=xml
+au BufRead,BufNewFile *.xsl set foldmethod=syntax
 " }}}
 
 function! PlaySound()

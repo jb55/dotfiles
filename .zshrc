@@ -21,9 +21,10 @@ bindkey -v
 
 export TEXBIN=/usr/texbin
 export CABALBIN=$HOME/.cabal/bin
+export DEPOT_TOOLS=$HOME/dev/depot_tools
 
 # Customize to your needs...
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:/opt/local/bin:$CABALBIN:$TEXBIN
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:/opt/local/bin:$CABALBIN:$TEXBIN:$DEPOT_TOOLS
 
 # GO
 export GOROOT=$HOME/dev/go
@@ -36,7 +37,7 @@ alias githist="git reflog show | grep '}: commit' | nl | sort -nr | nl | sort -n
 alias ack="ack --pager='less -R'"
 alias glg="git log --graph"
 alias csv="column -s, -t <"
-alias vimless="~/.vimless.sh"
+alias vless="/usr/share/vim/vim72/macros/less.sh"
 alias cpptags="ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++"
 alias vnc_once="x11vnc -safer -nopw -once -display :0"
 
