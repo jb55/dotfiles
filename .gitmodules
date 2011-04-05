@@ -1,0 +1,6 @@
+[submodule ".vim/bundle/snipmate"]
+	path = .vim/bundle/snipmate
+	url = git@github.com:jb55/snipmate.vim.git
+[submodule ".vim/bundle/zencoding"]
+	path = .vim/bundle/zencoding
+	url = https://github.com/mattn/zencoding-vim.git

@@ -53,6 +53,8 @@ map <Leader>y :Lodgeit<CR>
 map <Leader>e ma:%s/\s\+$//g<CR>`a
 nmap <Leader>rr :call ReloadSnippets(snippets_dir, &filetype)<CR>
 
+map <Leader>cr :!newclay % && ./main<CR>
+
 cmap w!! %!sudo tee > /dev/null %
 
 nnoremap x "_x
@@ -85,6 +87,7 @@ au BufRead,BufNewFile *.clay set syn=clay
 au BufRead,BufNewFile *.clay set syntax=clay
 au BufRead,BufNewFile *.clj set syntax=clojure
 au BufRead,BufNewFile *.coffee set ft=coffee
+au BufRead,BufNewFile *.do set syn=sh
 au BufRead,BufNewFile *.galaxy set syn=galaxy
 au BufRead,BufNewFile *.glsl set syntax=glsl
 au BufRead,BufNewFile *.gnu set syn=gnuplot
@@ -95,6 +98,9 @@ au BufRead,BufNewFile *.md,*.mkd,*.markdown set ft=pdc
 au BufRead,BufNewFile *.rs set syn=rust
 au BufRead,BufNewFile *.swig set syn=swig
 au BufRead,BufNewFile *.thrift set syn=thrift
+au BufRead,BufNewFile *.xsl let g:xml_syntax_folding = 1
+au BufRead,BufNewFile *.xsl set foldmethod=syntax
+au BufRead,BufNewFile *.xsl set syn=xml
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 au BufRead,BufNewFile nginx.conf set ft=nginx
 au BufRead,BufNewFile wscript set syn=python
@@ -104,6 +110,15 @@ function! PlaySound()
 " silent! exec '!afplay ~/audio/typewriter_keystroke.wav &'
 endfunction
 autocmd CursorMovedI * call PlaySound()
+
+" Tabular bindings
+
+if exists(":Tabularize")
+  nmap <Leader>t= :Tabularize /=<CR>
+  vmap <Leader>t= :Tabularize /=<CR>
+  nmap <Leader>t: :Tabularize /:\zs<CR>
+  vmap <Leader>t: :Tabularize /:\zs<CR>
+endif
 
 function! ReloadSnippets( snippets_dir, ft )
     if strlen( a:ft ) == 0
@@ -116,18 +131,8 @@ function! ReloadSnippets( snippets_dir, ft )
     call GetSnippets( a:snippets_dir, filetype )
 endfunction
 
-" Tabular bindings
-
-if exists(":Tabularize")
-  nmap <Leader>t= :Tabularize /=<CR>
-  vmap <Leader>t= :Tabularize /=<CR>
-  nmap <Leader>t: :Tabularize /:\zs<CR>
-  vmap <Leader>t: :Tabularize /:\zs<CR>
-endif
-
-" Auto-align bar tables
-
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
 
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'

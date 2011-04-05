@@ -2,7 +2,7 @@
 	name = Bill Casarin
 	email = bill@casarin.ca
 [color]
-  diff = false
+	diff = auto
   status = false
 [core]
   excludesfile = $HOME/.conf/.gitignore
