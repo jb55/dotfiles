@@ -84,6 +84,7 @@ let g:SuperTabDefaultCompletionType = "context"
 au BufRead,BufNewFile *.c,*.cpp,*.h set cindent
 au BufRead,BufNewFile *.c,*.cpp,*.h set cino=(0
 au BufRead,BufNewFile *.clay set syn=clay
+au BufRead,BufNewFile *.mirah set syn=mirah
 au BufRead,BufNewFile *.clay set syntax=clay
 au BufRead,BufNewFile *.clj set syntax=clojure
 au BufRead,BufNewFile *.coffee set ft=coffee
