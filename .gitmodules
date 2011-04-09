@@ -4,3 +4,6 @@
 [submodule ".vim/bundle/zencoding"]
 	path = .vim/bundle/zencoding
 	url = https://github.com/mattn/zencoding-vim.git
+[submodule ".vim/bundle/mirah-vim"]
+	path = .vim/bundle/mirah-vim
+	url = git://github.com/Neurogami/mirah-vim.git
