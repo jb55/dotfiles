@@ -22,9 +22,11 @@ bindkey -v
 export TEXBIN=/usr/texbin
 export CABALBIN=$HOME/.cabal/bin
 export DEPOT_TOOLS=$HOME/dev/depot_tools
+export M2_HOME=$HOME/dev/apache-maven-3.0.3
+export MIRAH_BIN=$HOME/dev/mirah-0.0.8.dev/bin
 
 # Customize to your needs...
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:/opt/local/bin:$CABALBIN:$TEXBIN:$DEPOT_TOOLS
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:/opt/local/bin:$CABALBIN:$TEXBIN:$DEPOT_TOOLS:$M2_HOME/bin:$MIRAH_BIN
 
 # GO
 export GOROOT=$HOME/dev/go

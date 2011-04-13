@@ -80,6 +80,7 @@ let g:clang_snippets = 1
 au BufRead,BufNewFile *.c,*.cpp,*.h set cindent
 au BufRead,BufNewFile *.c,*.cpp,*.h set cino=(0
 au BufRead,BufNewFile *.clay set syn=clay
+au BufRead,BufNewFile *.mirah set syn=mirah
 au BufRead,BufNewFile *.clay set syntax=clay
 au BufRead,BufNewFile *.clj set syntax=clojure
 au BufRead,BufNewFile *.coffee set ft=coffee
@@ -89,6 +90,8 @@ au BufRead,BufNewFile *.glsl set syntax=glsl
 au BufRead,BufNewFile *.gnu set syn=gnuplot
 au BufRead,BufNewFile *.go set syntax=go
 au BufRead,BufNewFile *.json set ft=json
+au BufRead,BufNewFile *.java set ts=4
+au BufRead,BufNewFile *.java set sw=4
 au BufRead,BufNewFile *.material set syn=ogre3d_material
 au BufRead,BufNewFile *.md,*.mkd,*.markdown set ft=pdc
 au BufRead,BufNewFile *.rs set syn=rust
