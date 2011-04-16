@@ -22,9 +22,11 @@ bindkey -v
 export TEXBIN=/usr/texbin
 export CABALBIN=$HOME/.cabal/bin
 export DEPOT_TOOLS=$HOME/dev/depot_tools
+export M2_HOME=$HOME/dev/apache-maven-3.0.3
+export MIRAH_BIN=$HOME/dev/mirah-0.0.8.dev/bin
 
 # Customize to your needs...
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:/opt/local/bin:$CABALBIN:$TEXBIN:$DEPOT_TOOLS
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:/opt/local/bin:$CABALBIN:$TEXBIN:$DEPOT_TOOLS:$M2_HOME/bin:$MIRAH_BIN
 
 # GO
 export GOROOT=$HOME/dev/go
@@ -40,6 +42,8 @@ alias csv="column -s, -t <"
 alias vless="/usr/share/vim/vim72/macros/less.sh"
 alias cpptags="ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++"
 alias vnc_once="x11vnc -safer -nopw -once -display :0"
+alias wget="wget -c"
+alias tmux="tmux -2"
 
 eval `dircolors ~/.dircolors`
 

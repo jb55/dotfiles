@@ -13,7 +13,6 @@ set ruler
 set colorcolumn=81
 set relativenumber
 set dir=~/.vim/tmp
-
 exe 'set t_kB=' . nr2char(27) . '[Z'
 set vb t_vb=
 
@@ -64,19 +63,16 @@ nnoremap X "_X
 
 " Plugin Options {{{
 
-" MiniBufExl {{{
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
-" }}}
 
-" VimClojure {{{
 let g:clj_highlight_builtins=1 " Highlight Clojure's builtins
 let g:clj_paren_rainbow=1      " Rainbow parentheses'!
-" }}}
 
-" Supertab {{{
 let g:SuperTabDefaultCompletionType = "context"
-" }}}
+
+let g:clang_complete_copen = 1
+let g:clang_snippets = 1
 
 " }}}
 
@@ -84,6 +80,7 @@ let g:SuperTabDefaultCompletionType = "context"
 au BufRead,BufNewFile *.c,*.cpp,*.h set cindent
 au BufRead,BufNewFile *.c,*.cpp,*.h set cino=(0
 au BufRead,BufNewFile *.clay set syn=clay
+au BufRead,BufNewFile *.mirah set syn=mirah
 au BufRead,BufNewFile *.clay set syntax=clay
 au BufRead,BufNewFile *.clj set syntax=clojure
 au BufRead,BufNewFile *.coffee set ft=coffee

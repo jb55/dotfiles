@@ -1,6 +1,7 @@
 [user]
 	name = Bill Casarin
 	email = bill@casarin.ca
+	signingkey = 0x415AF4A3
 [color]
 	diff = auto
   status = false
