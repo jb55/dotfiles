@@ -128,7 +128,7 @@ function! ReloadSnippets( snippets_dir, ft )
         let filetype = a:ft
     endif
 
-    call ResetSnippets()
+    call ResetSnippets( filetype )
     call GetSnippets( a:snippets_dir, filetype )
 endfunction
 
