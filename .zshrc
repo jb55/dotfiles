@@ -22,7 +22,9 @@ bindkey -v
 export TEXBIN=/usr/texbin
 export CABALBIN=$HOME/.cabal/bin
 export DEPOT_TOOLS=$HOME/dev/depot_tools
+export M2_REPO=$HOME/.m2/repository
 export M2_HOME=$HOME/dev/apache-maven-3.0.3
+export ECLIPSE_WORKSPACE=$HOME/src/java
 export MIRAH_BIN=$HOME/dev/mirah-0.0.8.dev/bin
 
 # Customize to your needs...
@@ -34,6 +36,9 @@ export GOBIN=$HOME/bin
 export GOOS=linux
 export GOARCH=386
 
+# other
+export PAGER=less
+
 # alias
 alias githist="git reflog show | grep '}: commit' | nl | sort -nr | nl | sort -nr | cut --fields=1,3 | sed s/commit://g | sed -e 's/HEAD*@{[0-9]*}://g'"
 alias ack="ack --pager='less -R'"
@@ -44,6 +49,8 @@ alias cpptags="ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --langu
 alias vnc_once="x11vnc -safer -nopw -once -display :0"
 alias wget="wget -c"
 alias tmux="tmux -2"
+alias page=$PAGER
+alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
 
 eval `dircolors ~/.dircolors`
 

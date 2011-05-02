@@ -7,3 +7,5 @@
   status = false
 [core]
   excludesfile = $HOME/.conf/.gitignore
+[url "https://github.com/"]
+  insteadOf = gh:

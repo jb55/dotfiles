@@ -51,6 +51,7 @@ map <C-P> :cN<CR>
 map <Leader>y :Lodgeit<CR>
 map <Leader>e ma:%s/\s\+$//g<CR>`a
 nmap <Leader>rr :call ReloadSnippets(snippets_dir, &filetype)<CR>
+vmap <Leader>px !xmllint --format -<CR>
 
 map <Leader>cr :!newclay % && ./main<CR>
 
