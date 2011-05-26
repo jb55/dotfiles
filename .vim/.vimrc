@@ -50,8 +50,9 @@ map <C-N> :cn<CR>
 map <C-P> :cN<CR>
 map <Leader>y :Lodgeit<CR>
 map <Leader>e ma:%s/\s\+$//g<CR>`a
-nmap <Leader>rr :call ReloadSnippets(snippets_dir, &filetype)<CR>
-vmap <Leader>px !xmllint --format -<CR>
+nmap <Leader>rr :call ReloadSnippets(&filetype)<CR>
+vmap <Leader>fx !xmllint --format -<CR>
+vmap <Leader>fj !jade -o "{ prettyprint: true }"<CR>
 
 map <Leader>cr :!newclay % && ./main<CR>
 
@@ -59,6 +60,8 @@ cmap w!! %!sudo tee > /dev/null %
 
 nnoremap x "_x
 nnoremap X "_X
+
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 " }}}
 
@@ -81,7 +84,6 @@ let g:clang_snippets = 1
 au BufRead,BufNewFile *.c,*.cpp,*.h set cindent
 au BufRead,BufNewFile *.c,*.cpp,*.h set cino=(0
 au BufRead,BufNewFile *.clay set syn=clay
-au BufRead,BufNewFile *.mirah set syn=mirah
 au BufRead,BufNewFile *.clay set syntax=clay
 au BufRead,BufNewFile *.clj set syntax=clojure
 au BufRead,BufNewFile *.coffee set ft=coffee
@@ -90,12 +92,14 @@ au BufRead,BufNewFile *.galaxy set syn=galaxy
 au BufRead,BufNewFile *.glsl set syntax=glsl
 au BufRead,BufNewFile *.gnu set syn=gnuplot
 au BufRead,BufNewFile *.go set syntax=go
-au BufRead,BufNewFile *.json set ft=json
-au BufRead,BufNewFile *.java set ts=4
 au BufRead,BufNewFile *.java set sw=4
+au BufRead,BufNewFile *.java set ts=4
+au BufRead,BufNewFile *.json set ft=json
 au BufRead,BufNewFile *.material set syn=ogre3d_material
 au BufRead,BufNewFile *.md,*.mkd,*.markdown set ft=pdc
+au BufRead,BufNewFile *.mirah set syn=mirah
 au BufRead,BufNewFile *.rs set syn=rust
+au BufRead,BufNewFile *.scala set syn=scala
 au BufRead,BufNewFile *.swig set syn=swig
 au BufRead,BufNewFile *.thrift set syn=thrift
 au BufRead,BufNewFile *.xsl let g:xml_syntax_folding = 1
@@ -121,20 +125,6 @@ if exists(":Tabularize")
   nmap <Leader>t: :Tabularize /:\zs<CR>
   vmap <Leader>t: :Tabularize /:\zs<CR>
 endif
-
-function! ReloadSnippets( snippets_dir, ft )
-    if strlen( a:ft ) == 0
-        let filetype = "_"
-    else
-        let filetype = a:ft
-    endif
-
-    call ResetSnippets( filetype )
-    call GetSnippets( a:snippets_dir, filetype )
-endfunction
-
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-
 
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'

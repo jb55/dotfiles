@@ -20,6 +20,8 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 
 export TEXBIN=/usr/texbin
+export SCALA_HOME=$HOME/dev/scala-2.9.0.final
+export HASKELL_HOME=$HOME/Library/Haskell
 export CABALBIN=$HOME/.cabal/bin
 export DEPOT_TOOLS=$HOME/dev/depot_tools
 export M2_REPO=$HOME/.m2/repository
@@ -28,13 +30,13 @@ export ECLIPSE_WORKSPACE=$HOME/src/java
 export MIRAH_BIN=$HOME/dev/mirah-0.0.8.dev/bin
 
 # Customize to your needs...
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:/opt/local/bin:$CABALBIN:$TEXBIN:$DEPOT_TOOLS:$M2_HOME/bin:$MIRAH_BIN
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:/opt/local/bin:$CABALBIN:$TEXBIN:$DEPOT_TOOLS:$M2_HOME/bin:$MIRAH_BIN:$SCALA_HOME/bin:$HASKELL_HOME/bin
 
 # GO
 export GOROOT=$HOME/dev/go
 export GOBIN=$HOME/bin
-export GOOS=linux
-export GOARCH=386
+export GOOS=darwin
+export GOARCH=amd64
 
 # other
 export PAGER=less
