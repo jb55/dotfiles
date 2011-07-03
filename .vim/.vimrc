@@ -16,6 +16,11 @@ set dir=~/.vim/tmp
 exe 'set t_kB=' . nr2char(27) . '[Z'
 set vb t_vb=
 
+if $VIM_CRONTAB == "true"
+  set nobackup
+  set nowritebackup
+endif
+
 " gvim fonts
 if has("gui_running")
   set gfn=Monaco:h12
@@ -107,6 +112,8 @@ au BufRead,BufNewFile *.xsl set foldmethod=syntax
 au BufRead,BufNewFile *.xsl set syn=xml
 au BufRead,BufNewFile *.yaml set syn=yaml
 au BufRead,BufNewFile *.yml set syn=yaml
+au BufRead,BufNewFile *.y set syn=bnf
+au BufRead,BufNewFile *.ly set syn=bn
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 au BufRead,BufNewFile nginx.conf set ft=nginx
 au BufRead,BufNewFile wscript set syn=python

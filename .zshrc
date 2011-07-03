@@ -19,6 +19,7 @@ source $ZSH/oh-my-zsh.sh
 # vi
 bindkey -v
 
+export EDITOR=vim
 export TEXBIN=/usr/texbin
 export SCALA_HOME=$HOME/dev/scala-2.9.0.final
 export HASKELL_HOME=$HOME/Library/Haskell
@@ -28,9 +29,10 @@ export M2_REPO=$HOME/.m2/repository
 export M2_HOME=$HOME/dev/apache-maven-3.0.3
 export ECLIPSE_WORKSPACE=$HOME/src/java
 export MIRAH_BIN=$HOME/dev/mirah-0.0.8.dev/bin
+export D_BIN=$HOME/dev/dmd2/osx/bin
 
 # Customize to your needs...
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:/opt/local/bin:$CABALBIN:$TEXBIN:$DEPOT_TOOLS:$M2_HOME/bin:$MIRAH_BIN:$SCALA_HOME/bin:$HASKELL_HOME/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:/opt/local/bin:$CABALBIN:$TEXBIN:$DEPOT_TOOLS:$M2_HOME/bin:$MIRAH_BIN:$SCALA_HOME/bin:$HASKELL_HOME/bin:$D_BIN
 
 # GO
 export GOROOT=$HOME/dev/go
@@ -53,6 +55,7 @@ alias wget="wget -c"
 alias tmux="tmux -2"
 alias page=$PAGER
 alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
+alias crontab="VIM_CRONTAB=true crontab"
 
 eval `dircolors ~/.dircolors`
 
