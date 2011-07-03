@@ -16,3 +16,6 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = git@github.com:jb55/oh-my-zsh.git
+[submodule ".vim/bundle/vim-racket"]
+	path = .vim/bundle/vim-racket
+	url = https://github.com/wlangstroth/vim-racket.git
