@@ -2,3 +2,4 @@
 .*.swo
 *.so
 *.pyc
+*/tmp/*
