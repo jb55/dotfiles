@@ -41,6 +41,7 @@ export GOOS=darwin
 export GOARCH=amd64
 
 # other
+export EDITOR=vim
 export PAGER=less
 
 # alias
