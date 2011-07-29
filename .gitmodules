@@ -19,3 +19,12 @@
 [submodule ".vim/bundle/vim-racket"]
 	path = .vim/bundle/vim-racket
 	url = https://github.com/wlangstroth/vim-racket.git
+[submodule ".vim/bundle/tlib"]
+	path = .vim/bundle/tlib
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule ".vim/bundle/mw-utils"]
+	path = .vim/bundle/mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule ".vim/bundle/snippets"]
+	path = .vim/bundle/snippets
+	url = git@github.com:jb55/snipmate-snippets.git
