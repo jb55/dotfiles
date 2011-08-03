@@ -130,27 +130,3 @@ snippet sdf
 			${4:// main code}
 		};
 	}
-# singleton
-snippet sing
-	function ${1:Singleton} (${2:argument}) {
-		// the cached instance
-		var instance;
-
-		// rewrite the constructor
-		$1 = function $1($2) {
-			return instance;
-		};
-		
-		// carry over the prototype properties
-		$1.prototype = this;
-
-		// the instance
-		instance = new $1();
-
-		// reset the constructor pointer
-		instance.constructor = $1;
-
-		${3:// code ...}
-
-		return instance;
-	}
