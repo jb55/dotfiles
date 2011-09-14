@@ -89,6 +89,7 @@ let g:clang_snippets = 1
 au BufRead,BufNewFile *.c,*.cpp,*.h set cindent
 au BufRead,BufNewFile *.c,*.cpp,*.h set cino=(0
 au BufRead,BufNewFile *.clay set syn=clay
+au BufRead,BufNewFile *.clay set syn=clay
 au BufRead,BufNewFile *.clay set syntax=clay
 au BufRead,BufNewFile *.clj set syntax=clojure
 au BufRead,BufNewFile *.coffee set ft=coffee
@@ -103,6 +104,7 @@ au BufRead,BufNewFile *.json set ft=json
 au BufRead,BufNewFile *.material set syn=ogre3d_material
 au BufRead,BufNewFile *.md,*.mkd,*.markdown set ft=pdc
 au BufRead,BufNewFile *.mirah set syn=mirah
+au BufRead,BufNewFile *.moon set syn=moon
 au BufRead,BufNewFile *.rkt set syn=racket
 au BufRead,BufNewFile *.rs set syn=rust
 au BufRead,BufNewFile *.scala set syn=scala

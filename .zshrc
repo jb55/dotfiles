@@ -14,6 +14,7 @@ export ZSH_THEME="jb55"
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
 
+export DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
 
 # vi
@@ -29,10 +30,13 @@ export M2_REPO=$HOME/.m2/repository
 export M2_HOME=$HOME/dev/apache-maven-3.0.3
 export ECLIPSE_WORKSPACE=$HOME/src/java
 export MIRAH_BIN=$HOME/dev/mirah-0.0.8.dev/bin
-export D_BIN=$HOME/dev/dmd2/osx/bin
 
 # Customize to your needs...
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:/opt/local/bin:$CABALBIN:$TEXBIN:$DEPOT_TOOLS:$M2_HOME/bin:$MIRAH_BIN:$SCALA_HOME/bin:$HASKELL_HOME/bin:$D_BIN
+export LUA_HOME=/opt/local/share/luarocks
+export LUA_BIN=$LUA_HOME/bin
+
+# Customize to your needs...
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:/opt/local/bin:$CABALBIN:$TEXBIN:$DEPOT_TOOLS:$M2_HOME/bin:$MIRAH_BIN:$SCALA_HOME/bin:$HASKELL_HOME/bin:$LUA_BIN
 
 # GO
 export GOROOT=$HOME/dev/go
