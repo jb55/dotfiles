@@ -22,7 +22,7 @@ bindkey -v
 
 export EDITOR=vim
 export TEXBIN=/usr/texbin
-export SCALA_HOME=$HOME/dev/scala-2.9.0.final
+export SCALA_HOME=$HOME/dev/scala-2.9.1.final
 export HASKELL_HOME=$HOME/Library/Haskell
 export CABALBIN=$HOME/.cabal/bin
 export DEPOT_TOOLS=$HOME/dev/depot_tools
@@ -62,5 +62,5 @@ alias page=$PAGER
 alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
 alias crontab="VIM_CRONTAB=true crontab"
 
-eval `dircolors ~/.dircolors`
+eval `gdircolors ~/.dircolors`
 

@@ -23,7 +23,8 @@ endif
 
 " gvim fonts
 if has("gui_running")
-  set gfn=Monaco:h12
+  set gfn=ProFont:h9
+  set noantialias
 else
 endif
 
@@ -48,6 +49,7 @@ map <F2> :set syn=
 map <F3> "yyiw:grep -r <C-R>y *<CR>
 map <F4> :vs<CR>:vs<CR><F11><C-W>l<C-W>84\|<C-W>l<C-W>84\|<C-W>l
 map <F5> :make -j4<CR>
+map <F6> :!redo deploy<CR>
 
 map <Leader>n :tnext<CR>
 map <Leader>p :tprev<CR>
@@ -149,3 +151,4 @@ endfunction
 
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
+
