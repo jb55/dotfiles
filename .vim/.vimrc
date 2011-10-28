@@ -52,6 +52,7 @@ map <F5> :make -j4<CR>
 map <F6> :!redo deploy<CR>
 
 map <Leader>n :tnext<CR>
+map <Leader>a :%s/\ at\ /\r\ at\ /g<CR>
 map <Leader>p :tprev<CR>
 map <C-N> :cn<CR>
 map <C-P> :cN<CR>
