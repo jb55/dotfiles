@@ -6,6 +6,14 @@
 	diff = auto
   status = false
 [core]
-  excludesfile = $HOME/.conf/.gitignore
+	excludesfile = /Users/jb55/.gitignore_global
 [url "https://github.com/"]
   insteadOf = gh:
+[gui]
+	recentrepo = /Users/jb55/src/js/titania
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

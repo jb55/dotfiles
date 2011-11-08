@@ -14,13 +14,15 @@ export ZSH_THEME="jb55"
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
 
+export DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
 
 # vi
 bindkey -v
 
+export EDITOR=vim
 export TEXBIN=/usr/texbin
-export SCALA_HOME=$HOME/dev/scala-2.9.0.final
+export SCALA_HOME=$HOME/dev/scala-2.9.1.final
 export HASKELL_HOME=$HOME/Library/Haskell
 export CABALBIN=$HOME/.cabal/bin
 export DEPOT_TOOLS=$HOME/dev/depot_tools
@@ -32,8 +34,11 @@ export SCHEME_DIR=$HOME/dev/scheme
 export COSH_BIN=$SCHEME_DIR/cosh/bin
 export VICARE_LIBRARY_PATH=$SCHEME_DIR/scheme-tools:$SCHEME_DIR/bher:$SCHEME_DIR/scheme-transforms:$SCHEME_DIR/cosh:$SCHEME_DIR/board
 
+export LUA_HOME=/opt/local/share/luarocks
+export LUA_BIN=$LUA_HOME/bin
+
 # Customize to your needs...
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:/opt/local/bin:$CABALBIN:$TEXBIN:$DEPOT_TOOLS:$M2_HOME/bin:$MIRAH_BIN:$SCALA_HOME/bin:$HASKELL_HOME/bin:$COSH_BIN
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:/opt/local/bin:$CABALBIN:$TEXBIN:$DEPOT_TOOLS:$M2_HOME/bin:$MIRAH_BIN:$SCALA_HOME/bin:$HASKELL_HOME/bin:$COSH_BIN:$LUA_BIN
 
 # GO
 export GOROOT=$HOME/dev/go
@@ -57,6 +62,7 @@ alias wget="wget -c"
 alias tmux="tmux -2"
 alias page=$PAGER
 alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
+alias crontab="VIM_CRONTAB=true crontab"
 
-eval `dircolors ~/.dircolors`
+eval `gdircolors ~/.dircolors`
 

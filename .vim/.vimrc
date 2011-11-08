@@ -16,9 +16,15 @@ set dir=~/.vim/tmp
 exe 'set t_kB=' . nr2char(27) . '[Z'
 set vb t_vb=
 
+if $VIM_CRONTAB == "true"
+  set nobackup
+  set nowritebackup
+endif
+
 " gvim fonts
 if has("gui_running")
-  set gfn=Monaco:h12
+  set gfn=ProFont:h9
+  set noantialias
 else
 endif
 
@@ -42,7 +48,7 @@ map <F11> :NERDTreeToggle<CR>
 map <F2> :set syn=
 map <F3> "yyiw:grep -r <C-R>y *<CR>
 map <F4> :vs<CR>:vs<CR><F11><C-W>l<C-W>84\|<C-W>l<C-W>84\|<C-W>l
-map <F5> :make <CR>
+map <F5> :make -j4<CR>
 map <F6> :!redo deploy<CR>
 
 map <Leader>n :tnext<CR>
@@ -87,6 +93,7 @@ let g:clang_snippets = 1
 au BufRead,BufNewFile *.c,*.cpp,*.h set cindent
 au BufRead,BufNewFile *.c,*.cpp,*.h set cino=(0
 au BufRead,BufNewFile *.clay set syn=clay
+au BufRead,BufNewFile *.clay set syn=clay
 au BufRead,BufNewFile *.clay set syntax=clay
 au BufRead,BufNewFile *.clj set syntax=clojure
 au BufRead,BufNewFile *.coffee set ft=coffee
@@ -101,6 +108,7 @@ au BufRead,BufNewFile *.json set ft=json
 au BufRead,BufNewFile *.material set syn=ogre3d_material
 au BufRead,BufNewFile *.md,*.mkd,*.markdown set ft=pdc
 au BufRead,BufNewFile *.mirah set syn=mirah
+au BufRead,BufNewFile *.moon set syn=moon
 au BufRead,BufNewFile *.rkt set syn=racket
 au BufRead,BufNewFile *.rs set syn=rust
 au BufRead,BufNewFile *.scala set syn=scala
@@ -111,6 +119,8 @@ au BufRead,BufNewFile *.xsl set foldmethod=syntax
 au BufRead,BufNewFile *.xsl set syn=xml
 au BufRead,BufNewFile *.yaml set syn=yaml
 au BufRead,BufNewFile *.yml set syn=yaml
+au BufRead,BufNewFile *.y set syn=bnf
+au BufRead,BufNewFile *.ly set syn=bn
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 au BufRead,BufNewFile nginx.conf set ft=nginx
 au BufRead,BufNewFile wscript set syn=python
@@ -143,3 +153,4 @@ endfunction
 
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
+
