@@ -38,7 +38,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/ga
 # GO
 export GOROOT=$HOME/dev/go
 export GOBIN=$HOME/bin
-export GOOS=darwin
+export GOOS=linux
 export GOARCH=amd64
 
 # other

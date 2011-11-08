@@ -62,6 +62,9 @@ cmap w!! %!sudo tee > /dev/null %
 nnoremap x "_x
 nnoremap X "_X
 
+" GENIUS
+nnoremap <esc> :noh<return><esc>
+
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 " }}}
