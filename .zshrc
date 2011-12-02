@@ -32,6 +32,7 @@ export ECLIPSE_WORKSPACE=$HOME/src/java
 export MIRAH_BIN=$HOME/dev/mirah-0.0.8.dev/bin
 export SCHEME_DIR=$HOME/dev/scheme
 export COSH_BIN=$SCHEME_DIR/cosh/bin
+export VICARE_BIN=$SCHEME_DIR/vicare/bin
 export VICARE_LIBRARY_PATH=$SCHEME_DIR/scheme-tools:$SCHEME_DIR/bher:$SCHEME_DIR/scheme-transforms:$SCHEME_DIR/cosh:$SCHEME_DIR/board
 
 export LUA_HOME=/opt/local/share/luarocks
