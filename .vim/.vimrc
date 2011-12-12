@@ -3,7 +3,6 @@ set ts=2
 set shiftwidth=2
 set expandtab
 set ai
-set background=dark
 set t_Co=256
 set hlsearch
 set hidden
