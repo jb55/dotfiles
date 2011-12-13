@@ -3,7 +3,6 @@ set ts=2
 set shiftwidth=2
 set expandtab
 set ai
-set background=dark
 set t_Co=256
 set hlsearch
 set hidden
@@ -69,6 +68,8 @@ cmap w!! %!sudo tee > /dev/null %
 nnoremap x "_x
 nnoremap X "_X
 
+nnoremap <ESC> :noh<CR><ESC>
+
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 " }}}
@@ -126,29 +127,18 @@ au BufRead,BufNewFile wscript set syn=python
 " }}}
 
 function! PlaySound()
+" uncomment to annoy coworkers
 " silent! exec '!afplay ~/audio/typewriter_keystroke.wav &'
 endfunction
 autocmd CursorMovedI * call PlaySound()
 
 " Tabular bindings
-
 if exists(":Tabularize")
-  nmap <Leader>t= :Tabularize /=<CR>
-  vmap <Leader>t= :Tabularize /=<CR>
-  nmap <Leader>t: :Tabularize /:\zs<CR>
-  vmap <Leader>t: :Tabularize /:\zs<CR>
+  nmap <Leader>= :Tabularize /=<CR>
+  vmap <Leader>= :Tabularize /=<CR>
+  nmap <Leader>: :Tabularize /:\zs<CR>
+  vmap <Leader>: :Tabularize /:\zs<CR>
 endif
-
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
 
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
