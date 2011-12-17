@@ -1,0 +1,3 @@
+[submodule "clang_complete"]
+	path = .vim/bundle/clang_complete
+	url = https://github.com/Rip-Rip/clang_complete.git
