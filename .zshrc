@@ -80,4 +80,4 @@ alias page=$PAGER
 alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
 alias crontab="VIM_CRONTAB=true crontab"
 
-eval `gdircolors ~/.dircolors`
+eval `dircolors ~/.dircolors`
