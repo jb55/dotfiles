@@ -50,8 +50,10 @@ map <F4> :vs<CR>:vs<CR><F11><C-W>l<C-W>84\|<C-W>l<C-W>84\|<C-W>l
 map <F5> :make -j4<CR>
 map <F6> :!redo deploy<CR>
 
-map <A-n>n :tnext<CR>
-map <A-p>p :tprev<CR>
+
+
+map <Leader>] :tnext<CR>
+map <Leader>[ :tprev<CR>
 map <C-n> :cn<CR>
 map <C-p> :cN<CR>
 map <Leader>a :%s/\ at\ /\r\ at\ /g<CR>
@@ -68,8 +70,6 @@ cmap w!! %!sudo tee > /dev/null %
 
 nnoremap x "_x
 nnoremap X "_X
-
-nnoremap <ESC> :noh<CR><ESC>
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
