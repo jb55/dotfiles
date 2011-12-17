@@ -36,11 +36,26 @@ export VICARE_BIN=$SCHEME_DIR/vicare/bin
 export VICARE_LIBRARY_PATH=$SCHEME_DIR/scheme-tools:$SCHEME_DIR/bher:$SCHEME_DIR/scheme-transforms:$SCHEME_DIR/cosh:$SCHEME_DIR/board
 export ROY_BIN=$HOME/dev/roy
 
+export NODE_PATH=/usr/local/lib/node_modules
+
 export LUA_HOME=/opt/local/share/luarocks
 export LUA_BIN=$LUA_HOME/bin
 
 # Customize to your needs...
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:/opt/local/bin:$CABALBIN:$TEXBIN:$DEPOT_TOOLS:$M2_HOME/bin:$MIRAH_BIN:$SCALA_HOME/bin:$HASKELL_HOME/bin:$COSH_BIN:$LUA_BIN:$ROY_BIN
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:$PATH
+
+export PATH=$CABALBIN:$PATH
+export PATH=$TEXBIN:$PATH
+export PATH=$DEPOT_TOOLS:$PATH
+export PATH=$M2_HOME/bin:$PATH
+export PATH=$MIRAH_BIN:$PATH
+export PATH=$SCALA_HOME/bin:$PATH
+export PATH=$HASKELL_HOME/bin:$PATH
+export PATH=$COSH_BIN:$PATH
+export PATH=$LUA_BIN:$PATH
+export PATH=$ROY_BIN:$PATH
+
+source $HOME/.profile
 
 # GO
 export GOROOT=$HOME/dev/go
@@ -66,5 +81,4 @@ alias page=$PAGER
 alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
 alias crontab="VIM_CRONTAB=true crontab"
 
-eval `dircolors ~/.dircolors`
-
+eval `gdircolors ~/.dircolors`
