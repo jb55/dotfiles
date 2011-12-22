@@ -50,11 +50,12 @@ map <F4> :vs<CR>:vs<CR><F11><C-W>l<C-W>84\|<C-W>l<C-W>84\|<C-W>l
 map <F5> :make -j4<CR>
 map <F6> :!redo deploy<CR>
 
-map <A-n>n :tnext<CR>
-map <A-p>p :tprev<CR>
-map <Leader>a :%s/\ at\ /\r\ at\ /g<CR>
+map <Leader>] :tnext<CR>
+map <Leader>[ :tprev<CR>
 map <C-n> :cn<CR>
 map <C-p> :cN<CR>
+map <Leader>a :%s/\ at\ /\r\ at\ /g<CR>
+
 map <Leader>y :Lodgeit<CR>
 map <Leader>e ma:%s/\s\+$//g<CR>`a
 nmap <Leader>rr :call ReloadSnippets(&filetype)<CR>
@@ -84,6 +85,8 @@ let g:SuperTabDefaultCompletionType = "context"
 
 let g:clang_complete_copen = 1
 let g:clang_snippets = 1
+let g:clang_use_library = 1
+
 
 " }}}
 
@@ -130,14 +133,20 @@ function! PlaySound()
 endfunction
 autocmd CursorMovedI * call PlaySound()
 
-" Tabular bindings
-if exists(":Tabularize")
-  nmap <Leader>= :Tabularize /=<CR>
-  vmap <Leader>= :Tabularize /=<CR>
-  nmap <Leader>: :Tabularize /:\zs<CR>
-  vmap <Leader>: :Tabularize /:\zs<CR>
-endif
-
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
+
+" Tabular bindings
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a, :Tabularize /,<CR>
+  vmap <Leader>a, :Tabularize /,<CR>
+  nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+  vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+  nmap <Leader>a:: :Tabularize /::<CR>
+  vmap <Leader>a:: :Tabularize /::<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
 
