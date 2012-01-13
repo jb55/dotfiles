@@ -89,6 +89,7 @@ let g:clang_use_library = 1
 
 set wildignore+=*/.git/*,*/.hg/*,/.svn/*
 
+let g:ctrlp_extensions = ['tag']
 
 " }}}
 
