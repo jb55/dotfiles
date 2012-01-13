@@ -87,6 +87,8 @@ let g:clang_complete_copen = 1
 let g:clang_snippets = 1
 let g:clang_use_library = 1
 
+set wildignore+=*/.git/*,*/.hg/*,/.svn/*
+
 
 " }}}
 
@@ -149,4 +151,7 @@ if exists(":Tabularize")
   nmap <Leader>=: :Tabularize /:\zs<CR>
   vmap <Leader>=: :Tabularize /:\zs<CR>
 endif
+
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
 
