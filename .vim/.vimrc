@@ -50,8 +50,6 @@ map <F4> :vs<CR>:vs<CR><F11><C-W>l<C-W>84\|<C-W>l<C-W>84\|<C-W>l
 map <F5> :make -j4<CR>
 map <F6> :!redo deploy<CR>
 
-
-
 map <Leader>] :tnext<CR>
 map <Leader>[ :tprev<CR>
 map <C-n> :cn<CR>
@@ -88,6 +86,8 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:clang_complete_copen = 1
 let g:clang_snippets = 1
 let g:clang_use_library = 1
+
+set wildignore+=*/.git/*,*/.hg/*,/.svn/*
 
 
 " }}}
@@ -151,4 +151,5 @@ endif
 
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
+
 
