@@ -138,15 +138,15 @@ call pathogen#runtime_append_all_bundles()
 
 " Tabular bindings
 if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a, :Tabularize /,<CR>
-  vmap <Leader>a, :Tabularize /,<CR>
-  nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-  vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-  nmap <Leader>a:: :Tabularize /::<CR>
-  vmap <Leader>a:: :Tabularize /::<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
+  nmap <Leader>== :Tabularize /=<CR>
+  vmap <Leader>== :Tabularize /=<CR>
+  nmap <Leader>=, :Tabularize /,<CR>
+  vmap <Leader>=, :Tabularize /,<CR>
+  nmap <Leader>=<Bar> :Tabularize /<Bar><CR>
+  vmap <Leader>=<Bar> :Tabularize /<Bar><CR>
+  nmap <Leader>=:: :Tabularize /::<CR>
+  vmap <Leader>=:: :Tabularize /::<CR>
+  nmap <Leader>=: :Tabularize /:\zs<CR>
+  vmap <Leader>=: :Tabularize /:\zs<CR>
 endif
 
