@@ -41,10 +41,10 @@ let maplocalleader = "\\"
 nnoremap <F10> :set invpaste paste?<CR>
 imap <F10> <C-O><F10>
 set pastetoggle=<F10>
+nmap <F9> :TagbarToggle<CR>
 map <F8> :!ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++
 map <F12> :TlistToggle<CR>
 map <F11> :NERDTreeToggle<CR>
-map <F2> :set syn=
 map <F3> "yyiw:grep -r <C-R>y *<CR>
 map <F4> :vs<CR>:vs<CR><F11><C-W>l<C-W>84\|<C-W>l<C-W>84\|<C-W>l
 map <F5> :make -j4<CR>
@@ -52,8 +52,8 @@ map <F6> :!redo deploy<CR>
 
 map <Leader>] :tnext<CR>
 map <Leader>[ :tprev<CR>
-map <C-n> :cn<CR>
-map <C-p> :cN<CR>
+map <S-l> :cn<CR>
+map <S-h> :cN<CR>
 map <Leader>a :%s/\ at\ /\r\ at\ /g<CR>
 
 map <Leader>y :Lodgeit<CR>
@@ -63,6 +63,7 @@ vmap <Leader>fx !xmllint --format -<CR>
 vmap <Leader>fj !jade -o "{ prettyprint: true }"<CR>
 
 map <Leader>cr :!newclay % && ./main<CR>
+
 
 cmap w!! %!sudo tee > /dev/null %
 
@@ -90,6 +91,7 @@ let g:clang_use_library = 1
 set wildignore+=*/.git/*,*/.hg/*,/.svn/*
 
 let g:ctrlp_extensions = ['tag']
+let g:EasyMotion_leader_key = '<Leader>'
 
 " }}}
 
