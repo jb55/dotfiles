@@ -57,7 +57,7 @@ map <S-h> :cN<CR>
 map <Leader>a :%s/\ at\ /\r\ at\ /g<CR>
 
 map <Leader>y :Lodgeit<CR>
-map <Leader>e ma:%s/\s\+$//g<CR>`a
+nnoremap <Leader>e ma:%s/\s\+$//g<CR>`a
 nmap <Leader>rr :call ReloadSnippets(&filetype)<CR>
 vmap <Leader>fx !xmllint --format -<CR>
 vmap <Leader>fj !jade -o "{ prettyprint: true }"<CR>
@@ -70,7 +70,19 @@ cmap w!! %!sudo tee > /dev/null %
 nnoremap x "_x
 nnoremap X "_X
 
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+" Tabular bindings
+if exists(":Tabularize")
+  nmap <Leader>== :Tabularize /=<CR>
+  vmap <Leader>== :Tabularize /=<CR>
+  nmap <Leader>=, :Tabularize /,<CR>
+  vmap <Leader>=, :Tabularize /,<CR>
+  nmap <Leader>=<Bar> :Tabularize /<Bar><CR>
+  vmap <Leader>=<Bar> :Tabularize /<Bar><CR>
+  nmap <Leader>=:: :Tabularize /::<CR>
+  vmap <Leader>=:: :Tabularize /::<CR>
+  nmap <Leader>=: :Tabularize /:\zs<CR>
+  vmap <Leader>=: :Tabularize /:\zs<CR>
+endif
 
 " }}}
 
@@ -88,7 +100,7 @@ let g:clang_complete_copen = 1
 let g:clang_snippets = 1
 let g:clang_use_library = 1
 
-set wildignore+=*/.git/*,*/.hg/*,/.svn/*
+set wildignore+=*/.git/*,*/.hg/*,/.svn/*,*/node_modules/*,*/.redo/*
 
 let g:ctrlp_extensions = ['tag']
 let g:EasyMotion_leader_key = '<Leader>'
@@ -111,6 +123,8 @@ au BufRead,BufNewFile *.go set syntax=go
 au BufRead,BufNewFile *.java set sw=4
 au BufRead,BufNewFile *.java set ts=4
 au BufRead,BufNewFile *.json set ft=json
+au BufRead,BufNewFile *.less set syn=less
+au BufRead,BufNewFile *.ly set syn=bn
 au BufRead,BufNewFile *.material set syn=ogre3d_material
 au BufRead,BufNewFile *.md,*.mkd,*.markdown set ft=pdc
 au BufRead,BufNewFile *.mirah set syn=mirah
@@ -123,10 +137,9 @@ au BufRead,BufNewFile *.thrift set syn=thrift
 au BufRead,BufNewFile *.xsl let g:xml_syntax_folding = 1
 au BufRead,BufNewFile *.xsl set foldmethod=syntax
 au BufRead,BufNewFile *.xsl set syn=xml
+au BufRead,BufNewFile *.y set syn=bnf
 au BufRead,BufNewFile *.yaml set syn=yaml
 au BufRead,BufNewFile *.yml set syn=yaml
-au BufRead,BufNewFile *.y set syn=bnf
-au BufRead,BufNewFile *.ly set syn=bn
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 au BufRead,BufNewFile nginx.conf set ft=nginx
 au BufRead,BufNewFile wscript set syn=python
@@ -137,23 +150,6 @@ function! PlaySound()
 " silent! exec '!afplay ~/audio/typewriter_keystroke.wav &'
 endfunction
 autocmd CursorMovedI * call PlaySound()
-
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
-
-" Tabular bindings
-if exists(":Tabularize")
-  nmap <Leader>== :Tabularize /=<CR>
-  vmap <Leader>== :Tabularize /=<CR>
-  nmap <Leader>=, :Tabularize /,<CR>
-  vmap <Leader>=, :Tabularize /,<CR>
-  nmap <Leader>=<Bar> :Tabularize /<Bar><CR>
-  vmap <Leader>=<Bar> :Tabularize /<Bar><CR>
-  nmap <Leader>=:: :Tabularize /::<CR>
-  vmap <Leader>=:: :Tabularize /::<CR>
-  nmap <Leader>=: :Tabularize /:\zs<CR>
-  vmap <Leader>=: :Tabularize /:\zs<CR>
-endif
 
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
