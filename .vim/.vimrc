@@ -57,7 +57,7 @@ map <S-h> :cN<CR>
 map <Leader>a :%s/\ at\ /\r\ at\ /g<CR>
 
 map <Leader>y :Lodgeit<CR>
-nnoremap <Leader>e ma:%s/\s\+$//g<CR>`a
+map <Leader>r ma:%s/\s\+$//g<CR>`a
 nmap <Leader>rr :call ReloadSnippets(&filetype)<CR>
 vmap <Leader>fx !xmllint --format -<CR>
 vmap <Leader>fj !jade -o "{ prettyprint: true }"<CR>
