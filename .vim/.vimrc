@@ -57,10 +57,10 @@ map <S-h> :cN<CR>
 map <Leader>a :%s/\ at\ /\r\ at\ /g<CR>
 
 map <Leader>y :Lodgeit<CR>
-map <Leader>r ma:%s/\s\+$//g<CR>`a
+nmap <Leader>r ma:%s/\s\+$//g<CR>`a
 nmap <Leader>rr :call ReloadSnippets(&filetype)<CR>
-vmap <Leader>fx !xmllint --format -<CR>
-vmap <Leader>fj !jade -o "{ prettyprint: true }"<CR>
+map <Leader><Leader>x :silent %!xmllint --encode UTF-8 --format -<CR>
+vmap <Leader><Leader>j !jade -o "{ prettyprint: true }"<CR>
 
 map <Leader>cr :!newclay % && ./main<CR>
 
@@ -130,6 +130,7 @@ au BufRead,BufNewFile *.md,*.mkd,*.markdown set ft=pdc
 au BufRead,BufNewFile *.mirah set syn=mirah
 au BufRead,BufNewFile *.moon set syn=moon
 au BufRead,BufNewFile *.rkt set syn=racket
+au BufRead,BufNewFile *.roy set syn=roy
 au BufRead,BufNewFile *.rs set syn=rust
 au BufRead,BufNewFile *.scala set syn=scala
 au BufRead,BufNewFile *.swig set syn=swig
