@@ -2,6 +2,8 @@ snippet #!
 	#!/usr/bin/env python
 snippet imp
 	import ${1:module}
+snippet from
+	from ${1:package} import ${2:module}
 # Module Docstring
 snippet docs
 	'''
@@ -20,7 +22,6 @@ snippet dowh
 			break
 snippet with
 	with ${1:expr} as ${2:var}:
-		${3:# code...}
 		${3:# code...}
 # New Class
 snippet cl
@@ -62,7 +63,7 @@ snippet ei
 		${2:code...}
 # For
 snippet for
-	for ${1:item} in ${2:items}
+	for ${1:item} in ${2:items}:
 		${3:code...}
 # Encodes
 snippet cutf8
@@ -120,26 +121,19 @@ snippet ipdb
 # ipython debugger (pdbbb)
 snippet pdbbb
 	import pdbpp; pdbpp.set_trace()
-# GPL
-snippet gpl
-	# ${1:Name}
-	# Copyright (C) `strftime("%Y")` ${2:Author}
-	#
-	# This program is free software: you can redistribute it and/or modify
-	# it under the terms of the GNU General Public License as published by
-	# the Free Software Foundation, either version 3 of the License, or
-	# (at your option) any later version.
-	#
-	# This program is distributed in the hope that it will be useful,
-	# but WITHOUT ANY WARRANTY; without even the implied warranty of
-	# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	# GNU General Public License for more details.
-	#
-	# You should have received a copy of the GNU General Public License
-	# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-	
-	${3:#code}
 snippet "
 	"""
 	${1:doc}
 	"""
+# test function/method
+snippet test
+	def test_${1:description}(${2:`indent('.') ? 'self' : ''`}):
+		${3:pass}
+# test case
+snippet testcase
+	class ${1:ExampleCase}(unittest.TestCase):
+		
+		def test_${2:description}(self):
+			${3:pass}
+snippet fut
+	from __future__ import ${1}
