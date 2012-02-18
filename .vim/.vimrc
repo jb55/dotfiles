@@ -120,6 +120,7 @@ au BufRead,BufNewFile *.galaxy set syn=galaxy
 au BufRead,BufNewFile *.glsl set syntax=glsl
 au BufRead,BufNewFile *.gnu set syn=gnuplot
 au BufRead,BufNewFile *.go set syntax=go
+au BufRead,BufNewFile *.j set syn=julia
 au BufRead,BufNewFile *.java set sw=4
 au BufRead,BufNewFile *.java set ts=4
 au BufRead,BufNewFile *.json set ft=json
