@@ -79,5 +79,6 @@ alias tmux="tmux -2"
 alias page=$PAGER
 alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
 alias crontab="VIM_CRONTAB=true crontab"
+alias st="git sourcetree"
 
 eval `dircolors ~/.dircolors`
