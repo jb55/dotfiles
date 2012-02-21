@@ -19,3 +19,4 @@
 	trustExitCode = true
 [alias]
 	sourcetree = !open -a SourceTree .
+	default = !git config branch.master.remote origin && git config branch.master.merge refs/heads/master
