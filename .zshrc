@@ -34,7 +34,6 @@ export SCHEME_DIR=$HOME/dev/scheme
 export COSH_BIN=$SCHEME_DIR/cosh/bin
 export VICARE_BIN=$SCHEME_DIR/vicare/bin
 export VICARE_LIBRARY_PATH=$SCHEME_DIR/scheme-tools:$SCHEME_DIR/bher:$SCHEME_DIR/scheme-transforms:$SCHEME_DIR/cosh:$SCHEME_DIR/board
-export ROY_BIN=$HOME/dev/roy
 
 export NODE_PATH=/usr/local/lib/node_modules
 
@@ -53,7 +52,6 @@ export PATH=$SCALA_HOME/bin:$PATH
 export PATH=$HASKELL_HOME/bin:$PATH
 export PATH=$COSH_BIN:$PATH
 export PATH=$LUA_BIN:$PATH
-export PATH=$ROY_BIN:$PATH
 
 source $HOME/.profile
 

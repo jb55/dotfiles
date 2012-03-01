@@ -22,8 +22,8 @@ endif
 
 " gvim fonts
 if has("gui_running")
-  set gfn=ProFont:h9
-  set noantialias
+  set gfn=Monaco:h12
+  set antialias
 else
 endif
 
