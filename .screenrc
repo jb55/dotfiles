@@ -1,5 +1,6 @@
 defutf8 on
 defflow off
+defscrollback 5000
 vbell off
 startup_message off
 
