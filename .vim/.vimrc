@@ -100,7 +100,10 @@ let g:clang_complete_copen = 1
 let g:clang_snippets = 1
 let g:clang_use_library = 1
 
-set wildignore+=*/.git/*,*/.hg/*,/.svn/*,*/node_modules/*,*/.redo/*
+set wildignore+=*/.git/*,*/.hg/*,/.svn/*,*/.redo/*
+let g:ctrlp_custom_ignore = 'node_modules$'
+
+let g:syntastic_javascript_checker = 'jshint'
 
 let g:ctrlp_extensions = ['tag']
 let g:EasyMotion_leader_key = '<Leader>'
