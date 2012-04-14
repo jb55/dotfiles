@@ -1,9 +1,11 @@
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
 " Settings {{{
 set ts=2
 set shiftwidth=2
 set expandtab
 set ai
-set t_Co=256
 set hlsearch
 set hidden
 set nowrap
@@ -20,23 +22,36 @@ if $VIM_CRONTAB == "true"
   set nowritebackup
 endif
 
+syntax on
+filetype plugin on
+
 " gvim fonts
 if has("gui_running")
   set gfn=ProFont:h9
   set noantialias
+  colorscheme wombat
 else
+  set t_Co=256
+  colorscheme wombat256
 endif
 
-colorscheme wombat256
-
-syntax on
-filetype plugin on
 " }}}
 
 " Mappings {{{
 
 let mapleader = "\\"
 let maplocalleader = "\\"
+
+" digraphs
+
+" lambda λ
+imap <C-j> <C-k>l*
+
+" right arrow →
+imap <C-l> <C-k>->
+
+" left arrow ←
+imap <C-h> <C-k><-
 
 nnoremap <F10> :set invpaste paste?<CR>
 imap <F10> <C-O><F10>
@@ -114,8 +129,6 @@ let g:EasyMotion_leader_key = '<Leader>'
 au BufRead,BufNewFile *.c,*.cpp,*.h set cindent
 au BufRead,BufNewFile *.c,*.cpp,*.h set cino=(0
 au BufRead,BufNewFile *.clay set syn=clay
-au BufRead,BufNewFile *.clay set syn=clay
-au BufRead,BufNewFile *.clay set syntax=clay
 au BufRead,BufNewFile *.clj set syntax=clojure
 au BufRead,BufNewFile *.coffee set ft=coffee
 au BufRead,BufNewFile *.do set syn=sh
@@ -128,6 +141,7 @@ au BufRead,BufNewFile *.java set sw=4
 au BufRead,BufNewFile *.java set ts=4
 au BufRead,BufNewFile *.json set ft=json
 au BufRead,BufNewFile *.less set syn=less
+au BufRead,BufNewFile *.ll set syn=llvm
 au BufRead,BufNewFile *.ly set syn=bn
 au BufRead,BufNewFile *.material set syn=ogre3d_material
 au BufRead,BufNewFile *.md,*.mkd,*.markdown set ft=pdc
@@ -138,11 +152,14 @@ au BufRead,BufNewFile *.roy set syn=roy
 au BufRead,BufNewFile *.rs set syn=rust
 au BufRead,BufNewFile *.scala set syn=scala
 au BufRead,BufNewFile *.swig set syn=swig
+au BufRead,BufNewFile *.td set syn=tablegen
 au BufRead,BufNewFile *.thrift set syn=thrift
+au BufRead,BufNewFile *.x set syn=alex
 au BufRead,BufNewFile *.xsl let g:xml_syntax_folding = 1
 au BufRead,BufNewFile *.xsl set foldmethod=syntax
 au BufRead,BufNewFile *.xsl set syn=xml
 au BufRead,BufNewFile *.y set syn=bnf
+au BufRead,BufNewFile *.y.pp set syn=happy
 au BufRead,BufNewFile *.yaml set syn=yaml
 au BufRead,BufNewFile *.yml set syn=yaml
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx
@@ -155,6 +172,3 @@ function! PlaySound()
 " silent! exec '!afplay ~/audio/typewriter_keystroke.wav &'
 endfunction
 autocmd CursorMovedI * call PlaySound()
-
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
