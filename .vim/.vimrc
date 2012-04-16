@@ -51,7 +51,7 @@ imap <C-j> <C-k>l*
 imap <C-l> <C-k>->
 
 " left arrow ←
-imap <C-h> <C-k><-
+"imap <C-h> <C-k><-
 
 nnoremap <F10> :set invpaste paste?<CR>
 imap <F10> <C-O><F10>

@@ -20,8 +20,10 @@ source $ZSH/oh-my-zsh.sh
 # vi
 bindkey -v
 
+
 export EDITOR=vim
 export TEXBIN=/usr/texbin
+export PLAY_HOME=$HOME/dev/play-2.0
 export SCALA_HOME=$HOME/dev/scala-2.9.1.final
 export HASKELL_HOME=$HOME/Library/Haskell
 export CABALBIN=$HOME/.cabal/bin
@@ -53,6 +55,7 @@ export PATH=$HASKELL_HOME/bin:$PATH
 export PATH=$COSH_BIN:$PATH
 export PATH=$LUA_BIN:$PATH
 export PATH=$ROY_BIN:$PATH
+export PATH=$PLAY_HOME:$PATH
 
 source $HOME/.profile
 
