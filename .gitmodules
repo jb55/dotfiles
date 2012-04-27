@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/smartinput"]
 	path = .vim/bundle/smartinput
 	url = gh:kana/vim-smartinput.git
+[submodule ".vim/bundle/indent-guides"]                                          
+  path = .vim/bundle/indent-guides                                               
+  url = https://github.com/nathanaelkane/vim-indent-guides.git
