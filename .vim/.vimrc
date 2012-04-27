@@ -1,5 +1,9 @@
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+set nocp
+
+call pathogen#infect()
+
+syntax on
+filetype plugin indent on
 
 " Settings {{{
 set ts=2
@@ -9,7 +13,6 @@ set ai
 set hlsearch
 set hidden
 set nowrap
-set nocp
 set ruler
 set colorcolumn=81
 set relativenumber
@@ -21,9 +24,6 @@ if $VIM_CRONTAB == "true"
   set nobackup
   set nowritebackup
 endif
-
-syntax on
-filetype plugin on
 
 " gvim fonts
 if has("gui_running")
@@ -51,7 +51,10 @@ imap <C-j> <C-k>l*
 imap <C-l> <C-k>->
 
 " left arrow ←
-"imap <C-h> <C-k><-
+imap <C-h> <C-k><-
+
+" left arrow ←
+imap <C-o> <C-k>Ob
 
 nnoremap <F10> :set invpaste paste?<CR>
 imap <F10> <C-O><F10>
@@ -136,7 +139,7 @@ au BufRead,BufNewFile *.galaxy set syn=galaxy
 au BufRead,BufNewFile *.glsl set syntax=glsl
 au BufRead,BufNewFile *.gnu set syn=gnuplot
 au BufRead,BufNewFile *.go set syntax=go
-au BufRead,BufNewFile *.j set syn=julia
+au BufRead,BufNewFile *.hx set syn=haxe
 au BufRead,BufNewFile *.java set sw=4
 au BufRead,BufNewFile *.java set ts=4
 au BufRead,BufNewFile *.json set ft=json
@@ -148,7 +151,6 @@ au BufRead,BufNewFile *.md,*.mkd,*.markdown set ft=pdc
 au BufRead,BufNewFile *.mirah set syn=mirah
 au BufRead,BufNewFile *.moon set syn=moon
 au BufRead,BufNewFile *.rkt set syn=racket
-au BufRead,BufNewFile *.roy set syn=roy
 au BufRead,BufNewFile *.rs set syn=rust
 au BufRead,BufNewFile *.scala set syn=scala
 au BufRead,BufNewFile *.swig set syn=swig
