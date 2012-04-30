@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/snippets"]
 	path = .vim/bundle/snippets
 	url = https://github.com/jb55/snipmate-snippets.git
+[submodule ".vim/bundle/ghcmod"]
+	path = .vim/bundle/ghcmod
+	url = https://github.com/eagletmt/ghcmod-vim.git
