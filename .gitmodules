@@ -25,3 +25,9 @@
 [submodule ".vim/bundle/smartinput"]
 	path = .vim/bundle/smartinput
 	url = gh:kana/vim-smartinput.git
+[submodule ".vim/bundle/indent-guides"]                                          
+  path = .vim/bundle/indent-guides                                               
+  url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule ".vim/bundle/snippets"]
+	path = .vim/bundle/snippets
+	url = https://jb55@github.com/jb55/snipmate-snippets.git
