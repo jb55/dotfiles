@@ -51,7 +51,7 @@ imap <C-j> <C-k>l*
 imap <C-l> <C-k>->
 
 " left arrow ←
-imap <C-h> <C-k><-
+imap <C-g> <C-k><-
 
 " left arrow ←
 imap <C-o> <C-k>Ob
@@ -126,6 +126,11 @@ let g:syntastic_javascript_checker = 'jshint'
 let g:ctrlp_extensions = ['tag']
 let g:EasyMotion_leader_key = '<Leader>'
 
+let g:ctrlp_prompt_mappings = {
+    \ 'PrtBS()': ['<c-h>'],
+    \ 'PrtCurLeft()': ['<left>'],
+    \ }
+
 " }}}
 
 " Autocommands {{{
@@ -174,3 +179,4 @@ function! PlaySound()
 " silent! exec '!afplay ~/audio/typewriter_keystroke.wav &'
 endfunction
 autocmd CursorMovedI * call PlaySound()
+

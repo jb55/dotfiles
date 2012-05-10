@@ -1,0 +1,6 @@
+
+clear Control
+keycode 66 = Control_L
+add Control = Control_L
+add Control = Control_R
+keycode 37 = ISO_Level3_Shift
