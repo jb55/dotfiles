@@ -27,8 +27,6 @@ endif
 
 " gvim fonts
 if has("gui_running")
-  set gfn=ProFont:h9
-  set noantialias
   colorscheme wombat
 else
   set t_Co=256
@@ -60,12 +58,12 @@ nnoremap <F10> :set invpaste paste?<CR>
 imap <F10> <C-O><F10>
 set pastetoggle=<F10>
 nmap <F9> :TagbarToggle<CR>
-map <F8> :!ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++
+map <F8> :make tags<CR>
 map <F12> :TlistToggle<CR>
 map <F11> :NERDTreeToggle<CR>
 map <F3> "yyiw:grep -r <C-R>y *<CR>
 map <F4> :vs<CR>:vs<CR><F11><C-W>l<C-W>84\|<C-W>l<C-W>84\|<C-W>l
-map <F5> :make -j4<CR>
+map <F5> :make<CR>
 map <F6> :!redo deploy<CR>
 
 map <Leader>] :tnext<CR>
@@ -125,6 +123,8 @@ let g:syntastic_javascript_checker = 'jshint'
 
 let g:ctrlp_extensions = ['tag']
 let g:EasyMotion_leader_key = '<Leader>'
+
+let g:ctrlp_switch_buffer=0
 
 let g:ctrlp_prompt_mappings = {
     \ 'PrtBS()': ['<c-h>'],

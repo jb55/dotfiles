@@ -36,6 +36,7 @@ export SCHEME_DIR=$HOME/dev/scheme
 export COSH_BIN=$SCHEME_DIR/cosh/bin
 export VICARE_LIBRARY_PATH=$SCHEME_DIR/scheme-tools:$SCHEME_DIR/bher:$SCHEME_DIR/scheme-transforms:$SCHEME_DIR/cosh:$SCHEME_DIR/board
 export ROY_BIN=$HOME/dev/roy
+export JAVA_BIN=$HOME/dev/jre1.7.0_04/bin
 
 export NODE_PATH=/usr/local/lib/node_modules
 
@@ -56,6 +57,7 @@ export PATH=$COSH_BIN:$PATH
 export PATH=$LUA_BIN:$PATH
 export PATH=$ROY_BIN:$PATH
 export PATH=$PLAY_HOME:$PATH
+export PATH=$JAVA_BIN:$PATH
 
 source $HOME/.profile
 
