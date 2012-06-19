@@ -16,15 +16,9 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule ".vim/bundle/indent-guides"]
-	path = .vim/bundle/indent-guides
-	url = https://github.com/nathanaelkane/vim-indent-guides.git
 [submodule ".vim/bundle/roy"]
 	path = .vim/bundle/roy
 	url = gh:jb55/Vim-Roy.git
-[submodule ".vim/bundle/smartinput"]
-	path = .vim/bundle/smartinput
-	url = gh:kana/vim-smartinput.git
 [submodule ".vim/bundle/snippets"]
 	path = .vim/bundle/snippets
 	url = https://github.com/jb55/snipmate-snippets.git
