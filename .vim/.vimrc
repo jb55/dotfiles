@@ -66,6 +66,7 @@ map <F4> :vs<CR>:vs<CR><F11><C-W>l<C-W>84\|<C-W>l<C-W>84\|<C-W>l
 map <F5> :make<CR>
 map <F6> :!redo deploy<CR>
 
+map <C-S-j> kddpkJ
 map <Leader>] :tnext<CR>
 map <Leader>[ :tprev<CR>
 map <S-l> :cn<CR>
