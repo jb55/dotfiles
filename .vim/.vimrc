@@ -77,7 +77,7 @@ map <Leader>y :Lodgeit<CR>
 nmap <Leader>r ma:%s/\s\+$//g<CR>`a
 nmap <Leader>rr :call ReloadSnippets(&filetype)<CR>
 map <Leader><Leader>x :silent %!xmllint --encode UTF-8 --format -<CR>
-vmap <Leader><Leader>j !jade -o "{ prettyprint: true }"<CR>
+vmap <Leader><Leader>j !jade -p % -o "{ prettyprint: true }"<CR>
 
 map <Leader>cr :!newclay % && ./main<CR>
 

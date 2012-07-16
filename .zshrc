@@ -23,20 +23,20 @@ bindkey -v
 
 export EDITOR=vim
 export TEXBIN=/usr/texbin
-export PLAY_HOME=$HOME/dev/play-2.0
-export SCALA_HOME=$HOME/dev/scala-2.9.1.final
+export PLAY_HOME=$HOME/dev/play-2.0.2
+export SCALA_HOME=$HOME/dev/scala-2.9.2
 export HASKELL_HOME=$HOME/Library/Haskell
 export CABALBIN=$HOME/.cabal/bin
 export DEPOT_TOOLS=$HOME/dev/depot_tools
-export M2_REPO=$HOME/.m2/repository
-export M2_HOME=$HOME/dev/apache-maven-3.0.3
 export ECLIPSE_WORKSPACE=$HOME/src/java
 export MIRAH_BIN=$HOME/dev/mirah-0.0.8.dev/bin
 export SCHEME_DIR=$HOME/dev/scheme
 export COSH_BIN=$SCHEME_DIR/cosh/bin
 export VICARE_LIBRARY_PATH=$SCHEME_DIR/scheme-tools:$SCHEME_DIR/bher:$SCHEME_DIR/scheme-transforms:$SCHEME_DIR/cosh:$SCHEME_DIR/board
 export ROY_BIN=$HOME/dev/roy
-export JAVA_BIN=$HOME/dev/jre1.7.0_04/bin
+export JAVA_HOME=$HOME/dev/jdk1.7.0_05
+export JAVA_BIN=$HOME/dev/jdk1.7.0_05/bin
+export CLOJURESCRIPT_HOME=$HOME/dev/clojurescript
 
 export NODE_PATH=/usr/local/lib/node_modules
 
@@ -58,6 +58,8 @@ export PATH=$LUA_BIN:$PATH
 export PATH=$ROY_BIN:$PATH
 export PATH=$PLAY_HOME:$PATH
 export PATH=$JAVA_BIN:$PATH
+export PATH=$SCALA_HOME/bin:$PATH
+export PATH=$CLOJURESCRIPT_HOME/bin:$PATH
 
 source $HOME/.profile
 
@@ -85,5 +87,6 @@ alias page=$PAGER
 alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
 alias crontab="VIM_CRONTAB=true crontab"
 alias st="git sourcetree"
+alias clip="xclip -selection clipboard"
 
 eval `dircolors ~/.dircolors`
