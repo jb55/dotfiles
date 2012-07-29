@@ -29,7 +29,6 @@ endif
 if has("gui_running")
   set gfn=Monaco:h12
   set antialias
-  colorscheme wombat
 else
   set t_Co=256
   colorscheme wombat256
@@ -51,7 +50,7 @@ imap <C-j> <C-k>l*
 imap <C-l> <C-k>->
 
 " left arrow ←
-imap <C-h> <C-k><-
+imap <C-g> <C-k><-
 
 " left arrow ←
 imap <C-o> <C-k>Ob
@@ -60,14 +59,15 @@ nnoremap <F10> :set invpaste paste?<CR>
 imap <F10> <C-O><F10>
 set pastetoggle=<F10>
 nmap <F9> :TagbarToggle<CR>
-map <F8> :!ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++
+map <F8> :make tags<CR>
 map <F12> :TlistToggle<CR>
 map <F11> :NERDTreeToggle<CR>
 map <F3> "yyiw:grep -r <C-R>y *<CR>
 map <F4> :vs<CR>:vs<CR><F11><C-W>l<C-W>84\|<C-W>l<C-W>84\|<C-W>l
-map <F5> :make -j4<CR>
+map <F5> :make<CR>
 map <F6> :!redo deploy<CR>
 
+map <C-S-j> kddpkJ
 map <Leader>] :tnext<CR>
 map <Leader>[ :tprev<CR>
 map <S-l> :cn<CR>
@@ -78,7 +78,7 @@ map <Leader>y :Lodgeit<CR>
 nmap <Leader>r ma:%s/\s\+$//g<CR>`a
 nmap <Leader>rr :call ReloadSnippets(&filetype)<CR>
 map <Leader><Leader>x :silent %!xmllint --encode UTF-8 --format -<CR>
-vmap <Leader><Leader>j !jade -o "{ prettyprint: true }"<CR>
+vmap <Leader><Leader>j !jade -p % -o "{ prettyprint: true }"<CR>
 
 map <Leader>cr :!newclay % && ./main<CR>
 
@@ -125,6 +125,13 @@ let g:syntastic_javascript_checker = 'jshint'
 
 let g:ctrlp_extensions = ['tag']
 let g:EasyMotion_leader_key = '<Leader>'
+
+let g:ctrlp_switch_buffer=0
+
+let g:ctrlp_prompt_mappings = {
+    \ 'PrtBS()': ['<c-h>'],
+    \ 'PrtCurLeft()': ['<left>'],
+    \ }
 
 " }}}
 

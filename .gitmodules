@@ -1,6 +1,3 @@
-[submodule "clang_complete"]
-	path = .vim/bundle/clang_complete
-	url = https://github.com/Rip-Rip/clang_complete.git
 [submodule ".vim/bundle/ctrlp"]
 	path = .vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
@@ -19,9 +16,9 @@
 [submodule ".vim/bundle/roy"]
 	path = .vim/bundle/roy
 	url = gh:jb55/Vim-Roy.git
-[submodule ".vim/bundle/smartinput"]
-	path = .vim/bundle/smartinput
-	url = gh:kana/vim-smartinput.git
-[submodule ".vim/bundle/indent-guides"]                                          
-  path = .vim/bundle/indent-guides                                               
-  url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule ".vim/bundle/snippets"]
+	path = .vim/bundle/snippets
+	url = https://github.com/jb55/snipmate-snippets.git
+[submodule ".vim/bundle/ghcmod"]
+	path = .vim/bundle/ghcmod
+	url = https://github.com/eagletmt/ghcmod-vim.git
