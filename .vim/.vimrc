@@ -119,19 +119,14 @@ let g:clang_snippets = 1
 let g:clang_use_library = 1
 
 set wildignore+=*/.git/*,*/.hg/*,/.svn/*,*/.redo/*
-let g:ctrlp_custom_ignore = 'node_modules$'
 
 let g:syntastic_javascript_checker = 'jshint'
 
-let g:ctrlp_extensions = ['tag']
 let g:EasyMotion_leader_key = '<Leader>'
 
+let g:ctrlp_custom_ignore = 'node_modules$'
+let g:ctrlp_extensions = ['tag']
 let g:ctrlp_switch_buffer=0
-
-let g:ctrlp_prompt_mappings = {
-    \ 'PrtBS()': ['<c-h>'],
-    \ 'PrtCurLeft()': ['<left>'],
-    \ }
 
 " }}}
 
