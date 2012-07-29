@@ -61,7 +61,7 @@ export PATH=$ROY_BIN:$PATH
 export PATH=$SCALA_HOME/bin:$PATH
 export PATH=$TEXBIN:$PATH
 
-source $HOME/.profile
+[ -e $HOME/.profile ] && source $HOME/.profile
 
 # GO
 export GOROOT=$HOME/dev/go
@@ -89,4 +89,4 @@ alias crontab="VIM_CRONTAB=true crontab"
 alias st="git sourcetree"
 alias clip="xclip -selection clipboard"
 
-eval `gdircolors ~/.dircolors`
+#eval `dircolors ~/.dircolors`
