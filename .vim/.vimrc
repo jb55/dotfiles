@@ -30,6 +30,7 @@ if has("gui_running")
   colorscheme wombat
 else
   set t_Co=256
+  set clipboard=unnamed
   colorscheme wombat256
 endif
 
