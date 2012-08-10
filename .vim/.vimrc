@@ -31,6 +31,7 @@ if has("gui_running")
   set antialias
 else
   set t_Co=256
+  set clipboard=unnamed
   colorscheme wombat256
 endif
 
@@ -63,9 +64,10 @@ map <F8> :make tags<CR>
 map <F12> :TlistToggle<CR>
 map <F11> :NERDTreeToggle<CR>
 map <F3> "yyiw:grep -r <C-R>y *<CR>
-map <F4> :vs<CR>:vs<CR><F11><C-W>l<C-W>84\|<C-W>l<C-W>84\|<C-W>l
-map <F5> :make<CR>
-map <F6> :!redo deploy<CR>
+map <F3> :silent make \| redraw! \| cc<CR>
+map <F4> :call RCmd("make")<CR>
+map <F6> :make<CR>
+map <F6> :!make deploy<CR>
 
 map <C-S-j> kddpkJ
 map <Leader>] :tnext<CR>
@@ -82,8 +84,9 @@ vmap <Leader><Leader>j !jade -p % -o "{ prettyprint: true }"<CR>
 
 map <Leader>cr :!newclay % && ./main<CR>
 
-
 cmap w!! %!sudo tee > /dev/null %
+cmap c! call RCmd("
+cmap g! call GRCmd("
 
 nnoremap x "_x
 nnoremap X "_X
@@ -177,3 +180,11 @@ function! PlaySound()
 endfunction
 autocmd CursorMovedI * call PlaySound()
 
+function! RCmd(cmd)
+  :silent! exe '!echo "cd ' . getcwd() . ' && ' . a:cmd . '" > /tmp/cmds'
+  :redraw!
+endfunction
+
+function! GRCmd(cmd)
+  :call RCmd("git --no-pager " . a:cmd)
+endfunction
