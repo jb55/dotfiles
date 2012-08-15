@@ -84,8 +84,10 @@ vmap <Leader><Leader>j !jade -p % -o "{ prettyprint: true }"<CR>
 map <Leader>cr :!newclay % && ./main<CR>
 
 cmap w!! %!sudo tee > /dev/null %
-cmap c! call RCmd("
-cmap g! call GRCmd("
+cmap c! call RCmd("")<Left><Left>
+cmap g! call GRCmd("")<Left><Left>
+cmap wg !git commit % -m ""<Left>
+cmap wag !git commit -am ""<Left>
 
 nnoremap x "_x
 nnoremap X "_X
