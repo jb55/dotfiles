@@ -22,3 +22,9 @@
 [submodule ".vim/bundle/vimproc"]
 	path = .vim/bundle/vimproc
 	url = git://github.com/jb55/vimproc.git
+[submodule ".vim/bundle/hdevtools"]
+	path = .vim/bundle/hdevtools
+	url = git://github.com/bitc/vim-hdevtools.git
+[submodule ".vim/bundle/indent-guides"]
+	path = .vim/bundle/indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
