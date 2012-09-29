@@ -1,9 +1,14 @@
 set nocp
 
-call pathogen#infect()
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_enable_on_vim_startup = 1
 
 syntax on
 filetype plugin indent on
+
+call pathogen#infect()
 
 " Settings {{{
 set ts=2
@@ -73,6 +78,8 @@ map <Leader>] :tnext<CR>
 map <Leader>[ :tprev<CR>
 map <S-l> :cn<CR>
 map <S-h> :cN<CR>
+nmap <C-h> gT<CR>
+nmap <C-l> gt<CR>
 map <Leader>a :%s/\ at\ /\r\ at\ /g<CR>
 
 map <Leader>y :Lodgeit<CR>
@@ -93,18 +100,16 @@ nnoremap x "_x
 nnoremap X "_X
 
 " Tabular bindings
-if exists(":Tabularize")
-  nmap <Leader>== :Tabularize /=<CR>
-  vmap <Leader>== :Tabularize /=<CR>
-  nmap <Leader>=, :Tabularize /,<CR>
-  vmap <Leader>=, :Tabularize /,<CR>
-  nmap <Leader>=<Bar> :Tabularize /<Bar><CR>
-  vmap <Leader>=<Bar> :Tabularize /<Bar><CR>
-  nmap <Leader>=:: :Tabularize /::<CR>
-  vmap <Leader>=:: :Tabularize /::<CR>
-  nmap <Leader>=: :Tabularize /:\zs<CR>
-  vmap <Leader>=: :Tabularize /:\zs<CR>
-endif
+nmap <Leader>== :Tabularize /=<CR>
+vmap <Leader>== :Tabularize /=<CR>
+nmap <Leader>=, :Tabularize /,<CR>
+vmap <Leader>=, :Tabularize /,<CR>
+nmap <Leader>=<Bar> :Tabularize /<Bar><CR>
+vmap <Leader>=<Bar> :Tabularize /<Bar><CR>
+nmap <Leader>=:: :Tabularize /::<CR>
+vmap <Leader>=:: :Tabularize /::<CR>
+nmap <Leader>=: :Tabularize /:\zs<CR>
+vmap <Leader>=: :Tabularize /:\zs<CR>
 
 " }}}
 
@@ -194,3 +199,21 @@ endfunction
 function! GRCmd(cmd)
   :call RCmd("git --no-pager " . a:cmd)
 endfunction
+
+" Highlight a column in csv text.
+" :Csv 1    " highlight first column
+" :Csv 12   " highlight twelfth column
+" :Csv 0    " switch off highlight
+function! CSVH(colnr)
+  if a:colnr > 1
+    let n = a:colnr - 1
+    execute 'match Keyword /^\([^,]*,\)\{'.n.'}\zs[^,]*/'
+    execute 'normal! 0'.n.'f,'
+  elseif a:colnr == 1
+    match Keyword /^[^,]*/
+    normal! 0
+  else
+    match
+  endif
+endfunction
+command! -nargs=1 Csv :call CSVH(<args>)
