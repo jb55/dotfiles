@@ -24,6 +24,7 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 
 
+export SCANBUILD=$HOME/dev/checker
 export CABALBIN=$HOME/.cabal/bin
 export CLOJURESCRIPT_HOME=$HOME/dev/clojurescript
 export COSH_BIN=$SCHEME_DIR/cosh/bin
@@ -32,7 +33,7 @@ export ECLIPSE_WORKSPACE=$HOME/src/java
 export EDITOR=vim
 export HASKELL_HOME=$HOME/Library/Haskell
 export JAVA_BIN=$HOME/dev/jdk1.7.0_05/bin
-export JAVA_HOME=$HOME/dev/jdk1.7.0_05
+export JAVA_HOME=$(/usr/libexec/java_home)
 export MIRAH_BIN=$HOME/dev/mirah-0.0.8.dev/bin
 export PLAY_HOME=$HOME/dev/play-2.0.2
 export ROY_BIN=$HOME/dev/roy
@@ -63,6 +64,7 @@ export PATH=$PLAY_HOME:$PATH
 export PATH=$ROY_BIN:$PATH
 export PATH=$SCALA_HOME/bin:$PATH
 export PATH=$TEXBIN:$PATH
+export PATH=$SCANBUILD:$PATH
 
 [ -e $HOME/.profile ] && source $HOME/.profile
 
