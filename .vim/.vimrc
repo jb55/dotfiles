@@ -169,6 +169,7 @@ au BufRead,BufNewFile *.scala set syn=scala
 au BufRead,BufNewFile *.swig set syn=swig
 au BufRead,BufNewFile *.td set syn=tablegen
 au BufRead,BufNewFile *.thrift set syn=thrift
+au BufRead,BufNewFile *.ts set syn=typescript
 au BufRead,BufNewFile *.x set syn=alex
 au BufRead,BufNewFile *.xsl let g:xml_syntax_folding = 1
 au BufRead,BufNewFile *.xsl set foldmethod=syntax
