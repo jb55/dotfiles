@@ -1,8 +1,6 @@
 import XMonad
-import XMonad.Config.Gnome
-import XMonad.Layout.NoBorders
-main = xmonad
-    gnomeConfig {
-            terminal    = "term"
-          , layoutHook  = smartBorders (layoutHook gnomeConfig)
-    }
+import OSXMonad.Core
+
+main = osxmonad defaultConfig {
+     layoutHook = Tall 1 (3/100) (1/2)
+   }
