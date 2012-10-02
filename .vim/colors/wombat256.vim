@@ -283,7 +283,7 @@ call <SID>X("Todo",			"857b6f",	"",			"italic")
 			"Error
 			"Ignore
 
-call <SID>X("IndentGuidesOdd",		"", "3f3f3f", "none")
+call <SID>X("IndentGuidesOdd",		"", "353535", "none")
 call <SID>X("IndentGuidesEven",		"", "2d2d2d",	"none")
 
 hi! link VisualNOS	Visual
