@@ -9,7 +9,7 @@
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
+	url = git@github.com:jb55/syntastic.git
 [submodule ".vim/bundle/roy"]
 	path = .vim/bundle/roy
 	url = gh:jb55/Vim-Roy.git
@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/indent-guides"]
 	path = .vim/bundle/indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule ".vim/bundle/powerline"]
+	path = .vim/bundle/powerline
+	url = git://github.com/Lokaltog/vim-powerline.git

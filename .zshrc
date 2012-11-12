@@ -23,6 +23,7 @@ source $ZSH/oh-my-zsh.sh
 # vi
 bindkey -v
 
+export PLATFORM="mac"
 
 export SCANBUILD=$HOME/dev/checker
 export CABALBIN=$HOME/.cabal/bin
@@ -93,5 +94,7 @@ alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
 alias crontab="VIM_CRONTAB=true crontab"
 alias st="git sourcetree"
 alias clip="xclip -selection clipboard"
+
+export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 
 #eval `dircolors ~/.dircolors`

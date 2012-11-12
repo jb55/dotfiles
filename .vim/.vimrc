@@ -68,10 +68,10 @@ nmap <F9> :TagbarToggle<CR>
 map <F8> :make tags<CR>
 map <F12> :TlistToggle<CR>
 map <F11> :NERDTreeToggle<CR>
-map <F3> "yyiw:grep -r <C-R>y *<CR>
+map <F2> "yyiw:!ag <C-R>y *<CR>
 map <F3> :silent make \| redraw! \| cc<CR>
 map <F4> :call RCmd("make")<CR>
-map <F6> :make<CR>
+map <F5> :make<CR>
 map <F6> :!make deploy<CR>
 
 map <C-S-j> kddpkJ
@@ -83,6 +83,9 @@ nmap <C-h> gT<CR>
 nmap <C-l> gt<CR>
 map <Leader>a :%s/\ at\ /\r\ at\ /g<CR>
 
+" Replace whitespace before and after commas
+map <Leader>, :%s/\s\+,/,/g<CR>:%s/,\s\+/,/g<CR>
+
 map <Leader>y :Lodgeit<CR>
 nmap <Leader>r ma:%s/\s\+$//g<CR>`a
 nmap <Leader>rr :call ReloadSnippets(&filetype)<CR>
@@ -93,6 +96,7 @@ map <Leader>cr :!newclay % && ./main<CR>
 
 cmap w!! %!sudo tee > /dev/null %
 cmap c! call RCmd("")<Left><Left>
+cmap t! Tabularize /
 cmap g! call GRCmd("")<Left><Left>
 
 cmap wg w<CR>:!git commit % -m ""<Left>
@@ -116,6 +120,7 @@ vmap <Leader>=: :Tabularize /:\zs<CR>
 " }}}
 
 " Plugin Options {{{
+let g:Powerline_symbols = 'fancy'
 
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
@@ -129,7 +134,7 @@ let g:clang_complete_copen = 1
 let g:clang_snippets = 1
 let g:clang_use_library = 1
 
-set wildignore+=*/.git/*,*/.hg/*,/.svn/*,*/.redo/*
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|\.hg\|\.svn\|\.redo'
 
 let g:syntastic_javascript_checker = 'jshint'
 
@@ -170,6 +175,7 @@ au BufRead,BufNewFile *.swig set syn=swig
 au BufRead,BufNewFile *.td set syn=tablegen
 au BufRead,BufNewFile *.thrift set syn=thrift
 au BufRead,BufNewFile *.ts set syn=typescript
+au BufRead,BufNewFile *.ts set filetype=typescript
 au BufRead,BufNewFile *.x set syn=alex
 au BufRead,BufNewFile *.xsl let g:xml_syntax_folding = 1
 au BufRead,BufNewFile *.xsl set foldmethod=syntax
