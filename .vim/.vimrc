@@ -83,12 +83,13 @@ nmap <C-l> gt<CR>
 map <Leader>a :%s/\ at\ /\r\ at\ /g<CR>
 
 map <Leader>y :Lodgeit<CR>
+nmap <Leader>C :ccl<CR>
 nmap <Leader>r ma:%s/\s\+$//g<CR>`a
 nmap <Leader>rr :call ReloadSnippets(&filetype)<CR>
 map <Leader><Leader>x :silent %!xmllint --encode UTF-8 --format -<CR>
 vmap <Leader><Leader>j !jade -p % -o "{ prettyprint: true }"<CR>
 
-map <Leader>cr :!newclay % && ./main<CR>
+"map <Leader>cr :!newclay % && ./main<CR>
 
 cmap w!! %!sudo tee > /dev/null %
 cmap c! call RCmd("")<Left><Left>
