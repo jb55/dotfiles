@@ -2,5 +2,6 @@ import XMonad
 import OSXMonad.Core
 
 main = osxmonad defaultConfig {
-     layoutHook = Tall 1 (3/100) (1/2)
-   }
+         modMask = mod1Mask .|. mod4Mask,
+         keys = osxKeys
+       }
