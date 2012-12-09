@@ -37,3 +37,9 @@
 [submodule ".vim/bundle/ag"]
 	path = .vim/bundle/ag
 	url = git://github.com/epmatsw/ag.vim.git
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "typescript-ctags"]
+	path = typescript-ctags
+	url = git@github.com:jb55/typescript-ctags.git

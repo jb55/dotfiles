@@ -32,6 +32,7 @@ endif
 
 " gvim fonts
 if has("gui_running")
+  set antialias
   colorscheme wombat
 else
   set t_Co=256
@@ -128,8 +129,8 @@ let g:clang_complete_copen = 1
 let g:clang_snippets = 1
 let g:clang_use_library = 1
 
-set wildignore+=*/.git/*,*/.hg/*,/.svn/*,*/.redo/*
-let g:ctrlp_custom_ignore = 'node_modules$'
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|\.hg\|\.svn\|\.redo\|dist\|cabal-dev'
 
 let g:syntastic_javascript_checker = 'jshint'
 
@@ -219,3 +220,4 @@ function! CSVH(colnr)
   endif
 endfunction
 command! -nargs=1 Csv :call CSVH(<args>)
+
