@@ -34,6 +34,7 @@ endif
 if has("gui_running")
   set gfn=Monaco:h12
   set antialias
+  colorscheme wombat
 else
   set t_Co=256
   set clipboard=unnamed
@@ -135,7 +136,8 @@ let g:clang_complete_copen = 1
 let g:clang_snippets = 1
 let g:clang_use_library = 1
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|\.hg\|\.svn\|\.redo'
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|\.hg\|\.svn\|\.redo\|dist\|cabal-dev'
 
 let g:syntastic_javascript_checker = 'jshint'
 
@@ -222,3 +224,4 @@ function! CSVH(colnr)
   endif
 endfunction
 command! -nargs=1 Csv :call CSVH(<args>)
+
