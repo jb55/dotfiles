@@ -110,7 +110,6 @@ cmap Agc Ag -G coffee$ ""<Left>
 cmap wg w<CR>:!git commit % -m ""<Left>
 cmap wag wa<CR>:!git commit -am ""<Left>
 
-
 nnoremap x "_x
 nnoremap X "_X
 
@@ -119,6 +118,7 @@ nmap <Leader>== :Tabularize /=<CR>
 vmap <Leader>== :Tabularize /=<CR>
 nmap <Leader>=, :Tabularize /,<CR>
 vmap <Leader>=, :Tabularize /,<CR>
+cmap <Leader>t Tabularize /
 nmap <Leader>=<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>=<Bar> :Tabularize /<Bar><CR>
 nmap <Leader>=:: :Tabularize /::<CR>
