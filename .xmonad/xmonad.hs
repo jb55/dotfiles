@@ -9,6 +9,7 @@ main = xmonad $
     gnomeConfig {
             terminal    = "term"
           , layoutHook  = smartBorders (layoutHook gnomeConfig)
+          , modMask     = mod4Mask
     }
     `additionalKeysP` myKeys
 
