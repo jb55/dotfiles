@@ -91,5 +91,17 @@ alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
 alias crontab="VIM_CRONTAB=true crontab"
 alias st="git sourcetree"
 alias clip="xclip -selection clipboard"
+alias open=gnome-open
 
 eval `dircolors ~/.dircolors`
+
+alias android-connect=mtpfs /media/s2 -o allow_other
+alias android-disconnect=fusermount -u /media/s2
+
+# sysreq for apple keyboards
+
+APPLE_KEYBOARD="/dev/input/by-id/usb-Apple_Inc._Apple_Keyboard-event-kbd"
+if [ -f $APPLE_KEYBOARD ];
+then
+  echo "458856 99" | keyfuzz -s -d $APPLE_KEYBOARD
+fi

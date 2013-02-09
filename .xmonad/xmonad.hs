@@ -1,5 +1,6 @@
 import XMonad
 import XMonad.Config.Gnome
+import XMonad.Actions.CycleWS
 import XMonad.Layout.NoBorders
 import XMonad.Util.EZConfig
 import XMonad.Prompt.Shell
@@ -15,4 +16,7 @@ main = xmonad $
 
 myKeys = [
     ("M-x", shellPrompt defaultXPConfig)
+  , ("M-w", toggleWS)
+  , ("M-n", nextWS)
+  , ("M-p", prevWS)
   ]
