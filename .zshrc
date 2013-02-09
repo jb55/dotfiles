@@ -79,7 +79,6 @@ export PAGER=less
 # alias
 alias githist="git reflog show | grep '}: commit' | nl | sort -nr | nl | sort -nr | cut --fields=1,3 | sed s/commit://g | sed -e 's/HEAD*@{[0-9]*}://g'"
 alias ack="ack --pager='less -R'"
-alias glg="git log --graph"
 alias csv="column -s, -t <"
 alias vless="/usr/share/vim/vim72/macros/less.sh"
 alias cpptags="ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++"
@@ -91,17 +90,46 @@ alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
 alias crontab="VIM_CRONTAB=true crontab"
 alias st="git sourcetree"
 alias clip="xclip -selection clipboard"
+alias prettyjson="python -mjson.tool"
+alias catt="pygmentize -O style=monokai -f console256 -g"
 alias open=gnome-open
-
-eval `dircolors ~/.dircolors`
 
 alias android-connect=mtpfs /media/s2 -o allow_other
 alias android-disconnect=fusermount -u /media/s2
 
 # sysreq for apple keyboards
-
 APPLE_KEYBOARD="/dev/input/by-id/usb-Apple_Inc._Apple_Keyboard-event-kbd"
 if [ -f $APPLE_KEYBOARD ];
 then
   echo "458856 99" | keyfuzz -s -d $APPLE_KEYBOARD
 fi
+
+export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
+
+eval `dircolors $HOME/.dircolors`
+
+extract () {
+    if [ -f $1 ] ; then
+      case $1 in
+        *.tar.bz2)   tar xjf $1     ;;
+        *.tar.gz)    tar xzf $1     ;;
+        *.bz2)       bunzip2 $1     ;;
+        *.rar)       unrar e $1     ;;
+        *.gz)        gunzip $1      ;;
+        *.tar)       tar xf $1      ;;
+        *.tbz2)      tar xjf $1     ;;
+        *.tgz)       tar xzf $1     ;;
+        *.zip)       unzip $1       ;;
+        *.Z)         uncompress $1  ;;
+        *.7z)        7z x $1        ;;
+        *)     echo "'$1' cannot be extracted via extract()" ;;
+         esac
+     else
+         echo "'$1' is not a valid file"
+     fi
+}
+
+mcd() {
+  mkdir -p "$1" && cd "$1";
+}
+
