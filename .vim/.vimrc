@@ -139,10 +139,10 @@ let g:EasyMotion_leader_key = '<Leader>'
 
 let g:ctrlp_switch_buffer=0
 
-let g:ctrlp_prompt_mappings = {
-    \ 'PrtBS()': ['<c-h>'],
-    \ 'PrtCurLeft()': ['<left>'],
-    \ }
+"let g:ctrlp_prompt_mappings = {
+"    \ 'PrtBS()': ['<c-h>'],
+"    \ 'PrtCurLeft()': ['<left>'],
+"    \ }
 
 " }}}
 

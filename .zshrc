@@ -93,6 +93,17 @@ alias clip="xclip -selection clipboard"
 alias prettyjson="python -mjson.tool"
 alias catt="pygmentize -O style=monokai -f console256 -g"
 alias tmuxa="tmux a -t"
+alias open=gnome-open
+
+alias android-connect=mtpfs /media/s2 -o allow_other
+alias android-disconnect=fusermount -u /media/s2
+
+# sysreq for apple keyboards
+APPLE_KEYBOARD="/dev/input/by-id/usb-Apple_Inc._Apple_Keyboard-event-kbd"
+if [ -f $APPLE_KEYBOARD ];
+then
+  echo "458856 99" | keyfuzz -s -d $APPLE_KEYBOARD
+fi
 
 export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 
@@ -122,3 +133,4 @@ extract () {
 mcd() {
   mkdir -p "$1" && cd "$1";
 }
+
