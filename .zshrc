@@ -92,6 +92,7 @@ alias st="git sourcetree"
 alias clip="xclip -selection clipboard"
 alias prettyjson="python -mjson.tool"
 alias catt="pygmentize -O style=monokai -f console256 -g"
+alias tmuxa="tmux a -t"
 
 export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 
