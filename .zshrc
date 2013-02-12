@@ -92,6 +92,7 @@ alias st="git sourcetree"
 alias clip="xclip -selection clipboard"
 alias prettyjson="python -mjson.tool"
 alias catt="pygmentize -O style=monokai -f console256 -g"
+alias tmuxa="tmux a -t"
 alias open=gnome-open
 
 alias android-connect=mtpfs /media/s2 -o allow_other
