@@ -23,8 +23,6 @@ source $ZSH/oh-my-zsh.sh
 # vi
 bindkey -v
 
-export PLATFORM="mac"
-
 export SCANBUILD=$HOME/dev/checker
 export CABALBIN=$HOME/.cabal/bin
 export CLOJURESCRIPT_HOME=$HOME/dev/clojurescript
@@ -66,7 +64,6 @@ export PATH=$ROY_BIN:$PATH
 export PATH=$SCALA_HOME/bin:$PATH
 export PATH=$TEXBIN:$PATH
 export PATH=$SCANBUILD:$PATH
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 [ -e $HOME/.profile ] && source $HOME/.profile
 
