@@ -1,22 +1,7 @@
 import XMonad
-import XMonad.Config.Gnome
-import XMonad.Actions.CycleWS
-import XMonad.Layout.NoBorders
-import XMonad.Util.EZConfig
-import XMonad.Prompt.Shell
-import XMonad.Prompt
+import OSXMonad.Core
 
-main = xmonad $
-    gnomeConfig {
-            terminal    = "term"
-          , layoutHook  = smartBorders (layoutHook gnomeConfig)
-          , modMask     = mod4Mask
-    }
-    `additionalKeysP` myKeys
-
-myKeys = [
-    ("M-x", shellPrompt defaultXPConfig)
-  , ("M-w", toggleWS)
-  , ("M-n", nextWS)
-  , ("M-p", prevWS)
-  ]
+main = osxmonad defaultConfig {
+           modMask = mod4Mask .|. controlMask
+         , keys = osxKeys
+       }
