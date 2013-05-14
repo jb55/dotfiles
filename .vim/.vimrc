@@ -132,7 +132,7 @@ let g:clang_use_library = 1
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|\.hg\|\.svn\|\.redo\|dist\|cabal-dev'
 
-let g:syntastic_javascript_checker = 'jshint --laxcomma'
+let g:syntastic_javascript_checker = 'jshint'
 
 let g:ctrlp_extensions = ['tag']
 let g:EasyMotion_leader_key = '<Leader>'

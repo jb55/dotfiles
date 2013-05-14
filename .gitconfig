@@ -7,7 +7,7 @@
   status = false
 [core]
 	excludesfile = /Users/jb55/.gitignore_global
-[url "https://github.com/"]
+[url "git@github.com:"]
   insteadOf = gh:
 [gui]
 	recentrepo = /Users/jb55/src/js/titania

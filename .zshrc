@@ -37,8 +37,8 @@ export SCHEME_DIR=$HOME/dev/scheme
 export COSH_BIN=$SCHEME_DIR/cosh/bin
 export VICARE_LIBRARY_PATH=$SCHEME_DIR/scheme-tools:$SCHEME_DIR/bher:$SCHEME_DIR/scheme-transforms:$SCHEME_DIR/cosh:$SCHEME_DIR/board
 export ROY_BIN=$HOME/dev/roy
-export JAVA_HOME=$HOME/dev/jdk1.7.0_05
-export JAVA_BIN=$HOME/dev/jdk1.7.0_05/bin
+export JAVA_HOME=$HOME/dev/jdk1.7.0_21
+export JAVA_BIN=$HOME/dev/jdk1.7.0_21/bin
 export CLOJURESCRIPT_HOME=$HOME/dev/clojurescript
 
 export NODE_PATH=/usr/local/lib/node_modules
