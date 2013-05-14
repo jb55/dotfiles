@@ -23,23 +23,24 @@ source $ZSH/oh-my-zsh.sh
 # vi
 bindkey -v
 
-
-export EDITOR=vim
-export TEXBIN=/usr/texbin
-export PLAY_HOME=$HOME/dev/play-2.0.2
-export SCALA_HOME=$HOME/dev/scala-2.9.2
-export HASKELL_HOME=$HOME/Library/Haskell
+export SCANBUILD=$HOME/dev/checker
 export CABALBIN=$HOME/.cabal/bin
+export CLOJURESCRIPT_HOME=$HOME/dev/clojurescript
+export COSH_BIN=$SCHEME_DIR/cosh/bin
 export DEPOT_TOOLS=$HOME/dev/depot_tools
 export ECLIPSE_WORKSPACE=$HOME/src/java
+export EDITOR=vim
+export HASKELL_HOME=$HOME/Library/Haskell
 export MIRAH_BIN=$HOME/dev/mirah-0.0.8.dev/bin
-export SCHEME_DIR=$HOME/dev/scheme
-export COSH_BIN=$SCHEME_DIR/cosh/bin
-export VICARE_LIBRARY_PATH=$SCHEME_DIR/scheme-tools:$SCHEME_DIR/bher:$SCHEME_DIR/scheme-transforms:$SCHEME_DIR/cosh:$SCHEME_DIR/board
+export PLAY_HOME=$HOME/dev/play-2.0.2
 export ROY_BIN=$HOME/dev/roy
+export SCALA_HOME=$HOME/dev/scala-2.9.2
+export SCHEME_DIR=$HOME/dev/scheme
+export TEXBIN=/usr/texbin
+export VICARE_BIN=$SCHEME_DIR/vicare/bin
+export VICARE_LIBRARY_PATH=$SCHEME_DIR/scheme-tools:$SCHEME_DIR/bher:$SCHEME_DIR/scheme-transforms:$SCHEME_DIR/cosh:$SCHEME_DIR/board
 export JAVA_HOME=$HOME/dev/jdk1.7.0_21
 export JAVA_BIN=$HOME/dev/jdk1.7.0_21/bin
-export CLOJURESCRIPT_HOME=$HOME/dev/clojurescript
 
 export NODE_PATH=/usr/local/lib/node_modules
 
@@ -50,21 +51,21 @@ export LUA_BIN=$LUA_HOME/bin
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:$PATH
 
 export PATH=$CABALBIN:$PATH
-export PATH=$TEXBIN:$PATH
+export PATH=$CLOJURESCRIPT_HOME/bin:$PATH
+export PATH=$COSH_BIN:$PATH
 export PATH=$DEPOT_TOOLS:$PATH
+export PATH=$HASKELL_HOME/bin:$PATH
+export PATH=$JAVA_BIN:$PATH
+export PATH=$LUA_BIN:$PATH
 export PATH=$M2_HOME/bin:$PATH
 export PATH=$MIRAH_BIN:$PATH
-export PATH=$SCALA_HOME/bin:$PATH
-export PATH=$HASKELL_HOME/bin:$PATH
-export PATH=$COSH_BIN:$PATH
-export PATH=$LUA_BIN:$PATH
-export PATH=$ROY_BIN:$PATH
 export PATH=$PLAY_HOME:$PATH
-export PATH=$JAVA_BIN:$PATH
+export PATH=$ROY_BIN:$PATH
 export PATH=$SCALA_HOME/bin:$PATH
-export PATH=$CLOJURESCRIPT_HOME/bin:$PATH
+export PATH=$TEXBIN:$PATH
+export PATH=$SCANBUILD:$PATH
 
-source $HOME/.profile
+[ -e $HOME/.profile ] && source $HOME/.profile
 
 # GO
 export GOROOT=$HOME/dev/go
@@ -90,47 +91,20 @@ alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
 alias crontab="VIM_CRONTAB=true crontab"
 alias st="git sourcetree"
 alias clip="xclip -selection clipboard"
+alias ls="ls --color"
 alias prettyjson="python -mjson.tool"
 alias catt="pygmentize -O style=monokai -f console256 -g"
 alias tmuxa="tmux a -t"
+
 alias open=gnome-open
+alias attach="grabssh; screen -rD"
+alias fixssh="source $HOME/bin/fixssh"
 
-alias android-connect=mtpfs /media/s2 -o allow_other
-alias android-disconnect=fusermount -u /media/s2
-
-# sysreq for apple keyboards
-APPLE_KEYBOARD="/dev/input/by-id/usb-Apple_Inc._Apple_Keyboard-event-kbd"
-if [ -f $APPLE_KEYBOARD ];
-then
-  echo "458856 99" | keyfuzz -s -d $APPLE_KEYBOARD
+# fix ssh agent forwarding in screen
+FIXSSH=$HOME/bin/fixssh
+if [[ $TERM == screen* ]] && [[ -f $FIXSSH ]]; then
+  source $FIXSSH
 fi
 
 export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
-
-eval `dircolors $HOME/.dircolors`
-
-extract () {
-    if [ -f $1 ] ; then
-      case $1 in
-        *.tar.bz2)   tar xjf $1     ;;
-        *.tar.gz)    tar xzf $1     ;;
-        *.bz2)       bunzip2 $1     ;;
-        *.rar)       unrar e $1     ;;
-        *.gz)        gunzip $1      ;;
-        *.tar)       tar xf $1      ;;
-        *.tbz2)      tar xjf $1     ;;
-        *.tgz)       tar xzf $1     ;;
-        *.zip)       unzip $1       ;;
-        *.Z)         uncompress $1  ;;
-        *.7z)        7z x $1        ;;
-        *)     echo "'$1' cannot be extracted via extract()" ;;
-         esac
-     else
-         echo "'$1' is not a valid file"
-     fi
-}
-
-mcd() {
-  mkdir -p "$1" && cd "$1";
-}
 

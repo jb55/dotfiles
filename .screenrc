@@ -12,3 +12,5 @@ defbce "on"
 hardstatus alwayslastline
 hardstatus string '%{= 9b}[ %{B}%H %{b}][%= %{= 9w}%?%-Lw%?%{=b 9R}(%{W}%n*%f %t%?(%u)%?%{=b 9R})%{= 9w}%?%+Lw%?%?%= %{b}][%{B}%l%{b}]%{=b C}[ %d %M %c ]%{W}':
 
+maptimeout 0
+
