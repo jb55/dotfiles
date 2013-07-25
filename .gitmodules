@@ -49,3 +49,6 @@
 [submodule ".vim/bundle/gitgutter"]
 	path = .vim/bundle/gitgutter
 	url = git@github.com:airblade/vim-gitgutter.git
+[submodule ".vim/bundle/javascript"]
+	path = .vim/bundle/javascript
+	url = git@github.com:pangloss/vim-javascript.git
