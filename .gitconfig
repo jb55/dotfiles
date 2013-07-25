@@ -1,13 +1,13 @@
 [user]
-	name = Bill Casarin
-	email = bill@casarin.ca
+	name = William Casarin
+	email = william@casarin.me
 	signingkey = 0x415AF4A3
 [color]
 	diff = auto
-  status = false
+  status = auto
 [core]
 	excludesfile = /Users/jb55/.gitignore_global
-[url "https://github.com/"]
+[url "git@github.com:"]
   insteadOf = gh:
 [gui]
 	recentrepo = /Users/jb55/src/js/titania
@@ -23,3 +23,4 @@
   lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
   lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
   lg = !"git lg1"
+  st = status -sb
