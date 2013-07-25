@@ -23,8 +23,6 @@ source $ZSH/oh-my-zsh.sh
 # vi
 bindkey -v
 
-export PLATFORM="mac"
-
 export SCANBUILD=$HOME/dev/checker
 export CABALBIN=$HOME/.cabal/bin
 export CLOJURESCRIPT_HOME=$HOME/dev/clojurescript
@@ -33,8 +31,6 @@ export DEPOT_TOOLS=$HOME/dev/depot_tools
 export ECLIPSE_WORKSPACE=$HOME/src/java
 export EDITOR=vim
 export HASKELL_HOME=$HOME/Library/Haskell
-export JAVA_BIN=$HOME/dev/jdk1.7.0_05/bin
-export JAVA_HOME=$(/usr/libexec/java_home)
 export MIRAH_BIN=$HOME/dev/mirah-0.0.8.dev/bin
 export PLAY_HOME=$HOME/dev/play-2.0.2
 export ROY_BIN=$HOME/dev/roy
@@ -43,6 +39,8 @@ export SCHEME_DIR=$HOME/dev/scheme
 export TEXBIN=/usr/texbin
 export VICARE_BIN=$SCHEME_DIR/vicare/bin
 export VICARE_LIBRARY_PATH=$SCHEME_DIR/scheme-tools:$SCHEME_DIR/bher:$SCHEME_DIR/scheme-transforms:$SCHEME_DIR/cosh:$SCHEME_DIR/board
+export JAVA_HOME=$HOME/dev/jdk1.7.0_21
+export JAVA_BIN=$HOME/dev/jdk1.7.0_21/bin
 
 export NODE_PATH=/usr/local/lib/node_modules
 
@@ -66,7 +64,6 @@ export PATH=$ROY_BIN:$PATH
 export PATH=$SCALA_HOME/bin:$PATH
 export PATH=$TEXBIN:$PATH
 export PATH=$SCANBUILD:$PATH
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 [ -e $HOME/.profile ] && source $HOME/.profile
 
@@ -99,6 +96,16 @@ alias prettyjson="python -mjson.tool"
 alias catt="pygmentize -O style=monokai -f console256 -g"
 alias tmuxa="tmux a -t"
 alias sorry='sudo $(fc -l -n -1)'
+
+alias open=gnome-open
+alias attach="grabssh; screen -rD"
+alias fixssh="source $HOME/bin/fixssh"
+
+# fix ssh agent forwarding in screen
+FIXSSH=$HOME/bin/fixssh
+if [[ $TERM == screen* ]] && [[ -f $FIXSSH ]]; then
+  source $FIXSSH
+fi
 
 export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 
