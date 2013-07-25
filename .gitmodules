@@ -43,9 +43,6 @@
 [submodule ".vim/bundle/neocomplcache"]
 	path = .vim/bundle/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.git
-[submodule ".vim/bundle/fakeclip"]
-	path = .vim/bundle/fakeclip
-	url = git://github.com/kana/vim-fakeclip.git
 [submodule ".vim/bundle/coffee"]
 	path = .vim/bundle/coffee
 	url = git@github.com:kchmck/vim-coffee-script.git
