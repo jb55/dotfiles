@@ -12,7 +12,7 @@
   status = auto
 [core]
 	excludesfile = /Users/jb55/.gitignore_global
-[url "https://github.com/"]
+[url "git@github.com:"]
   insteadOf = gh:
 [url "git@dev.monstercat.com:monstercat/"]
   insteadOf = mcat:
@@ -31,23 +31,3 @@
   serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
   cloner = clone --recursive
   st = status -sb
-[push]
-	default = simple
-[merge]
-	tool = splice
-	defaultToUpstream = true
-[mergetool "diffconflicts"]
-	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
-	trustExitCode = true
-	keepBackup = false
-[mergetool "splice"]
-  cmd = "mvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
-	trustExitCode = true
-[rerere]
-	enabled = true
-[difftool "sourcetree"]
-	cmd = mvim -d \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = mvim -d \"$LOCAL\" \"$REMOTE\"
-	trustExitCode = true
