@@ -23,6 +23,8 @@ source $ZSH/oh-my-zsh.sh
 # vi
 bindkey -v
 
+export PLATFORM="mac"
+
 export SCANBUILD=$HOME/dev/checker
 export CABALBIN=$HOME/.cabal/bin
 export CLOJURESCRIPT_HOME=$HOME/dev/clojurescript
@@ -97,7 +99,6 @@ alias catt="pygmentize -O style=monokai -f console256 -g"
 alias tmuxa="tmux a -t"
 alias sorry='sudo $(fc -l -n -1)'
 
-alias open=gnome-open
 alias attach="grabssh; screen -rD"
 alias fixssh="source $HOME/bin/fixssh"
 
