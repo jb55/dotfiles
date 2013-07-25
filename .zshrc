@@ -98,6 +98,7 @@ alias ls="ls --color"
 alias prettyjson="python -mjson.tool"
 alias catt="pygmentize -O style=monokai -f console256 -g"
 alias tmuxa="tmux a -t"
+alias sorry='sudo $(fc -l -n -1)'
 
 export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 
