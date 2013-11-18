@@ -77,11 +77,12 @@ nmap <F9> :TagbarToggle<CR>
 map <F8> :make tags<CR>
 map <F12> :TlistToggle<CR>
 map <F11> :NERDTreeToggle<CR>
-map <F2> "yyiw:!ag <C-R>y *<CR>
+map <F2> :exec ":!hasktags -x -c --ignore src"<CR><CR>
 map <F3> :silent make \| redraw! \| cc<CR>
 map <F4> :call RCmd("make")<CR>
 map <F5> :make<CR>
 map <F6> :call RCmd("npm test")<CR>
+map <F7> :call RCmd("make deploy")<CR>
 
 map <C-j> kddpkJ
 map <Leader>] :tnext<CR>
@@ -108,11 +109,13 @@ cmap w!! %!sudo tee > /dev/null %
 cmap c! call RCmd("")<Left><Left>
 cmap g! call RCmd("git --no-pager ")<Left><Left>
 cmap t! Tabularize /
+cmap <Leader>c call RCmd("./create_component ")<Left><Left>
 
 cmap Agg Ag -G $<Left>
 cmap Agc Ag -G coffee$ ""<Left>
 cmap Agh Ag -G hs$ ""<Left>
 cmap Agj Ag -G jade$ ""<Left>
+cmap Agk Ag -G js$ ""<Left>
 cmap Agl Ag -G less$ ""<Left>
 
 nnoremap x "_x
