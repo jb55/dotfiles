@@ -37,6 +37,7 @@ export ROY_BIN=$HOME/dev/roy
 export SCALA_HOME=$HOME/dev/scala-2.9.2
 export SCHEME_DIR=$HOME/dev/scheme
 export TEXBIN=/usr/texbin
+export NPM=/usr/local/share/npm
 export VICARE_BIN=$SCHEME_DIR/vicare/bin
 export VICARE_LIBRARY_PATH=$SCHEME_DIR/scheme-tools:$SCHEME_DIR/bher:$SCHEME_DIR/scheme-transforms:$SCHEME_DIR/cosh:$SCHEME_DIR/board
 export JAVA_HOME=$HOME/dev/jdk1.7.0_21
@@ -64,13 +65,13 @@ export PATH=$ROY_BIN:$PATH
 export PATH=$SCALA_HOME/bin:$PATH
 export PATH=$TEXBIN:$PATH
 export PATH=$SCANBUILD:$PATH
+export PATH=$NPM/bin:$PATH
 
 [ -e $HOME/.profile ] && source $HOME/.profile
 
 # GO
 export GOROOT=$HOME/dev/go
 export GOBIN=$HOME/bin
-export GOOS=linux
 export GOARCH=amd64
 
 # other
@@ -92,9 +93,10 @@ alias crontab="VIM_CRONTAB=true crontab"
 alias st="git sourcetree"
 alias clip="xclip -selection clipboard"
 alias ls="ls --color"
-alias prettyjson="python -mjson.tool"
+alias jsonpp="python -mjson.tool"
+alias prettyjson=jsonpp
 alias catt="pygmentize -O style=monokai -f console256 -g"
-alias tmuxa="tmux a -t"
+alias tmuxa="tmux a -d -t "
 alias sorry='sudo $(fc -l -n -1)'
 
 alias open=gnome-open
@@ -109,3 +111,11 @@ fi
 
 export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# added by travis gem
+[ -f /Users/jb55/.travis/travis.sh ] && source /Users/jb55/.travis/travis.sh

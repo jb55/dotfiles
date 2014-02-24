@@ -1,6 +1,6 @@
 [user]
 	name = William Casarin
-	email = william@casarin.me
+	email = will@casarin.me
 	signingkey = 0x415AF4A3
 [color]
 	diff = auto
@@ -11,7 +11,7 @@
   insteadOf = gh:
 [url "dev.monstercat.com:git/monstercat/"]
   insteadOf = mcat:
-[url "dev.monstercat.com:git/"]
+[url "jb55.com:git/"]
   insteadOf = dev:
 [gui]
 	recentrepo = /Users/jb55/src/js/titania
