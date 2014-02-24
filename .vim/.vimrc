@@ -109,7 +109,8 @@ cmap w!! %!sudo tee > /dev/null %
 cmap c! call RCmd("")<Left><Left>
 cmap g! call RCmd("git --no-pager ")<Left><Left>
 cmap t! Tabularize /
-cmap <Leader>c call RCmd("./create_component ")<Left><Left>
+cmap <Leader>c call RCmd("./create_component  default")<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+cmap <Leader>j call RCmd("./create_component  view")<Left><Left><Left><Left><Left><Left><Left>
 
 cmap Agg Ag -G $<Left>
 cmap Agc Ag -G coffee$ ""<Left>
@@ -137,6 +138,28 @@ vmap <Leader>=: :Tabularize /:\zs<CR>
 " }}}
 
 " Plugin Options {{{
+
+" neosnippet key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#snippets_directory='~/.vim/bundle/snippets/snippets'
+
 let g:Powerline_symbols = 'fancy'
 
 let g:miniBufExplMapCTabSwitchBufs = 1
@@ -151,14 +174,13 @@ let g:clang_complete_copen = 1
 let g:clang_snippets = 1
 let g:clang_use_library = 1
 
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|\.hg\|\.svn\|\.redo\|dist\|cabal-dev'
-
 let g:syntastic_javascript_checker = 'jshint'
+let g:syntastic_haskell_checkers = []
 
 let g:EasyMotion_leader_key = '<Leader>'
 
-let g:ctrlp_custom_ignore = 'node_modules$'
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|\.hg\|\.svn\|\.redo\|dist\|cabal-dev'
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_switch_buffer=0
 
@@ -193,6 +215,8 @@ au BufRead,BufNewFile *.swig set syn=swig
 au BufRead,BufNewFile *.td set syn=tablegen
 au BufRead,BufNewFile *.thrift set syn=thrift
 au BufRead,BufNewFile *.ts set syn=typescript
+au BufRead,BufNewFile *.ebnf set syn=ebnf
+au BufRead,BufNewFile *.bnf set syn=bnf
 au BufRead,BufNewFile *.ts set filetype=typescript
 au BufRead,BufNewFile *.x set syn=alex
 au BufRead,BufNewFile *.xsl let g:xml_syntax_folding = 1
@@ -240,5 +264,4 @@ function! CSVH(colnr)
 endfunction
 command! -nargs=1 Csv :call CSVH(<args>)
 
-" fix gitgutter color
-highlight clear SignColumn
+highlight clear SignColumn " fix gitgutter color
