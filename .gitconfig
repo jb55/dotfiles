@@ -1,6 +1,6 @@
 [user]
 	name = William Casarin
-	email = william@casarin.me
+	email = will@casarin.me
 	signingkey = 0x415AF4A3
 [color]
 	diff = auto
@@ -11,6 +11,8 @@
   insteadOf = gh:
 [url "dev.monstercat.com:git/monstercat/"]
   insteadOf = mcat:
+[url "jb55.com:git/"]
+  insteadOf = dev:
 [gui]
 	recentrepo = /Users/jb55/src/js/titania
 [difftool "sourcetree"]
@@ -26,3 +28,8 @@
   lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
   lg = !"git lg1"
   st = status -sb
+[push]
+  default = matching
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

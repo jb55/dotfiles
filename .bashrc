@@ -103,3 +103,8 @@ cl()
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# added by travis gem
+[ -f /Users/jb55/.travis/travis.sh ] && source /Users/jb55/.travis/travis.sh
