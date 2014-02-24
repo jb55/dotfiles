@@ -52,3 +52,12 @@
 [submodule ".vim/bundle/javascript"]
 	path = .vim/bundle/javascript
 	url = git@github.com:pangloss/vim-javascript.git
+[submodule ".vim/bundle/nimrod"]
+	path = .vim/bundle/nimrod
+	url = https://github.com/zah/nimrod.vim.git
+[submodule ".vim/bundle/ultisnips"]
+	path = .vim/bundle/ultisnips
+	url = https://github.com/MarcWeber/ultisnips.git
+[submodule ".vim/bundle/neosnippet"]
+	path = .vim/bundle/neosnippet
+	url = https://github.com/Shougo/neosnippet.vim
