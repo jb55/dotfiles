@@ -1,22 +1,62 @@
 " vim: foldmethod=marker:
 
-set modeline
-set modelines=1
-
-set nocp
-
-let g:gitgutter_enabled = 1
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_enable_on_vim_startup = 1
-
-syntax on
+" Have to do this before neobundle
 filetype plugin indent on
 
-call pathogen#infect()
+" neobundle {{{
+
+if has('vim_starting')
+ set nocompatible               " Be iMproved
+
+ " Required:
+ set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'epmatsw/ag.vim'
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'jb55/vim-snippets'
+NeoBundle 'jb55/typescript-ctags'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tommcdo/vim-exchange'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'zah/nimrod.vim'
+
+NeoBundle 'Shougo/vimproc.vim', {
+  \ 'build' : {
+  \     'windows' : 'make -f make_mingw32.mak',
+  \     'cygwin' : 'make -f make_cygwin.mak',
+  \     'mac' : 'make -f make_mac.mak',
+  \     'unix' : 'make -f make_unix.mak',
+  \    },
+  \ }
+
+NeoBundleCheck
+
+" }}}
 
 " Settings {{{
+set modeline
+set modelines=1
+set nocp
 set ts=2
 set shiftwidth=2
 set expandtab
@@ -30,6 +70,7 @@ set relativenumber
 set dir=~/.vim/tmp
 exe 'set t_kB=' . nr2char(27) . '[Z'
 set vb t_vb=
+syntax on
 
 if $VIM_CRONTAB == "true"
   set nobackup
@@ -157,8 +198,15 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
+let g:gitgutter_enabled = 1
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_enable_on_vim_startup = 1
+
+let g:neosnippet#disable_runtime_snippets = { '_' : 1 }
 let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory='~/.vim/bundle/snippets/snippets'
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 let g:Powerline_symbols = 'fancy'
 
@@ -183,6 +231,9 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|\.hg\|\.svn\|\.redo\|dist\|cabal-dev'
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_switch_buffer=0
+
+" fix gitgutter color
+highlight clear SignColumn
 
 " }}}
 
@@ -231,6 +282,8 @@ au BufRead,BufNewFile nginx.conf set ft=nginx
 au BufRead,BufNewFile wscript set syn=python
 " }}}
 
+" Commands {{{
+
 function! PlaySound()
 " uncomment to annoy coworkers
 " silent! exec '!afplay ~/audio/typewriter_keystroke.wav &'
@@ -264,4 +317,4 @@ function! CSVH(colnr)
 endfunction
 command! -nargs=1 Csv :call CSVH(<args>)
 
-highlight clear SignColumn " fix gitgutter color
+" }}}
