@@ -14,8 +14,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 syntax on
 filetype plugin indent on
 
-call pathogen#infect()
-
 " Settings {{{
 set ts=2
 set shiftwidth=2
