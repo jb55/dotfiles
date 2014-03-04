@@ -29,4 +29,4 @@
   lg = !"git lg1"
   st = status -sb
 [push]
-  default = matching
+	default = matching

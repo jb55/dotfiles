@@ -19,7 +19,7 @@ main = xmonad $
 
 myKeys = [
     ("M-x", shellPrompt defaultXPConfig)
-  , ("M-w", toggleWS)
+  , ("M-d", toggleWS)
   , ("M-n", nextWS)
   , ("M-p", prevWS)
   ]
