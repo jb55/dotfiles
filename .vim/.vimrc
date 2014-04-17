@@ -1,5 +1,6 @@
 " vim: foldmethod=marker:
 
+
 " Have to do this before neobundle
 filetype plugin indent on
 
@@ -22,6 +23,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
@@ -65,7 +67,7 @@ set hlsearch
 set hidden
 set nowrap
 set ruler
-set colorcolumn=81
+set colorcolumn=80
 set relativenumber
 set dir=~/.vim/tmp
 exe 'set t_kB=' . nr2char(27) . '[Z'
@@ -79,7 +81,7 @@ endif
 
 " gvim fonts
 if has("gui_running")
-  colorscheme wombat
+  colorscheme molokai
 else
   set t_Co=256
   set clipboard=unnamed
@@ -124,6 +126,8 @@ map <F4> :call RCmd("make")<CR>
 map <F5> :make<CR>
 map <F6> :call RCmd("npm test")<CR>
 map <F7> :call RCmd("make deploy")<CR>
+
+nmap <Leader>nr "nyiW:call RCmd("npm repo <C-r>n")<CR>
 
 map <C-j> kddpkJ
 map <Leader>] :tnext<CR>
@@ -222,7 +226,6 @@ let g:clang_complete_copen = 1
 let g:clang_snippets = 1
 let g:clang_use_library = 1
 
-let g:syntastic_javascript_checker = 'jshint'
 let g:syntastic_haskell_checkers = []
 
 let g:EasyMotion_leader_key = '<Leader>'

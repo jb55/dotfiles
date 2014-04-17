@@ -40,8 +40,7 @@ export TEXBIN=/usr/texbin
 export NPM=/usr/local/share/npm
 export VICARE_BIN=$SCHEME_DIR/vicare/bin
 export VICARE_LIBRARY_PATH=$SCHEME_DIR/scheme-tools:$SCHEME_DIR/bher:$SCHEME_DIR/scheme-transforms:$SCHEME_DIR/cosh:$SCHEME_DIR/board
-export JAVA_HOME=$HOME/dev/jdk1.7.0_21
-export JAVA_BIN=$HOME/dev/jdk1.7.0_21/bin
+export NW_BIN=$HOME/dev/node-webkit-v0.9.2-linux-x64
 
 export NODE_PATH=/usr/local/lib/node_modules
 
@@ -56,7 +55,6 @@ export PATH=$CLOJURESCRIPT_HOME/bin:$PATH
 export PATH=$COSH_BIN:$PATH
 export PATH=$DEPOT_TOOLS:$PATH
 export PATH=$HASKELL_HOME/bin:$PATH
-export PATH=$JAVA_BIN:$PATH
 export PATH=$LUA_BIN:$PATH
 export PATH=$M2_HOME/bin:$PATH
 export PATH=$MIRAH_BIN:$PATH
@@ -66,6 +64,7 @@ export PATH=$SCALA_HOME/bin:$PATH
 export PATH=$TEXBIN:$PATH
 export PATH=$SCANBUILD:$PATH
 export PATH=$NPM/bin:$PATH
+export PATH=$NW_BIN:$PATH
 
 [ -e $HOME/.profile ] && source $HOME/.profile
 
@@ -119,3 +118,5 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # added by travis gem
 [ -f /Users/jb55/.travis/travis.sh ] && source /Users/jb55/.travis/travis.sh
+
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
