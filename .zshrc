@@ -5,9 +5,6 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="jb55"
 
-bindkey "^R" history-incremental-search-backward
-bindkey "^F" history-incremental-search-forward
-
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
 
@@ -22,6 +19,10 @@ source $ZSH/oh-my-zsh.sh
 
 # vi
 bindkey -v
+
+bindkey "^R" history-incremental-search-backward
+bindkey "^F" history-incremental-search-forward
+
 
 export SCANBUILD=$HOME/dev/checker
 export CABALBIN=$HOME/.cabal/bin
