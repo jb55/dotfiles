@@ -48,8 +48,11 @@ export NODE_PATH=/usr/local/lib/node_modules
 export LUA_HOME=/opt/local/share/luarocks
 export LUA_BIN=$LUA_HOME/bin
 
+# GO
+export GOPATH=$HOME/dev/gocode
+
 # Customize to your needs...
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:$PATH:$GOPATH/bin
 
 export PATH=$CABALBIN:$PATH
 export PATH=$CLOJURESCRIPT_HOME/bin:$PATH
@@ -121,3 +124,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [ -f /Users/jb55/.travis/travis.sh ] && source /Users/jb55/.travis/travis.sh
 
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
+
+# z
+source $HOME/bin/z.sh

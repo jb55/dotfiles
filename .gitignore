@@ -4,3 +4,4 @@
 *.pyc
 */tmp/*
 .vim/bundle
+node_modules/
