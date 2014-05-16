@@ -4,7 +4,7 @@
 " Have to do this before neobundle
 filetype plugin indent on
 
-" neobundle 
+" neobundle {{{
 
 if has('vim_starting')
  set nocompatible               " Be iMproved
@@ -53,9 +53,9 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 NeoBundleCheck
 
-" 
+" }}}
 
-" Settings 
+" Settings {{{
 set modeline
 set modelines=1
 set nocp
@@ -88,14 +88,14 @@ else
   colorscheme wombat256
 endif
 
-" 
+" }}}
 
-" Mappings 
+" Mappings {{{
 
 let mapleader = "\\"
 let maplocalleader = "\\"
 
-" digraphd
+" digraphs
 
 
 " lambda λ
@@ -124,12 +124,11 @@ map <F2> :exec ":!hasktags -x -c --ignore src"<CR><CR>
 map <F3> :silent make \| redraw! \| cc<CR>
 map <F4> :call RCmd("make")<CR>
 map <F5> :make<CR>
-map <F6> :call RCmd("make test")<CR>
+map <F6> :call RCmd("npm test")<CR>
 map <F7> :call RCmd("make deploy")<CR>
 
-nmap <Leader>p "nyiW:call RCmd("npm repo <C-r>n")<CR>
-nmap <Leader>s :e ~/.vim/bundle/vim-snippets/snippets/javascript_me.snippets<CR>
-nmap <Leader>n :%!node --harmony<CR>
+nmap <Leader>nr "nyiW:call RCmd("npm repo <C-r>n")<CR>
+
 map <C-j> kddpkJ
 map <Leader>] :tnext<CR>
 map <Leader>[ :tprev<CR>
@@ -181,98 +180,9 @@ vmap <Leader>=:: :Tabularize /::<CR>
 nmap <Leader>=: :Tabularize /:\zs<CR>
 vmap <Leader>=: :Tabularize /:\zs<CR>
 
-" 
+" }}}
 
-" neobundle 
-
-if has('vim_starting')
- set nocompatible               " Be iMproved
-
- " Required:
- set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#rc(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" My Bundles here:
-
-NeoBundle 'sjl/splice.vim'
-"NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'michaeljsmith/vim-indent-object'
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'epmatsw/ag.vim'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'jb55/typescript-ctags'
-NeoBundle 'jb55/vim-snippets'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'tommcdo/vim-exchange'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'zah/nimrod.vim'
-
-NeoBundle 'Shougo/vimproc.vim', {
-  \ 'build' : {
-  \     'windows' : 'make -f make_mingw32.mak',
-  \     'cygwin' : 'make -f make_cygwin.mak',
-  \     'mac' : 'make -f make_mac.mak',
-  \     'unix' : 'make -f make_unix.mak',
-  \    },
-  \ }
-
-NeoBundleCheck
-
-" 
-
-" Settings 
-set modeline
-set modelines=1
-set nocp
-set ts=2
-set shiftwidth=2
-set expandtab
-set ai
-set hlsearch
-set hidden
-set nowrap
-set ruler
-set colorcolumn=81
-set relativenumber
-set dir=~/.vim/tmp
-exe 'set t_kB=' . nr2char(27) . '[Z'
-set vb t_vb=
-syntax on
-
-if $VIM_CRONTAB == "true"
-  set nobackup
-  set nowritebackup
-endif
-
-" gvim fonts
-if has("gui_running")
-  set guifont=Monaco:h12
-  colorscheme wombat
-else
-  set t_Co=256
-  set clipboard=unnamed
-  colorscheme wombat256
-endif
-
-" 
-
-" Plugin Options 
+" Plugin Options {{{
 
 " neosnippet key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -328,9 +238,9 @@ let g:ctrlp_switch_buffer=0
 " fix gitgutter color
 highlight clear SignColumn
 
-" 
+" }}}
 
-" Autocommands 
+" Autocommands {{{
 au BufRead,BufNewFile *.c,*.cpp,*.h set cindent
 au BufRead,BufNewFile *.c,*.cpp,*.h set cino=(0
 au BufRead,BufNewFile *.clay set syn=clay
@@ -373,9 +283,9 @@ au BufRead,BufNewFile *.yml set syn=yaml
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 au BufRead,BufNewFile nginx.conf set ft=nginx
 au BufRead,BufNewFile wscript set syn=python
-" 
+" }}}
 
-" Commands 
+" Commands {{{
 
 function! PlaySound()
 " uncomment to annoy coworkers
@@ -410,4 +320,4 @@ function! CSVH(colnr)
 endfunction
 command! -nargs=1 Csv :call CSVH(<args>)
 
-" 
+" }}}
