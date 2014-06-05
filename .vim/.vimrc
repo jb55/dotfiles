@@ -376,4 +376,3 @@ endfunction
 command! WipeNoFiles call s:WipeBuffersWithoutFiles()
 
 " }}}
-
