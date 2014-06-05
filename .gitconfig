@@ -31,3 +31,7 @@
   serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
   cloner = clone --recursive
   st = status -sb
+[push]
+	default = matching
+[rerere]
+	enabled = true
