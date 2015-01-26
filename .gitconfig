@@ -2,6 +2,11 @@
 	name = William Casarin
 	email = bill@casarin.me
 	signingkey = 0x415AF4A3
+[sendemail]
+  smtpencryption = tls
+  smtpserver = smtp.gmail.com
+  smtpuser = jackbox55@gmail.com
+  smtpserverport = 587
 [color]
 	diff = auto
   status = auto
@@ -9,7 +14,7 @@
 	excludesfile = /Users/jb55/.gitignore_global
 [url "git@github.com:"]
   insteadOf = gh:
-[url "dev.monstercat.com:git/monstercat/"]
+[url "git@dev.monstercat.com:monstercat/"]
   insteadOf = mcat:
 [url "jb55.com:git/"]
   insteadOf = dev:
@@ -17,9 +22,11 @@
 	recentrepo = /Users/jb55/src/js/titania
 [alias]
 	sourcetree = !open -a SourceTree .
+  ff = merge --ff-only
 	default = !git config branch.master.remote origin && git config branch.master.merge refs/heads/master
   lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
   lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
+  serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
   lg = !"git lg1"
   st = status -sb
 [push]
@@ -35,3 +42,8 @@
 	trustExitCode = true
 [rerere]
 	enabled = true
+[difftool "sourcetree"]
+	cmd = mvim -d \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+	cmd = mvim -d \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true

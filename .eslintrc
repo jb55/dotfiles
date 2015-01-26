@@ -3,7 +3,6 @@
     "node": true
   },
   "rules": {
-    // warnings
     "no-debugger": 1,
     "no-empty": 1,
     "no-invalid-regexp": 1,
@@ -12,9 +11,13 @@
     "no-unused-expressions": 1,
     "no-native-reassign": 1,
     "no-fallthrough": 1,
+    "curly": 0,
 
-    // errors
+    "quotes": 0,
+    "semi": 0,
     "no-undef": 2,
+    "no-use-before-define": 0,
+    "no-underscore-dangle": 0,
     "no-dupe-keys": 2,
     "no-empty-class": 2,
     "no-self-compare": 2,
@@ -22,10 +25,11 @@
     "no-unused-vars": 2,
     "handle-callback-err": 2,
     "no-shadow-restricted-names": 2,
+    "strict": 0,
 
-    // stylistic errors
-    "new-cap": 2,
+    "new-cap": 0,
     "no-spaced-func": 2,
+    "no-process-exit": 0,
     "no-space-before-semi": 2,
     "space-unary-word-ops": 2
   }

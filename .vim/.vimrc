@@ -22,7 +22,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
 
+"NeoBundle 'lukerandall/haskellmode-vim'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'wting/rust.vim'
+NeoBundle 'rizzatti/dash.vim'
+"NeoBundle 'ervandew/supertab'
 NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'Shougo/neocomplcache'
@@ -121,7 +125,6 @@ map <F8> :make tags<CR>
 map <F12> :TlistToggle<CR>
 map <F11> :NERDTreeToggle<CR>
 map <F2> :exec ":!hasktags -x -c --ignore src"<CR><CR>
-map <F3> :silent make \| redraw! \| cc<CR>
 map <F4> :call RCmd("make")<CR>
 map <F5> :make<CR>
 map <F6> :call RCmd("npm test")<CR>
@@ -143,6 +146,7 @@ map <Leader>, :%s/\s\+,/,/g<CR>:%s/,\s\+/,/g<CR>
 
 map <Leader>y :Lodgeit<CR>
 nmap <Leader>C :ccl<CR>
+nmap <Leader>vs vip:sort<CR>
 nmap <Leader>r ma:%s/\s\+$//g<CR>`a
 nmap <Leader>rr :call ReloadSnippets(&filetype)<CR>
 map <Leader><Leader>x :silent %!xmllint --encode UTF-8 --format -<CR>
@@ -166,6 +170,9 @@ cmap Agl Ag -G less$ ""<Left>
 
 nnoremap x "_x
 nnoremap X "_X
+
+" I never use ctrl-b anyways
+nmap <C-b> <C-a>
 
 " Tabular bindings
 nmap <Leader>== :Tabularize /=<CR>
@@ -197,10 +204,14 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \: "\<TAB>"
 
+let g:SuperTabDefaultCompletionType = "context"
+
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
+
+let g:haddock_browser="open"
 
 let g:gitgutter_enabled = 1
 let g:indent_guides_auto_colors = 0
@@ -227,11 +238,17 @@ let g:clang_snippets = 1
 let g:clang_use_library = 1
 
 let g:syntastic_haskell_checkers = []
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_conf = '~/.eslintrc'
+let g:syntastic_coffee_coffeelint_conf = '~/.coffeelintrc'
+let g:syntastic_enable_signs=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 
 let g:EasyMotion_leader_key = '<Leader>'
 
 let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|\.hg\|\.svn\|\.redo\|dist\|cabal-dev'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|\.hg\|\.svn\|\.redo\|dist\|cabal-dev\|lib-cov'
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_switch_buffer=0
 
@@ -241,6 +258,34 @@ highlight clear SignColumn
 " }}}
 
 " Autocommands {{{
+
+augroup encrypted
+  " First make sure nothing is written to ~/.viminfo while editing
+  " an encrypted file.
+  autocmd BufReadPre,FileReadPre *.gpg set viminfo=
+  " We don't want a various options which write unencrypted data to disk
+  autocmd BufReadPre,FileReadPre *.gpg set noswapfile noundofile nobackup
+
+  " Switch to binary mode to read the encrypted file
+  autocmd BufReadPre,FileReadPre *.gpg set bin
+  autocmd BufReadPre,FileReadPre *.gpg let ch_save = &ch|set ch=2
+  " (If you use tcsh, you may need to alter this line.)
+  autocmd BufReadPost,FileReadPost *.gpg '[,']!gpg --decrypt 2> /dev/null
+
+  " Switch to normal mode for editing
+  autocmd BufReadPost,FileReadPost *.gpg set nobin
+  autocmd BufReadPost,FileReadPost *.gpg let &ch = ch_save|unlet ch_save
+  autocmd BufReadPost,FileReadPost *.gpg execute ":doautocmd BufReadPost " . expand("%:r")
+
+  " Convert all text to encrypted text before writing
+  " (If you use tcsh, you may need to alter this line.)
+  autocmd BufWritePre,FileWritePre *.gpg '[,']!gpg --default-recipient-self -ae 2>/dev/null
+  " Undo the encryption so we are back in the normal text, directly
+  " after the file has been written.
+  autocmd BufWritePost,FileWritePost *.gpg u
+augroup END
+
+"au BufEnter *.hs compiler ghc
 au BufRead,BufNewFile *.c,*.cpp,*.h set cindent
 au BufRead,BufNewFile *.c,*.cpp,*.h set cino=(0
 au BufRead,BufNewFile *.clay set syn=clay
@@ -320,38 +365,8 @@ function! CSVH(colnr)
 endfunction
 command! -nargs=1 Csv :call CSVH(<args>)
 
-" }}}
-
-augroup encrypted
-  au!
-
-  " First make sure nothing is written to ~/.viminfo while editing
-  " an encrypted file.
-  autocmd BufReadPre,FileReadPre *.gpg set viminfo=
-  " We don't want a various options which write unencrypted data to disk
-  autocmd BufReadPre,FileReadPre *.gpg set noswapfile noundofile nobackup
-
-  " Switch to binary mode to read the encrypted file
-  autocmd BufReadPre,FileReadPre *.gpg set bin
-  autocmd BufReadPre,FileReadPre *.gpg let ch_save = &ch|set ch=2
-  " (If you use tcsh, you may need to alter this line.)
-  autocmd BufReadPost,FileReadPost *.gpg '[,']!gpg --decrypt 2> /dev/null
-
-  " Switch to normal mode for editing
-  autocmd BufReadPost,FileReadPost *.gpg set nobin
-  autocmd BufReadPost,FileReadPost *.gpg let &ch = ch_save|unlet ch_save
-  autocmd BufReadPost,FileReadPost *.gpg execute ":doautocmd BufReadPost " . expand("%:r")
-
-  " Convert all text to encrypted text before writing
-  " (If you use tcsh, you may need to alter this line.)
-  autocmd BufWritePre,FileWritePre *.gpg '[,']!gpg --default-recipient-self -ae 2>/dev/null
-  " Undo the encryption so we are back in the normal text, directly
-  " after the file has been written.
-  autocmd BufWritePost,FileWritePost *.gpg u
-augroup END
-
 " Wipe buffers with no files
-function s:WipeBuffersWithoutFiles()
+function! s:WipeBuffersWithoutFiles()
     let bufs=filter(range(1, bufnr('$')), 'bufexists(v:val) && '.
                                           \'empty(getbufvar(v:val, "&buftype")) && '.
                                           \'!filereadable(bufname(v:val))')
@@ -359,4 +374,8 @@ function s:WipeBuffersWithoutFiles()
         execute 'bwipeout' join(bufs)
     endif
 endfunction
-command WipeNoFiles call s:WipeBuffersWithoutFiles()
+
+command! WipeNoFiles call s:WipeBuffersWithoutFiles()
+
+" }}}
+
