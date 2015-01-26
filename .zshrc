@@ -133,3 +133,14 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # z
 source $HOME/bin/z.sh
+
+PERL_MB_OPT="--install_base \"/Users/jb55/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/jb55/perl5"; export PERL_MM_OPT;
+
+ulimit -n 1024
+
+# nix
+. /Users/jb55/.nix-profile/etc/profile.d/nix.sh
+
+export MANPATH=/usr/share/man:$MANPATH
+export MANPATH=$HOME/.nix-profile/share/man:$MANPATH
