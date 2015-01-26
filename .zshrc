@@ -132,3 +132,8 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # z
 source $HOME/bin/z.sh
+
+export BARI=$HOME/Dropbox/shared/bari
+
+alias noder="env NODE_NO_READLINE=1 rlwrap node"
+alias nr="npm run"
