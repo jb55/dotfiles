@@ -25,6 +25,8 @@ bindkey "^F" history-incremental-search-forward
 
 
 export SCANBUILD=$HOME/dev/checker
+export NIMPATH=$HOME/bin/nim
+export NIMBLEPATH=$HOME/.nimble
 export CABALBIN=$HOME/.cabal/bin
 export CLOJURESCRIPT_HOME=$HOME/dev/clojurescript
 export COSH_BIN=$SCHEME_DIR/cosh/bin
@@ -42,18 +44,18 @@ export NPM=/usr/local/share/npm
 export VICARE_BIN=$SCHEME_DIR/vicare/bin
 export VICARE_LIBRARY_PATH=$SCHEME_DIR/scheme-tools:$SCHEME_DIR/bher:$SCHEME_DIR/scheme-transforms:$SCHEME_DIR/cosh:$SCHEME_DIR/board
 export NW_BIN=$HOME/dev/node-webkit-v0.9.2-linux-x64
+export GOHOME=$HOME/dev/go
 
 export NODE_PATH=/usr/local/lib/node_modules
 
 export LUA_HOME=/opt/local/share/luarocks
 export LUA_BIN=$LUA_HOME/bin
 
-# GO
-export GOPATH=$HOME/dev/gocode
-
 # Customize to your needs...
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:$PATH:$GOPATH/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:$PATH
 
+export PATH=$NIMPATH/bin:$PATH
+export PATH=$NIMBLEPATH/bin:$PATH
 export PATH=$CABALBIN:$PATH
 export PATH=$CLOJURESCRIPT_HOME/bin:$PATH
 export PATH=$COSH_BIN:$PATH
@@ -69,17 +71,19 @@ export PATH=$TEXBIN:$PATH
 export PATH=$SCANBUILD:$PATH
 export PATH=$NPM/bin:$PATH
 export PATH=$NW_BIN:$PATH
+export PATH=$GOHOME/bin:$PATH
+export PATH=/usr/local/octave/3.8.0/bin:/usr/local/octave/3.8.0/sbin:${PATH}
 
 [ -e $HOME/.profile ] && source $HOME/.profile
-
-# GO
-export GOROOT=$HOME/dev/go
-export GOBIN=$HOME/bin
-export GOARCH=amd64
 
 # other
 export EDITOR=vim
 export PAGER=less
+
+# go
+
+export GOPATH=$HOME/dev/gocode
+export PATH=$GOPATH/bin:$PATH
 
 # alias
 alias githist="git reflog show | grep '}: commit' | nl | sort -nr | nl | sort -nr | cut --fields=1,3 | sed s/commit://g | sed -e 's/HEAD*@{[0-9]*}://g'"
@@ -103,6 +107,7 @@ alias tmuxa="tmux a -d -t "
 alias sorry='sudo $(fc -l -n -1)'
 
 alias open=gnome-open
+alias emacs="env TERM=xterm-256color emacs"
 alias attach="grabssh; screen -rD"
 alias fixssh="source $HOME/bin/fixssh"
 
