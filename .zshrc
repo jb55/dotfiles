@@ -144,3 +144,7 @@ ulimit -n 1024
 
 export MANPATH=/usr/share/man:$MANPATH
 export MANPATH=$HOME/.nix-profile/share/man:$MANPATH
+export BARI=$HOME/Dropbox/shared/bari
+
+alias noder="env NODE_NO_READLINE=1 rlwrap node"
+alias nr="npm run"
