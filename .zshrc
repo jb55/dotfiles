@@ -133,6 +133,8 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # z
 source $HOME/bin/z.sh
 
+export MANPATH=/usr/share/man:$MANPATH
+export MANPATH=$HOME/.nix-profile/share/man:$MANPATH
 export BARI=$HOME/Dropbox/shared/bari
 
 alias noder="env NODE_NO_READLINE=1 rlwrap node"
