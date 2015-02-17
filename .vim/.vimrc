@@ -150,6 +150,7 @@ nmap <Leader>vs vip:sort<CR>
 nmap <Leader>r ma:%s/\s\+$//g<CR>`a
 nmap <Leader>rr :call ReloadSnippets(&filetype)<CR>
 map <Leader><Leader>x :silent %!xmllint --encode UTF-8 --format -<CR>
+vmap <Leader><Leader>x :!xmllint --encode UTF-8 --format -<CR>
 vmap <Leader><Leader>j !jade -p % -o "{ prettyprint: true }"<CR>
 
 "map <Leader>cr :!newclay % && ./main<CR>
@@ -288,6 +289,7 @@ augroup encrypted
 augroup END
 
 "au BufEnter *.hs compiler ghc
+au BufRead,BufNewFile *.nix set syn=nix
 au BufRead,BufNewFile *.c,*.cpp,*.h set cindent
 au BufRead,BufNewFile *.c,*.cpp,*.h set cino=(0
 au BufRead,BufNewFile *.clay set syn=clay

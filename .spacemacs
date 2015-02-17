@@ -39,7 +39,7 @@
  dotspacemacs-startup-banner 'random
  ;; Default theme applied at startup
  ;; dotspacemacs-default-theme 'solarized-light
- dotspacemacs-default-theme 'monokai
+ dotspacemacs-themes '(monokai)
  ;; The leader key
  dotspacemacs-leader-key "SPC"
  ;; Major mode leader key is a shortcut key which is the equivalent of
@@ -133,9 +133,6 @@ This function is called at the very end of Spacemacs initialization."
  '(cua-normal-cursor-color "#657b83")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
- '(custom-safe-themes
-   (quote
-    ("1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "b3775ba758e7d31f3bb849e7c9e48ff60929a792961a2d536edec8f68c671ca5" "3d5ef3d7ed58c9ad321f05360ad8a6b24585b9c49abcee67bdcbb0fe583a6950" "f5bd8485ec9ba65551bf9b9fcaa6af6bcbaebaa4591c0f30d3e512b1d77b3481" "acb039d6f2c41b3bd852b448351b2979f44ef488026c95dd5228d2f6da57f574" "bac3f5378bc938e96315059cd0488d6ef7a365bae73dac2ff6698960df90552d" "53e29ea3d0251198924328fd943d6ead860e9f47af8d22f0b764d11168455a8e" default)))
  '(evil-shift-width 2)
  '(fci-rule-character-color "#202020")
  '(fci-rule-color "#202020")

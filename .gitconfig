@@ -33,6 +33,7 @@
 	default = matching
 [merge]
 	tool = splice
+	defaultToUpstream = true
 [mergetool "diffconflicts"]
 	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
 	trustExitCode = true
