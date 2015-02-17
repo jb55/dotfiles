@@ -30,7 +30,7 @@
     "new-cap": 0,
     "no-spaced-func": 2,
     "no-process-exit": 0,
-    "no-space-before-semi": 2,
-    "space-unary-word-ops": 2
+    "valid-jsdoc": 2,
+    "no-space-before-semi": 2
   }
 }

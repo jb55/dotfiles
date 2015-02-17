@@ -15,13 +15,13 @@
 
  dotspacemacs-configuration-layers '(osx
                                      haskell
-                                     javascript
                                      c-c++
                                      python
                                      vim-empty-lines
                                      git
                                      restclient
                                      jb55
+                                     csv
                                     )
  ;; A list of packages and/or extensions that will not be install and loaded.
 
@@ -188,6 +188,9 @@ This function is called at the very end of Spacemacs initialization."
    (quote
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
  '(if (version< emacs-version "24.4"))
+ '(js-indent-level 2)
+ '(js2-bounce-indent-p t)
+ '(js2-strict-missing-semi-warning nil)
  '(linum-format " %7i " t)
  '(magit-diff-use-overlays nil)
  '(main-line-color1 "#1E1E1E")
