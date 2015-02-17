@@ -94,8 +94,22 @@
 ;;(define-key helm-map (kbd "ESC") 'helm-keyboard-quit)
 
 ;;(setq-default projectile-require-project-root nil)
-;;(add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
-;;(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on) 
+
+  ;; ansi color shenanigans
+  (defun colorize-compilation-buffer ()
+    (toggle-read-only)
+    (ansi-color-apply-on-region (point-min) (point-max))
+    (toggle-read-only))
+  (require 'ansi-color)
+  (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+  (add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
+  (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+  ;; add nix path to exec-path
+  (add-to-list 'exec-path "~/.nix-profile/bin/")
+
+  ;; auto-scroll compilation buffers
+  (setq compilation-scroll-output t)
 )
 
 (defun dotspacemacs/config ()
@@ -140,6 +154,16 @@ This function is called at the very end of Spacemacs initialization."
  '(grep-find-ignored-directories
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
+ '(haskell-compile-cabal-build-command "cd %s && nix-cabal-build")
+ '(haskell-interactive-mode-scroll-to-bottom t)
+ '(haskell-interactive-popup-error nil)
+ '(haskell-notify-p t)
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-path-ghci "nix-cabal-shell --command \"ghci\"")
+ '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-type (quote auto))
+ '(haskell-stylish-on-save nil)
+ '(haskell-tags-on-save t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
