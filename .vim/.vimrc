@@ -14,7 +14,7 @@ if has('vim_starting')
 endif
 
 " Required:
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -45,15 +45,9 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'zah/nimrod.vim'
+NeoBundle 'Shougo/vimproc.vim'
 
-NeoBundle 'Shougo/vimproc.vim', {
-  \ 'build' : {
-  \     'windows' : 'make -f make_mingw32.mak',
-  \     'cygwin' : 'make -f make_cygwin.mak',
-  \     'mac' : 'make -f make_mac.mak',
-  \     'unix' : 'make -f make_unix.mak',
-  \    },
-  \ }
+call neobundle#end()
 
 NeoBundleCheck
 
@@ -150,6 +144,7 @@ nmap <Leader>vs vip:sort<CR>
 nmap <Leader>r ma:%s/\s\+$//g<CR>`a
 nmap <Leader>rr :call ReloadSnippets(&filetype)<CR>
 map <Leader><Leader>x :silent %!xmllint --encode UTF-8 --format -<CR>
+vmap <Leader><Leader>x :!xmllint --encode UTF-8 --format -<CR>
 vmap <Leader><Leader>j !jade -p % -o "{ prettyprint: true }"<CR>
 
 "map <Leader>cr :!newclay % && ./main<CR>
@@ -238,8 +233,8 @@ let g:clang_snippets = 1
 let g:clang_use_library = 1
 
 let g:syntastic_haskell_checkers = []
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_conf = '~/.eslintrc'
+let g:syntastic_javascript_checkers = ['standard', 'eslint']
+let g:syntastic_javascript_eslint_args = '~/.eslintrc'
 let g:syntastic_coffee_coffeelint_conf = '~/.coffeelintrc'
 let g:syntastic_enable_signs=1
 let g:syntastic_error_symbol='✗'
@@ -286,6 +281,7 @@ augroup encrypted
 augroup END
 
 "au BufEnter *.hs compiler ghc
+au BufRead,BufNewFile *.nix set syn=nix
 au BufRead,BufNewFile *.c,*.cpp,*.h set cindent
 au BufRead,BufNewFile *.c,*.cpp,*.h set cino=(0
 au BufRead,BufNewFile *.clay set syn=clay

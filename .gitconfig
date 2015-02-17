@@ -26,13 +26,14 @@
 	default = !git config branch.master.remote origin && git config branch.master.merge refs/heads/master
   lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
   lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
-  serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
   lg = !"git lg1"
+  serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
   st = status -sb
 [push]
 	default = matching
 [merge]
 	tool = splice
+	defaultToUpstream = true
 [mergetool "diffconflicts"]
 	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
 	trustExitCode = true

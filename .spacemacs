@@ -15,13 +15,13 @@
 
  dotspacemacs-configuration-layers '(osx
                                      haskell
-                                     javascript
                                      c-c++
                                      python
                                      vim-empty-lines
                                      git
                                      restclient
                                      jb55
+                                     csv
                                     )
  ;; A list of packages and/or extensions that will not be install and loaded.
 
@@ -39,7 +39,7 @@
  dotspacemacs-startup-banner 'random
  ;; Default theme applied at startup
  ;; dotspacemacs-default-theme 'solarized-light
- dotspacemacs-default-theme 'monokai
+ dotspacemacs-themes '(monokai)
  ;; The leader key
  dotspacemacs-leader-key "SPC"
  ;; Major mode leader key is a shortcut key which is the equivalent of
@@ -94,8 +94,22 @@
 ;;(define-key helm-map (kbd "ESC") 'helm-keyboard-quit)
 
 ;;(setq-default projectile-require-project-root nil)
-;;(add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
-;;(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on) 
+
+  ;; ansi color shenanigans
+  (defun colorize-compilation-buffer ()
+    (toggle-read-only)
+    (ansi-color-apply-on-region (point-min) (point-max))
+    (toggle-read-only))
+  (require 'ansi-color)
+  (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+  (add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
+  (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+  ;; add nix path to exec-path
+  (add-to-list 'exec-path "~/.nix-profile/bin/")
+
+  ;; auto-scroll compilation buffers
+  (setq compilation-scroll-output t)
 )
 
 (defun dotspacemacs/config ()
@@ -133,9 +147,6 @@ This function is called at the very end of Spacemacs initialization."
  '(cua-normal-cursor-color "#657b83")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
- '(custom-safe-themes
-   (quote
-    ("1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "b3775ba758e7d31f3bb849e7c9e48ff60929a792961a2d536edec8f68c671ca5" "3d5ef3d7ed58c9ad321f05360ad8a6b24585b9c49abcee67bdcbb0fe583a6950" "f5bd8485ec9ba65551bf9b9fcaa6af6bcbaebaa4591c0f30d3e512b1d77b3481" "acb039d6f2c41b3bd852b448351b2979f44ef488026c95dd5228d2f6da57f574" "bac3f5378bc938e96315059cd0488d6ef7a365bae73dac2ff6698960df90552d" "53e29ea3d0251198924328fd943d6ead860e9f47af8d22f0b764d11168455a8e" default)))
  '(evil-shift-width 2)
  '(fci-rule-character-color "#202020")
  '(fci-rule-color "#202020")
@@ -143,6 +154,16 @@ This function is called at the very end of Spacemacs initialization."
  '(grep-find-ignored-directories
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
+ '(haskell-compile-cabal-build-command "cd %s && nix-cabal-build")
+ '(haskell-interactive-mode-scroll-to-bottom t)
+ '(haskell-interactive-popup-error nil)
+ '(haskell-notify-p t)
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-path-ghci "nix-cabal-shell --command \"ghci\"")
+ '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-type (quote auto))
+ '(haskell-stylish-on-save nil)
+ '(haskell-tags-on-save t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
@@ -167,6 +188,9 @@ This function is called at the very end of Spacemacs initialization."
    (quote
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
  '(if (version< emacs-version "24.4"))
+ '(js-indent-level 2)
+ '(js2-bounce-indent-p t)
+ '(js2-strict-missing-semi-warning nil)
  '(linum-format " %7i " t)
  '(magit-diff-use-overlays nil)
  '(main-line-color1 "#1E1E1E")

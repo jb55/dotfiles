@@ -12,8 +12,10 @@
 
 (defvar jb55-packages
   '(
-    csv-mode
     jade-mode
+    markdown-mode
+    markdown-toc
+    js2-mode
     fill-column-indicator
     )
   "List of all packages to install and/or initialize. Built-in packages
