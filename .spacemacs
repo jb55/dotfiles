@@ -105,6 +105,13 @@
   (add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
   (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
+  (require 'compile)
+  ;; node stack track compilation errors in js-mode
+  (add-to-list 'compilation-error-regexp-alist-alist
+               '(npm "[[:space:]](\\(.*?\\)\\([0-9A-Za-z_./\:-]+\\.js\\):\\([0-9]+\\):\\([0-9]+\\)" 2 3))
+
+  (add-to-list 'compilation-error-regexp-alist 'npm)
+
   ;; add nix path to exec-path
   (add-to-list 'exec-path "~/.nix-profile/bin/")
 
