@@ -39,7 +39,7 @@
  dotspacemacs-startup-banner 'random
  ;; Default theme applied at startup
  ;; dotspacemacs-default-theme 'solarized-light
- dotspacemacs-themes '(monokai)
+ dotspacemacs-themes '(base16-tomorrow)
  ;; The leader key
  dotspacemacs-leader-key "SPC"
  ;; Major mode leader key is a shortcut key which is the equivalent of
@@ -100,6 +100,7 @@
     (toggle-read-only)
     (ansi-color-apply-on-region (point-min) (point-max))
     (toggle-read-only))
+
   (require 'ansi-color)
   (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
   (add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
@@ -108,9 +109,14 @@
   (require 'compile)
   ;; node stack track compilation errors in js-mode
   (add-to-list 'compilation-error-regexp-alist-alist
-               '(npm "[[:space:]](\\(.*?\\)\\([0-9A-Za-z_./\:-]+\\.js\\):\\([0-9]+\\):\\([0-9]+\\)" 2 3))
+               '(npm "[[:space:]](?\\(.*?\\)\\([0-9A-Za-z_./\:-]+\\.js\\):\\([0-9]+\\):\\([0-9]+\\)" 2 3))
 
   (add-to-list 'compilation-error-regexp-alist 'npm)
+
+  ;; fringe, vertical border colors
+  (set-face-background 'fringe "#1e1f22")
+  (set-face-background 'vertical-border "#1e1f22")
+  (fringe-mode 'minimal)
 
   ;; add nix path to exec-path
   (add-to-list 'exec-path "~/.nix-profile/bin/")
@@ -158,6 +164,7 @@ This function is called at the very end of Spacemacs initialization."
  '(fci-rule-character-color "#202020")
  '(fci-rule-color "#202020")
  '(fringe-mode 4 nil (fringe))
+ '(global-hl-line-mode nil)
  '(grep-find-ignored-directories
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
@@ -205,6 +212,9 @@ This function is called at the very end of Spacemacs initialization."
  '(main-line-separator-style (quote chamfer))
  '(powerline-color1 "#1E1E1E")
  '(powerline-color2 "#111111")
+ '(projectile-globally-ignored-directories
+   (quote
+    (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" "build" "node_modules")))
  '(rainbow-identifiers-cie-l*a*b*-lightness 80)
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
  '(ring-bell-function (quote ignore) t)
