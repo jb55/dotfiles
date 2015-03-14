@@ -30,6 +30,7 @@
     "new-cap": 0,
     "no-spaced-func": 2,
     "no-process-exit": 0,
+    "no-comma-dangle": 0,
     "valid-jsdoc": 2,
     "no-space-before-semi": 2
   }
