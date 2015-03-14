@@ -25,7 +25,7 @@ export TEXBIN=/usr/texbin
 export VICARE_BIN=$SCHEME_DIR/vicare/bin
 export VICARE_LIBRARY_PATH=$SCHEME_DIR/scheme-tools:$SCHEME_DIR/bher:$SCHEME_DIR/scheme-transforms:$SCHEME_DIR/cosh:$SCHEME_DIR/board
 
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:$PATH
+export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$PATH
 
 export PAGER=less
 export EDITOR=vim
@@ -51,7 +51,6 @@ export PATH=$ROY_BIN:$PATH
 export PATH=$SCALA_HOME/bin:$PATH
 export PATH=$SCANBUILD:$PATH
 export PATH=$TEXBIN:$PATH
-export PATH=/usr/local/octave/3.8.0/bin:/usr/local/octave/3.8.0/sbin:${PATH}
 
 export MANPATH=/usr/share/man:$MANPATH
 export MANPATH=$HOME/.nix-profile/share/man:$MANPATH
@@ -98,3 +97,4 @@ source $HOME/bin/z.sh
 # nix
 . /Users/jb55/.nix-profile/etc/profile.d/nix.sh
 
+CURL_CA_BUNDLE=/opt/local/share/curl/curl-ca-bundle.crt
