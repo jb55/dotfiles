@@ -1,5 +1,3 @@
 :set -XNoMonomorphismRestriction
 :m + Data.Char
-
-:set -interactive-print=myPrint
 :set prompt "λ "
