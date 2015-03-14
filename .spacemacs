@@ -15,11 +15,9 @@
 
  dotspacemacs-configuration-layers '(osx
                                      haskell
-                                     c-c++
                                      python
                                      vim-empty-lines
                                      git
-                                     restclient
                                      jb55
                                      csv
                                     )
@@ -115,8 +113,8 @@
 
   ;; fringe, vertical border colors
   (set-face-background 'fringe "#1e1f22")
-  (set-face-background 'vertical-border "#1e1f22")
-  (fringe-mode 'minimal)
+  (set-face-foreground 'vertical-border "#1e1f22")
+  ;;(set-fring-style 'minimal)
 
   ;; add nix path to exec-path
   (add-to-list 'exec-path "~/.nix-profile/bin/")
@@ -163,7 +161,7 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-shift-width 2)
  '(fci-rule-character-color "#202020")
  '(fci-rule-color "#202020")
- '(fringe-mode 4 nil (fringe))
+ '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-hl-line-mode nil)
  '(grep-find-ignored-directories
    (quote
