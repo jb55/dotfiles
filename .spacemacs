@@ -116,6 +116,8 @@
   (set-face-foreground 'vertical-border "#1e1f22")
   ;;(set-fring-style 'minimal)
 
+  (set-face-attribute 'default nil :height 110)
+
   ;; add nix path to exec-path
   (add-to-list 'exec-path "~/.nix-profile/bin/")
 

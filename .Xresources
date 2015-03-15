@@ -1,0 +1,50 @@
+!
+! ~/.Xresources
+!
+
+! special
+*foreground:   #606870
+*background:   #101820
+*cursorColor:  #3d7070
+
+! black
+*color0:       #303840
+*color8:       #606870
+
+! red
+*color1:       #701625
+*color9:       #a33749
+
+! green
+*color2:       #457030
+*color10:      #73a35b
+
+! yellow
+*color3:       #89531e
+*color11:      #bc7f42
+
+! blue
+*color4:       #305070
+*color12:      #5b7fa3
+
+! magenta
+*color5:       #704970
+*color13:      #a37fa3
+
+! cyan
+*color6:       #3d7070
+*color14:      #6da3a3
+
+! white
+*color7:       #a0a8b0
+*color15:      #d0d8e0
+
+! urxvt
+URxvt*boldFont: -*-profont-*-*-*-*-12-*-*-*-*-*-*-*
+URxvt*cursorBlink: true
+URxvt*font: -*-profont-*-*-*-*-12-*-*-*-*-*-*-*
+URxvt*internalBorder: 22
+URxvt*matcher.button: 1
+URxvt*perl-ext-common: default,matcher,selection-to-clipboard
+URxvt*scrollBar: false
+URxvt*url-launcher: /usr/bin/firefox
