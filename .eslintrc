@@ -3,30 +3,38 @@
     "node": true
   },
   "rules": {
-    // warnings
-    "no-debugger": 1,
-    "no-empty": 1,
-    "no-invalid-regexp": 1,
-    "radix": 1,
-    "no-warning-comments": 1,
-    "no-unused-expressions": 1,
-    "no-native-reassign": 1,
-    "no-fallthrough": 1,
-
-    // errors
-    "no-undef": 2,
-    "no-dupe-keys": 2,
-    "no-empty-class": 2,
-    "no-self-compare": 2,
-    "valid-typeof": 2,
-    "no-unused-vars": 2,
+    "curly": 0,
     "handle-callback-err": 2,
-    "no-shadow-restricted-names": 2,
-
-    // stylistic errors
+    "new-cap": 0,
     "new-cap": 2,
-    "no-spaced-func": 2,
+    "no-comma-dangle": 0,
+    "no-debugger": 1,
+    "no-dupe-keys": 2,
+    "no-empty": 1,
+    "no-empty-class": 2,
+    "no-fallthrough": 1,
+    "no-invalid-regexp": 1,
+    "no-native-reassign": 1,
+    "no-process-exit": 0,
+    "no-self-compare": 2,
+    "no-shadow-restricted-names": 2,
     "no-space-before-semi": 2,
+    "no-space-before-semi": 2,
+    "no-spaced-func": 2,
+    "no-spaced-func": 2,
+    "no-undef": 2,
+    "no-undef": 2,
+    "no-underscore-dangle": 0,
+    "no-unused-expressions": 1,
+    "no-unused-vars": 2,
+    "no-use-before-define": 0,
+    "no-warning-comments": 1,
+    "quotes": 0,
+    "radix": 1,
+    "semi": 0,
     "space-unary-word-ops": 2
+    "strict": 0,
+    "valid-jsdoc": 2,
+    "valid-typeof": 2
   }
 }
