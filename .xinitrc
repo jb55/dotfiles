@@ -11,7 +11,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 # xresources
-xrdb ~/.Xresources
+#xrdb ~/.Xresources
 
 # nvidia
 #nvidia-settings -l
@@ -23,17 +23,17 @@ xset r rate 300 40
 #xset +fp /usr/share/fonts/X11/PCF/ProFont/
 
 # hotkeys
-sxhkd &
+#sxhkd &
 
 # redshift
-redshift &
+#redshift &
 
 # wallpaper
 #feh --bg-tile '/home/joe/usr/images/wallpaper.png' --no-fehbg
-hsetroot -solid '#182028'
+hsetroot -solid '#1a2028'
 
 # compositor
-compton -r 4 -o 0.75 -l -6 -t -6 -c -G -b
+compton -r 4 -o 0.75 -l -6 -t -6 -c -G -b -m 0.75
 
 # bar
 #bar.sh | bar -g x24 -d -f -*-profont-*-*-*-*-12-*-*-*-*-*-*-* -B "#ff101820" -F "#ff687078" &
