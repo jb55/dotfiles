@@ -65,7 +65,7 @@ set hlsearch
 set hidden
 set nowrap
 set ruler
-set colorcolumn=80
+set colorcolumn=0
 set relativenumber
 set dir=~/.vim/tmp
 exe 'set t_kB=' . nr2char(27) . '[Z'
@@ -83,7 +83,7 @@ if has("gui_running")
 else
   set t_Co=256
   set clipboard=unnamed
-  colorscheme wombat256
+  colorscheme desert
 endif
 
 " }}}

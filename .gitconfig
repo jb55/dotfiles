@@ -12,7 +12,7 @@
   status = auto
 [core]
 	excludesfile = /Users/jb55/.gitignore_global
-[url "git@github.com:"]
+[url "https://github.com/"]
   insteadOf = gh:
 [url "git@dev.monstercat.com:monstercat/"]
   insteadOf = mcat:

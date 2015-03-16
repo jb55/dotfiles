@@ -40,11 +40,17 @@
 *color15:      #d0d8e0
 
 ! urxvt
-URxvt*boldFont: -*-profont-*-*-*-*-12-*-*-*-*-*-*-*
+!URxvt*boldFont: -*-profont-*-*-*-*-12-*-*-*-*-*-*-*
 URxvt*cursorBlink: true
-URxvt*font: -*-profont-*-*-*-*-12-*-*-*-*-*-*-*
+!URxvt*font: -*-profont-*-*-*-*-12-*-*-*-*-*-*-*
 URxvt*internalBorder: 22
 URxvt*matcher.button: 1
-URxvt*perl-ext-common: default,matcher,selection-to-clipboard
+URxvt*perl-ext-common: default,matcher,clipboard
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt*scrollBar: false
-URxvt*url-launcher: /usr/bin/firefox
+URxvt.iso14755: false
+URxvt*boldMode: false
+
+! XTerm
+XTerm*boldFont: fixed
+URxvt*url-launcher: chromium-browser

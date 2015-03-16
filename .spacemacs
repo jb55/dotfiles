@@ -116,10 +116,12 @@
   (set-face-foreground 'vertical-border "#1e1f22")
   ;;(set-fring-style 'minimal)
 
-  (set-face-attribute 'default nil :height 110)
+  (set-face-attribute 'default nil :height 100)
 
   ;; add nix path to exec-path
   (add-to-list 'exec-path "~/.nix-profile/bin/")
+
+  (global-hl-line-mode -1)
 
   ;; auto-scroll compilation buffers
   (setq compilation-scroll-output t)
@@ -164,7 +166,7 @@ This function is called at the very end of Spacemacs initialization."
  '(fci-rule-character-color "#202020")
  '(fci-rule-color "#202020")
  '(fringe-mode (quote (1 . 1)) nil (fringe))
- '(global-hl-line-mode nil)
+ '(global-hl-line-mode -1)
  '(grep-find-ignored-directories
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
