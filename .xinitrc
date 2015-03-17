@@ -29,8 +29,8 @@ xset r rate 300 40
 #redshift &
 
 # wallpaper
-#feh --bg-tile '/home/joe/usr/images/wallpaper.png' --no-fehbg
-hsetroot -solid '#1a2028'
+feh --bg-tile "$HOME/bg.png" --no-fehbg
+#hsetroot -solid '#1a2028'
 
 # compositor
 compton -r 4 -o 0.75 -l -6 -t -6 -c -G -b -m 0.75
