@@ -1,4 +1,3 @@
-
 {
     "LAYOUTS": "----------------------",
     "layouts": [
@@ -21,7 +20,7 @@
     ],
     "mod2": [
         "option",
-        "shift"
+        "control"
     ],
 
     "COMMANDS": "----------------------",
@@ -85,7 +84,7 @@
     },
     "focus-screen-1": {
         "mod": "mod1",
-        "key": "w"
+        "key": "q"
     },
     "focus-screen-2": {
         "mod": "mod1",
@@ -93,15 +92,15 @@
     },
     "focus-screen-3": {
         "mod": "mod1",
-        "key": "r"
+        "key": "w"
     },
     "focus-screen-4": {
         "mod": "mod1",
-        "key": "q"
+        "key": "r"
     },
     "throw-screen-1": {
         "mod": "mod2",
-        "key": "w"
+        "key": "q"
     },
     "throw-screen-2": {
         "mod": "mod2",
@@ -109,7 +108,7 @@
     },
     "throw-screen-3": {
         "mod": "mod2",
-        "key": "r"
+        "key": "w"
     },
     "throw-screen-4": {
         "mod": "mod2",
