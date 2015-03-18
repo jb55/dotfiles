@@ -35,6 +35,9 @@ feh --bg-tile "$HOME/bg.png" --no-fehbg
 # compositor
 compton -r 4 -o 0.75 -l -6 -t -6 -c -G -b -m 0.75
 
+# slow down deathadder
+xinput set-prop 8 "Device Accel Constant Deceleration" 3
+
 # bar
 #bar.sh | bar -g x24 -d -f -*-profont-*-*-*-*-12-*-*-*-*-*-*-* -B "#ff101820" -F "#ff687078" &
 
