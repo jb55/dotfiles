@@ -323,6 +323,7 @@ au BufRead,BufNewFile *.y set syn=bnf
 au BufRead,BufNewFile *.y.pp set syn=happy
 au BufRead,BufNewFile *.yaml set syn=yaml
 au BufRead,BufNewFile *.yml set syn=yaml
+au BufWritePost,FileWritePost ~/.Xdefaults,~/.Xresources silent! !xrdb -load % >/dev/null 2>&1
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 au BufRead,BufNewFile nginx.conf set ft=nginx
 au BufRead,BufNewFile wscript set syn=python
