@@ -41,8 +41,8 @@
 
 ! urxvt
 !URxvt*boldFont: -*-profont-*-*-*-*-12-*-*-*-*-*-*-*
-URxvt*cursorBlink: true
-URxvt*font: xft:DejaVu Sans Mono:size=11
+!URxvt*font: xft:DejaVu Sans Mono:size=11
+URxvt*font: xft:Inconsolata:size=11
 URxvt*internalBorder: 22
 URxvt*matcher.button: 1
 URxvt*perl-ext-common: default,matcher,clipboard
@@ -50,6 +50,7 @@ URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt*scrollBar: false
 URxvt.iso14755: false
 URxvt*boldMode: false
+URxvt*cursorBlink: true
 
 ! XTerm
 XTerm*boldFont: fixed

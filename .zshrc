@@ -86,6 +86,7 @@ export GOPATH=$HOME/dev/gocode
 export PATH=$GOPATH/bin:$PATH
 
 # alias
+
 alias githist="git reflog show | grep '}: commit' | nl | sort -nr | nl | sort -nr | cut --fields=1,3 | sed s/commit://g | sed -e 's/HEAD*@{[0-9]*}://g'"
 alias ack="ack --pager='less -R'"
 alias csv="column -s, -t <"
@@ -105,6 +106,7 @@ alias prettyjson=jsonpp
 alias catt="pygmentize -O style=monokai -f console256 -g"
 alias tmuxa="tmux a -d -t "
 alias sorry='sudo $(fc -l -n -1)'
+alias ag="ag --pager less"
 
 alias open=gnome-open
 alias emacs="env TERM=xterm-256color emacs"
