@@ -42,7 +42,7 @@
 ! urxvt
 !URxvt*boldFont: -*-profont-*-*-*-*-12-*-*-*-*-*-*-*
 URxvt*cursorBlink: true
-!URxvt*font: xft:DejaVu Sans Mono:size=16
+URxvt*font: xft:DejaVu Sans Mono:size=11
 URxvt*internalBorder: 22
 URxvt*matcher.button: 1
 URxvt*perl-ext-common: default,matcher,clipboard
