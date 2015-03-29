@@ -1,0 +1,23 @@
+[general]
+accounts = main
+pythonfile = ~/.offlineimap.py
+
+[Account main]
+localrepository = main-local
+remoterepository = main-remote
+
+[Repository main-local]
+type = Maildir
+localfolders = ~/mail
+
+[Repository main-remote]
+type = Gmail
+maxconnections=1
+remoteuser = jackbox55@gmail.com
+realdelete = no
+
+folderfilter = filter_folder
+nametrans = name_trans
+remotepasseval = get_authinfo_password("imap.gmail.com", "jackbox55@gmail.com", 993)
+
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
