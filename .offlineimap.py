@@ -2,7 +2,6 @@
 import re, os
 
 def filter_folder(foldername):
-  print "folder: %s" % foldername
   return foldername in ['[Gmail]/All Mail'
                        ,'[Gmail]/Sent Mail'
                        ]

@@ -212,6 +212,7 @@ This function is called at the very end of Spacemacs initialization."
  '(main-line-color1 "#1E1E1E")
  '(main-line-color2 "#111111")
  '(main-line-separator-style (quote chamfer))
+ '(notmuch-search-oldest-first nil)
  '(powerline-color1 "#1E1E1E")
  '(powerline-color2 "#111111")
  '(projectile-globally-ignored-directories

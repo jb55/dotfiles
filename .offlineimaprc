@@ -3,8 +3,11 @@ accounts = main
 pythonfile = ~/.offlineimap.py
 
 [Account main]
+autorefresh = 5
 localrepository = main-local
 remoterepository = main-remote
+postsynchook = notmuch-update
+status_backend = sqlite
 
 [Repository main-local]
 type = Maildir
@@ -12,9 +15,10 @@ localfolders = ~/mail
 
 [Repository main-remote]
 type = Gmail
-maxconnections=1
+maxconnections=3
 remoteuser = jackbox55@gmail.com
 realdelete = no
+idlefolders = ["[Gmail]/All Mail"]
 
 folderfilter = filter_folder
 nametrans = name_trans
