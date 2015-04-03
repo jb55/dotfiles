@@ -162,6 +162,8 @@ This function is called at the very end of Spacemacs initialization."
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
  '(evil-shift-width 2)
+ '(expand-region-contract-fast-key "V")
+ '(expand-region-reset-fast-key "r")
  '(fci-rule-character-color "#202020")
  '(fci-rule-color "#202020")
  '(fringe-mode (quote (1 . 1)) nil (fringe))
