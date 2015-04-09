@@ -32,7 +32,7 @@
   cloner = clone --recursive
   st = status -sb
 [push]
-	default = matching
+	default = simple
 [merge]
 	tool = splice
 	defaultToUpstream = true
