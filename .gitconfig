@@ -1,17 +1,17 @@
 [user]
-	name = William Casarin
-	email = bill@casarin.me
-	signingkey = 0x415AF4A3
+  name = William Casarin
+  email = bill@casarin.me
+  signingkey = 0x415AF4A3
 [sendemail]
   smtpencryption = tls
   smtpserver = smtp.gmail.com
   smtpuser = jackbox55@gmail.com
   smtpserverport = 587
 [color]
-	diff = auto
+  diff = auto
   status = auto
 [core]
-	excludesfile = /Users/jb55/.gitignore_global
+  excludesfile = /Users/jb55/.gitignore_global
 [url "git@github.com:"]
   insteadOf = gh:
 [url "git@dev.monstercat.com:monstercat/"]
@@ -19,11 +19,11 @@
 [url "jb55.com:git/"]
   insteadOf = dev:
 [gui]
-	recentrepo = /Users/jb55/src/js/titania
+  recentrepo = /Users/jb55/src/js/titania
 [alias]
   ff = merge --ff-only
   pff = pull --ff-only
-	default = !git config branch.master.remote origin && git config branch.master.merge refs/heads/master
+  default = !git config branch.master.remote origin && git config branch.master.merge refs/heads/master
   lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
   lg2 = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
   lg3 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
@@ -32,21 +32,21 @@
   cloner = clone --recursive
   st = status -sb
 [push]
-	default = simple
+  default = simple
 [merge]
-	tool = splice
-	defaultToUpstream = true
+  tool = splice
+  defaultToUpstream = true
 [mergetool "diffconflicts"]
-	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
-	trustExitCode = true
-	keepBackup = false
+  cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+  trustExitCode = true
+  keepBackup = false
 [mergetool "splice"]
   cmd = "mvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
-	trustExitCode = true
+  trustExitCode = true
 [rerere]
-	enabled = true
+  enabled = true
 [difftool "sourcetree"]
-	cmd = mvim -d \"$LOCAL\" \"$REMOTE\"
+  cmd = mvim -d \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
-	cmd = mvim -d \"$LOCAL\" \"$REMOTE\"
-	trustExitCode = true
+  cmd = mvim -d \"$LOCAL\" \"$REMOTE\"
+  trustExitCode = true
