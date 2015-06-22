@@ -13,9 +13,9 @@
  dotspacemacs-configuration-layer-path '()
  ;; List of configuration layers to load.
 
- dotspacemacs-configuration-layers '(osx
-                                     javascript
-                                     haskell
+ dotspacemacs-configuration-layers '(haskell
+                                     osx
+                                     jb55
                                      python
                                      auto-completion
                                      syntax-checking
@@ -169,7 +169,10 @@ This function is called at the very end of Spacemacs initialization."
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
  '(haskell-interactive-mode-scroll-to-bottom t)
- '(haskell-interactive-popup-error nil t)
+ '(haskell-interactive-popup-error nil)
+ '(haskell-mode-hook
+   (quote
+    (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
  '(haskell-notify-p t)
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-suggest-remove-import-lines t)
@@ -215,6 +218,12 @@ This function is called at the very end of Spacemacs initialization."
     (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" "build" "node_modules")))
  '(rainbow-identifiers-cie-l*a*b*-lightness 80)
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
+ '(rcirc-server-alist
+   (quote
+    (("irc.freenode.net" :nick "jb55" :channels
+      ("#rcirc"))
+     ("irc.globalgamers.net" :nick "jb55" :full-name "William Casarin" :channels
+      ("#voxelnauts")))))
  '(ring-bell-function (quote ignore) t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(vc-annotate-background nil)
