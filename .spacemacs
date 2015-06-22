@@ -14,12 +14,13 @@
  ;; List of configuration layers to load.
 
  dotspacemacs-configuration-layers '(osx
+                                     javascript
                                      haskell
                                      python
+                                     auto-completion
+                                     syntax-checking
                                      vim-empty-lines
                                      git
-                                     jb55
-                                     csv
                                     )
  ;; A list of packages and/or extensions that will not be install and loaded.
 
@@ -37,7 +38,7 @@
  dotspacemacs-startup-banner 'random
  ;; Default theme applied at startup
  ;; dotspacemacs-default-theme 'solarized-light
- dotspacemacs-themes '(base16-tomorrow)
+ dotspacemacs-themes '(base16-tomorrow-dark)
  ;; The leader key
  dotspacemacs-leader-key "SPC"
  ;; Major mode leader key is a shortcut key which is the equivalent of
@@ -126,6 +127,9 @@
 (defun dotspacemacs/config ()
   "This is were you can ultimately override default Spacemacs configuration.
 This function is called at the very end of Spacemacs initialization."
+
+  (setq fci-rule-character-color "#202020")
+  (setq fci-rule-color "gray10")
 )
 
 ;;(add-hook 'after-init-hook 'my-helm-init)
@@ -143,7 +147,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(Linum-format "%7i ")
- '(ac-ispell-requires 4)
+ '(ac-ispell-requires 4 t)
  '(ahs-case-fold-search nil)
  '(ahs-default-range (quote ahs-range-whole-buffer))
  '(ahs-idle-interval 0.25)
@@ -159,19 +163,15 @@ This function is called at the very end of Spacemacs initialization."
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
  '(evil-shift-width 2)
- '(fci-rule-character-color "#202020")
- '(fci-rule-color "#202020")
  '(fringe-mode (quote (1 . 1)) nil (fringe))
- '(global-hl-line-mode nil)
+ '(global-hl-line-mode t)
  '(grep-find-ignored-directories
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
- '(haskell-compile-cabal-build-command "cd %s && nix-cabal-build")
  '(haskell-interactive-mode-scroll-to-bottom t)
- '(haskell-interactive-popup-error nil)
+ '(haskell-interactive-popup-error nil t)
  '(haskell-notify-p t)
  '(haskell-process-auto-import-loaded-modules t)
- '(haskell-process-path-ghci "nix-cabal-shell --command \"ghci\"")
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-type (quote auto))
  '(haskell-stylish-on-save nil)
@@ -203,7 +203,7 @@ This function is called at the very end of Spacemacs initialization."
  '(js-indent-level 2)
  '(js2-bounce-indent-p t)
  '(js2-strict-missing-semi-warning nil)
- '(linum-format " %7i " t)
+ '(linum-format " %7i ")
  '(magit-diff-use-overlays nil)
  '(main-line-color1 "#1E1E1E")
  '(main-line-color2 "#111111")
@@ -241,10 +241,15 @@ This function is called at the very end of Spacemacs initialization."
  '(vc-annotate-very-old-color nil)
  '(weechat-color-list
    (quote
-    (unspecified "#fdf6e3" "#eee8d5" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#657b83" "#839496"))))
+    (unspecified "#fdf6e3" "#eee8d5" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#657b83" "#839496")))
+ '(yas-prompt-functions
+   (quote
+    (yas-dropdown-prompt yas-completing-prompt yas-ido-prompt yas-no-prompt))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil)))))
+ '(default ((t (:background nil))))
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
