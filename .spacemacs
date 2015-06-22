@@ -13,12 +13,13 @@
  dotspacemacs-configuration-layer-path '()
  ;; List of configuration layers to load.
 
- dotspacemacs-configuration-layers '(osx
-                                     haskell
+ dotspacemacs-configuration-layers '(haskell
+                                     jb55
                                      python
                                      vim-empty-lines
                                      git
-                                     jb55
+                                     syntax-checking
+                                     auto-complete
                                     )
  ;; A list of packages and/or extensions that will not be install and loaded.
 
@@ -36,7 +37,7 @@
  dotspacemacs-startup-banner 'random
  ;; Default theme applied at startup
  ;; dotspacemacs-default-theme 'solarized-light
- dotspacemacs-themes '(base16-tomorrow)
+ dotspacemacs-themes '(base16-tomorrow-dark)
  ;; The leader key
  dotspacemacs-leader-key "SPC"
  ;; Major mode leader key is a shortcut key which is the equivalent of
@@ -167,13 +168,16 @@ This function is called at the very end of Spacemacs initialization."
  '(fci-rule-character-color "#202020")
  '(fci-rule-color "#202020")
  '(fringe-mode (quote (1 . 1)) nil (fringe))
- '(global-hl-line-mode -1)
+ '(global-hl-line-mode nil)
  '(grep-find-ignored-directories
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
  '(haskell-compile-cabal-build-command "cd %s && nix-cabal-build")
  '(haskell-interactive-mode-scroll-to-bottom t)
  '(haskell-interactive-popup-error nil)
+ '(haskell-mode-hook
+   (quote
+    (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
  '(haskell-notify-p t)
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-path-ghci "nix-cabal-shell --command \"ghci\"")
@@ -208,7 +212,7 @@ This function is called at the very end of Spacemacs initialization."
  '(js-indent-level 2)
  '(js2-bounce-indent-p t)
  '(js2-strict-missing-semi-warning nil)
- '(linum-format " %7i " t)
+ '(linum-format " %7i ")
  '(magit-diff-use-overlays nil)
  '(main-line-color1 "#1E1E1E")
  '(main-line-color2 "#111111")
@@ -221,6 +225,12 @@ This function is called at the very end of Spacemacs initialization."
     (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" "build" "node_modules")))
  '(rainbow-identifiers-cie-l*a*b*-lightness 80)
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
+ '(rcirc-server-alist
+   (quote
+    (("irc.freenode.net" :nick "jb55" :channels
+      ("#rcirc"))
+     ("irc.globalgamers.net" :nick "jb55" :full-name "William Casarin" :channels
+      ("#voxelnauts")))))
  '(ring-bell-function (quote ignore) t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(vc-annotate-background nil)
