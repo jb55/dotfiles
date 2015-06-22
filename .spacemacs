@@ -6,6 +6,18 @@
 ;; Configuration Layers
 ;; --------------------
 
+(setq base-layers '(haskell
+                   jb55
+                   python
+                   auto-completion
+                   syntax-checking
+                   vim-empty-lines
+                   git
+                   ))
+
+(setq my-layers (if (system-is-mac) (cons 'osx base-layers)
+                  base-layers))
+
 (setq-default
  ;; List of additional paths where to look for configuration layers.
  ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
@@ -13,14 +25,8 @@
  dotspacemacs-configuration-layer-path '()
  ;; List of configuration layers to load.
 
- dotspacemacs-configuration-layers '(haskell
-                                     jb55
-                                     python
-                                     vim-empty-lines
-                                     git
-                                     syntax-checking
-                                     auto-complete
-                                    )
+ dotspacemacs-configuration-layers my-layers
+
  ;; A list of packages and/or extensions that will not be install and loaded.
 
  dotspacemacs-excluded-packages '()
