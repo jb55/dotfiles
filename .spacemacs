@@ -18,13 +18,23 @@
 (setq my-layers (if 't (cons 'osx base-layers)
                     base-layers))
 
+(defun file-string (file)
+    "Read the contents of a file and return as a string."
+    (with-temp-buffer
+      (insert-file-contents file)
+      (buffer-string)))
+
+(defun drop-last (str)
+  "Drop the last character in a string"
+  (substring str 0 -1))
+
 (defun rcirc-znc-server (network)
   "Add a virtual znc network"
   `(,(concat network ".znc.jb55.com")
     :user-name ,(concat "jb55/" network)
     :port 33111
     :encryption tls
-    :password ,(insert-file-contents-literally "~/.dotfiles/ircpass")
+    :password ,(drop-last (file-string "~/.dotfiles/ircpass"))
     :nick "jb55"))
 
 (setq irc-servers
