@@ -15,19 +15,8 @@
                    git
                    ))
 
-(defun rcirc-znc-server (network)
-  "Add a virtual znc network"
-  `(,(concat network ".znc.jb55.com")
-    :user-name ,(concat "jb55/" network)
-    :port 33111
-    :encryption tls
-    :password ,(insert-file-contents-literally "~/.dotfiles/ircpass")
-    :nick "jb55"))
-
-(setq irc-servers
-      `(,(rcirc-znc-server "freenode")
-        ,(rcirc-znc-server "globalgamers")
-        ))
+(setq my-layers (if 't (cons 'osx base-layers)
+                    base-layers))
 
 (setq-default
  ;; List of additional paths where to look for configuration layers.
