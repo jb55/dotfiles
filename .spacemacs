@@ -15,8 +15,8 @@
                    git
                    ))
 
-(setq my-layers (if (system-is-mac) (cons 'osx base-layers)
-                  base-layers))
+(setq my-layers (if 't (cons 'osx base-layers)
+                    base-layers))
 
 (setq-default
  ;; List of additional paths where to look for configuration layers.
