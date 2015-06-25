@@ -18,6 +18,20 @@
 (setq my-layers (if 't (cons 'osx base-layers)
                     base-layers))
 
+(defun rcirc-znc-server (network)
+  "Add a virtual znc network"
+  `(,(concat network ".znc.jb55.com")
+    :user-name ,(concat "jb55/" network)
+    :port 33111
+    :encryption tls
+    :password ,(insert-file-contents-literally "~/.dotfiles/ircpass")
+    :nick "jb55"))
+
+(setq irc-servers
+      `(,(rcirc-znc-server "freenode")
+        ,(rcirc-znc-server "globalgamers")
+        ))
+
 (setq-default
  ;; List of additional paths where to look for configuration layers.
  ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
@@ -223,12 +237,8 @@ This function is called at the very end of Spacemacs initialization."
     (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" "build" "node_modules")))
  '(rainbow-identifiers-cie-l*a*b*-lightness 80)
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
- '(rcirc-server-alist
-   (quote
-    (("irc.freenode.net" :nick "jb55" :channels
-      ("#rcirc"))
-     ("irc.globalgamers.net" :nick "jb55" :full-name "William Casarin" :channels
-      ("#voxelnauts")))))
+ '(rcirc-buffer-maximum-lines 10000)
+ '(rcirc-server-alist irc-servers)
  '(ring-bell-function (quote ignore) t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(vc-annotate-background nil)
