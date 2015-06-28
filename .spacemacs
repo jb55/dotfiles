@@ -15,8 +15,8 @@
                    git
                    ))
 
-(setq my-layers (if 't (cons 'osx base-layers)
-                    base-layers))
+;; (setq my-layers (if 't (cons 'osx base-layers)
+;;                     base-layers))
 
 (defun file-string (file)
     "Read the contents of a file and return as a string."
