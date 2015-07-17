@@ -15,8 +15,18 @@
                    git
                    ))
 
-;; (setq my-layers (if 't (cons 'osx base-layers)
-;;                     base-layers))
+(defun is-mac ()
+  (string-equal system-type "darwin"))
+
+(setq my-layers (if (is-mac) (cons 'osx base-layers)
+                    base-layers))
+
+(defun set-nix-shell-exec-path ()
+  (let ((path-from-shell (shell-command-to-string "nix-shell --command 'echo $PATH'")))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+
+(setq excluded-packages (if (not (is-mac)) '(exec-path-from-shell) '()))
 
 (defun file-string (file)
     "Read the contents of a file and return as a string."
@@ -53,7 +63,15 @@
 
  ;; A list of packages and/or extensions that will not be install and loaded.
 
- dotspacemacs-excluded-packages '()
+ dotspacemacs-additional-packages '(
+                                    cuda-mode
+                                    glsl-mode
+                                    jade-mode
+                                    markdown-mode
+                                    nix-mode
+                                   )
+
+ dotspacemacs-excluded-packages excluded-packages
 )
 
 ;; Settings
@@ -149,7 +167,7 @@
   (set-face-attribute 'default nil :height 100)
 
   ;; add nix path to exec-path
-  (add-to-list 'exec-path "~/.nix-profile/bin/")
+  ;;(add-to-list 'exec-path "~/.nix-profile/bin/")
 
   (global-hl-line-mode -1)
 
