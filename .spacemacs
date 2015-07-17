@@ -37,6 +37,14 @@
     :password ,(drop-last (file-string "~/.dotfiles/ircpass"))
     :nick "jb55"))
 
+(defun projectile-command-to-string (cmd)
+  (let ((cwd (car (projectile-get-project-directories))))
+    (shell-command-to-string (concat "cd \"" cwd "\" && " cmd))))
+
+(defun nix-shell-path (args)
+  (insert
+   (projectile-command-to-string (concat "nix-shell --command \"echo $PATH\" " args))))
+
 (setq irc-servers
       `(,(rcirc-znc-server "freenode")
         ,(rcirc-znc-server "globalgamers")
