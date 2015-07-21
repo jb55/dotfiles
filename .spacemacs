@@ -7,13 +7,14 @@
 ;; --------------------
 
 (setq base-layers '(haskell
-                    c-c++
-                    jb55
-                    python
-                    auto-completion
-                    syntax-checking
-                    vim-empty-lines
-                    git
+                   jb55
+                   lua
+                   javascript
+                   python
+                   auto-completion
+                   syntax-checking
+                   vim-empty-lines
+                   git
                    ))
 
 (defun is-mac ()
