@@ -8,6 +8,8 @@
 
 (setq base-layers '(haskell
                    jb55
+                   lua
+                   javascript
                    python
                    auto-completion
                    syntax-checking
@@ -61,7 +63,7 @@
 
  ;; A list of packages and/or extensions that will not be install and loaded.
 
- dotspacemacs-excluded-packages '()
+ dotspacemacs-excluded-packages '(exec-path-from-shell)
 )
 
 ;; Settings
