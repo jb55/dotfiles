@@ -21,12 +21,8 @@
 (setq my-layers (if (is-mac) (cons 'osx base-layers)
                     base-layers))
 
-(defun set-nix-shell-exec-path ()
-  (let ((path-from-shell (shell-command-to-string "nix-shell --command 'echo $PATH'")))
-    (setenv "PATH" path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
-
-(setq excluded-packages (if (not (is-mac)) '(exec-path-from-shell) '()))
+;; (setq excluded-packages (if (not (is-mac)) '(exec-path-from-shell) '()))
+(setq excluded-packages '())
 
 (defun file-string (file)
     "Read the contents of a file and return as a string."
@@ -51,9 +47,10 @@
   (let ((cwd (car (projectile-get-project-directories))))
     (shell-command-to-string (concat "cd \"" cwd "\" && " cmd))))
 
-(defun nix-shell-path (args)
-  (insert
-   (projectile-command-to-string (concat "nix-shell --command \"echo $PATH\" " args))))
+(defun nix-shell-path (&rest args)
+  (let ((path-from-shell (projectile-command-to-string
+                          (concat "nix-shell --command 'echo $PATH'" args))))
+    (setq exec-path (split-string path-from-shell path-separator))))
 
 (setq irc-servers
       `(,(rcirc-znc-server "freenode")
