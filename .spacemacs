@@ -7,12 +7,13 @@
 ;; --------------------
 
 (setq base-layers '(haskell
-                   jb55
-                   python
-                   auto-completion
-                   syntax-checking
-                   vim-empty-lines
-                   git
+                    c-c++
+                    jb55
+                    python
+                    auto-completion
+                    syntax-checking
+                    vim-empty-lines
+                    git
                    ))
 
 (defun is-mac ()
@@ -21,8 +22,8 @@
 (setq my-layers (if (is-mac) (cons 'osx base-layers)
                     base-layers))
 
-;; (setq excluded-packages (if (not (is-mac)) '(exec-path-from-shell) '()))
-(setq excluded-packages '())
+(setq excluded-packages (if (not (is-mac)) '(exec-path-from-shell) '()))
+;; (setq excluded-packages '())
 
 (defun file-string (file)
     "Read the contents of a file and return as a string."
@@ -200,7 +201,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(Linum-format "%7i ")
- '(ac-ispell-requires 4)
+ '(ac-ispell-requires 4 t)
  '(ahs-case-fold-search nil)
  '(ahs-default-range (quote ahs-range-whole-buffer))
  '(ahs-idle-interval 0.25)
@@ -210,6 +211,8 @@ This function is called at the very end of Spacemacs initialization."
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    ["#110F13" "#B13120" "#719F34" "#CEAE3E" "#7C9FC9" "#7868B5" "#009090" "#F4EAD5"])
+ '(ansi-term-color-vector
+   [unspecified "#1d1f21" "#cc6666" "#b5bd68" "#f0c674" "#81a2be" "#b294bb" "#81a2be" "#c5c8c6"])
  '(compilation-message-face (quote default))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#657b83")
@@ -219,7 +222,7 @@ This function is called at the very end of Spacemacs initialization."
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
  '(fci-rule-character-color "#202020")
- '(fci-rule-color "#202020")
+ '(fci-rule-color "#202020" t)
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-hl-line-mode nil)
  '(grep-find-ignored-directories
@@ -265,7 +268,7 @@ This function is called at the very end of Spacemacs initialization."
  '(js-indent-level 2)
  '(js2-bounce-indent-p t)
  '(js2-strict-missing-semi-warning nil)
- '(linum-format " %7i ")
+ '(linum-format " %7i " t)
  '(magit-diff-use-overlays nil)
  '(main-line-color1 "#1E1E1E")
  '(main-line-color2 "#111111")
