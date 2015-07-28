@@ -23,56 +23,10 @@ bindkey -v
 bindkey "^R" history-incremental-search-backward
 bindkey "^F" history-incremental-search-forward
 
-
-export SCANBUILD=$HOME/dev/checker
-export NIMPATH=$HOME/bin/nim
-export NIMBLEPATH=$HOME/.nimble
-export CABALBIN=$HOME/.cabal/bin
-export CLOJURESCRIPT_HOME=$HOME/dev/clojurescript
-export COSH_BIN=$SCHEME_DIR/cosh/bin
-export DEPOT_TOOLS=$HOME/dev/depot_tools
-export ECLIPSE_WORKSPACE=$HOME/src/java
-export EDITOR=vim
-export HASKELL_HOME=$HOME/Library/Haskell
-export MIRAH_BIN=$HOME/dev/mirah-0.0.8.dev/bin
-export PLAY_HOME=$HOME/dev/play-2.0.2
-export ROY_BIN=$HOME/dev/roy
-export SCALA_HOME=$HOME/dev/scala-2.9.2
-export SCHEME_DIR=$HOME/dev/scheme
-export TEXBIN=/usr/texbin
-export NPM=/usr/local/share/npm
-export VICARE_BIN=$SCHEME_DIR/vicare/bin
-export VICARE_LIBRARY_PATH=$SCHEME_DIR/scheme-tools:$SCHEME_DIR/bher:$SCHEME_DIR/scheme-transforms:$SCHEME_DIR/cosh:$SCHEME_DIR/board
-export NW_BIN=$HOME/dev/node-webkit-v0.9.2-linux-x64
-export GOHOME=$HOME/dev/go
-
-export NODE_PATH=/usr/local/lib/node_modules
-
-export LUA_HOME=/opt/local/share/luarocks
-export LUA_BIN=$LUA_HOME/bin
+export NIXPKGS=$HOME/nixpkgs
+export NIX_PATH="nixpkgs=$NIXPKGS:monstercatpkgs=$HOME/etc/monstercatpkgs:$NIX_PATH"
 
 # Customize to your needs...
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:$PATH
-
-export PATH=$NIMPATH/bin:$PATH
-export PATH=$NIMBLEPATH/bin:$PATH
-export PATH=$CABALBIN:$PATH
-export PATH=$CLOJURESCRIPT_HOME/bin:$PATH
-export PATH=$COSH_BIN:$PATH
-export PATH=$DEPOT_TOOLS:$PATH
-export PATH=$HASKELL_HOME/bin:$PATH
-export PATH=$LUA_BIN:$PATH
-export PATH=$M2_HOME/bin:$PATH
-export PATH=$MIRAH_BIN:$PATH
-export PATH=$PLAY_HOME:$PATH
-export PATH=$ROY_BIN:$PATH
-export PATH=$SCALA_HOME/bin:$PATH
-export PATH=$TEXBIN:$PATH
-export PATH=$SCANBUILD:$PATH
-export PATH=$NPM/bin:$PATH
-export PATH=$NW_BIN:$PATH
-export PATH=$GOHOME/bin:$PATH
-export PATH=/usr/local/octave/3.8.0/bin:/usr/local/octave/3.8.0/sbin:${PATH}
 
 [ -e $HOME/.profile ] && source $HOME/.profile
 
@@ -108,7 +62,7 @@ alias tmuxa="tmux a -d -t "
 alias sorry='sudo $(fc -l -n -1)'
 alias ag="ag --pager less"
 
-alias open=gnome-open
+alias open=xdg-open
 alias emacs="env TERM=xterm-256color emacs"
 alias attach="grabssh; screen -rD"
 alias fixssh="source $HOME/bin/fixssh"
@@ -139,3 +93,7 @@ export BARI=$HOME/Dropbox/shared/bari
 
 alias noder="env NODE_NO_READLINE=1 rlwrap node"
 alias nr="npm run"
+
+cdl () {
+  cd "$(dirname "$(readlink -f "$(whence "$1")")")"
+}
