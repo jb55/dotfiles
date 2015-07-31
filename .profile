@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# sharefile
+export SHAREFILE_HOST=jb55.com:public/s/
+export SHAREFILE_URL=http://jb55.com/s/
+
 export CABALBIN=$HOME/.cabal/bin
 export CLOJURESCRIPT_HOME=$HOME/dev/clojurescript
 export COSH_BIN=$SCHEME_DIR/cosh/bin
@@ -80,6 +84,11 @@ alias vless="/usr/share/vim/vim72/macros/less.sh"
 alias vnc_once="x11vnc -safer -nopw -once -display :0"
 alias wget="wget -c"
 alias nfmt="numfmt --to=si"
+
+share() { sharefile "$@" | pbcopy }
+sharess() { share_last_ss | pbcopy }
+lt() { ls -lt | less }
+prettycsv() { csv-columnify "$@" | less -S }
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
