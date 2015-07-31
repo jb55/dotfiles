@@ -6,16 +6,21 @@
 ;; Configuration Layers
 ;; --------------------
 
+;; custom stuff
+
 (setq base-layers '(haskell
-                   jb55
-                   lua
-                   javascript
-                   python
-                   auto-completion
-                   syntax-checking
-                   vim-empty-lines
-                   git
-                   ))
+                    (c-c++ :variables
+                           c-c++-enable-clang-support t)
+                    jb55
+                    org
+                    lua
+                    javascript
+                    python
+                    auto-completion
+                    syntax-checking
+                    vim-empty-lines
+                    git
+                    ))
 
 (defun is-mac ()
   (string-equal system-type "darwin"))
@@ -50,6 +55,7 @@
     (shell-command-to-string (concat "cd \"" cwd "\" && " cmd))))
 
 (defun nix-shell-path (&rest args)
+  (interactive)
   (let ((path-from-shell (projectile-command-to-string
                           (concat "nix-shell --command 'echo $PATH'" args))))
     (setq exec-path (split-string path-from-shell path-separator))))
@@ -136,6 +142,8 @@
  ;; specified with an installed package.
  ;; Not used for now.
  dotspacemacs-default-package-repository nil
+
+ dotspacemacs-enable-paste-micro-state nil
  )
 
 ;; Initialization Hooks
@@ -222,6 +230,7 @@ This function is called at the very end of Spacemacs initialization."
  '(cua-normal-cursor-color "#657b83")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
+ '(disaster-objdump "gobjdump -d -M att -Sl --no-show-raw-insn")
  '(evil-shift-width 2)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
@@ -268,9 +277,10 @@ This function is called at the very end of Spacemacs initialization."
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
  '(if (version< emacs-version "24.4"))
  '(js-indent-level 2)
+ '(js2-basic-offset 2)
  '(js2-bounce-indent-p t)
  '(js2-strict-missing-semi-warning nil)
- '(linum-format " %7i ")
+ '(linum-format " %7i " t)
  '(magit-diff-use-overlays nil)
  '(main-line-color1 "#1E1E1E")
  '(main-line-color2 "#111111")
@@ -293,6 +303,7 @@ This function is called at the very end of Spacemacs initialization."
       ("#voxelnauts")))))
  '(ring-bell-function (quote ignore) t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
+ '(standard-indent 2)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
