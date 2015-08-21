@@ -235,14 +235,15 @@ This function is called at the very end of Spacemacs initialization."
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
  '(fci-rule-character-color "#202020")
- '(fci-rule-color "#202020" t)
+ '(fci-rule-color "#202020")
+ '(flycheck-clang-include-path (quote ("/home/jb55/src/c/sandy/include")))
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-hl-line-mode t)
  '(grep-find-ignored-directories
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
  '(haskell-interactive-mode-scroll-to-bottom t)
- '(haskell-interactive-popup-error nil)
+ '(haskell-interactive-popup-error nil t)
  '(haskell-mode-hook
    (quote
     (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
@@ -286,6 +287,7 @@ This function is called at the very end of Spacemacs initialization."
  '(main-line-color2 "#111111")
  '(main-line-separator-style (quote chamfer))
  '(notmuch-search-oldest-first nil)
+ '(org-use-sub-superscripts (quote {}))
  '(powerline-color1 "#1E1E1E")
  '(powerline-color2 "#111111")
  '(projectile-globally-ignored-directories
@@ -294,7 +296,6 @@ This function is called at the very end of Spacemacs initialization."
  '(rainbow-identifiers-cie-l*a*b*-lightness 80)
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
  '(rcirc-buffer-maximum-lines 10000)
- '(rcirc-server-alist irc-servers)
  '(rcirc-server-alist
    (quote
     (("irc.freenode.net" :nick "jb55" :channels

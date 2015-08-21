@@ -2,6 +2,8 @@
 
 !#include ".Xresources.d/themes/solarized"
 #include ".Xresources.d/themes/baskerville"
+!#include ".Xresources.d/themes/polygon"
+!#include ".Xresources.d/themes/shore"
 !#include ".Xresources.d/themes/tomorrow-night"
 
 ! urxvt
@@ -21,4 +23,3 @@ URxvt*termName: rxvt
 ! XTerm
 XTerm*boldFont: fixed
 URxvt*url-launcher: chromium-browser
-

@@ -87,13 +87,17 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
 
 # z
-source $HOME/bin/z.sh
+source "$HOME/bin/z.sh"
 
 export BARI=$HOME/Dropbox/shared/bari
 
 alias noder="env NODE_NO_READLINE=1 rlwrap node"
 alias nr="npm run"
+alias xclip="xclip -selection clipboard"
 
 cdl () {
   cd "$(dirname "$(readlink -f "$(whence "$1")")")"
 }
+
+DIRCOLORS="$HOME/.dircolors"
+[ -e "$DIRCOLORS" ] && eval "$(dircolors -b "$DIRCOLORS")"
