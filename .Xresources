@@ -8,8 +8,8 @@
 
 ! urxvt
 !URxvt*boldFont: -*-profont-*-*-*-*-12-*-*-*-*-*-*-*
-!URxvt*font: xft:Source Code Pro:size=10:antialias=true;hinting=true
-URxvt*font: xft:Inconsolata:size=12:antialias=true;hinting=true
+URxvt*font: xft:Source Code Pro:size=11:antialias=true;hinting=true
+!URxvt*font: xft:Inconsolata:size=12:antialias=true;hinting=true
 !xterm*faceName: Terminus:style=Regular:size=10
 URxvt*internalBorder: 22
 URxvt*matcher.button: 1

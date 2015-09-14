@@ -2,7 +2,7 @@
 Config { 
 
    -- appearance
-     font =         "xft:Inconsolata:size=12"
+     font =         "xft:Source Code Pro:size=11"
    , bgColor =      "#111111"
    , fgColor =      "#eeeeee"
    , position =     Top
