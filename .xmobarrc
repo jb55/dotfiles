@@ -49,6 +49,7 @@ Config {
                              , "--low"      , "green"
                              , "--normal"   , "orange"
                              , "--high"     , "red"
+                             , "-m"         , "2"
                              ] 10
 
         -- disk io
@@ -58,6 +59,7 @@ Config {
                      , "--low"      , "green"
                      , "--normal"   , "orange"
                      , "--high"     , "red"
+                     , "-m"         , "3"
                      ] 10
 
         -- cpu activity monitor
