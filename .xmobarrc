@@ -2,7 +2,7 @@
 Config { 
 
    -- appearance
-     font =         "xft:DejaVu Sans Mono:size=10"
+     font =         "xft:Inconsolata:size=12"
    , bgColor =      "#111111"
    , fgColor =      "#eeeeee"
    , position =     Top
@@ -43,7 +43,7 @@ Config {
                              ] 36000
 
         -- network activity monitor (dynamic interface resolution)
-        , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s,<rx>kB/s"
+        , Run DynNetwork     [ "--template" , "net <tx>kB/s,<rx>kB/s"
                              , "--Low"      , "1000"       -- units: kB/s
                              , "--High"     , "5000"       -- units: kB/s
                              , "--low"      , "green"
@@ -71,7 +71,7 @@ Config {
                              ] 50
                           
         -- memory usage monitor
-        , Run Memory         [ "--template" ,"mem: <usedratio>%"
+        , Run Memory         [ "--template" ,"mem <usedratio>%"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "90"        -- units: %
                              , "--low"      , "green"
