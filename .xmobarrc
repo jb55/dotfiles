@@ -12,7 +12,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "  %multicpu% | %coretemp% | %memory% | %dynnetwork% }{ %CYVR% | %date% || %kbd%   "
+   , template = "  %multicpu% | %coretemp% | %memory% | %dynnetwork% | %diskio% }{ %CYVR% | %date%  "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -43,7 +43,7 @@ Config {
                              ] 36000
 
         -- network activity monitor (dynamic interface resolution)
-        , Run DynNetwork     [ "--template" , "net <tx>kB/s,<rx>kB/s"
+        , Run DynNetwork     [ "--template" , "net <tx>u <rx>d"
                              , "--Low"      , "1000"       -- units: kB/s
                              , "--High"     , "5000"       -- units: kB/s
                              , "--low"      , "green"
@@ -51,8 +51,17 @@ Config {
                              , "--high"     , "red"
                              ] 10
 
+        -- disk io
+        , Run DiskIO [("/", "<read>r <write>w")]
+                     [ "--Low"      , "10000"       -- units: KB/s
+                     , "--High"     , "40000"       -- units: KB/s
+                     , "--low"      , "green"
+                     , "--normal"   , "orange"
+                     , "--high"     , "red"
+                     ] 10
+
         -- cpu activity monitor
-        , Run MultiCpu       [ "--template" , "cpu <total0>%,<total1>%,<total2>%,<total3>%"
+        , Run MultiCpu       [ "--template" , "cpu <total0> <total1> <total2> <total3>"
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "85"         -- units: %
                              , "--low"      , "green"
@@ -62,7 +71,7 @@ Config {
                              ] 10
 
         -- cpu core temperature monitor
-        , Run CoreTemp       [ "--template" , "temp <core0>,<core1>"
+        , Run CoreTemp       [ "--template" , "temp <core0> <core1>"
                              , "--Low"      , "70"        -- units: °C
                              , "--High"     , "80"        -- units: °C
                              , "--low"      , "green"
@@ -71,7 +80,7 @@ Config {
                              ] 50
                           
         -- memory usage monitor
-        , Run Memory         [ "--template" ,"mem <usedratio>%"
+        , Run Memory         [ "--template" ,"mem <usedratio>"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "90"        -- units: %
                              , "--low"      , "green"
