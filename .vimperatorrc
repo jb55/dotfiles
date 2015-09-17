@@ -3,6 +3,7 @@
 map wo :tabonly<Return>
 noremap d <C-d>
 noremap u <C-u>
+noremap <C-u> u
 source! /Users/jb55/.vimperatorrc.local
 
 " vim: set ft=vimperator:
