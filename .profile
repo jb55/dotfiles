@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# nix
+. /Users/jb55/.nix-profile/etc/profile.d/nix.sh
+export NIXPKGS=$HOME/dev/nixpkgs
+export NIX_PATH="$NIXPKGS:nixpkgs=$NIXPKGS:monstercatpkgs=$HOME/dev/monstercatpkgs"
+
 # sharefile
 export SHAREFILE_HOST=jb55.com:public/s/
 export SHAREFILE_URL=http://jb55.com/s/
