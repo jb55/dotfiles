@@ -35,8 +35,4 @@ if [[ $TERM == screen* ]] && [[ -f $FIXSSH ]]; then
 fi
 
 export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
-
-PERL_MB_OPT="--install_base \"/Users/jb55/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/jb55/perl5"; export PERL_MM_OPT;
-
 ulimit -n 1024

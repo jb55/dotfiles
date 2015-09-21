@@ -108,3 +108,18 @@ source $HOME/bin/z.sh
 . /Users/jb55/.nix-profile/etc/profile.d/nix.sh
 
 CURL_CA_BUNDLE=/opt/local/share/curl/curl-ca-bundle.crt
+
+env-type () {
+  envtype="$1"
+  shift
+  nix-shell -Q -j6 -p $envtype "$@"
+}
+
+haskell-env () {
+  env-type "haskellEnv" "$@"
+}
+
+haskell-env-hoogle () {
+  env-type "haskellEnvHoogle" "$@"
+}
+
