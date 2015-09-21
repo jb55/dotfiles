@@ -250,7 +250,7 @@ This function is called at the very end of Spacemacs initialization."
  '(haskell-notify-p t)
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-suggest-remove-import-lines t)
- '(haskell-process-type (quote auto))
+ '(haskell-process-type (quote ghci))
  '(haskell-stylish-on-save nil)
  '(haskell-tags-on-save t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
