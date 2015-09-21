@@ -29,6 +29,9 @@ alias vless="/usr/share/vim/vim72/macros/less.sh"
 alias vnc_once="x11vnc -safer -nopw -once -display :0"
 alias wget="wget -c"
 alias nfmt="numfmt --to=si"
+alias cutt="cut -d $'\t'"
+alias awkt="awk -F $'\t'"
+alias prettycsvt="prettycsv -d $'\t'"
 
 share() { sharefile "$@" | pbcopy }
 sharess() { share_last_ss | pbcopy }
