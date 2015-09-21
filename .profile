@@ -4,6 +4,7 @@
 export SHAREFILE_HOST=jb55.com:public/s/
 export SHAREFILE_URL=http://jb55.com/s/
 
+alias ag="ag --pager=less"
 alias ack="ack --pager='less -R'"
 alias attach="grabssh; screen -rD"
 alias catt="pygmentize -O style=monokai -f console256 -g"
