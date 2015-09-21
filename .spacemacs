@@ -87,6 +87,7 @@
  ;; Default theme applied at startup
  ;; dotspacemacs-default-theme 'solarized-light
  dotspacemacs-themes '(base16-tomorrow-dark)
+
  ;; The leader key
  dotspacemacs-leader-key "SPC"
  ;; Major mode leader key is a shortcut key which is the equivalent of
@@ -117,7 +118,7 @@
  ;; can be toggled through `toggle-transparency'.
  dotspacemacs-inactive-transparency 90
  ;; If non nil unicode symbols are displayed in the mode line (e.g. for lighters)
- dotspacemacs-mode-line-unicode-symbols t
+ dotspacemacs-mode-line-unicode-symbols nil
  ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth scrolling
  ;; overrides the default behavior of Emacs which recenters the point when
  ;; it reaches the top or bottom of the screen
