@@ -67,6 +67,7 @@ export MANPATH=/usr/share/man:$MANPATH
 export MANPATH=$HOME/.nix-profile/share/man:$MANPATH
 export BARI=$HOME/Dropbox/shared/bari
 
+alias ag="ag --pager=less"
 alias ack="ack --pager='less -R'"
 alias attach="grabssh; screen -rD"
 alias catt="pygmentize -O style=monokai -f console256 -g"
