@@ -4,6 +4,7 @@
 export SHAREFILE_HOST=jb55.com:public/s/
 export SHAREFILE_URL=http://jb55.com/s/
 
+alias ag="ag --pager=less"
 alias ack="ack --pager='less -R'"
 alias attach="grabssh; screen -rD"
 alias catt="pygmentize -O style=monokai -f console256 -g"
@@ -28,6 +29,9 @@ alias vless="/usr/share/vim/vim72/macros/less.sh"
 alias vnc_once="x11vnc -safer -nopw -once -display :0"
 alias wget="wget -c"
 alias nfmt="numfmt --to=si"
+alias cutt="cut -d $'\t'"
+alias awkt="awk -F $'\t'"
+alias prettycsvt="prettycsv -d $'\t'"
 
 share() { sharefile "$@" | pbcopy }
 sharess() { share_last_ss | pbcopy }
