@@ -17,6 +17,7 @@
                     lua
                     javascript
                     python
+                    purescript
                     auto-completion
                     syntax-checking
                     vim-empty-lines
