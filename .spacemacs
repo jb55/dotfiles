@@ -8,7 +8,8 @@
 
 ;; custom stuff
 
-(setq base-layers '(haskell
+(setq base-layers '((haskell :variables
+                             haskell-enable-hindent-style "chris-done")
                     (c-c++ :variables
                            c-c++-enable-clang-support t)
                     jb55
