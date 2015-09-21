@@ -95,6 +95,20 @@ alias noder="env NODE_NO_READLINE=1 rlwrap node"
 alias nr="npm run"
 alias xclip="xclip -selection clipboard"
 
+env-type () {
+  envtype="$1"
+  shift
+  nix-shell -Q -j6 -p $envtype "$@"
+}
+
+haskell-env () {
+  env-type "haskellEnv" "$@"
+}
+
+haskell-env-hoogle () {
+  env-type "haskellEnvHoogle" "$@"
+}
+
 cdl () {
   cd "$(dirname "$(readlink -f "$(whence "$1")")")"
 }
