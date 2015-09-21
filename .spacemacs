@@ -296,12 +296,7 @@ This function is called at the very end of Spacemacs initialization."
  '(rainbow-identifiers-cie-l*a*b*-lightness 80)
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
  '(rcirc-buffer-maximum-lines 10000)
- '(rcirc-server-alist
-   (quote
-    (("irc.freenode.net" :nick "jb55" :channels
-      ("#rcirc"))
-     ("irc.globalgamers.net" :nick "jb55" :full-name "William Casarin" :channels
-      ("#voxelnauts")))))
+ '(rcirc-server-alist irc-servers)
  '(ring-bell-function (quote ignore) t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(standard-indent 2)
