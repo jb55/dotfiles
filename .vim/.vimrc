@@ -23,6 +23,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 
 "NeoBundle 'lukerandall/haskellmode-vim'
+NeoBundle 'jimmay5469/vim-spacemacs'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'wting/rust.vim'
 NeoBundle 'rizzatti/dash.vim'
