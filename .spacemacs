@@ -148,6 +148,8 @@
  dotspacemacs-default-package-repository nil
 
  dotspacemacs-enable-paste-micro-state nil
+
+ dotspacemacs-additional-packages '(jade-mode)
  )
 
 ;; Initialization Hooks
@@ -194,12 +196,15 @@
   (setq compilation-scroll-output t)
 )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   "This is were you can ultimately override default Spacemacs configuration.
 This function is called at the very end of Spacemacs initialization."
 
   (setq fci-rule-character-color "#202020")
   (setq fci-rule-color "gray10")
+
+  (use-package jade-mode
+    :defer t)
 )
 
 ;;(add-hook 'after-init-hook 'my-helm-init)
