@@ -37,6 +37,8 @@ share() { sharefile "$@" | pbcopy }
 sharess() { share_last_ss | pbcopy }
 lt() { ls -lt | less }
 prettycsv() { csv-columnify "$@" | less -S }
+headers() { head -n1 ${1:-"/dev/stdin"} | csv-delim | tr '\t' '\n' | cat -n }
+nsum() { awk '{total = total + $1}END{print total}' }
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
