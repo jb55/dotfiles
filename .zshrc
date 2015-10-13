@@ -108,6 +108,10 @@ haskell-env-hoogle () {
   env-type "haskellEnvHoogle" "$@"
 }
 
+haskell-env-tools() {
+  env-type "haskellTools" "$@"
+}
+
 cdl () {
   cd "$(dirname "$(readlink -f "$(whence "$1")")")"
 }
