@@ -136,3 +136,8 @@ haskell-env-hoogle () {
   env-type "haskellEnvHoogle" "$@"
 }
 
+haskell-env-tools() {
+  env-type "haskellTools" "$@"
+}
+
+# csv stuff
