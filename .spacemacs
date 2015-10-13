@@ -84,7 +84,7 @@
  ;; banner with the corresponding index is used, if the value is `random'
  ;; then the banner is chosen randomly among the available banners, if
  ;; the value is nil then no banner is displayed.
- dotspacemacs-startup-banner 'random
+ dotspacemacs-startup-banner 'official
  ;; Default theme applied at startup
  ;; dotspacemacs-default-theme 'solarized-light
  dotspacemacs-themes '(base16-tomorrow-dark)
