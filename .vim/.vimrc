@@ -377,3 +377,5 @@ endfunction
 command! WipeNoFiles call s:WipeBuffersWithoutFiles()
 
 " }}}
+
+runtime! config/*.vim
