@@ -229,14 +229,16 @@ This function is called at the very end of Spacemacs initialization."
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
  '(haskell-interactive-mode-scroll-to-bottom t)
- '(haskell-interactive-popup-error nil)
+ '(haskell-interactive-popup-error nil t)
+ '(haskell-interactive-popup-errors t)
  '(haskell-mode-hook
    (quote
     (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
  '(haskell-notify-p t)
  '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
- '(haskell-process-type (quote auto))
+ '(haskell-process-type (quote ghci))
  '(haskell-stylish-on-save nil)
  '(haskell-tags-on-save t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
