@@ -258,6 +258,7 @@ This function is called at the very end of Spacemacs initialization."
     (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
  '(haskell-notify-p t)
  '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-type (quote ghci))
  '(haskell-stylish-on-save nil)
