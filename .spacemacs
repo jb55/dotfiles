@@ -9,10 +9,11 @@
 ;; custom stuff
 
 (setq base-layers '((haskell :variables
-                             haskell-enable-hindent-style "chris-done")
+                             ;haskell-enable-hindent-style "chris-done"
+                             haskell-enable-ghc-mod-support nil)
+
                     (c-c++ :variables
                            c-c++-enable-clang-support t)
-                    jb55
                     org
                     lua
                     javascript
