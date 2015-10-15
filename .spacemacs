@@ -8,14 +8,17 @@
 
 ;; custom stuff
 
-(setq base-layers '(haskell
+(setq base-layers '((haskell :variables
+                             ;haskell-enable-hindent-style "chris-done"
+                             haskell-enable-ghc-mod-support nil)
+
                     (c-c++ :variables
                            c-c++-enable-clang-support t)
-                    jb55
                     org
                     lua
                     javascript
                     python
+                    purescript
                     auto-completion
                     syntax-checking
                     vim-empty-lines
@@ -95,10 +98,11 @@
  ;; banner with the corresponding index is used, if the value is `random'
  ;; then the banner is chosen randomly among the available banners, if
  ;; the value is nil then no banner is displayed.
- dotspacemacs-startup-banner 'random
+ dotspacemacs-startup-banner 'official
  ;; Default theme applied at startup
  ;; dotspacemacs-default-theme 'solarized-light
  dotspacemacs-themes '(base16-tomorrow-dark)
+
  ;; The leader key
  dotspacemacs-leader-key "SPC"
  ;; Major mode leader key is a shortcut key which is the equivalent of
@@ -129,7 +133,7 @@
  ;; can be toggled through `toggle-transparency'.
  dotspacemacs-inactive-transparency 90
  ;; If non nil unicode symbols are displayed in the mode line (e.g. for lighters)
- dotspacemacs-mode-line-unicode-symbols t
+ dotspacemacs-mode-line-unicode-symbols nil
  ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth scrolling
  ;; overrides the default behavior of Emacs which recenters the point when
  ;; it reaches the top or bottom of the screen
@@ -144,6 +148,8 @@
  dotspacemacs-default-package-repository nil
 
  dotspacemacs-enable-paste-micro-state nil
+
+ dotspacemacs-additional-packages '(jade-mode)
  )
 
 ;; Initialization Hooks
@@ -190,12 +196,15 @@
   (setq compilation-scroll-output t)
 )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   "This is were you can ultimately override default Spacemacs configuration.
 This function is called at the very end of Spacemacs initialization."
 
   (setq fci-rule-character-color "#202020")
   (setq fci-rule-color "gray10")
+
+  (use-package jade-mode
+    :defer t)
 )
 
 ;;(add-hook 'after-init-hook 'my-helm-init)
@@ -249,8 +258,9 @@ This function is called at the very end of Spacemacs initialization."
     (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
  '(haskell-notify-p t)
  '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
- '(haskell-process-type (quote auto))
+ '(haskell-process-type (quote ghci))
  '(haskell-stylish-on-save nil)
  '(haskell-tags-on-save t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
@@ -296,12 +306,7 @@ This function is called at the very end of Spacemacs initialization."
  '(rainbow-identifiers-cie-l*a*b*-lightness 80)
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
  '(rcirc-buffer-maximum-lines 10000)
- '(rcirc-server-alist
-   (quote
-    (("irc.freenode.net" :nick "jb55" :channels
-      ("#rcirc"))
-     ("irc.globalgamers.net" :nick "jb55" :full-name "William Casarin" :channels
-      ("#voxelnauts")))))
+ '(rcirc-server-alist irc-servers)
  '(ring-bell-function (quote ignore) t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(standard-indent 2)

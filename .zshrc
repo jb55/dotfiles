@@ -46,7 +46,6 @@ alias ack="ack --pager='less -R'"
 alias csv="column -s, -t <"
 alias vless="/usr/share/vim/vim72/macros/less.sh"
 alias cpptags="ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++"
-alias vnc_once="x11vnc -safer -nopw -once -display :0"
 alias wget="wget -c"
 alias tmux="tmux -2"
 alias page=$PAGER
@@ -95,8 +94,30 @@ alias noder="env NODE_NO_READLINE=1 rlwrap node"
 alias nr="npm run"
 alias xclip="xclip -selection clipboard"
 
+env-type () {
+  envtype="$1"
+  shift
+  nix-shell -Q -j6 -p $envtype "$@"
+}
+
+haskell-env () {
+  env-type "haskellEnv" "$@"
+}
+
+haskell-env-hoogle () {
+  env-type "haskellEnvHoogle" "$@"
+}
+
+haskell-env-tools() {
+  env-type "haskellTools" "$@"
+}
+
 cdl () {
   cd "$(dirname "$(readlink -f "$(whence "$1")")")"
+}
+
+vnc_once () {
+  x11vnc -safer -nopw -once -display :0 $1
 }
 
 DIRCOLORS="$HOME/.dircolors"

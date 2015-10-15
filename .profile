@@ -4,6 +4,7 @@
 export SHAREFILE_HOST=jb55.com:public/s/
 export SHAREFILE_URL=http://jb55.com/s/
 
+alias ag="ag --pager=less"
 alias ack="ack --pager='less -R'"
 alias attach="grabssh; screen -rD"
 alias catt="pygmentize -O style=monokai -f console256 -g"
@@ -28,11 +29,16 @@ alias vless="/usr/share/vim/vim72/macros/less.sh"
 alias vnc_once="x11vnc -safer -nopw -once -display :0"
 alias wget="wget -c"
 alias nfmt="numfmt --to=si"
+alias cutt="cut -d $'\t' --output-delimiter=$'\t'"
+alias awkt="awk -F $'\t'"
+alias prettycsvt="prettycsv -d $'\t'"
 
 share() { sharefile "$@" | pbcopy }
 sharess() { share_last_ss | pbcopy }
 lt() { ls -lt | less }
 prettycsv() { csv-columnify "$@" | less -S }
+headers() { head -n1 ${1:-"/dev/stdin"} | csv-delim | tr '\t' '\n' | cat -n }
+nsum() { awk '{total = total + $1}END{print total}' }
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -45,3 +51,4 @@ source $HOME/bin/z.sh
 . /Users/jb55/.nix-profile/etc/profile.d/nix.sh
 
 CURL_CA_BUNDLE=/opt/local/share/curl/curl-ca-bundle.crt
+

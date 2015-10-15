@@ -23,6 +23,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 
 "NeoBundle 'lukerandall/haskellmode-vim'
+NeoBundle 'jimmay5469/vim-spacemacs'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'wting/rust.vim'
 NeoBundle 'rizzatti/dash.vim'
@@ -233,7 +234,7 @@ let g:clang_snippets = 1
 let g:clang_use_library = 1
 
 let g:syntastic_haskell_checkers = []
-let g:syntastic_javascript_checkers = ['standard', 'eslint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_args = '~/.eslintrc'
 let g:syntastic_coffee_coffeelint_conf = '~/.coffeelintrc'
 let g:syntastic_enable_signs=1
@@ -376,3 +377,5 @@ endfunction
 command! WipeNoFiles call s:WipeBuffersWithoutFiles()
 
 " }}}
+
+runtime! config/*.vim
