@@ -12,7 +12,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "  %multicpu% | %coretemp% | %memory% | %dynnetwork% | %diskio% }{ %CYVR% | %date%  "
+   , template = "  %multicpu% | %coretemp% | %memory% | %dynnetwork% | %diskio% }{ %CYVR% | vol %myvolume% | %date%  "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -39,8 +39,11 @@ Config {
    , commands = 
 
         -- weather monitor
-        [ Run Weather "CYVR" [ "--template", "<skyCondition> | <fc=lightblue><tempC></fc>°C | <fc=lightblue><rh></fc>% rain | <fc=lightblue><dewPointC></fc>°C dp"
+        [ Run Weather "CYVR" [ "--template", "<skyCondition> | <fc=lightblue><tempC></fc>°C"
                              ] 36000
+
+        -- Volume
+        , Run Com "/home/jb55/.dotfiles/xmobar/get-volume" [] "myvolume" 10
 
         -- network activity monitor (dynamic interface resolution)
         , Run DynNetwork     [ "--template" , "net <tx>u <rx>d"
