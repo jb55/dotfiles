@@ -20,7 +20,7 @@ URxvt.iso14755: false
 URxvt*boldMode: false
 URxvt*cursorBlink: true
 URxvt*termName: rxvt
-Emacs.font: Source Code Pro-12
+Emacs.font: Source Code Pro-11
 
 ! XTerm
 XTerm*boldFont: fixed

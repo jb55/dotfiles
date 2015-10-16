@@ -103,6 +103,12 @@
  ;; dotspacemacs-default-theme 'solarized-light
  dotspacemacs-themes '(base16-tomorrow-dark)
 
+ dotspacemacs-default-font '("Source Code Pro"
+                             :size 13
+                             :weight normal
+                             :width normal
+                             :powerline-scale 1.1)
+
  ;; The leader key
  dotspacemacs-leader-key "SPC"
  ;; Major mode leader key is a shortcut key which is the equivalent of
