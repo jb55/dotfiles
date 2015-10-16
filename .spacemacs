@@ -135,7 +135,8 @@
 
  dotspacemacs-enable-paste-micro-state nil
 
- dotspacemacs-additional-packages '(jade-mode)
+ dotspacemacs-additional-packages '(jade-mode
+                                    nix-mode)
  )
 
 ;; Initialization Hooks
@@ -185,8 +186,8 @@ This function is called at the very end of Spacemacs initialization."
   (setq fci-rule-character-color "#202020")
   (setq fci-rule-color "gray10")
 
-  (use-package jade-mode
-    :defer t)
+  (use-package jade-mode :defer t)
+  (use-package nix-mode :defer t)
 )
 
 ;;(add-hook 'after-init-hook 'my-helm-init)
