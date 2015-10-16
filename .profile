@@ -48,7 +48,7 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 source $HOME/bin/z.sh
 
 # nix
-. /Users/jb55/.nix-profile/etc/profile.d/nix.sh
+#. /Users/jb55/.nix-profile/etc/profile.d/nix.sh
 
 CURL_CA_BUNDLE=/opt/local/share/curl/curl-ca-bundle.crt
 
