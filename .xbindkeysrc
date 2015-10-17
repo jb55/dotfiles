@@ -6,3 +6,6 @@
 
 "amixer set Master toggle" 
   XF86AudioMute
+
+"slock"
+  Control + XF86Eject
