@@ -8,4 +8,4 @@
   XF86AudioMute
 
 "slock"
-  Control + XF86Eject
+  Mod4 + XF86Eject
