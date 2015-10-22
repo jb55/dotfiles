@@ -37,7 +37,7 @@ export PAGER=less
 # go
 
 export GOPATH=$HOME/dev/gocode
-export PATH=$GOPATH/bin:$PATH
+export PATH=$HOME/.npm/bin:$GOPATH/bin:$PATH
 
 # alias
 
