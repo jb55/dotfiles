@@ -31,12 +31,15 @@ alias wget="wget -c"
 alias nfmt="numfmt --to=si"
 alias cutt="cut -d $'\t' --output-delimiter=$'\t'"
 alias awkt="awk -F $'\t'"
-alias prettycsvt="prettycsv -d $'\t'"
 
 share() { sharefile "$@" | pbcopy }
 sharess() { share_last_ss | pbcopy }
 lt() { ls -lt | less }
-prettycsv() { csv-columnify "$@" | less -S }
+
+prettycsv() {
+  csv-delim "$@" | column -t -s $'\t' | less -S
+}
+
 headers() { head -n1 ${1:-"/dev/stdin"} | csv-delim | tr '\t' '\n' | cat -n }
 nsum() { awk '{total = total + $1}END{print total}' }
 
