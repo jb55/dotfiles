@@ -1,11 +1,11 @@
-"amixer sset Master 3%+" 
+"amixer sset Master 3%+"
   XF86AudioRaiseVolume
 
-"amixer sset Master 3%-" 
+"amixer sset Master 3%-"
   XF86AudioLowerVolume
 
-"amixer set Master toggle" 
+"amixer set Master toggle"
   XF86AudioMute
 
 "slock"
-  Mod4 + XF86Eject
+  Pause
