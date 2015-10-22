@@ -104,7 +104,7 @@
  dotspacemacs-themes '(base16-tomorrow-dark)
 
  dotspacemacs-default-font '("Source Code Pro"
-                             :size 13
+                             :size 10
                              :weight normal
                              :width normal
                              :powerline-scale 1.1)
