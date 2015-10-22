@@ -10,3 +10,27 @@ keycode 101 = XF86MonBrightnessDown
 keycode 212 = XF86MonBrightnessUp
 
 keycode 204 = XF86Eject
+
+!Swap left alt and left super
+remove Mod4 = Super_L
+remove Mod1 = Alt_L
+keycode 64 = Super_L
+keycode 133 = Alt_L
+add Mod4 = Super_L
+add Mod1 = Alt_L
+
+! symmetry by having mute in the middle
+
+! F12
+keycode 96 = XF86AudioRaiseVolume
+! F11
+keycode 95 = XF86AudioMute
+! F110
+keycode 76 = XF86AudioLowerVolume
+
+! F8
+keycode 74 = XF86AudioNext
+! F7
+keycode 73 = XF86AudioPlay
+! F6
+keycode 72 = XF86AudioPrev
