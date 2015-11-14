@@ -93,6 +93,7 @@ export BARI=$HOME/Dropbox/shared/bari
 alias noder="env NODE_NO_READLINE=1 rlwrap node"
 alias nr="npm run"
 alias xclip="xclip -selection clipboard"
+alias lt="ls -lt | less"
 
 env-type () {
   envtype="$1"
