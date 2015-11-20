@@ -97,7 +97,7 @@ alias xclip="xclip -selection clipboard"
 env-type () {
   envtype="$1"
   shift
-  nix-shell -Q -j6 -p $envtype "$@"
+  nix-shell -Q -j0 -p $envtype "$@"
 }
 
 haskell-env () {
