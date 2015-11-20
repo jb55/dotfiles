@@ -257,8 +257,8 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-shift-width 2)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
- '(fci-rule-character-color "#202020")
- '(fci-rule-color "#202020")
+ '(fci-rule-character-color "#202020" t)
+ '(fci-rule-color "#202020" t)
  '(flycheck-clang-include-path (quote ("/home/jb55/src/c/sandy/include")))
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-hl-line-mode t)
@@ -324,6 +324,9 @@ This function is called at the very end of Spacemacs initialization."
  '(rcirc-buffer-maximum-lines 10000)
  '(rcirc-server-alist irc-servers)
  '(ring-bell-function (quote ignore) t)
+ '(safe-local-variable-values
+   (quote
+    ((flycheck-clang-include-path "./include" "../include"))))
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(standard-indent 2)
  '(vc-annotate-background nil)
