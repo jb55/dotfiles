@@ -111,6 +111,8 @@
 
  ;; The leader key
  dotspacemacs-leader-key "SPC"
+ dotspacemacs-emacs-leader-key "M-m"
+ dotspacemacs-editing-style 'vim
  ;; Major mode leader key is a shortcut key which is the equivalent of
  ;; pressing `<leader> m`
  dotspacemacs-major-mode-leader-key ","
