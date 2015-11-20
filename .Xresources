@@ -25,6 +25,7 @@ URxvt.iso14755: false
 URxvt*boldMode: false
 URxvt*cursorBlink: true
 URxvt*termName: rxvt
+URxvt*urgentOnBell: true
 Emacs.font: Source Code Pro-10
 
 ! XTerm
