@@ -82,6 +82,7 @@
  dotspacemacs-additional-packages '(
                                     cuda-mode
                                     glsl-mode
+                                    racket-mode
                                     jade-mode
                                     markdown-mode
                                     nix-mode
