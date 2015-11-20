@@ -7,5 +7,17 @@
 "amixer set Master toggle"
   XF86AudioMute
 
+"mpc toggle"
+  XF86AudioPlay
+
+"mpc toggle"
+  XF86AudioPlay
+
+"mpc next"
+  XF86AudioNext
+
+"mpc prev"
+  XF86AudioPrev
+
 "slock"
   Pause
