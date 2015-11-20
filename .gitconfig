@@ -38,3 +38,7 @@
 	default = matching
 [rerere]
 	enabled = true
+[http "https://git.monstercat.com"]
+	sslCAInfo = /home/jb55/.flynn/ca-certs/default.pem
+[credential "https://git.monstercat.com"]
+	helper = /home/jb55/bin/flynn git-credentials
