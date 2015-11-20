@@ -34,14 +34,16 @@ alias awkt="awk -F $'\t'"
 
 share() { sharefile "$@" | pbcopy }
 sharess() { share_last_ss | pbcopy }
-lt() { ls -lt | less }
+lt() { ls -lt "$@" | less }
 
 prettycsv() {
   csv-delim "$@" | column -t -s $'\t' | less -S
 }
 
 headers() { head -n1 ${1:-"/dev/stdin"} | csv-delim | tr '\t' '\n' | cat -n }
-nsum() { awk '{total = total + $1}END{print total}' }
+nsum() { awkt '{total = total + $1}END{print total}' }
+sumcol() { cut -f $1 | nsum }
+uniqc() { sort "$@" | uniq -c | sort -nr }
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
