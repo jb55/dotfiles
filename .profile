@@ -6,6 +6,7 @@ export SHAREFILE_URL=http://jb55.com/s/
 export XZ=pxz
 
 alias ag="ag --pager=less"
+alias gpg=gpg2
 alias ack="ack --pager='less -R'"
 alias attach="grabssh; screen -rD"
 alias catt="pygmentize -O style=monokai -f console256 -g"
