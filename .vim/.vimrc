@@ -96,6 +96,7 @@ let maplocalleader = "\\"
 
 " digraphs
 
+nmap Q :qa<CR>
 
 " lambda λ
 imap <C-d>j <C-k>l*
