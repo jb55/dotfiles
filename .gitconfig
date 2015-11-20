@@ -18,6 +18,8 @@
   insteadOf = mcat:
 [url "jb55.com:git/"]
   insteadOf = dev:
+[url "ssh://git@phabricator.monstercat.com/diffusion/"]
+  insteadOf = phab:
 [gui]
   recentrepo = /Users/jb55/src/js/titania
 [alias]
