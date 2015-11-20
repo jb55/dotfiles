@@ -326,9 +326,6 @@ This function is called at the very end of Spacemacs initialization."
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
  '(rcirc-buffer-maximum-lines 10000)
  '(ring-bell-function (quote ignore) t)
- '(safe-local-variable-values
-   (quote
-    ((flycheck-clang-include-path "./include" "../include"))))
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(standard-indent 2))
 
