@@ -13,20 +13,20 @@
 
 ! urxvt
 !URxvt*boldFont: -*-profont-*-*-*-*-12-*-*-*-*-*-*-*
+URxvt*font: xft:Source Code Pro:size=10:antialias=true;hinting=true
 !URxvt*font: xft:Inconsolata:size=12:antialias=true;hinting=true
 !xterm*faceName: Terminus:style=Regular:size=10
-Emacs.font: Source Code Pro-11
-URxvt*boldMode: false
-URxvt*cursorBlink: true
-URxvt*font: xft:Source Code Pro:size=11:antialias=true;hinting=true
 URxvt*internalBorder: 22
 URxvt*matcher.button: 1
 URxvt*perl-ext-common: default,matcher,clipboard
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt*scrollBar: false
+URxvt.iso14755: false
+URxvt*boldMode: false
+URxvt*cursorBlink: true
 URxvt*termName: rxvt
 URxvt*urgentOnBell: true
-URxvt.iso14755: false
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+Emacs.font: Source Code Pro-10
 
 ! XTerm
 XTerm*boldFont: fixed
