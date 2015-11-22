@@ -21,3 +21,6 @@
 
 "slock"
   Pause
+
+"slock & systemctl suspend"
+  Control + Pause
