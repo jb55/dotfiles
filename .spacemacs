@@ -65,7 +65,6 @@
 
 (setq irc-servers
       `(,(rcirc-znc-server "freenode")
-        ,(rcirc-znc-server "globalgamers")
         ))
 
 (setq-default
