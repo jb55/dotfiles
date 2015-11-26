@@ -10,9 +10,6 @@
 "mpc toggle"
   XF86AudioPlay
 
-"mpc toggle"
-  XF86AudioPlay
-
 "mpc next"
   XF86AudioNext
 
