@@ -1,8 +1,6 @@
 " vim: foldmethod=marker:
 
-
-" Have to do this before neobundle
-filetype plugin indent on
+if 0 | endif
 
 " neobundle {{{
 
@@ -22,16 +20,13 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
 
-"NeoBundle 'ervandew/supertab'
-"NeoBundle 'lukerandall/haskellmode-vim'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/vimproc.vim'
+
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'epmatsw/ag.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'jb55/typescript-ctags'
 NeoBundle 'jb55/vim-snippets'
@@ -41,14 +36,19 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'rizzatti/dash.vim'
+NeoBundle 'rking/ag.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'szw/vim-maximizer'
 NeoBundle 'tommcdo/vim-exchange'
+NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'wting/rust.vim'
 NeoBundle 'zah/nimrod.vim'
 
 call neobundle#end()
+
+filetype plugin indent on
 
 NeoBundleCheck
 
@@ -91,8 +91,10 @@ endif
 
 " Mappings {{{
 
-let mapleader = "\\"
-let maplocalleader = "\\"
+let mapleader = "\<SPACE>"
+let maplocalleader = "\<SPACE>"
+"let mapleader = "\\"
+"let maplocalleader = "\\"
 
 " digraphs
 
