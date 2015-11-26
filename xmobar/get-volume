@@ -1,2 +1,7 @@
 #!/usr/bin/env bash
+
+# alsa
 amixer sget Master | awk -F"[][]" '/dB/ { print $2,$6 }'
+
+# pulse
+#amixer sget Master | tail -n1 | awk -F"[][]" '{ print $2,$4 }'
