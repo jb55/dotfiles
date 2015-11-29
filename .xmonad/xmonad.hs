@@ -8,6 +8,7 @@ import XMonad.Actions.CycleWS
 import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.Gaps
 import XMonad.Layout.MultiToggle
@@ -33,6 +34,12 @@ layout = gaps allGaps
        . mkToggle (single FULL)
        $ baseLayout
 
+-- myManageHook = composeAll
+--              [
+--                isFullscreen --> toggleMaximized
+--              , manageDocks
+--              ]
+
 main = xmonad $
     ewmh $
     pagerHints $
@@ -49,10 +56,14 @@ main = xmonad $
     `additionalKeysP` myKeys
 
 
+toggleGaps = sendMessage ToggleGaps
+toggleFull = sendMessage (Toggle FULL)
+toggleMaximized = toggleGaps >> toggleFull
+
 myKeys = [
     ("M-p", shellPrompt defaultXPConfig)
   , ("M-d", toggleWS)
-  , ("M-g", sendMessage $ ToggleGaps)
-  , ("M-e", sendMessage $ Toggle FULL)
+  , ("M-e", toggleFull)
+  , ("M-f", toggleMaximized)
   , ("M-v", sendKey shiftMask xK_Insert)
   ]
