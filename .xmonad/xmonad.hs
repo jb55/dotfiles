@@ -54,5 +54,5 @@ myKeys = [
   , ("M-d", toggleWS)
   , ("M-g", sendMessage $ ToggleGaps)
   , ("M-e", sendMessage $ Toggle FULL)
-  , ("M-v", pasteSelection)
+  , ("M-v", sendKey shiftMask xK_Insert)
   ]
