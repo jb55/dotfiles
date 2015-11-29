@@ -23,7 +23,7 @@ import XMonad.Util.Paste
 gapSize = 10
 taffySize = 25
 
-allGaps = [(U, taffySize)] -- : (map (,gapSize) (enumFrom D))
+allGaps = (U, taffySize + gapSize) : (map (,gapSize) (enumFrom D))
 
 baseLayout = Tall 1 (3/100) (1/2)
          ||| Full
