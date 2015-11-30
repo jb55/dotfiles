@@ -19,6 +19,7 @@
                     javascript
                     python
                     purescript
+                    csv
                     auto-completion
                     syntax-checking
                     vim-empty-lines
