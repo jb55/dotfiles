@@ -1,26 +1,44 @@
 {-# LANGUAGE TupleSections #-}
 
+--import XMonad.Hooks.ICCCMFocus
+import Data.Ratio
+import System.Taffybar.Hooks.PagerHints (pagerHints)
 import XMonad
-import XMonad.Layout.Gaps
-import XMonad.Layout.Spacing
 import XMonad.Actions.CycleWS
 import XMonad.Actions.UpdatePointer
-import XMonad.Util.EZConfig
-import XMonad.Prompt.Shell
-import XMonad.Prompt
-import XMonad.Hooks.SetWMName
-import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops (ewmh)
-import System.Taffybar.Hooks.PagerHints (pagerHints)
---import XMonad.Hooks.ICCCMFocus
+import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.SetWMName
+import XMonad.Layout.Gaps
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Spacing
+import XMonad.Layout.Spiral
+import XMonad.Prompt
+import XMonad.Prompt.Shell
+import XMonad.Util.EZConfig
+import XMonad.Util.Paste
 
 gapSize = 10
+taffySize = 25
 
-allGaps = map (,gapSize) (enumFrom U)
+allGaps = (U, taffySize + gapSize) : (map (,gapSize) (enumFrom D))
 
-gapSpacing = gaps allGaps $ Tall 1 (2/100) (1/2) ||| Full
+baseLayout = Tall 1 (3/100) (1/2)
+         ||| Full
 
-layoutSpacing = spacing 10 $ Tall 1 (3/100) (1/2)
+layout = gaps allGaps
+       . smartBorders
+       . mkToggle (single FULL)
+       $ baseLayout
+
+-- myManageHook = composeAll
+--              [
+--                isFullscreen --> toggleMaximized
+--              , manageDocks
+--              ]
 
 main = xmonad $
     ewmh $
@@ -29,20 +47,23 @@ main = xmonad $
             terminal    = "urxvt"
           , modMask     = mod4Mask
           , logHook     = updatePointer (Relative 0.5 0.5)
-          --, layoutHook  = layoutSpacing
+          , layoutHook  = layout
           , startupHook = setWMName "LG3D"
           , manageHook  = manageDocks
           , normalBorderColor = "black"
-          , focusedBorderColor = "#555555"
+          , focusedBorderColor = "#ff7a00"
     }
     `additionalKeysP` myKeys
 
 
+toggleGaps = sendMessage ToggleGaps
+toggleFull = sendMessage (Toggle FULL)
+toggleMaximized = toggleGaps >> toggleFull
+
 myKeys = [
-    ("M-x", shellPrompt defaultXPConfig)
+    ("M-p", shellPrompt defaultXPConfig)
   , ("M-d", toggleWS)
-  , ("M-n", nextWS)
-  , ("M-p", prevWS)
-  , ("M-g", sendMessage $ ToggleGaps)
-  , ("M-f", sendMessage $ ToggleGap U)
+  , ("M-e", toggleFull)
+  , ("M-f", toggleMaximized)
+  , ("M-v", sendKey shiftMask xK_Insert)
   ]
