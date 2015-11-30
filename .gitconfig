@@ -38,6 +38,7 @@
 	default = matching
 [rerere]
 	enabled = true
+	autoupdate = true
 [http "https://git.monstercat.com"]
 	sslCAInfo = /home/jb55/.flynn/ca-certs/default.pem
 [credential "https://git.monstercat.com"]
