@@ -57,8 +57,8 @@ main = do
       mpris = mprisNew defaultMPRISConfig
       mem = pollingGraphNew memCfg 1 memCallback
       cpu = pollingGraphNew cpuCfg 0.5 cpuCallback
-      net = netMonitorNewWith 1.5 "eno1" 0 "▼ $inMB$MBps ▲ $outKB$KBps"
+      net = netMonitorNewWith 1.5 "enp3s0" 0 "▼ $inKB$KBps ▲ $outKB$KBps"
       tray = systrayNew
   defaultTaffybar defaultTaffybarConfig { startWidgets = [ pager, note ]
-                                        , endWidgets = reverse [ mem, cpu, mpris, net, wea, clock, tray ]
+                                        , endWidgets = reverse [ mpris, mem, cpu, net, wea, clock, tray ]
                                         }

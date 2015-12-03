@@ -38,7 +38,7 @@ share() { sharefile "$@" | pbcopy }
 sharess() { share_last_ss | pbcopy }
 lt() { ls -lt "$@" | less }
 lt1() { ls -t "$@" | head -n1 }
-mvl() { mv $(lt1 | stripansi) "$@" }
+mv1() { mv $(lt1 | stripansi) "$@" }
 
 columnt() {
   column -t -s $'\t' "$@"

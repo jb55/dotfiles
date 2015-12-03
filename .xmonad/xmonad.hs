@@ -23,14 +23,17 @@ import XMonad.Util.Paste
 
 gapSize = 10
 taffySize = 25
+sideGaps = False
 
-allGaps = (U, taffySize + gapSize) : (map (,gapSize) (enumFrom D))
+allGaps = (U, taffySize + if sideGaps then gapSize else 0) :
+            if sideGaps then (map (,gapSize) (enumFrom D))
+                        else []
 
 baseLayout = Tall 1 (3/100) (1/2)
          ||| Full
 
 layout = gaps allGaps
-       . smartBorders
+       . noBorders
        . mkToggle (single FULL)
        $ baseLayout
 
@@ -50,8 +53,8 @@ main = xmonad $
           , layoutHook  = layout
           , startupHook = setWMName "LG3D"
           , manageHook  = manageDocks
-          , normalBorderColor = "black"
-          , focusedBorderColor = "#ff7a00"
+          , normalBorderColor = "#111"
+          , focusedBorderColor = "#444"
     }
     `additionalKeysP` myKeys
 

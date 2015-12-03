@@ -1,5 +1,5 @@
 style "taffybar-default" {
-  color["black"] = "#000000"
+  color["black"] = "#111"
   color["white"] = "#ffffff"
   color["green"] = "#00ff00"
   color["red"]   = "#ff0000"

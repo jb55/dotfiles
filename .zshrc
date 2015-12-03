@@ -98,7 +98,7 @@ alias lt="ls -lt | less"
 env-type () {
   envtype="$1"
   shift
-  nix-shell -Q -j0 -p $envtype "$@"
+  nix-shell -Q -p $envtype "$@"
 }
 
 haskell-env () {
@@ -116,6 +116,8 @@ haskell-env-tools() {
 cdl () {
   cd "$(dirname "$(readlink -f "$(whence "$1")")")"
 }
+
+build-nix-cache () { nix-env -f $NIXPKGS -qaP \* > ~/.nixenv.cache }
 
 vnc_once () {
   x11vnc -safer -nopw -once -display :0 $1
