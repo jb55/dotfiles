@@ -217,8 +217,9 @@ This function is called at the very end of Spacemacs initialization."
 
   (setq fci-rule-character-color "#202020")
   (setq fci-rule-color "gray10")
-  (setq haskell-hoogle-url "http://localhost:8080/?q=%s")
-  (setq haskell-process-type (quote ghci))
+  (setq haskell-hoogle-command nil)
+  (setq haskell-hoogle-url "http://localhost:8080/?hoogle=%s")
+  ;; (setq haskell-process-type (quote ghci))
   (setq rcirc-server-alist irc-servers)
 
   (use-package jade-mode :defer t)
