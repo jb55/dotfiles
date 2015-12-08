@@ -14,16 +14,21 @@
 
                     (c-c++ :variables
                            c-c++-enable-clang-support t)
-                    org
-                    lua
-                    javascript
-                    python
-                    purescript
-                    csv
+
                     auto-completion
+                    markdown
+                    sql
+                    emoji
+                    csv
+                    git
+                    javascript
+                    lua
+                    org
+                    purescript
+                    python
+                    spotify
                     syntax-checking
                     vim-empty-lines
-                    git
                     ))
 
 (defun is-mac ()
