@@ -17,6 +17,7 @@
                     org
                     lua
                     javascript
+                    spotify
                     python
                     purescript
                     csv
