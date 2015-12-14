@@ -17,7 +17,9 @@
 
                     auto-completion
                     markdown
+                    gnus
                     sql
+                    rcirc
                     emoji
                     csv
                     git
