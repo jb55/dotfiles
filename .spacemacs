@@ -155,7 +155,7 @@
  ;; it reaches the top or bottom of the screen
  dotspacemacs-smooth-scrolling t
  ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
- dotspacemacs-smartparens-strict-mode nil
+ dotspacemacs-smartparens-strict-mode t
  ;; If non nil advises quit functions to keep server open when quitting.
  dotspacemacs-persistent-server nil
  ;; The default package repository used if no explicit repository has been
