@@ -52,6 +52,15 @@ prettycsvt() {
   columnt "$@" | less -S
 }
 
+monstercam() {
+  ssh archer "ffmpeg -f alsa -ar 16000 -i default -f v4l2 -s 640x480 -i /dev/video0 -f avi -pix_fmt yuv420p -"
+}
+
+monstercam-live() {
+  monstercam | tee /sand/vid/monstercam.avi \
+             | ffplay -
+}
+
 headers() { head -n1 ${1:-"/dev/stdin"} | csv-delim | tr '\t' '\n' | cat -n }
 nsum() { awkt '{total = total + $1}END{print total}' }
 sumcol() { cut -f $1 | nsum }
