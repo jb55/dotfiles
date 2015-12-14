@@ -154,18 +154,6 @@ vmap <Leader><Leader>j !jade -p % -o "{ prettyprint: true }"<CR>
 "map <Leader>cr :!newclay % && ./main<CR>
 
 cmap w!! %!sudo tee > /dev/null %
-cmap c! call RCmd("")<Left><Left>
-cmap g! call RCmd("git --no-pager ")<Left><Left>
-cmap t! Tabularize /
-cmap <Leader>c call RCmd("./create_component  default")<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-cmap <Leader>j call RCmd("./create_component  view")<Left><Left><Left><Left><Left><Left><Left>
-
-cmap Agg Ag -G $<Left>
-cmap Agc Ag -G coffee$ ""<Left>
-cmap Agh Ag -G hs$ ""<Left>
-cmap Agj Ag -G jade$ ""<Left>
-cmap Agk Ag -G js$ ""<Left>
-cmap Agl Ag -G less$ ""<Left>
 
 nnoremap x "_x
 nnoremap X "_X
