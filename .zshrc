@@ -83,8 +83,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # added by travis gem
 [ -f /Users/jb55/.travis/travis.sh ] && source /Users/jb55/.travis/travis.sh
 
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
-
 # z
 source "$HOME/bin/z.sh"
 
