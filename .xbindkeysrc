@@ -1,19 +1,19 @@
-"pactl set-sink-volume 1 +3%"
+"amixer sset Master 3%+"
   XF86AudioRaiseVolume
 
-"pactl set-sink-volume 1 -3%"
+"amixer sset Master 3%-"
   XF86AudioLowerVolume
 
-"pactl set-sink-mute 1 toggle"
+"amixer sset Master toggle"
   XF86AudioMute
 
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+"mpc toggle"
   XF86AudioPlay
 
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+"mpc next"
   XF86AudioNext
 
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+"mpc prev"
   XF86AudioPrev
 
 "slock"
