@@ -33,7 +33,8 @@ baseLayout = Tall 1 (3/100) (1/2)
          ||| Full
 
 layout = gaps allGaps
-       . noBorders
+       -- . noBorders
+       . smartBorders
        . mkToggle (single FULL)
        $ baseLayout
 
@@ -53,8 +54,8 @@ main = xmonad $
           , layoutHook  = layout
           , startupHook = setWMName "LG3D"
           , manageHook  = manageDocks
-          , normalBorderColor = "#111"
-          , focusedBorderColor = "#444"
+          , normalBorderColor = "#222"
+          , focusedBorderColor = "#333"
     }
     `additionalKeysP` myKeys
 
