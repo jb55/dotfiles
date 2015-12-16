@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # sharefile
-export SHAREFILE_HOST=jb55.com:public/s/
-export SHAREFILE_URL=http://jb55.com/s/
+export SHAREFILE_HOST='jb55.com:public/s/'
+export SHAREFILE_URL='http://jb55.com/s/'
 export XZ=pxz
 
 alias ack="ack --pager='less -R'"
@@ -34,37 +34,61 @@ alias vless="/usr/share/vim/vim72/macros/less.sh"
 alias vnc_once="x11vnc -safer -nopw -once -display :0"
 alias wget="wget -c"
 
-share() { sharefile "$@" | pbcopy }
-sharess() { share_last_ss | pbcopy }
-lt() { ls -lt "$@" | less }
-lt1() { ls -t "$@" | head -n1 }
-mv1() { mv $(lt1 | stripansi) "$@" }
+share () {
+  sharefile "$@" | pbcopy
+}
 
-columnt() {
+sharess () {
+  share_last_ss | pbcopy
+}
+
+lt () {
+  ls -lt "$@" | less
+}
+
+lt1 () {
+  ls -t "$@" | head -n1
+}
+
+mv1 () {
+  mv $(lt1 | stripansi) "$@"
+}
+
+columnt () {
   column -t -s $'\t' "$@"
 }
 
-prettycsv() {
+prettycsv () {
   csv-delim "$@" | prettycsvt
 }
 
-prettycsvt() {
+prettycsvt () {
   columnt "$@" | less -S
 }
 
-monstercam() {
+monstercam () {
   ssh archer "ffmpeg -f alsa -ar 16000 -i default -f v4l2 -s 640x480 -i /dev/video0 -f avi -pix_fmt yuv420p -"
 }
 
-monstercam-live() {
-  monstercam | tee /sand/vid/monstercam.avi \
-             | ffplay -
+monstercamlive () {
+  monstercam | tee /sand/vid/monstercam.avi | ffplay -
 }
 
-headers() { head -n1 ${1:-"/dev/stdin"} | csv-delim | tr '\t' '\n' | cat -n }
-nsum() { awkt '{total = total + $1}END{print total}' }
-sumcol() { cut -f $1 | nsum }
-uniqc() { sort "$@" | uniq -c | sort -nr }
+headers() {
+  head -n1 ${1:-"/dev/stdin"} | csv-delim | tr '\t' '\n' | cat -n
+}
+
+nsum() {
+  awkt '{total = total + $1}END{print total}'
+}
+
+sumcol() {
+  cut -f $1 | nsum
+}
+
+uniqc() {
+  sort "$@" | uniq -c | sort -nr
+}
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"

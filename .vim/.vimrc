@@ -73,6 +73,8 @@ exe 'set t_kB=' . nr2char(27) . '[Z'
 set vb t_vb=
 syntax on
 
+set shell=bash\ -l
+
 if $VIM_CRONTAB == "true"
   set nobackup
   set nowritebackup
