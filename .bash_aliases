@@ -68,8 +68,13 @@ prettycsvt () {
   columnt "$@" | less -S
 }
 
-monstercam () {
+monstercam() {
   ssh archer "ffmpeg -f alsa -ar 16000 -i default -f v4l2 -s 640x480 -i /dev/video0 -f avi -pix_fmt yuv420p -"
+}
+
+monstercam-live() {
+  monstercam | tee /sand/vid/monstercam.avi \
+             | ffplay -
 }
 
 monstercamlive () {

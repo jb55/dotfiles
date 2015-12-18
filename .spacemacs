@@ -16,23 +16,24 @@
                            c-c++-enable-clang-support t)
 
                     auto-completion
-                    markdown
-                    gnus
-                    sql
-                    rcirc
-                    emoji
-                    nixos
                     csv
+                    emoji
                     git
+                    gnus
                     javascript
-                    spacemacs-layouts
                     lua
+                    markdown
+                    nixos
                     org
                     purescript
                     python
+                    rcirc
+                    spacemacs-layouts
                     spotify
+                    sql
                     syntax-checking
                     vim-empty-lines
+
                     ))
 
 (defun is-mac ()
