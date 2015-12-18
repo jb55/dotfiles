@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# generic stuff for non-interactive shells
+
 # sharefile
 export SHAREFILE_HOST='jb55.com:public/s/'
 export SHAREFILE_URL='http://jb55.com/s/'
@@ -90,10 +92,6 @@ uniqc() {
   sort "$@" | uniq -c | sort -nr
 }
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
 # z
 source $HOME/bin/z.sh
 
@@ -101,4 +99,3 @@ source $HOME/bin/z.sh
 #. /Users/jb55/.nix-profile/etc/profile.d/nix.sh
 
 CURL_CA_BUNDLE=/opt/local/share/curl/curl-ca-bundle.crt
-
