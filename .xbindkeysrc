@@ -7,13 +7,13 @@
 "pactl set-sink-mute 1 toggle"
   XF86AudioMute
 
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+"mpc toggle"
   XF86AudioPlay
 
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+"mpc next"
   XF86AudioNext
 
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+"mpc prev"
   XF86AudioPrev
 
 "slock"
