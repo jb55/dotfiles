@@ -21,9 +21,11 @@
                     sql
                     rcirc
                     emoji
+                    nixos
                     csv
                     git
                     javascript
+                    spacemacs-layouts
                     lua
                     org
                     purescript
