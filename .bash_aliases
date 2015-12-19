@@ -1,8 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# generic stuff for non-interactive shells
 
 # sharefile
-export SHAREFILE_HOST=jb55.com:public/s/
-export SHAREFILE_URL=http://jb55.com/s/
+export SHAREFILE_HOST='jb55.com:public/s/'
+export SHAREFILE_URL='http://jb55.com/s/'
 export XZ=pxz
 
 alias ack="ack --pager='less -R'"
@@ -37,21 +39,35 @@ alias wget="wget -c"
 alias xclip="xclip -selection clipboard"
 
 
-share() { sharefile "$@" | pbcopy }
-sharess() { share_last_ss | pbcopy }
-lt() { ls -lt "$@" | less }
-lt1() { ls -t "$@" | head -n1 }
-mv1() { mv $(lt1 | stripansi) "$@" }
+share () {
+  sharefile "$@" | pbcopy
+}
 
-columnt() {
+sharess () {
+  share_last_ss | pbcopy
+}
+
+lt () {
+  ls -lt "$@" | less
+}
+
+lt1 () {
+  ls -t "$@" | head -n1
+}
+
+mv1 () {
+  mv $(lt1 | stripansi) "$@"
+}
+
+columnt () {
   column -t -s $'\t' "$@"
 }
 
-prettycsv() {
+prettycsv () {
   csv-delim "$@" | prettycsvt
 }
 
-prettycsvt() {
+prettycsvt () {
   columnt "$@" | less -S
 }
 
@@ -117,4 +133,3 @@ source $HOME/bin/z.sh
 #. /Users/jb55/.nix-profile/etc/profile.d/nix.sh
 
 CURL_CA_BUNDLE=/opt/local/share/curl/curl-ca-bundle.crt
-

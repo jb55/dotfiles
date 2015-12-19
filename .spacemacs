@@ -28,6 +28,7 @@
                     purescript
                     python
                     rcirc
+                    spacemacs-layouts
                     spotify
                     sql
                     syntax-checking
