@@ -26,15 +26,18 @@ alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
 alias nfmt="numfmt --to=si"
 alias noder="env NODE_NO_READLINE=1 rlwrap node"
 alias nr="npm run"
+alias open=xdg-open
 alias page=$PAGER
 alias prettyjson=jsonpp
 alias sorry='sudo $(fc -l -n -1)'
 alias st="git sourcetree"
-alias tmux="tmux -2"
 alias tmuxa="tmux a -d -t "
+alias tmux="tmux -2"
 alias vless="/usr/share/vim/vim72/macros/less.sh"
 alias vnc_once="x11vnc -safer -nopw -once -display :0"
 alias wget="wget -c"
+alias xclip="xclip -selection clipboard"
+
 
 share () {
   sharefile "$@" | pbcopy
@@ -77,10 +80,6 @@ monstercam-live() {
              | ffplay -
 }
 
-monstercamlive () {
-  monstercam | tee /sand/vid/monstercam.avi | ffplay -
-}
-
 headers() {
   head -n1 ${1:-"/dev/stdin"} | csv-delim | tr '\t' '\n' | cat -n
 }
@@ -95,6 +94,36 @@ sumcol() {
 
 uniqc() {
   sort "$@" | uniq -c | sort -nr
+}
+
+cdl () {
+  cd "$(dirname "$(readlink -f "$(whence "$1")")")"
+}
+
+env-type () {
+  envtype="$1"
+  shift
+  nix-shell -Q -p $envtype "$@"
+}
+
+haskell-env () {
+  env-type "haskellEnv" "$@"
+}
+
+haskell-env-hoogle () {
+  env-type "haskellEnvHoogle" "$@"
+}
+
+haskell-env-tools() {
+  env-type "haskellTools" "$@"
+}
+
+build-nix-cache() { 
+  nix-env -f $NIXPKGS -qaP \* > ~/.nixenv.cache 
+}
+
+vnc_once() {
+  x11vnc -safer -nopw -once -display :0 $1
 }
 
 # z
