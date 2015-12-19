@@ -105,10 +105,6 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-if [ -f $HOME/.profile ]; then
-    . $HOME/.profile
-fi
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # added by travis gem
