@@ -122,8 +122,8 @@ build-nix-cache() {
   nix-env -f $NIXPKGS -qaP \* > ~/.nixenv.cache 
 }
 
-vnc_once() {
-  x11vnc -safer -nopw -once -display :0 $1
+vnc-once() {
+  x11vnc -safer -nopw -once -display ':0' $1
 }
 
 # z
