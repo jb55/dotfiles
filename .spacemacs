@@ -17,8 +17,10 @@
 
                     auto-completion
                     csv
+                    emacs-lisp
                     emoji
                     git
+                    github
                     gnus
                     javascript
                     lua
