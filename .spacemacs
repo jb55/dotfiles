@@ -30,6 +30,8 @@
                     purescript
                     python
                     rcirc
+                    rust
+                    semantic
                     spacemacs-layouts
                     spotify
                     sql
@@ -340,6 +342,7 @@ This function is called at the very end of Spacemacs initialization."
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
  '(rcirc-buffer-maximum-lines 10000)
  '(ring-bell-function (quote ignore) t)
+ '(rust-indent-offset 2)
  '(safe-local-variable-values
    (quote
     ((flycheck-clang-include-path "./include" "../include"))))
