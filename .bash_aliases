@@ -5,6 +5,7 @@
 # sharefile
 export SHAREFILE_HOST='jb55.com:public/s/'
 export SHAREFILE_URL='http://jb55.com/s/'
+export SHARE_SS_DIR="$HOME/Dropbox/img/ss"
 export XZ=pxz
 
 alias ack="ack --pager='less -R'"
