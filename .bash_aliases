@@ -41,11 +41,11 @@ alias xclip="xclip -selection clipboard"
 
 
 share () {
-  sharefile "$@" | pbcopy
+  sharefile "$@" | xclip
 }
 
 sharess () {
-  share_last_ss | pbcopy
+  share_last_ss | xclip
 }
 
 lt () {
