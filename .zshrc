@@ -16,7 +16,12 @@ bindkey "^F" history-incremental-search-forward
 
 export NIXPKGS=$HOME/nixpkgs
 export NIX_FILES=$HOME/etc/nix-files
-export NIX_PATH="nixpkgs=$NIXPKGS:monstercatpkgs=$HOME/etc/monstercatpkgs:$NIX_PATH:nixos-config=$NIX_FILES"
+
+# nix paths
+export NIX_PATH="nixpkgs=$NIXPKGS:$NIX_PATH"
+export NIX_PATH="nixos-config=$NIX_FILES:$NIX_PATH"
+export NIX_PATH="monstercatpkgs=$HOME/etc/monstercatpkgs:$NIX_PATH"
+export NIX_PATH="jb55pkgs=$HOME/etc/jb55pkgs:$NIX_PATH"
 
 # Customize to your needs...
 

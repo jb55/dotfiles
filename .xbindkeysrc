@@ -13,6 +13,12 @@
 "mpc next"
   XF86AudioNext
 
+"snap"
+  Print
+
+"sleep 0.2; snap -s"
+  Control + Print
+
 "mpc prev"
   XF86AudioPrev
 
