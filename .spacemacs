@@ -339,6 +339,7 @@ This function is called at the very end of Spacemacs initialization."
  '(projectile-globally-ignored-directories
    (quote
     (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" "build" "node_modules")))
+ '(python-indent-offset 2)
  '(rainbow-identifiers-cie-l*a*b*-lightness 80)
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
  '(rcirc-buffer-maximum-lines 10000)
