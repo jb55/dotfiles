@@ -17,8 +17,10 @@
 
                     auto-completion
                     csv
+                    emacs-lisp
                     emoji
                     git
+                    github
                     gnus
                     javascript
                     lua
@@ -28,6 +30,8 @@
                     purescript
                     python
                     rcirc
+                    rust
+                    semantic
                     spacemacs-layouts
                     spotify
                     sql
@@ -340,13 +344,17 @@ This function is called at the very end of Spacemacs initialization."
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
  '(rcirc-buffer-maximum-lines 10000)
  '(ring-bell-function (quote ignore) t)
+ '(rust-indent-offset 2)
  '(safe-local-variable-values
    (quote
     ((flycheck-clang-include-path "./include" "../include"))))
- '(send-mail-function (quote smtpmail-send-it))
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
- '(smtpmail-smtp-server "smtp.googlemail.com")
  '(standard-indent 2))
+ '(send-mail-function (quote smtpmail-send-it))
+ '(smtpmail-smtp-server "smtp.googlemail.com")
+ '(smtpmail-smtp-service 25)
+ '(user-full-name "William Casarin")
+ '(user-mail-address "bill@casarin.me"))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -1,5 +1,6 @@
 gtk-icon-theme-name = "Numix-Circle"
-gtk-theme-name = "Numix"
+gtk-theme-name = "Vertex-Dark"
+#gtk-theme-name = "Arc-Dark"
 
 #gtk-icon-theme-name = "Numix-Circle"
 #gtk-theme-name = "Paper"

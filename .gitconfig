@@ -12,6 +12,7 @@
   status = auto
 [core]
   excludesfile = /Users/jb55/.gitignore_global
+	editor = vim
 [url "git@github.com:"]
   insteadOf = gh:
 [url "git@dev.monstercat.com:monstercat/"]

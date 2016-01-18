@@ -9,6 +9,7 @@ import System.Taffybar.SimpleClock
 import System.Taffybar.Systray
 import System.Taffybar.TaffyPager
 import System.Taffybar.Weather
+import System.Process (readCreateProcess, shell)
 
 import Data.Maybe (fromMaybe)
 
@@ -37,6 +38,7 @@ weatherConf = (defaultWeatherConfig "CYVR") {
   }
 
 main = do
+  netdev <- fmap init (readCreateProcess (shell "ip route get 8.8.8.8 | head -n1 | cut -d' ' -f5") "")
   let memCfg = defaultGraphConfig { graphDataColors = [(1, 0, 0, 1)]
                                   , graphLabel = Just "mem"
                                   }
@@ -57,7 +59,7 @@ main = do
       mpris = mprisNew defaultMPRISConfig
       mem = pollingGraphNew memCfg 1 memCallback
       cpu = pollingGraphNew cpuCfg 0.5 cpuCallback
-      net = netMonitorNewWith 1.5 "enp3s0" 0 "▼ $inKB$KBps ▲ $outKB$KBps"
+      net = netMonitorNewWith 1.5 netdev 0 "▼ $inKB$KBps ▲ $outKB$KBps"
       tray = systrayNew
   defaultTaffybar defaultTaffybarConfig { startWidgets = [ pager, note ]
                                         , endWidgets = reverse [ mpris, mem, cpu, net, wea, clock, tray ]
