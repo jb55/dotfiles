@@ -50,7 +50,6 @@ main = xmonad $
     defaultConfig {
             terminal    = "urxvt"
           , modMask     = mod4Mask
-          , logHook     = updatePointer (Relative 0.5 0.5)
           , layoutHook  = layout
           , startupHook = setWMName "LG3D"
           , manageHook  = manageDocks
