@@ -28,7 +28,7 @@ export NIX_PATH="jb55pkgs=$HOME/etc/jb55pkgs:$NIX_PATH"
 [ -e $HOME/.profile ] && source $HOME/.profile
 
 # other
-export EDITOR=vim
+export EDITOR=emacsc
 export PAGER=less
 
 # go

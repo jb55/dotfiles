@@ -6,6 +6,7 @@
 export SHAREFILE_HOST='jb55.com:public/s/'
 export SHAREFILE_URL='http://jb55.com/s/'
 export SHARE_SS_DIR="$HOME/Dropbox/img/ss"
+export DOTFILES=${DOTFILES:-$HOME/.dotfiles}
 export XZ=pxz
 
 alias ack="ack --pager='less -R'"
@@ -126,6 +127,9 @@ build-nix-cache() {
 vnc-once() {
   x11vnc -safer -nopw -once -display ':0' $1
 }
+
+# fzf
+source $DOTFILES/.fzf_helpers
 
 # z
 source $HOME/bin/z.sh
