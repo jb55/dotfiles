@@ -343,7 +343,9 @@ This function is called at the very end of Spacemacs initialization."
  '(safe-local-variable-values
    (quote
     ((flycheck-clang-include-path "./include" "../include"))))
+ '(send-mail-function (quote smtpmail-send-it))
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
+ '(smtpmail-smtp-server "smtp.googlemail.com")
  '(standard-indent 2))
 
 (custom-set-faces
