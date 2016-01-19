@@ -13,6 +13,25 @@ fda() {
   dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
 }
 
+# fdz - cd to directories known to z
+fdz() {
+  local dir
+  dir=$(z | awk '{ print $2 }' | fzf +m) && cd "$dir"
+}
+
+# fni - nix install
+fni() {
+  local pkg
+  pkg=$(<$HOME/.nixenv.cache fzf) && \
+  nix-install $(echo $pkg | awk '{ print $1 }')
+}
+
+fns() {
+  local pkg
+  pkg=$(<$HOME/.nixenv.cache fzf) && \
+  nix-shell -p $(echo $pkg | awk '{ print $1 }')
+}
+
 # fdr - cd to selected parent directory
 fdr() {
   local declare dirs=()
@@ -48,4 +67,47 @@ fo() {
   if [ -n "$file" ]; then
       [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
   fi
+}
+
+#
+# GIT
+#
+fni() {
+  local out
+  out=$(fzf --query="$1" )
+}
+
+fshow() {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+      --bind "ctrl-m:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                {}
+FZF-EOF"
+}
+
+fstash() {
+    local out q k sha
+    while out=$(
+            git stash list --pretty="%C(yellow)%h %>(14)%Cgreen%cr %C(blue)%gs" |
+                fzf --ansi --no-sort --query="$q" --print-query \
+                    --expect=ctrl-d,ctrl-b);
+    do
+        mapfile -t out <<< "$out"
+        q="${out[0]}"
+        k="${out[1]}"
+        sha="${out[-1]}"
+        sha="${sha%% *}"
+        [[ -z "$sha" ]] && continue
+        if [[ "$k" == 'ctrl-d' ]]; then
+            git diff $sha
+        elif [[ "$k" == 'ctrl-b' ]]; then
+            git stash branch "stash-$sha" $sha
+            break;
+        else
+            git stash show -p $sha
+        fi
+    done
 }
