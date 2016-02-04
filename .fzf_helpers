@@ -13,10 +13,19 @@ fda() {
   dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
 }
 
-# fdz - cd to directories known to z
-fdz() {
-  local dir
-  dir=$(z | awk '{ print $2 }' | fzf +m) && cd "$dir"
+# fz - cd to directories known to z
+fz() {
+  local dir=$(z | fzcmd) && cd "$dir"
+}
+
+# fzt - cd to most recently accessed dirs
+fzt() {
+  local dir=$(z -et | fzcmd) && cd "$dir"
+}
+
+# fz helper
+fzcmd() {
+  awk '{ print $2 }' | fzf --tac +s
 }
 
 # fni - nix install
@@ -72,10 +81,6 @@ fo() {
 #
 # GIT
 #
-fni() {
-  local out
-  out=$(fzf --query="$1" )
-}
 
 fshow() {
   git log --graph --color=always \
@@ -86,6 +91,12 @@ fshow() {
                 xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
                 {}
 FZF-EOF"
+}
+
+fenv() {
+  local out
+  out=$(env | fzf)
+  echo $(echo $out | cut -d= -f2)
 }
 
 fstash() {

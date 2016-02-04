@@ -66,14 +66,12 @@ set hlsearch
 set hidden
 set nowrap
 set ruler
-set colorcolumn=0
+set colorcolumn=80
 set relativenumber
 set dir=~/.vim/tmp
 exe 'set t_kB=' . nr2char(27) . '[Z'
 set vb t_vb=
 syntax on
-
-set shell=bash\ -l
 
 if $VIM_CRONTAB == "true"
   set nobackup
@@ -86,7 +84,7 @@ if has("gui_running")
 else
   set t_Co=256
   set clipboard=unnamed
-  colorscheme desert
+  colorscheme wombat256
 endif
 
 " }}}
