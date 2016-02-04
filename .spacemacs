@@ -30,7 +30,6 @@
                     purescript
                     python
                     rcirc
-                    rust
                     semantic
                     spacemacs-layouts
                     spotify
@@ -198,7 +197,8 @@
   (require 'compile)
   ;; node stack track compilation errors in js-mode
   (add-to-list 'compilation-error-regexp-alist-alist
-               '(npm "[[:space:]](?\\(.*?\\)\\([0-9A-Za-z_./\:-]+\\.js\\):\\([0-9]+\\):\\([0-9]+\\)" 2 3))
+               '(npm "[[:space:]](?\\(.*?\\)\\([0-9A-Za-z_./\:-]+\\.\\(js\\|coffee\\)\\):\\([0-9]+\\):\\([0-9]+\\)" 2 4 5)
+               )
 
   (add-to-list 'compilation-error-regexp-alist 'npm)
 
@@ -277,8 +277,8 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-shift-width 2)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
- '(fci-rule-character-color "#202020" t)
- '(fci-rule-color "#202020" t)
+ '(fci-rule-character-color "#202020")
+ '(fci-rule-color "#202020")
  '(flycheck-clang-include-path (quote ("/home/jb55/src/c/sandy/include")))
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-hl-line-mode t)
@@ -296,9 +296,10 @@ This function is called at the very end of Spacemacs initialization."
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
- '(haskell-process-type (quote ghci))
+ '(haskell-process-type (quote auto))
  '(haskell-stylish-on-save nil)
  '(haskell-tags-on-save t)
+ '(helm-echo-input-in-header-line nil)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
@@ -344,6 +345,7 @@ This function is called at the very end of Spacemacs initialization."
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
  '(rcirc-buffer-maximum-lines 10000)
  '(ring-bell-function (quote ignore) t)
+ '(rng-nxml-auto-validate-flag nil)
  '(rust-indent-offset 2)
  '(safe-local-variable-values
    (quote
