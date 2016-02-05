@@ -68,3 +68,5 @@ ALIASES="$HOME/.bash_aliases"
 
 DIRCOLORS="$HOME/.dircolors"
 [ -e "$DIRCOLORS" ] && eval "$(dircolors -b "$DIRCOLORS")"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
