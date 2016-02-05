@@ -266,9 +266,10 @@ This function is called at the very end of Spacemacs initialization."
  '(ansi-color-names-vector
    ["#110F13" "#B13120" "#719F34" "#CEAE3E" "#7C9FC9" "#7868B5" "#009090" "#F4EAD5"])
  '(ansi-term-color-vector
-   [unspecified "#1d1f21" "#cc6666" "#b5bd68" "#f0c674" "#81a2be" "#b294bb" "#81a2be" "#c5c8c6"])
+   [unspecified "#1d1f21" "#cc6666" "#b5bd68" "#f0c674" "#81a2be" "#b294bb" "#81a2be" "#c5c8c6"] t)
  '(browse-url-browser-function (quote browse-url-chromium))
  '(compilation-message-face (quote default))
+ '(csv-separators (quote ("," "	")))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#657b83")
  '(cua-overwrite-cursor-color "#b58900")
@@ -277,16 +278,17 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-shift-width 2)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
- '(fci-rule-character-color "#202020")
- '(fci-rule-color "#202020")
+ '(fci-rule-character-color "#202020" t)
+ '(fci-rule-color "#202020" t)
  '(flycheck-clang-include-path (quote ("/home/jb55/src/c/sandy/include")))
+ '(flycheck-gcc-language-standard "c++11")
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-hl-line-mode t)
  '(grep-find-ignored-directories
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
- '(haskell-hoogle-command nil)
- '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s")
+ '(haskell-hoogle-command nil t)
+ '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s" t)
  '(haskell-interactive-mode-scroll-to-bottom t)
  '(haskell-interactive-popup-error nil t)
  '(haskell-mode-hook
@@ -298,7 +300,7 @@ This function is called at the very end of Spacemacs initialization."
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-type (quote auto))
  '(haskell-stylish-on-save nil)
- '(haskell-tags-on-save t)
+ '(haskell-tags-on-save t t)
  '(helm-echo-input-in-header-line nil)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
@@ -350,11 +352,11 @@ This function is called at the very end of Spacemacs initialization."
  '(safe-local-variable-values
    (quote
     ((flycheck-clang-include-path "./include" "../include"))))
- '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
- '(standard-indent 2)
  '(send-mail-function (quote smtpmail-send-it))
+ '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(smtpmail-smtp-server "smtp.googlemail.com")
  '(smtpmail-smtp-service 25)
+ '(standard-indent 2)
  '(user-full-name "William Casarin")
  '(user-mail-address "bill@casarin.me"))
 
