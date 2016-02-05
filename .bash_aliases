@@ -99,7 +99,7 @@ uniqc() {
 }
 
 cdl () {
-  cd "$(dirname "$(readlink -f "$(whence "$1")")")"
+  cd "$(dirname "$(readlink -f "$(which "$1")")")"
 }
 
 env-type () {

@@ -54,7 +54,7 @@ main = xmonad $
           , startupHook = setWMName "LG3D"
           , manageHook  = manageDocks
           , normalBorderColor = "#222"
-          , focusedBorderColor = "#333"
+          , focusedBorderColor = "#555"
     }
     `additionalKeysP` myKeys
 
