@@ -37,6 +37,8 @@ weatherConf = (defaultWeatherConfig "CYVR") {
     weatherTemplate = "$tempC$ °C"
   }
 
+noteConf = defaultNotificationConfig {notificationMaxTimeout = 5}
+
 main = do
   netdev <- fmap init (readCreateProcess (shell "ip route get 8.8.8.8 | head -n1 | cut -d' ' -f5") "")
   let memCfg = defaultGraphConfig { graphDataColors = [(1, 0, 0, 1)]
@@ -54,7 +56,7 @@ main = do
                                   }
   let clock = textClockNew Nothing "<span fgcolor='orange'>%a %b %_d %l:%M %P</span>" 1
       pager = taffyPagerNew defaultPagerConfig
-      note = notifyAreaNew defaultNotificationConfig
+      note = notifyAreaNew noteConf
       wea = weatherNew weatherConf 10
       mpris = mprisNew defaultMPRISConfig
       mem = pollingGraphNew memCfg 1 memCallback

@@ -8,9 +8,7 @@
 
 ;; custom stuff
 
-(setq base-layers '((haskell :variables
-                             ;haskell-enable-hindent-style "chris-done"
-                             haskell-enable-ghc-mod-support nil)
+(setq base-layers '((haskell :variables haskell-enable-ghc-mod-support nil)
 
                     (c-c++ :variables
                            c-c++-enable-clang-support t)
@@ -280,6 +278,7 @@ This function is called at the very end of Spacemacs initialization."
  '(fci-rule-character-color "#202020")
  '(fci-rule-color "#202020")
  '(flycheck-clang-include-path (quote ("/home/jb55/src/c/sandy/include")))
+ '(flycheck-gcc-language-standard "c++11")
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-hl-line-mode t)
  '(grep-find-ignored-directories
