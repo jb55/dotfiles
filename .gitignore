@@ -12,3 +12,5 @@ node_modules/
 /ircpass
 /.xmonad/history
 /mimeapps2.list
+/.weechat/logs
+/.weechat/weechat.log
