@@ -236,6 +236,10 @@ This function is called at the very end of Spacemacs initialization."
   ;; (setq haskell-process-type (quote ghci))
   (setq rcirc-server-alist irc-servers)
 
+  ;; unbind esc
+  (define-key evil-normal-state-map [escape] nil)
+  (define-key evil-insert-state-map [escape] nil)
+
   (use-package jade-mode :defer t)
   (use-package nix-mode :defer t)
 )
