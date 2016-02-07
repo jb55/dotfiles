@@ -92,6 +92,8 @@
 
  dotspacemacs-additional-packages '(
                                     cuda-mode
+                                    irony
+                                    company-irony
                                     glsl-mode
                                     racket-mode
                                     jade-mode
