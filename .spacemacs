@@ -236,10 +236,6 @@ This function is called at the very end of Spacemacs initialization."
   ;; (setq haskell-process-type (quote ghci))
   (setq rcirc-server-alist irc-servers)
 
-  ;; unbind esc
-  (define-key evil-normal-state-map [escape] nil)
-  (define-key evil-insert-state-map [escape] nil)
-
   (use-package jade-mode :defer t)
   (use-package nix-mode :defer t)
 )
@@ -299,12 +295,12 @@ This function is called at the very end of Spacemacs initialization."
  '(haskell-mode-hook
    (quote
     (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
- '(haskell-notify-p t)
- '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-notify-p t t)
+ '(haskell-process-auto-import-loaded-modules t t)
  '(haskell-process-log t)
- '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-suggest-remove-import-lines t t)
  '(haskell-process-type (quote auto))
- '(haskell-stylish-on-save nil)
+ '(haskell-stylish-on-save nil t)
  '(haskell-tags-on-save t t)
  '(helm-echo-input-in-header-line nil)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
@@ -341,6 +337,8 @@ This function is called at the very end of Spacemacs initialization."
  '(main-line-color2 "#111111")
  '(main-line-separator-style (quote chamfer))
  '(notmuch-search-oldest-first nil)
+ '(org-agenda-files (quote ("~/Dropbox/doc/org" "~/var/ical2org")))
+ '(org-directory "~/Dropbox/doc/org")
  '(org-use-sub-superscripts (quote {}))
  '(powerline-color1 "#1E1E1E")
  '(powerline-color2 "#111111")
