@@ -92,6 +92,8 @@
 
  dotspacemacs-additional-packages '(
                                     cuda-mode
+                                    irony
+                                    company-irony
                                     glsl-mode
                                     racket-mode
                                     jade-mode
@@ -279,6 +281,7 @@ This function is called at the very end of Spacemacs initialization."
  '(fci-rule-character-color "#202020" t)
  '(fci-rule-color "#202020" t)
  '(flycheck-clang-include-path (quote ("/home/jb55/src/c/sandy/include")))
+ '(flycheck-clang-language-standard "c++11")
  '(flycheck-gcc-language-standard "c++11")
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-hl-line-mode t)
