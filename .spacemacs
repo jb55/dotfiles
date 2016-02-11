@@ -187,6 +187,10 @@
 
 ;;(setq-default projectile-require-project-root nil)
 
+  (defun jb55/eshell-prompt ()
+    (concat (abbreviate-file-name (eshell/basename (eshell/pwd)))
+            (if (= (user-uid) 0) " # " " $ ")))
+
   ;; ansi color shenanigans
   (defun colorize-compilation-buffer ()
     (toggle-read-only)
@@ -279,6 +283,7 @@ This function is called at the very end of Spacemacs initialization."
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
  '(disaster-objdump "gobjdump -d -M att -Sl --no-show-raw-insn")
+ '(eshell-prompt-function (quote jb55/eshell-prompt))
  '(evil-shift-width 2)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
@@ -292,7 +297,6 @@ This function is called at the very end of Spacemacs initialization."
  '(grep-find-ignored-directories
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
- '(haskell-font-lock-symbols t)
  '(haskell-hoogle-command nil)
  '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s")
  '(haskell-interactive-mode-scroll-to-bottom t)
