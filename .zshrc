@@ -22,8 +22,7 @@ export NIX_PATH="nixpkgs=$NIXPKGS:$NIX_PATH"
 export NIX_PATH="nixos-config=$NIX_FILES:$NIX_PATH"
 export NIX_PATH="monstercatpkgs=$HOME/etc/monstercatpkgs:$NIX_PATH"
 export NIX_PATH="jb55pkgs=$HOME/etc/jb55pkgs:$NIX_PATH"
-export NIX_PATH="ssh-config-file=$HOME/.ssh/config:$NIX_PATH"
-export NIX_PATH="ssh-auth-sock=$SSH_AUTH_SOCK:$NIX_PATH"
+export NIX_PATH="dotfiles=$HOME/.dotfiles:$NIX_PATH"
 
 # Customize to your needs...
 

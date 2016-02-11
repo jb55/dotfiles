@@ -91,14 +91,17 @@
  ;; A list of packages and/or extensions that will not be install and loaded.
 
  dotspacemacs-additional-packages '(
-                                    cuda-mode
-                                    irony
                                     company-irony
+                                    cuda-mode
                                     glsl-mode
-                                    racket-mode
+                                    irony
                                     jade-mode
                                     markdown-mode
                                     nix-mode
+                                    racket-mode
+                                    rtags
+                                    weechat
+                                    emojify
                                    )
 
  dotspacemacs-excluded-packages excluded-packages
@@ -118,13 +121,14 @@
  dotspacemacs-themes '(base16-tomorrow-dark)
 
  dotspacemacs-default-font '("Source Code Pro"
-                             :size 10
+                             :size 13
                              :weight normal
                              :width normal
                              :powerline-scale 1.1)
 
  ;; The leader key
  dotspacemacs-leader-key "SPC"
+ dotspacemacs-remap-Y-to-y$ t
  dotspacemacs-emacs-leader-key "M-m"
  dotspacemacs-editing-style 'vim
  ;; Major mode leader key is a shortcut key which is the equivalent of
@@ -288,8 +292,9 @@ This function is called at the very end of Spacemacs initialization."
  '(grep-find-ignored-directories
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
- '(haskell-hoogle-command nil t)
- '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s" t)
+ '(haskell-font-lock-symbols t)
+ '(haskell-hoogle-command nil)
+ '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s")
  '(haskell-interactive-mode-scroll-to-bottom t)
  '(haskell-interactive-popup-error nil t)
  '(haskell-mode-hook
@@ -301,7 +306,7 @@ This function is called at the very end of Spacemacs initialization."
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-type (quote auto))
  '(haskell-stylish-on-save nil)
- '(haskell-tags-on-save t t)
+ '(haskell-tags-on-save t)
  '(helm-echo-input-in-header-line nil)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
@@ -337,6 +342,16 @@ This function is called at the very end of Spacemacs initialization."
  '(main-line-color2 "#111111")
  '(main-line-separator-style (quote chamfer))
  '(notmuch-search-oldest-first nil)
+ '(org-agenda-current-time-string
+   "=========================== NOW ===========================")
+ '(org-agenda-files (quote ("~/Dropbox/doc/org" "~/var/ical2org")))
+ '(org-agenda-time-grid
+   (quote
+    ((daily today require-timed)
+     ""
+     (800 1000 1200 1400 1600 1800 2000))))
+ '(org-directory "~/Dropbox/doc/org")
+ '(org-refile-targets (quote ((org-agenda-files :maxlevel . 1))))
  '(org-use-sub-superscripts (quote {}))
  '(powerline-color1 "#1E1E1E")
  '(powerline-color2 "#111111")
