@@ -297,7 +297,6 @@ This function is called at the very end of Spacemacs initialization."
  '(grep-find-ignored-directories
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
- '(haskell-font-lock-symbols t)
  '(haskell-hoogle-command nil)
  '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s")
  '(haskell-interactive-mode-scroll-to-bottom t)
