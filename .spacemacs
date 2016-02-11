@@ -378,7 +378,7 @@ This function is called at the very end of Spacemacs initialization."
  '(smtpmail-smtp-service 25)
  '(standard-indent 2)
  '(user-full-name "William Casarin")
- '(user-mail-address "bill@casarin.me"))
+ '(user-mail-address "bill@monstercat.com"))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
