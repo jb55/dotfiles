@@ -8,190 +8,124 @@
 
 ;; custom stuff
 
-(setq base-layers '((haskell :variables haskell-enable-ghc-mod-support nil)
+(setq jb55/base-layers
+  '((haskell :variables
+           haskell-enable-ghc-mod-support nil
+           haskell-enable-hindent-style "chris-done")
 
-                    (c-c++ :variables
-                           c-c++-enable-clang-support t)
+    (c-c++ :variables
+           c-c++-enable-clang-support t
+           )
 
-                    auto-completion
-                    csv
-                    emacs-lisp
-                    emoji
-                    git
-                    github
-                    gnus
-                    javascript
-                    lua
-                    markdown
-                    nixos
-                    org
-                    purescript
-                    python
-                    rcirc
-                    semantic
-                    spacemacs-layouts
-                    spotify
-                    sql
-                    syntax-checking
-                    vim-empty-lines
+    auto-completion
+    csv
+    emacs-lisp
+    emoji
+    git
+    github
+    gnus
+    javascript
+    lua
+    markdown
+    nixos
+    org
+    purescript
+    python
+    spacemacs-layouts
+    spacemacs-helm
+    spotify
+    sql
+    syntax-checking
+    vim-empty-lines
+   ))
 
-                    ))
+(setq jb55/additional-packages '(
+                                 company-irony
+                                 cuda-mode
+                                 hi2
+                                 glsl-mode
+                                 irony
+                                 jade-mode
+                                 markdown-mode
+                                 nix-mode
+                                 racket-mode
+                                 rtags
+                                 weechat
+                                 emojify
+                                 ))
 
 (defun is-mac ()
   (string-equal system-type "darwin"))
 
-(setq my-layers (if (is-mac) (cons 'osx base-layers)
-                    base-layers))
+(setq jb55/layers (if (is-mac) (cons 'osx jb55/base-layers)
+                    jb55/base-layers))
 
-(setq excluded-packages (if (not (is-mac)) '(exec-path-from-shell) '()))
-;; (setq excluded-packages '())
+(setq jb55/excluded-packages (if (not (is-mac))
+                                 '(exec-path-from-shell) '()))
 
-(defun file-string (file)
-    "Read the contents of a file and return as a string."
-    (with-temp-buffer
-      (insert-file-contents file)
-      (buffer-string)))
+(defun dotspacemacs/layers ()
+  "Configuration Layers declaration.
+You should not put any user code in this function besides modifying the variable
+values."
+  (setq-default
+   dotspacemacs-distribution 'spacemacs
+   dotspacemacs-enable-lazy-installation nil
+   dotspacemacs-configuration-layer-path '()
+   dotspacemacs-configuration-layers jb55/layers
+   dotspacemacs-additional-packages jb55/additional-packages
+   dotspacemacs-excluded-packages jb55/excluded-packages
+   dotspacemacs-delete-orphan-packages t))
 
-(defun drop-last (str)
-  "Drop the last character in a string"
-  (substring str 0 -1))
-
-(defun rcirc-znc-server (network)
-  "Add a virtual znc network"
-  `(,(concat network ".znc.jb55.com")
-    :user-name ,(concat "jb55/" network)
-    :port 33111
-    :encryption tls
-    :password ,(drop-last (file-string "~/.dotfiles/ircpass"))
-    :nick "jb55"))
-
-(defun projectile-command-to-string (cmd)
-  (let ((cwd (car (projectile-get-project-directories))))
-    (shell-command-to-string (concat "cd \"" cwd "\" && " cmd))))
-
-(defun nix-shell-path (&rest args)
-  (interactive)
-  (let ((path-from-shell (projectile-command-to-string
-                          (concat "nix-shell --command 'echo $PATH'" args))))
-    (setq exec-path (split-string path-from-shell path-separator))))
-
-(setq irc-servers
-      `(,(rcirc-znc-server "freenode")
-        ))
-
-(setq-default
- ;; List of additional paths where to look for configuration layers.
- ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
-
- dotspacemacs-configuration-layer-path '()
- ;; List of configuration layers to load.
-
- dotspacemacs-configuration-layers my-layers
-
- ;; A list of packages and/or extensions that will not be install and loaded.
-
- dotspacemacs-additional-packages '(
-                                    company-irony
-                                    cuda-mode
-                                    glsl-mode
-                                    irony
-                                    jade-mode
-                                    markdown-mode
-                                    nix-mode
-                                    racket-mode
-                                    rtags
-                                    weechat
-                                    emojify
-                                   )
-
- dotspacemacs-excluded-packages excluded-packages
-)
 
 ;; Settings
 ;; --------
-
-(setq-default
- ;; Specify the startup banner. If the value is an integer then the
- ;; banner with the corresponding index is used, if the value is `random'
- ;; then the banner is chosen randomly among the available banners, if
- ;; the value is nil then no banner is displayed.
- dotspacemacs-startup-banner 'official
- ;; Default theme applied at startup
- ;; dotspacemacs-default-theme 'solarized-light
- dotspacemacs-themes '(base16-tomorrow-dark)
-
- dotspacemacs-default-font '("Source Code Pro"
-                             :size 13
-                             :weight normal
-                             :width normal
-                             :powerline-scale 1.1)
-
- ;; The leader key
- dotspacemacs-leader-key "SPC"
- dotspacemacs-remap-Y-to-y$ t
- dotspacemacs-emacs-leader-key "M-m"
- dotspacemacs-editing-style 'vim
- ;; Major mode leader key is a shortcut key which is the equivalent of
- ;; pressing `<leader> m`
- dotspacemacs-major-mode-leader-key ","
- ;; The command key used for Evil commands (ex-commands) and
- ;; Emacs commands (M-x).
- ;; By default the command key is `:' so ex-commands are executed like in Vim
- ;; with `:' and Emacs commands are executed with `<leader> :'.
- dotspacemacs-command-key ":"
- ;; Guide-key delay in seconds. The Guide-key is the popup buffer listing
- ;; the commands bound to the current keystrokes.
- dotspacemacs-guide-key-delay 0.4
- ;; If non nil the frame is fullscreen when Emacs starts up (Emacs 24.4+ only).
- dotspacemacs-fullscreen-at-startup nil
- ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
- ;; Use to disable fullscreen animations in OSX."
- dotspacemacs-fullscreen-use-non-native nil
- ;; If non nil the frame is maximized when Emacs starts up (Emacs 24.4+ only).
- ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
- dotspacemacs-maximized-at-startup nil
- ;; A value from the range (0..100), in increasing opacity, which describes the
- ;; transparency level of a frame when it's active or selected. Transparency can
- ;; be toggled through `toggle-transparency'.
- dotspacemacs-active-transparency 90
- ;; A value from the range (0..100), in increasing opacity, which describes the
- ;; transparency level of a frame when it's inactive or deselected. Transparency
- ;; can be toggled through `toggle-transparency'.
- dotspacemacs-inactive-transparency 90
- ;; If non nil unicode symbols are displayed in the mode line (e.g. for lighters)
- dotspacemacs-mode-line-unicode-symbols nil
- ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth scrolling
- ;; overrides the default behavior of Emacs which recenters the point when
- ;; it reaches the top or bottom of the screen
- dotspacemacs-smooth-scrolling t
- ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
- dotspacemacs-smartparens-strict-mode t
- ;; If non nil advises quit functions to keep server open when quitting.
- dotspacemacs-persistent-server nil
- ;; The default package repository used if no explicit repository has been
- ;; specified with an installed package.
- ;; Not used for now.
- dotspacemacs-default-package-repository nil
-
- dotspacemacs-enable-paste-micro-state nil
-
- )
 
 ;; Initialization Hooks
 ;; --------------------
 
 (defun dotspacemacs/init ()
-  "User initialization for Spacemacs. This function is called at the very
- startup."
-;;(define-key helm-map (kbd "ESC") 'helm-keyboard-quit)
+  (setq-default
+   dotspacemacs-startup-banner 'official
+   dotspacemacs-themes '(base16-tomorrow-dark)
 
-;;(setq-default projectile-require-project-root nil)
+   dotspacemacs-default-font '("Source Code Pro"
+                               :size 13
+                               :weight normal
+                               :width normal
+                               :powerline-scale 1.1)
 
+   dotspacemacs-leader-key "SPC"
+   dotspacemacs-remap-Y-to-y$ t
+   dotspacemacs-emacs-leader-key "M-m"
+   dotspacemacs-editing-style 'vim
+   dotspacemacs-startup-lists '()
+   dotspacemacs-elpa-https t
+   dotspacemacs-elpa-timeout 5
+   dotspacemacs-major-mode-leader-key ","
+   dotspacemacs-verbose-loading nil
+   dotspacemacs-command-key ":"
+   dotspacemacs-guide-key-delay 0.4
+   dotspacemacs-fullscreen-at-startup nil
+   dotspacemacs-fullscreen-use-non-native nil
+   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-active-transparency 90
+   dotspacemacs-inactive-transparency 90
+   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-smooth-scrolling t
+   dotspacemacs-smartparens-strict-mode t
+   dotspacemacs-persistent-server nil
+   dotspacemacs-default-package-repository nil
+   dotspacemacs-auto-save-file-location 'cache
+   dotspacemacs-enable-paste-transient-state nil
+   dotspacemacs-colorize-cursor-according-to-state t
+
+   ))
+
+(defun dotspacemacs/user-init ()
   (defun jb55/eshell-prompt ()
     (concat (abbreviate-file-name (eshell/basename (eshell/pwd)))
             (if (= (user-uid) 0) " # " " $ ")))
 
-  ;; ansi color shenanigans
   (defun colorize-compilation-buffer ()
     (toggle-read-only)
     (ansi-color-apply-on-region (point-min) (point-max))
@@ -209,20 +143,9 @@
                )
 
   (add-to-list 'compilation-error-regexp-alist 'npm)
-
-  ;; fringe, vertical border colors
   (set-face-background 'fringe "#1e1f22")
   (set-face-foreground 'vertical-border "#1e1f22")
-  ;;(set-fring-style 'minimal)
-
-  ;; (set-face-attribute 'default nil :height 100)
-
-  ;; add nix path to exec-path
-  ;;(add-to-list 'exec-path "~/.nix-profile/bin/")
-
   (global-hl-line-mode -1)
-
-  ;; auto-scroll compilation buffers
   (setq compilation-scroll-output t)
 )
 
@@ -230,25 +153,15 @@
   "This is were you can ultimately override default Spacemacs configuration.
 This function is called at the very end of Spacemacs initialization."
 
-  ;; (eval-after-load 'smartparens
-  ;;   '(progn
-  ;;      (sp-pair "(" nil :actions :rem)
-  ;;      (sp-pair "[" nil :actions :rem)
-  ;;      (sp-pair "'" nil :actions :rem)
-  ;;      (sp-pair "\"" nil :actions :rem)))
-
   (setq fci-rule-character-color "#202020")
   (setq fci-rule-color "gray10")
   (setq haskell-hoogle-command nil)
   (setq haskell-hoogle-url "http://localhost:8080/?hoogle=%s")
   ;; (setq haskell-process-type (quote ghci))
-  (setq rcirc-server-alist irc-servers)
 
   (use-package jade-mode :defer t)
   (use-package nix-mode :defer t)
 )
-
-;;(add-hook 'after-init-hook 'my-helm-init)
 
 ;; Custom variables
 ;; ----------------
@@ -287,8 +200,8 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-shift-width 2)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
- '(fci-rule-character-color "#202020" t)
- '(fci-rule-color "#202020" t)
+ '(fci-rule-character-color "#202020")
+ '(fci-rule-color "#202020")
  '(flycheck-clang-include-path (quote ("/home/jb55/src/c/sandy/include")))
  '(flycheck-clang-language-standard "c++11")
  '(flycheck-gcc-language-standard "c++11")
@@ -297,8 +210,10 @@ This function is called at the very end of Spacemacs initialization."
  '(grep-find-ignored-directories
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
+ '(haskell-font-lock-symbols nil)
  '(haskell-hoogle-command nil)
  '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s")
+ '(haskell-indentation-indent-leftmost t)
  '(haskell-interactive-mode-scroll-to-bottom t)
  '(haskell-interactive-popup-error nil t)
  '(haskell-mode-hook
@@ -340,14 +255,15 @@ This function is called at the very end of Spacemacs initialization."
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p t)
  '(js2-strict-missing-semi-warning nil)
- '(linum-format " %7i " t)
+ '(linum-format " %7i ")
  '(magit-diff-use-overlays nil)
  '(main-line-color1 "#1E1E1E")
  '(main-line-color2 "#111111")
  '(main-line-separator-style (quote chamfer))
  '(notmuch-search-oldest-first nil)
  '(org-agenda-current-time-string
-   "=========================== NOW ===========================")
+   #("=========================== NOW ===========================" 0 59
+     (org-heading t)))
  '(org-agenda-files (quote ("~/Dropbox/doc/org" "~/var/ical2org")))
  '(org-agenda-time-grid
    (quote
