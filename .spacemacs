@@ -42,7 +42,6 @@
 (setq jb55/additional-packages '(
                                  company-irony
                                  cuda-mode
-                                 hi2
                                  glsl-mode
                                  irony
                                  jade-mode
