@@ -31,23 +31,25 @@
     org
     purescript
     python
+    semantic
     spacemacs-layouts
     spacemacs-helm
     spotify
     sql
     syntax-checking
     vim-empty-lines
+    racket
+
    ))
 
 (setq jb55/additional-packages '(
                                  company-irony
                                  cuda-mode
+                                 litable
                                  glsl-mode
                                  irony
                                  jade-mode
                                  markdown-mode
-                                 nix-mode
-                                 racket-mode
                                  rtags
                                  weechat
                                  emojify
@@ -148,9 +150,27 @@ values."
   (setq compilation-scroll-output t)
 )
 
+
 (defun dotspacemacs/user-config ()
   "This is were you can ultimately override default Spacemacs configuration.
 This function is called at the very end of Spacemacs initialization."
+  (setq jb55/org-path "~/Dropbox/doc/org")
+
+  (defun jb55/make-org-path (file)
+    (concat (file-name-as-directory jb55/org-path) file))
+
+  (setq org-capture-templates
+        `(("t" "Todo" entry (file+headline ,(jb55/make-org-path "tasks.org") "Tasks")
+           "* TODO %?\n  %i\n  %a")
+          ("j" "Journal" entry (file+datetree ,(jb55/make-org-path "journal.org"))
+           "* %?\nEntered on %U\n  %i\n  %a")
+          ("n" "Notes" entry (file+headline ,(jb55/make-org-path "notes.org") "Notes")
+           "* NOTE %?\n  %i\n  %a")))
+
+  ;; fixes tramp slowness
+  (setq projectile-mode-line "Projectile")
+  (defadvice projectile-project-root (around ignore-remote first activate)
+    (unless (file-remote-p default-directory) ad-do-it))
 
   (setq fci-rule-character-color "#202020")
   (setq fci-rule-color "gray10")
@@ -159,7 +179,6 @@ This function is called at the very end of Spacemacs initialization."
   ;; (setq haskell-process-type (quote ghci))
 
   (use-package jade-mode :defer t)
-  (use-package nix-mode :defer t)
 )
 
 ;; Custom variables
@@ -199,8 +218,8 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-shift-width 2)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
- '(fci-rule-character-color "#202020")
- '(fci-rule-color "#202020")
+ '(fci-rule-character-color "#202020" t)
+ '(fci-rule-color "#202020" t)
  '(flycheck-clang-include-path (quote ("/home/jb55/src/c/sandy/include")))
  '(flycheck-clang-language-standard "c++11")
  '(flycheck-gcc-language-standard "c++11")
@@ -210,21 +229,21 @@ This function is called at the very end of Spacemacs initialization."
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
  '(haskell-font-lock-symbols nil)
- '(haskell-hoogle-command nil)
- '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s")
+ '(haskell-hoogle-command nil t)
+ '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s" t)
  '(haskell-indentation-indent-leftmost t)
  '(haskell-interactive-mode-scroll-to-bottom t)
  '(haskell-interactive-popup-error nil t)
  '(haskell-mode-hook
    (quote
     (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
- '(haskell-notify-p t)
- '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-notify-p t t)
+ '(haskell-process-auto-import-loaded-modules t t)
  '(haskell-process-log t)
- '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-suggest-remove-import-lines t t)
  '(haskell-process-type (quote auto))
- '(haskell-stylish-on-save nil)
- '(haskell-tags-on-save t)
+ '(haskell-stylish-on-save nil t)
+ '(haskell-tags-on-save t t)
  '(helm-echo-input-in-header-line nil)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
@@ -254,7 +273,7 @@ This function is called at the very end of Spacemacs initialization."
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p t)
  '(js2-strict-missing-semi-warning nil)
- '(linum-format " %7i ")
+ '(linum-format " %7i " t)
  '(magit-diff-use-overlays nil)
  '(main-line-color1 "#1E1E1E")
  '(main-line-color2 "#111111")
@@ -277,6 +296,7 @@ This function is called at the very end of Spacemacs initialization."
  '(projectile-globally-ignored-directories
    (quote
     (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" "build" "node_modules")))
+ '(projectile-mode-line (quote Projectile))
  '(python-indent-offset 2)
  '(rainbow-identifiers-cie-l*a*b*-lightness 80)
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
