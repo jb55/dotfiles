@@ -12,12 +12,15 @@
   status = auto
 [core]
   excludesfile = /Users/jb55/.gitignore_global
+	editor = vim
 [url "git@github.com:"]
   insteadOf = gh:
 [url "git@dev.monstercat.com:monstercat/"]
   insteadOf = mcat:
 [url "jb55.com:git/"]
   insteadOf = dev:
+[url "ssh://git@phabricator.monstercat.com/diffusion/"]
+  insteadOf = phab:
 [gui]
   recentrepo = /Users/jb55/src/js/titania
 [alias]

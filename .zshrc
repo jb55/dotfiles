@@ -5,28 +5,39 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="jb55"
 
-# Set to this to use case-sensitive completion
-# export CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# export DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# export DISABLE_LS_COLORS="true"
-
 export DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
 
 # vi
 bindkey -v
 
-export PLATFORM="mac"
-
 bindkey "^R" history-incremental-search-backward
 bindkey "^F" history-incremental-search-forward
 
-# shared paths 
+export NIXPKGS=$HOME/nixpkgs
+export NIX_FILES=$HOME/etc/nix-files
+
+# nix paths
+export NIX_PATH="nixpkgs=$NIXPKGS:$NIX_PATH"
+export NIX_PATH="nixos-config=$NIX_FILES:$NIX_PATH"
+export NIX_PATH="monstercatpkgs=$HOME/etc/monstercatpkgs:$NIX_PATH"
+export NIX_PATH="jb55pkgs=$HOME/etc/jb55pkgs:$NIX_PATH"
+export NIX_PATH="dotfiles=$HOME/.dotfiles:$NIX_PATH"
+
+# Customize to your needs...
+
 [ -e $HOME/.profile ] && source $HOME/.profile
+
+# other
+export EDITOR=vim
+export PAGER=less
+
+# go
+
+export GOPATH=$HOME/dev/gocode
+export PATH=$HOME/.npm/bin:$GOPATH/bin:$PATH
+
+# alias
 
 # fix ssh agent forwarding in screen
 FIXSSH=$HOME/bin/fixssh

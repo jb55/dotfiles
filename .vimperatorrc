@@ -4,6 +4,23 @@ map wo :tabonly<Return>
 noremap d <C-d>
 noremap u <C-u>
 noremap <C-u> u
-source! /Users/jb55/.vimperatorrc.local
+noremap <C-1> 1gt
+noremap <C-2> 2gt
+noremap <C-3> 3gt
+noremap <C-4> 4gt
+noremap <C-5> 5gt
+noremap <C-6> 6gt
+noremap <C-7> 7gt
+noremap <C-8> 8gt
+noremap <C-9> 9gt
+
+autocmd LocationChange .*                          js modes.passAllKeys = false
+autocmd LocationChange mail\\.google\\.com         js modes.passAllKeys = true
+autocmd LocationChange www\\.google\\.com/calendar js modes.passAllKeys = true
+autocmd LocationChange .*\\.slack\\.com            js modes.passAllKeys = true
+
+" auto-pin certain tabs
+autocmd PageLoad monstercat\\.slack\\.com js if(!getBrowser().mCurrentTab.pinned) getBrowser().pinTab(getBrowser().mCurrentTab);
+autocmd PageLoad mail\\.google\\.com js if(!getBrowser().mCurrentTab.pinned) getBrowser().pinTab(getBrowser().mCurrentTab);
 
 " vim: set ft=vimperator:

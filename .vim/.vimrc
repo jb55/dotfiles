@@ -91,11 +91,14 @@ endif
 
 " Mappings {{{
 
-let mapleader = "\\"
-let maplocalleader = "\\"
+let mapleader = "\<SPACE>"
+let maplocalleader = "\<SPACE>"
+"let mapleader = "\\"
+"let maplocalleader = "\\"
 
 " digraphs
 
+nmap Q :qa<CR>
 
 " lambda λ
 imap <C-d>j <C-k>l*
@@ -122,7 +125,7 @@ map <F11> :NERDTreeToggle<CR>
 map <F2> :exec ":!hasktags -x -c --ignore src"<CR><CR>
 map <F4> :call RCmd("make")<CR>
 map <F5> :make<CR>
-map <F6> :call RCmd("npm test")<CR>
+map <F6> :call RCmd("make test")<CR>
 map <F7> :call RCmd("make deploy")<CR>
 
 nmap <Leader>nr "nyiW:call RCmd("npm repo <C-r>n")<CR>
@@ -151,18 +154,6 @@ vmap <Leader><Leader>j !jade -p % -o "{ prettyprint: true }"<CR>
 "map <Leader>cr :!newclay % && ./main<CR>
 
 cmap w!! %!sudo tee > /dev/null %
-cmap c! call RCmd("")<Left><Left>
-cmap g! call RCmd("git --no-pager ")<Left><Left>
-cmap t! Tabularize /
-cmap <Leader>c call RCmd("./create_component  default")<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-cmap <Leader>j call RCmd("./create_component  view")<Left><Left><Left><Left><Left><Left><Left>
-
-cmap Agg Ag -G $<Left>
-cmap Agc Ag -G coffee$ ""<Left>
-cmap Agh Ag -G hs$ ""<Left>
-cmap Agj Ag -G jade$ ""<Left>
-cmap Agk Ag -G js$ ""<Left>
-cmap Agl Ag -G less$ ""<Left>
 
 nnoremap x "_x
 nnoremap X "_X
