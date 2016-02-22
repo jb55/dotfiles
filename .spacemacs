@@ -31,14 +31,15 @@
     org
     purescript
     python
+    racket
     semantic
-    spacemacs-layouts
     spacemacs-helm
+    spacemacs-layouts
     spotify
     sql
     syntax-checking
     vim-empty-lines
-    racket
+    yaml
 
    ))
 
@@ -61,8 +62,12 @@
 (setq jb55/layers (if (is-mac) (cons 'osx jb55/base-layers)
                     jb55/base-layers))
 
-(setq jb55/excluded-packages (if (not (is-mac))
-                                 '(exec-path-from-shell) '()))
+
+(setq jb55/excluded-packages (let ((base-excluded '(org-bullets)))
+                               (if (not (is-mac))
+                                   (cons 'exec-path-from-shell base-excluded)
+                                 base-excluded)
+                               ))
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
@@ -252,6 +257,7 @@ This function is called at the very end of Spacemacs initialization."
  '(haskell-stylish-on-save nil t)
  '(haskell-tags-on-save t t)
  '(helm-echo-input-in-header-line nil)
+ '(helm-ff-skip-boring-files t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
