@@ -165,7 +165,7 @@ This function is called at the very end of Spacemacs initialization."
     (concat (file-name-as-directory jb55/org-path) file))
 
   (defun task-body (label)
-    (concat "* " label " %?\n  %i\n  %a"))
+    (concat "* " label " %?\n  %i"))
 
   (setq todo-task (task-body "TODO"))
 
@@ -335,6 +335,17 @@ This function is called at the very end of Spacemacs initialization."
  '(org-agenda-current-time-string
    #("=========================== NOW ===========================" 0 59
      (org-heading t)))
+ '(org-agenda-custom-commands
+   (quote
+    (("w" "Work"
+      ((agenda ""
+               ((org-agenda-category-filter-preset
+                 (quote
+                  ("+work"))))))
+      nil)
+     ("n" "Agenda and all TODOs"
+      ((agenda "" nil))
+      nil))))
  '(org-agenda-files (quote ("~/Dropbox/doc/org" "~/var/ical2org")))
  '(org-agenda-time-grid
    (quote
