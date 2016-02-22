@@ -159,13 +159,20 @@ This function is called at the very end of Spacemacs initialization."
   (defun jb55/make-org-path (file)
     (concat (file-name-as-directory jb55/org-path) file))
 
+  (defun task-body (label)
+    (concat "* " label " %?\n  %i"))
+
+  (setq todo-task (task-body "TODO"))
+
   (setq org-capture-templates
-        `(("t" "Todo" entry (file+headline ,(jb55/make-org-path "tasks.org") "Tasks")
-           "* TODO %?\n  %i\n  %a")
+        `(("t" "Task" entry (file+headline ,(jb55/make-org-path "tasks.org") "Tasks")
+           ,todo-task)
           ("j" "Journal" entry (file+datetree ,(jb55/make-org-path "journal.org"))
            "* %?\nEntered on %U\n  %i\n  %a")
           ("n" "Notes" entry (file+headline ,(jb55/make-org-path "notes.org") "Notes")
-           "* NOTE %?\n  %i\n  %a")))
+           ,(task-body "NOTE"))
+          ("w" "Work task" entry (file+headline ,(jb55/make-org-path "work.org") "Tasks")
+           ,todo-task)))
 
   ;; fixes tramp slowness
   (setq projectile-mode-line "Projectile")
@@ -282,12 +289,24 @@ This function is called at the very end of Spacemacs initialization."
  '(org-agenda-current-time-string
    #("=========================== NOW ===========================" 0 59
      (org-heading t)))
+ '(org-agenda-custom-commands
+   (quote
+    (("w" "Work"
+      ((agenda ""
+               ((org-agenda-category-filter-preset
+                 (quote
+                  ("+work"))))))
+      nil)
+     ("n" "Agenda and all TODOs"
+      ((agenda "" nil))
+      nil))))
  '(org-agenda-files (quote ("~/Dropbox/doc/org" "~/var/ical2org")))
  '(org-agenda-time-grid
    (quote
     ((daily today require-timed)
      ""
      (800 1000 1200 1400 1600 1800 2000))))
+ '(org-archive-location "archive/%s_archive::")
  '(org-directory "~/Dropbox/doc/org")
  '(org-refile-targets (quote ((org-agenda-files :maxlevel . 1))))
  '(org-use-sub-superscripts (quote {}))
