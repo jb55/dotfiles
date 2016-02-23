@@ -128,6 +128,8 @@ vnc-once() {
   x11vnc -safer -nopw -once -display ':0' $1
 }
 
+source $DOTFILES/bash/rangercd.sh
+
 # fzf
 source $DOTFILES/.fzf_helpers
 
