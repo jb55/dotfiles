@@ -11,6 +11,9 @@ source $ZSH/oh-my-zsh.sh
 # vi
 bindkey -v
 
+# short ESC delay
+export KEYTIMEOUT=1
+
 bindkey "^R" history-incremental-search-backward
 bindkey "^F" history-incremental-search-forward
 

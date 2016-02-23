@@ -70,7 +70,7 @@ prettycsv () {
 }
 
 prettycsvt () {
-  columnt "$@" | less -S
+  columnt "$@" | cat -n | less -S
 }
 
 monstercam() {
