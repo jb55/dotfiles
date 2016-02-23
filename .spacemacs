@@ -10,8 +10,8 @@
 
 (setq jb55/base-layers
   '((haskell :variables
-           haskell-enable-ghc-mod-support nil
-           haskell-enable-hindent-style "chris-done")
+             haskell-enable-ghc-mod-support nil
+             haskell-enable-hindent-style "chris-done")
 
     (c-c++ :variables
            c-c++-enable-clang-support t
@@ -179,6 +179,43 @@ This function is called at the very end of Spacemacs initialization."
           ("w" "Work task" entry (file+headline ,(jb55/make-org-path "work.org") "Tasks")
            ,todo-task)))
 
+  (setq org-agenda-custom-commands
+        '(("w" . "Work")
+          ("wr" "Work review"
+           ((agenda "" ((org-agenda-ndays 7)
+                        (org-agenda-time-grid nil)))
+            (todo)
+            )
+           ((org-agenda-category-filter-preset '("+work"))))
+          ("wu" "Work unscheduled" search "-SCHEDULED & -DEADLINE"
+           ((org-agenda-category-filter-preset '("+work"))))
+          ("h" . "Home")
+          ("hr" "Home review"
+           ((agenda "" ((org-agenda-ndays 7)
+                        (org-agenda-repeating-timestamp-show-all nil)
+                        (org-agenda-time-grid nil)
+                        ))
+            (tags-todo "vanessa")
+            (tags "tinker")
+            (tags "project")
+            (tags "errand"))
+           ((org-agenda-tag-filter-preset '("-work"))
+            (org-agenda-category-filter-preset '("-work"))
+            (org-agenda-repeating-timestamp-show-all nil)
+            ))
+          ("hu" "Unscheduled" search "-SCHEDULED & -DEADLINE")
+          ("g" . "GTD contexts")
+          ("gw" "Work" tags-todo "work")
+          ("gt" "Tinker" tags-todo "tinker")
+          ("gp" "Project" tags-todo "project")
+          ("gp" "Vanessa" tags-todo "vanessa")
+          ("G" "GTD Block Agenda"
+           ((tags-todo "vanessa")
+            (tags-todo "tinker")
+            (tags-todo "projects"))
+           nil)
+          ))
+
   ;; fixes tramp slowness
   (setq projectile-mode-line "Projectile")
   (defadvice projectile-project-root (around ignore-remote first activate)
@@ -295,18 +332,7 @@ This function is called at the very end of Spacemacs initialization."
  '(org-agenda-current-time-string
    #("=========================== NOW ===========================" 0 59
      (org-heading t)))
- '(org-agenda-custom-commands
-   (quote
-    (("w" "Work"
-      ((agenda ""
-               ((org-agenda-category-filter-preset
-                 (quote
-                  ("+work"))))))
-      nil)
-     ("n" "Agenda and all TODOs"
-      ((agenda "" nil))
-      nil))))
- '(org-agenda-files (quote ("~/Dropbox/doc/org" "~/var/ical2org")))
+ '(org-agenda-files (quote ("~/Dropbox/doc/org/todo" "~/var/ical2org")))
  '(org-agenda-time-grid
    (quote
     ((daily today require-timed)
