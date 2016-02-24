@@ -4,7 +4,7 @@
 
 # sharefile
 export SHAREFILE_HOST='jb55.com:public/s/'
-export SHAREFILE_URL='http://jb55.com/s/'
+export SHAREFILE_URL='https://jb55.com/s/'
 export SHARE_SS_DIR="$HOME/Dropbox/img/ss"
 export DOTFILES=${DOTFILES:-$HOME/.dotfiles}
 export XZ=pxz

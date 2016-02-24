@@ -183,8 +183,11 @@ This function is called at the very end of Spacemacs initialization."
         '(("w" . "Work")
           ("wr" "Work review"
            ((agenda "" ((org-agenda-ndays 7)
-                        (org-agenda-time-grid nil)))
-            (todo)
+                        (org-agenda-repeating-timestamp-show-all nil)
+                        (org-agenda-start-on-weekday nil)
+                        ))
+            (tags-todo "+payments")
+            (tags-todo "+waiting")
             )
            ((org-agenda-category-filter-preset '("+work"))))
           ("wu" "Work unscheduled" search "-SCHEDULED & -DEADLINE"
@@ -193,6 +196,7 @@ This function is called at the very end of Spacemacs initialization."
           ("hr" "Home review"
            ((agenda "" ((org-agenda-ndays 7)
                         (org-agenda-repeating-timestamp-show-all nil)
+                        (org-agenda-start-on-weekday nil)
                         (org-agenda-time-grid nil)
                         ))
             (tags-todo "vanessa")
@@ -332,7 +336,7 @@ This function is called at the very end of Spacemacs initialization."
  '(org-agenda-current-time-string
    #("=========================== NOW ===========================" 0 59
      (org-heading t)))
- '(org-agenda-files (quote ("~/Dropbox/doc/org/todo" "~/var/ical2org")))
+ '(org-agenda-files (quote ("~/Dropbox/doc/org" "~/var/ical2org")))
  '(org-agenda-time-grid
    (quote
     ((daily today require-timed)
