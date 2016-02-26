@@ -187,7 +187,7 @@ This function is called at the very end of Spacemacs initialization."
                         (org-agenda-repeating-timestamp-show-all nil)
                         (org-agenda-start-on-weekday nil)
                         ))
-            (tags-todo "+sprint")
+            (tags-todo "+sprint&-waiting")
             (tags-todo "+payments")
             (tags-todo "+waiting")
             )
