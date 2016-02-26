@@ -20,6 +20,7 @@ import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Util.EZConfig
 import XMonad.Util.Paste
+import XMonad.Hooks.UrgencyHook (focusUrgent)
 
 gapSize = 10
 taffySize = 25
@@ -67,6 +68,7 @@ myKeys = [
     ("M-p", shellPrompt defaultXPConfig)
   , ("M-d", toggleWS)
   , ("M-e", toggleFull)
+  , ("M-a", focusUrgent)
   , ("M-f", toggleMaximized)
   , ("M-v", sendKey shiftMask xK_Insert)
   ]
