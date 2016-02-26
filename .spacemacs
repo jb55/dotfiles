@@ -165,7 +165,7 @@ This function is called at the very end of Spacemacs initialization."
     (concat (file-name-as-directory jb55/org-path) file))
 
   (defun task-body (label)
-    (concat "* " label " %?\n  %i"))
+    (concat "* " label " %?\n  %i\n  %a"))
 
   (setq todo-task (task-body "TODO"))
 
@@ -177,23 +177,22 @@ This function is called at the very end of Spacemacs initialization."
           ("n" "Notes" entry (file+headline ,(jb55/make-org-path "notes.org") "Notes")
            ,(task-body "NOTE"))
           ("w" "Work task" entry (file+headline ,(jb55/make-org-path "work.org") "Tasks")
-           ,todo-task)))
+           ,todo-task)
+          ("p" "Phabricator task" entry (file+headline ,(jb55/make-org-path "work.org") "Tasks")
+           "* TODO ([[https://phabricator.monstercat.com/%^{T123}][%\\1]]) %?\n  %i")))
 
   (setq org-agenda-custom-commands
-        '(("w" . "Work")
-          ("wr" "Work review"
+        '(("w" "Work review"
            ((agenda "" ((org-agenda-ndays 7)
                         (org-agenda-repeating-timestamp-show-all nil)
                         (org-agenda-start-on-weekday nil)
                         ))
+            (tags-todo "+sprint")
             (tags-todo "+payments")
             (tags-todo "+waiting")
             )
            ((org-agenda-category-filter-preset '("+work"))))
-          ("wu" "Work unscheduled" search "-SCHEDULED & -DEADLINE"
-           ((org-agenda-category-filter-preset '("+work"))))
-          ("h" . "Home")
-          ("hr" "Home review"
+          ("h" "Home review"
            ((agenda "" ((org-agenda-ndays 7)
                         (org-agenda-repeating-timestamp-show-all nil)
                         (org-agenda-start-on-weekday nil)
@@ -368,7 +367,12 @@ This function is called at the very end of Spacemacs initialization."
  '(smtpmail-smtp-service 25)
  '(standard-indent 2)
  '(user-full-name "William Casarin")
- '(user-mail-address "bill@monstercat.com"))
+ '(user-mail-address "bill@monstercat.com")
+ '(weechat-auto-monitor-buffers
+   (quote
+    ("monstercat.#general" "monstercat.#payments" "monstercat.#code")))
+ '(weechat-auto-monitor-new-buffers t)
+ '(weechat-modules (quote (weechat-button weechat-image weechat-complete))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
