@@ -170,7 +170,7 @@ This function is called at the very end of Spacemacs initialization."
   (setq todo-task (task-body "TODO"))
 
   (setq org-capture-templates
-        `(("t" "Task" entry (file+headline ,(jb55/make-org-path "tasks.org") "Tasks")
+        `(("t" "Task" entry (file+headline ,(jb55/make-org-path "tasks.org") "Unorganized")
            ,todo-task)
           ("j" "Journal" entry (file+datetree ,(jb55/make-org-path "journal.org"))
            "* %?\nEntered on %U\n  %i\n  %a")
