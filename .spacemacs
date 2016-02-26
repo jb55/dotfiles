@@ -165,7 +165,7 @@ This function is called at the very end of Spacemacs initialization."
     (concat (file-name-as-directory jb55/org-path) file))
 
   (defun task-body (label)
-    (concat "* " label " %?\n  %i"))
+    (concat "* " label " %?\n  %i\n  %a"))
 
   (setq todo-task (task-body "TODO"))
 
