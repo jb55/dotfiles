@@ -187,7 +187,6 @@ This function is called at the very end of Spacemacs initialization."
            ((agenda "" ((org-agenda-ndays 7)
                         (org-agenda-repeating-timestamp-show-all nil)
                         (org-agenda-start-on-weekday nil)
-                        (org-agenda-time-grid nil)
                         ))
             (tags-todo "vanessa")
             (tags "tinker")
