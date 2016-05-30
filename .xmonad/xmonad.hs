@@ -21,6 +21,7 @@ import XMonad.Prompt.Shell
 import XMonad.Util.EZConfig
 import XMonad.Util.Paste
 import XMonad.Hooks.UrgencyHook (focusUrgent)
+import XMonad.Actions.UpdatePointer
 
 gapSize = 10
 taffySize = 25
@@ -51,6 +52,7 @@ main = xmonad $
     defaultConfig {
             terminal    = "urxvt"
           , modMask     = mod4Mask
+          , logHook     = updatePointer (1 / 2, 1 / 2) (0, 0)
           , layoutHook  = layout
           , startupHook = setWMName "LG3D"
           , manageHook  = manageDocks
