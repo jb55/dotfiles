@@ -38,7 +38,8 @@ export PAGER=less
 # go
 
 export GOPATH=$HOME/dev/gocode
-export PATH=$HOME/.npm/bin:$GOPATH/bin:$PATH
+export RUBYBIN=$HOME/.ruby/1.8/gems/bin
+export PATH=$RUBYBIN:$HOME/.npm/bin:$GOPATH/bin:$PATH
 
 # alias
 
@@ -55,6 +56,9 @@ export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_
 export PATH="/usr/local/heroku/bin:$PATH"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export GEM_HOME="$HOME/.ruby/1.8/gems"
+export GEM_PATH="$GEM_HOME"
 
 # added by travis gem
 [ -f /Users/jb55/.travis/travis.sh ] && source /Users/jb55/.travis/travis.sh
