@@ -31,4 +31,4 @@ Emacs.font: Source Code Pro-10
 
 ! XTerm
 XTerm*boldFont: fixed
-URxvt*url-launcher: chromium-browser
+URxvt*url-launcher: chromium
