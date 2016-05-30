@@ -32,28 +32,19 @@
     purescript
     python
     racket
-    semantic
     spacemacs-helm
     spacemacs-layouts
     spotify
     sql
     syntax-checking
-    vim-empty-lines
     yaml
 
    ))
 
 (setq jb55/additional-packages '(
                                  company-irony
-                                 cuda-mode
-                                 litable
-                                 glsl-mode
-                                 irony
                                  jade-mode
                                  markdown-mode
-                                 rtags
-                                 weechat
-                                 emojify
                                  ))
 
 (defun is-mac ()
