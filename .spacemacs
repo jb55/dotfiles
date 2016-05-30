@@ -179,7 +179,7 @@ This function is called at the very end of Spacemacs initialization."
                         (org-agenda-start-on-weekday nil)
                         ))
             (tags-todo "+sprint&-waiting")
-            (tags-todo "+payments")
+            (tags-todo "+payments&-waiting")
             (tags-todo "+waiting")
             )
            ((org-agenda-category-filter-preset '("+work"))))
