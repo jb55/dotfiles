@@ -1,6 +1,7 @@
 {
   "env": {
-    "node": true
+    "node": true,
+    "es6": 1
   },
   "rules": {
     // warnings
@@ -16,7 +17,7 @@
     // errors
     "no-undef": 2,
     "no-dupe-keys": 2,
-    "no-empty-class": 2,
+    "no-empty-character-class": 2,
     "no-self-compare": 2,
     "valid-typeof": 2,
     "no-unused-vars": 2,
@@ -26,7 +27,7 @@
     // stylistic errors
     "new-cap": 2,
     "no-spaced-func": 2,
-    "no-space-before-semi": 2,
-    "space-unary-word-ops": 2
+    "semi-spacing": 2,
+    "space-unary-ops": 2
   }
 }
