@@ -65,11 +65,11 @@ columnt () {
   column -t -s $'\t' "$@"
 }
 
-prettycsv () {
-  csv-delim "$@" | prettycsvt
+pcsv () {
+  csv-delim "$@" | pcsvt
 }
 
-prettycsvt () {
+pcsvt () {
   columnt "$@" | cat -n | less -S
 }
 
