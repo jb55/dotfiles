@@ -144,7 +144,7 @@ map <Leader>, :%s/\s\+,/,/g<CR>:%s/,\s\+/,/g<CR>
 map <Leader>y :Lodgeit<CR>
 nmap <Leader>C :ccl<CR>
 nmap <Leader>vs vip:sort<CR>
-nmap <Leader>r ma:%s/\s\+$//g<CR>`a
+nmap <Leader>xda ma:%s/\s\+$//g<CR>`a
 nmap <Leader>rr :call ReloadSnippets(&filetype)<CR>
 map <Leader><Leader>x :silent %!xmllint --encode UTF-8 --format -<CR>
 vmap <Leader><Leader>x :!xmllint --encode UTF-8 --format -<CR>
