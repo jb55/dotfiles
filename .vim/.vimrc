@@ -21,7 +21,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet.vim'
 
 NeoBundle 'Lokaltog/vim-easymotion'
