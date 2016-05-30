@@ -10,6 +10,7 @@ import System.Taffybar.Systray
 import System.Taffybar.TaffyPager
 import System.Taffybar.Weather
 import System.Process (readCreateProcess, shell)
+import Data.Time.Clock (getCurrentTime)
 
 import Data.Maybe (fromMaybe)
 
@@ -40,6 +41,7 @@ weatherConf = (defaultWeatherConfig "CYVR") {
 noteConf = defaultNotificationConfig {notificationMaxTimeout = 5}
 
 main = do
+  time <- getCurrentTime
   netdev <- fmap init (readCreateProcess (shell "ip route get 8.8.8.8 | head -n1 | cut -d' ' -f5") "")
   let memCfg = defaultGraphConfig { graphDataColors = [(1, 0, 0, 1)]
                                   , graphLabel = Just "mem"
@@ -54,7 +56,7 @@ main = do
                                                       ]
                                   , graphLabel = Just "net"
                                   }
-  let clock = textClockNew Nothing "<span fgcolor='orange'>%a %b %_d %l:%M %P</span>" 1
+  let clock = textClockNew Nothing "<span fgcolor='orange'>Week %W | %a %m/%e | %R</span>" 1
       pager = taffyPagerNew defaultPagerConfig
       note = notifyAreaNew noteConf
       wea = weatherNew weatherConf 10
