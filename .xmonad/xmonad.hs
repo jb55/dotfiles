@@ -69,7 +69,7 @@ toggleMaximized = toggleGaps >> toggleFull
 myKeys = [
     ("M-p", shellPrompt defaultXPConfig)
   , ("M-d", toggleWS)
-  , ("M-e", toggleFull)
+  , ("M-r", toggleFull)
   , ("M-a", focusUrgent)
   , ("M-f", toggleMaximized)
   , ("M-v", sendKey shiftMask xK_Insert)
