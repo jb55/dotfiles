@@ -21,9 +21,11 @@
     csv
     emacs-lisp
     emoji
+    finance
     git
     github
     gnus
+    gtags
     javascript
     lua
     markdown
@@ -89,7 +91,7 @@ values."
                                :size 13
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.0)
 
    dotspacemacs-leader-key "SPC"
    dotspacemacs-remap-Y-to-y$ t
@@ -240,11 +242,11 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(Linum-format "%7i ")
  '(ac-ispell-requires 4 t)
- '(ahs-case-fold-search nil)
- '(ahs-default-range (quote ahs-range-whole-buffer))
- '(ahs-idle-interval 0.25)
+ '(ahs-case-fold-search nil t)
+ '(ahs-default-range (quote ahs-range-whole-buffer) t)
+ '(ahs-idle-interval 0.25 t)
  '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil)
+ '(ahs-inhibit-face-list nil t)
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
@@ -264,9 +266,9 @@ This function is called at the very end of Spacemacs initialization."
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
  '(fci-rule-character-color "#202020")
- '(fci-rule-color "#202020")
- '(flycheck-clang-include-path (quote ("/home/jb55/src/c/sandy/include")))
- '(flycheck-clang-language-standard "c++11")
+ '(fci-rule-color "#202020" t)
+ '(flycheck-clang-include-path nil)
+ '(flycheck-clang-language-standard nil)
  '(flycheck-gcc-language-standard "c++11")
  '(flycheck-hlint-ignore-rules (quote ("Eta reduce")))
  '(fringe-mode (quote (1 . 1)) nil (fringe))
@@ -349,7 +351,7 @@ This function is called at the very end of Spacemacs initialization."
  '(rainbow-identifiers-cie-l*a*b*-lightness 80)
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
  '(rcirc-buffer-maximum-lines 10000)
- '(ring-bell-function (quote ignore) t)
+ '(ring-bell-function (quote ignore))
  '(rng-nxml-auto-validate-flag nil)
  '(rust-indent-offset 2)
  '(safe-local-variable-values
