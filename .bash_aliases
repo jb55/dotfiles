@@ -39,6 +39,9 @@ alias vless="/usr/share/vim/vim72/macros/less.sh"
 alias vnc_once="x11vnc -safer -nopw -once -display :0"
 alias wget="wget -c"
 alias xclip="xclip -selection clipboard"
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias wanip=myip
+alias myipaddress=myip
 
 
 share () {
