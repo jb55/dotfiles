@@ -131,6 +131,13 @@ vnc-once() {
   x11vnc -safer -nopw -once -display ':0' $1
 }
 
+sql() {
+  local query="$1"
+  local cs=${CS:-'postgres://pg-dev-zero.monstercat.com/Monstercat'}
+  local pg_user=${PG_USER:-'postgres'}
+  psql -U "$pg_user" -A -F $'\t' "$cs" -c "$query" | pcsvt
+}
+
 source $DOTFILES/bash/rangercd.sh
 
 # fzf
