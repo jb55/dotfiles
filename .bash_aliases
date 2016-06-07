@@ -123,8 +123,12 @@ haskell-env-tools() {
   env-type "haskellTools" "$@"
 }
 
-build-nix-cache() { 
-  nix-env -f $NIXPKGS -qaP \* > ~/.nixenv.cache 
+build-nix-cache() {
+  nix-env -f $NIXPKGS -qaP \* > ~/.nixenv.cache
+}
+
+haskell-shell-with() {
+  nix-shell -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [$*])"
 }
 
 vnc-once() {
