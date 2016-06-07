@@ -69,7 +69,7 @@ myKeys = [
     ("M-p", shellPrompt defaultXPConfig)
   , ("M-a", focusUrgent)
   , ("M-d", toggleWS)
-  , ("M-e", sendMessage NextLayout)
+  -- , ("M-e", sendMessage NextLayout)
   , ("M-f", toggleMaximized)
   , ("M-r", toggleFull)
   , ("M-v", sendKey shiftMask xK_Insert)
