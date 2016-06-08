@@ -127,8 +127,8 @@ build-nix-cache() {
   nix-env -f $NIXPKGS -qaP \* > ~/.nixenv.cache
 }
 
-haskell-shell-with() {
-  nix-shell -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [$*])"
+haskell-shell() {
+  nix-shell -Q -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [$*])"
 }
 
 vnc-once() {
