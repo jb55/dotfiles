@@ -23,6 +23,7 @@
     emoji
     finance
     git
+    elm
     github
     gnus
     gtags
