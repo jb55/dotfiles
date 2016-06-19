@@ -23,17 +23,24 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet.vim'
 
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'dbakker/vim-projectroot'
+NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'jb55/typescript-ctags'
 NeoBundle 'jb55/vim-snippets'
-NeoBundle 'jimmay5469/vim-spacemacs'
+NeoBundle 'junegunn/fzf'
+NeoBundle 'junegunn/fzf.vim'
+NeoBundle 'junegunn/gv.vim'
 NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'mbbill/undotree'
 NeoBundle 'michaeljsmith/vim-indent-object'
+NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'scrooloose/nerdtree'
@@ -41,9 +48,14 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'szw/vim-maximizer'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'wting/rust.vim'
 NeoBundle 'zah/nimrod.vim'
+
+NeoBundle 'hecal3/vim-leader-guide'
+NeoBundle 'ctjhoa/spacevim'
 
 call neobundle#end()
 
@@ -165,7 +177,6 @@ nmap <Leader>== :Tabularize /=<CR>
 vmap <Leader>== :Tabularize /=<CR>
 nmap <Leader>=, :Tabularize /,<CR>
 vmap <Leader>=, :Tabularize /,<CR>
-cmap <Leader>t Tabularize /
 nmap <Leader>=<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>=<Bar> :Tabularize /<Bar><CR>
 nmap <Leader>=:: :Tabularize /::<CR>
