@@ -135,11 +135,22 @@ vnc-once() {
   x11vnc -safer -nopw -once -display ':0' $1
 }
 
+sql_wineparty() {
+  export CS='postgres://wineparty.xyz/wineparty'
+  export PG_USER='jb55'
+}
+
 sql() {
   local query="$1"
-  local cs=${CS:-'postgres://pg-dev-zero.monstercat.com/Monstercat'}
+  local cs=${CS:-'postgres://172.24.14.20/Monstercat'}
   local pg_user=${PG_USER:-'postgres'}
-  psql -U "$pg_user" -A -F $'\t' "$cs" -c "$query" | pcsvt
+  local args=("-U" "$pg_user" -A "$cs")
+  if [ ! -z "$query" ];
+  then
+    args+="-c $query"
+  fi
+  echo "psql $args"
+  psql -F $'\t' $args | pcsvt
 }
 
 source $DOTFILES/bash/rangercd.sh
