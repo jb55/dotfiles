@@ -1,15 +1,18 @@
 # Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
+# export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="jb55"
 
-export DISABLE_AUTO_UPDATE="true"
-source $ZSH/oh-my-zsh.sh
+# export DISABLE_AUTO_UPDATE="true"
+# source $ZSH/oh-my-zsh.sh
 
 # vi
 bindkey -v
+
+# short ESC delay
+export KEYTIMEOUT=1
 
 bindkey "^R" history-incremental-search-backward
 bindkey "^F" history-incremental-search-forward
@@ -35,7 +38,8 @@ export PAGER=less
 # go
 
 export GOPATH=$HOME/dev/gocode
-export PATH=$HOME/.npm/bin:$GOPATH/bin:$PATH
+export RUBYBIN=$HOME/.ruby/1.8/gems/bin
+export PATH=$RUBYBIN:$HOME/.npm/bin:$GOPATH/bin:$PATH
 
 # alias
 
@@ -45,5 +49,28 @@ if [[ $TERM == screen* ]] && [[ -f $FIXSSH ]]; then
   source $FIXSSH
 fi
 
-export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
-ulimit -n 1024
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export GEM_HOME="$HOME/.ruby/1.8/gems"
+export GEM_PATH="$GEM_HOME"
+
+# added by travis gem
+[ -f /Users/jb55/.travis/travis.sh ] && source /Users/jb55/.travis/travis.sh
+
+# z
+source "$HOME/bin/z.sh"
+
+export BARI=$HOME/Dropbox/shared/bari
+
+
+ALIASES="$HOME/.bash_aliases"
+[ -e "$ALIASES" ] && source "$ALIASES"
+
+DIRCOLORS="$HOME/.dircolors"
+[ -e "$DIRCOLORS" ] && eval "$(dircolors -b "$DIRCOLORS")"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

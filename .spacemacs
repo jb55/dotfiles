@@ -10,8 +10,8 @@
 
 (setq jb55/base-layers
   '((haskell :variables
-           haskell-enable-ghc-mod-support nil
-           haskell-enable-hindent-style "chris-done")
+             haskell-enable-ghc-mod-support nil
+             haskell-enable-hindent-style "chris-done")
 
     (c-c++ :variables
            c-c++-enable-clang-support t
@@ -21,9 +21,12 @@
     csv
     emacs-lisp
     emoji
+    finance
     git
+    elm
     github
     gnus
+    gtags
     javascript
     lua
     markdown
@@ -31,28 +34,20 @@
     org
     purescript
     python
-    semantic
-    spacemacs-layouts
+    racket
     spacemacs-helm
+    spacemacs-layouts
     spotify
     sql
     syntax-checking
-    vim-empty-lines
-    racket
+    yaml
 
    ))
 
 (setq jb55/additional-packages '(
                                  company-irony
-                                 cuda-mode
-                                 litable
-                                 glsl-mode
-                                 irony
                                  jade-mode
                                  markdown-mode
-                                 rtags
-                                 weechat
-                                 emojify
                                  ))
 
 (defun is-mac ()
@@ -61,8 +56,12 @@
 (setq jb55/layers (if (is-mac) (cons 'osx jb55/base-layers)
                     jb55/base-layers))
 
-(setq jb55/excluded-packages (if (not (is-mac))
-                                 '(exec-path-from-shell) '()))
+
+(setq jb55/excluded-packages (let ((base-excluded '(org-bullets)))
+                               (if (not (is-mac))
+                                   (cons 'exec-path-from-shell base-excluded)
+                                 base-excluded)
+                               ))
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
@@ -93,7 +92,7 @@ values."
                                :size 13
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.0)
 
    dotspacemacs-leader-key "SPC"
    dotspacemacs-remap-Y-to-y$ t
@@ -159,13 +158,59 @@ This function is called at the very end of Spacemacs initialization."
   (defun jb55/make-org-path (file)
     (concat (file-name-as-directory jb55/org-path) file))
 
+  (defun task-body (label)
+    (concat "* " label " %?\n  %i\n  %a"))
+
+  (setq todo-task (task-body "TODO"))
+
   (setq org-capture-templates
-        `(("t" "Todo" entry (file+headline ,(jb55/make-org-path "tasks.org") "Tasks")
-           "* TODO %?\n  %i\n  %a")
+        `(("t" "Task" entry (file+headline ,(jb55/make-org-path "tasks.org") "Unorganized")
+           ,todo-task)
           ("j" "Journal" entry (file+datetree ,(jb55/make-org-path "journal.org"))
            "* %?\nEntered on %U\n  %i\n  %a")
           ("n" "Notes" entry (file+headline ,(jb55/make-org-path "notes.org") "Notes")
-           "* NOTE %?\n  %i\n  %a")))
+           ,(task-body "NOTE"))
+          ("w" "Work task" entry (file+headline ,(jb55/make-org-path "work.org") "Tasks")
+           ,todo-task)
+          ("p" "Phabricator task" entry (file+headline ,(jb55/make-org-path "work.org") "Tasks")
+           "* TODO ([[https://phabricator.monstercat.com/%^{T123}][%\\1]]) %?\n  %i")))
+
+  (setq org-agenda-custom-commands
+        '(("w" "Work review"
+           ((agenda "" ((org-agenda-ndays 7)
+                        (org-agenda-repeating-timestamp-show-all nil)
+                        (org-agenda-start-on-weekday nil)
+                        ))
+            (tags-todo "+sprint&-waiting")
+            (tags-todo "+payments&-waiting")
+            (tags-todo "+waiting")
+            )
+           ((org-agenda-category-filter-preset '("+work"))))
+          ("h" "Home review"
+           ((agenda "" ((org-agenda-ndays 7)
+                        (org-agenda-repeating-timestamp-show-all nil)
+                        (org-agenda-start-on-weekday nil)
+                        ))
+            (tags-todo "vanessa")
+            (tags "tinker")
+            (tags "project")
+            (tags "errand"))
+           ((org-agenda-tag-filter-preset '("-work"))
+            (org-agenda-category-filter-preset '("-work"))
+            (org-agenda-repeating-timestamp-show-all nil)
+            ))
+          ("hu" "Unscheduled" search "-SCHEDULED & -DEADLINE")
+          ("g" . "GTD contexts")
+          ("gw" "Work" tags-todo "work")
+          ("gt" "Tinker" tags-todo "tinker")
+          ("gp" "Project" tags-todo "project")
+          ("gp" "Vanessa" tags-todo "vanessa")
+          ("G" "GTD Block Agenda"
+           ((tags-todo "vanessa")
+            (tags-todo "tinker")
+            (tags-todo "projects"))
+           nil)
+          ))
 
   ;; fixes tramp slowness
   (setq projectile-mode-line "Projectile")
@@ -177,6 +222,9 @@ This function is called at the very end of Spacemacs initialization."
   (setq haskell-hoogle-command nil)
   (setq haskell-hoogle-url "http://localhost:8080/?hoogle=%s")
   ;; (setq haskell-process-type (quote ghci))
+
+  (fset 'phab-task
+        [?\" ?z ?y ?i ?w ?i ?\[ ?\[ ?h ?t ?t ?p ?s ?: ?/ ?/ ?p ?h ?a ?b ?r ?i ?c ?a ?t ?o ?r ?. ?m ?o ?n ?s ?t ?e ?r ?c ?a ?t ?. ?c ?o ?m ?/ escape ?E ?a ?\] ?\[ escape ?\" ?z ?p ?a ?\] ?\] escape ?y ?s ?i ?W ?\) ?i ?* ?* ?* ?* ?  escape ?f ?\) ?l ?l ?i ?+ escape ?A ?+ escape ?j ?0])
 
   (use-package jade-mode :defer t)
 )
@@ -195,11 +243,11 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(Linum-format "%7i ")
  '(ac-ispell-requires 4 t)
- '(ahs-case-fold-search nil)
- '(ahs-default-range (quote ahs-range-whole-buffer))
- '(ahs-idle-interval 0.25)
+ '(ahs-case-fold-search nil t)
+ '(ahs-default-range (quote ahs-range-whole-buffer) t)
+ '(ahs-idle-interval 0.25 t)
  '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil)
+ '(ahs-inhibit-face-list nil t)
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
@@ -218,33 +266,35 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-shift-width 2)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
- '(fci-rule-character-color "#202020" t)
+ '(fci-rule-character-color "#202020")
  '(fci-rule-color "#202020" t)
- '(flycheck-clang-include-path (quote ("/home/jb55/src/c/sandy/include")))
- '(flycheck-clang-language-standard "c++11")
+ '(flycheck-clang-include-path nil)
+ '(flycheck-clang-language-standard nil)
  '(flycheck-gcc-language-standard "c++11")
+ '(flycheck-hlint-ignore-rules (quote ("Eta reduce")))
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-hl-line-mode t)
  '(grep-find-ignored-directories
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
  '(haskell-font-lock-symbols nil)
- '(haskell-hoogle-command nil t)
- '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s" t)
+ '(haskell-hoogle-command nil)
+ '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s")
  '(haskell-indentation-indent-leftmost t)
  '(haskell-interactive-mode-scroll-to-bottom t)
  '(haskell-interactive-popup-error nil t)
  '(haskell-mode-hook
    (quote
     (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
- '(haskell-notify-p t t)
- '(haskell-process-auto-import-loaded-modules t t)
+ '(haskell-notify-p t)
+ '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
- '(haskell-process-suggest-remove-import-lines t t)
- '(haskell-process-type (quote auto))
- '(haskell-stylish-on-save nil t)
- '(haskell-tags-on-save t t)
+ '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-type (quote ghci))
+ '(haskell-stylish-on-save nil)
+ '(haskell-tags-on-save t)
  '(helm-echo-input-in-header-line nil)
+ '(helm-ff-skip-boring-files t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
@@ -273,7 +323,7 @@ This function is called at the very end of Spacemacs initialization."
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p t)
  '(js2-strict-missing-semi-warning nil)
- '(linum-format " %7i " t)
+ '(linum-format " %7i ")
  '(magit-diff-use-overlays nil)
  '(main-line-color1 "#1E1E1E")
  '(main-line-color2 "#111111")
@@ -288,6 +338,7 @@ This function is called at the very end of Spacemacs initialization."
     ((daily today require-timed)
      ""
      (800 1000 1200 1400 1600 1800 2000))))
+ '(org-archive-location "archive/%s_archive::")
  '(org-directory "~/Dropbox/doc/org")
  '(org-refile-targets (quote ((org-agenda-files :maxlevel . 1))))
  '(org-use-sub-superscripts (quote {}))
@@ -301,7 +352,7 @@ This function is called at the very end of Spacemacs initialization."
  '(rainbow-identifiers-cie-l*a*b*-lightness 80)
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
  '(rcirc-buffer-maximum-lines 10000)
- '(ring-bell-function (quote ignore) t)
+ '(ring-bell-function (quote ignore))
  '(rng-nxml-auto-validate-flag nil)
  '(rust-indent-offset 2)
  '(safe-local-variable-values
@@ -309,11 +360,17 @@ This function is called at the very end of Spacemacs initialization."
     ((flycheck-clang-include-path "./include" "../include"))))
  '(send-mail-function (quote smtpmail-send-it))
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
+ '(smerge-command-prefix "m")
  '(smtpmail-smtp-server "smtp.googlemail.com")
  '(smtpmail-smtp-service 25)
  '(standard-indent 2)
  '(user-full-name "William Casarin")
- '(user-mail-address "bill@monstercat.com"))
+ '(user-mail-address "bill@monstercat.com")
+ '(weechat-auto-monitor-buffers
+   (quote
+    ("monstercat.#general" "monstercat.#payments" "monstercat.#code")))
+ '(weechat-auto-monitor-new-buffers t)
+ '(weechat-modules (quote (weechat-button weechat-image weechat-complete))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

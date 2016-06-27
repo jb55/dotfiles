@@ -5,3 +5,12 @@
 */tmp/*
 .vim/bundle
 node_modules/
+/.xmonad/xmonad-x86_64-linux
+/.xmonad/xmonad.errors
+/.xmonad/xmonad.hi
+/.xmonad/xmonad.o
+/ircpass
+/.xmonad/history
+/mimeapps2.list
+/.weechat/logs
+/.weechat/weechat.log

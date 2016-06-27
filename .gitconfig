@@ -34,22 +34,13 @@
   serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
   cloner = clone --recursive
   st = status -sb
+  co = checkout
 [push]
-  default = simple
-[merge]
-  tool = splice
-  defaultToUpstream = true
-[mergetool "diffconflicts"]
-  cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
-  trustExitCode = true
-  keepBackup = false
-[mergetool "splice"]
-  cmd = "mvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
-  trustExitCode = true
+	default = simple
 [rerere]
-  enabled = true
-[difftool "sourcetree"]
-  cmd = mvim -d \"$LOCAL\" \"$REMOTE\"
-[mergetool "sourcetree"]
-  cmd = mvim -d \"$LOCAL\" \"$REMOTE\"
-  trustExitCode = true
+	enabled = true
+	autoupdate = true
+[http "https://git.monstercat.com"]
+	sslCAInfo = /home/jb55/.flynn/ca-certs/default.pem
+[credential "https://git.monstercat.com"]
+	helper = /home/jb55/bin/flynn git-credentials

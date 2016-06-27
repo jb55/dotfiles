@@ -1,6 +1,42 @@
+!keycode 160 = XF86AudioMute
+!keycode 176 = XF86AudioRaiseVolume
+!keycode 174 = XF86AudioLowerVolume
+!
+!keycode 144 = XF86AudioPrev
+!keycode 162 = XF86AudioPlay
+!keycode 153 = XF86AudioNext
+!
+!keycode 101 = XF86MonBrightnessDown
+!keycode 212 = XF86MonBrightnessUp
 
-clear Control
-keycode 66 = Control_L
-add Control = Control_L
-add Control = Control_R
-keycode 37 = ISO_Level3_Shift
+keycode 204 = XF86Eject
+
+clear Mod5
+keycode 135 = Hyper_R
+add Mod5 = Hyper_R
+
+!Swap left alt and left super
+clear Mod4
+clear Mod1
+keycode 64 = Super_L
+keycode 133 = Alt_L
+keycode 108 = Super_R
+keycode 134 = Alt_R
+add Mod4 = Super_L Super_R
+add Mod1 = Alt_L Alt_R
+
+! symmetry by having mute in the middle
+
+! F12
+keycode 96 = XF86AudioRaiseVolume
+! F11
+keycode 95 = XF86AudioMute
+! F110
+keycode 76 = XF86AudioLowerVolume
+
+! F8
+keycode 74 = XF86AudioNext
+! F7
+keycode 73 = XF86AudioPlay
+! F6
+keycode 72 = XF86AudioPrev

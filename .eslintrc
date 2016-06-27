@@ -1,8 +1,10 @@
 {
   "env": {
-    "node": true
+    "node": true,
+    "es6": 1
   },
   "rules": {
+    // warnings
     "no-debugger": 1,
     "no-empty": 1,
     "no-invalid-regexp": 1,
@@ -11,27 +13,21 @@
     "no-unused-expressions": 1,
     "no-native-reassign": 1,
     "no-fallthrough": 1,
-    "curly": 0,
 
-    "quotes": 0,
-    "semi": 0,
+    // errors
     "no-undef": 2,
-    "no-use-before-define": 0,
-    "no-underscore-dangle": 0,
     "no-dupe-keys": 2,
-    "no-empty-class": 2,
+    "no-empty-character-class": 2,
     "no-self-compare": 2,
     "valid-typeof": 2,
     "no-unused-vars": 2,
     "handle-callback-err": 2,
     "no-shadow-restricted-names": 2,
-    "strict": 0,
 
-    "new-cap": 0,
+    // stylistic errors
+    "new-cap": 2,
     "no-spaced-func": 2,
-    "no-process-exit": 0,
-    "no-comma-dangle": 0,
-    "valid-jsdoc": 2,
-    "no-space-before-semi": 2
+    "semi-spacing": 2,
+    "space-unary-ops": 2
   }
 }

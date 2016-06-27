@@ -1,8 +1,6 @@
 " vim: foldmethod=marker:
 
-
-" Have to do this before neobundle
-filetype plugin indent on
+if 0 | endif
 
 " neobundle {{{
 
@@ -22,33 +20,46 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
 
-"NeoBundle 'lukerandall/haskellmode-vim'
-NeoBundle 'jimmay5469/vim-spacemacs'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'wting/rust.vim'
-NeoBundle 'rizzatti/dash.vim'
-"NeoBundle 'ervandew/supertab'
-NeoBundle 'michaeljsmith/vim-indent-object'
-NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet.vim'
+
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'epmatsw/ag.vim'
+NeoBundle 'dbakker/vim-projectroot'
+NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'jb55/vim-snippets'
+NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'jb55/typescript-ctags'
+NeoBundle 'jb55/vim-snippets'
+NeoBundle 'junegunn/fzf'
+NeoBundle 'junegunn/fzf.vim'
+NeoBundle 'junegunn/gv.vim'
 NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'mbbill/undotree'
+NeoBundle 'michaeljsmith/vim-indent-object'
+NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'rizzatti/dash.vim'
+NeoBundle 'rking/ag.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'szw/vim-maximizer'
 NeoBundle 'tommcdo/vim-exchange'
+NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'wting/rust.vim'
 NeoBundle 'zah/nimrod.vim'
-NeoBundle 'Shougo/vimproc.vim'
+
+NeoBundle 'hecal3/vim-leader-guide'
+NeoBundle 'ctjhoa/spacevim'
 
 call neobundle#end()
+
+filetype plugin indent on
 
 NeoBundleCheck
 
@@ -145,7 +156,7 @@ map <Leader>, :%s/\s\+,/,/g<CR>:%s/,\s\+/,/g<CR>
 map <Leader>y :Lodgeit<CR>
 nmap <Leader>C :ccl<CR>
 nmap <Leader>vs vip:sort<CR>
-nmap <Leader>r ma:%s/\s\+$//g<CR>`a
+nmap <Leader>xda ma:%s/\s\+$//g<CR>`a
 nmap <Leader>rr :call ReloadSnippets(&filetype)<CR>
 map <Leader><Leader>x :silent %!xmllint --encode UTF-8 --format -<CR>
 vmap <Leader><Leader>x :!xmllint --encode UTF-8 --format -<CR>
@@ -166,7 +177,6 @@ nmap <Leader>== :Tabularize /=<CR>
 vmap <Leader>== :Tabularize /=<CR>
 nmap <Leader>=, :Tabularize /,<CR>
 vmap <Leader>=, :Tabularize /,<CR>
-cmap <Leader>t Tabularize /
 nmap <Leader>=<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>=<Bar> :Tabularize /<Bar><CR>
 nmap <Leader>=:: :Tabularize /::<CR>
@@ -247,6 +257,8 @@ highlight clear SignColumn
 " Autocommands {{{
 
 augroup encrypted
+  au!
+
   " First make sure nothing is written to ~/.viminfo while editing
   " an encrypted file.
   autocmd BufReadPre,FileReadPre *.gpg set viminfo=
@@ -313,6 +325,7 @@ au BufRead,BufNewFile *.y set syn=bnf
 au BufRead,BufNewFile *.y.pp set syn=happy
 au BufRead,BufNewFile *.yaml set syn=yaml
 au BufRead,BufNewFile *.yml set syn=yaml
+au BufWritePost,FileWritePost ~/.Xdefaults,~/.Xresources silent! !xrdb -load % >/dev/null 2>&1
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 au BufRead,BufNewFile nginx.conf set ft=nginx
 au BufRead,BufNewFile wscript set syn=python
@@ -362,7 +375,6 @@ function! s:WipeBuffersWithoutFiles()
         execute 'bwipeout' join(bufs)
     endif
 endfunction
-
 command! WipeNoFiles call s:WipeBuffersWithoutFiles()
 
 " }}}

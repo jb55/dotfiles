@@ -1,0 +1,34 @@
+! vim: foldmethod=marker:
+
+!#include ".Xresources.d/themes/solarized"
+#include ".Xresources.d/themes/baskerville"
+!#include ".Xresources.d/themes/sexy"
+!#include ".Xresources.d/themes/mocha"
+!#include ".Xresources.d/themes/tomorrow.light"
+!#include ".Xresources.d/themes/tomorrow.dark"
+!#include ".Xresources.d/themes/ashes.light"
+!#include ".Xresources.d/themes/polygon"
+!#include ".Xresources.d/themes/shore"
+!#include ".Xresources.d/themes/tomorrow-night"
+
+! urxvt
+!URxvt*boldFont: -*-profont-*-*-*-*-12-*-*-*-*-*-*-*
+URxvt*font: xft:Source Code Pro:size=10:antialias=true;hinting=true,\
+            xft:Kochi Gothic:antialias=true,hinting=true
+!URxvt*font: xft:Inconsolata:size=12:antialias=true;hinting=true
+!xterm*faceName: Terminus:style=Regular:size=10
+URxvt*internalBorder: 22
+URxvt*matcher.button: 1
+URxvt*perl-ext-common: default,matcher,clipboard
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt*scrollBar: false
+URxvt.iso14755: false
+URxvt*boldMode: false
+URxvt*cursorBlink: true
+URxvt*termName: rxvt
+URxvt*urgentOnBell: true
+Emacs.font: Source Code Pro-10
+
+! XTerm
+XTerm*boldFont: fixed
+URxvt*url-launcher: chromium
