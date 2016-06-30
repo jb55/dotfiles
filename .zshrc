@@ -34,6 +34,7 @@ export NIX_PATH="dotfiles=$HOME/.dotfiles:$NIX_PATH"
 # other
 export EDITOR=vim
 export PAGER=less
+export LESS="-R"
 
 # go
 

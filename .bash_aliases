@@ -9,8 +9,6 @@ export SHARE_SS_DIR="$HOME/Dropbox/img/ss"
 export DOTFILES=${DOTFILES:-$HOME/.dotfiles}
 export XZ=pxz
 
-alias ack="ack --pager='less -R'"
-alias ag="ag --pager=less"
 alias attach="grabssh; screen -rD"
 alias awkt="awk -F $'\t'"
 alias catt="pygmentize -O style=monokai -f console256 -g"
@@ -53,7 +51,7 @@ sharess () {
 }
 
 lt () {
-  ls -lt "$@" | less
+  ls -lt "$@" | "$PAGER"
 }
 
 lt1 () {
@@ -73,7 +71,7 @@ pcsv () {
 }
 
 pcsvt () {
-  columnt "$@" | cat -n | less -S
+  columnt "$@" | cat -n | less -R -S
 }
 
 monstercam() {
@@ -140,18 +138,23 @@ sql_wineparty() {
   export PG_USER='jb55'
 }
 
-sql() {
+sql_() {
   local query="$1"
-  local cs=${CS:-'postgres://172.24.14.20/Monstercat'}
-  local pg_user=${PG_USER:-'postgres'}
+  local cs=${CS:-'postgres://pg-dev-zero.monstercat.com/Monstercat'}
+  local pg_user=${PG_USER:-'jb55'}
   local args=("-U" "$pg_user" -A "$cs")
   if [ ! -z "$query" ];
   then
     args+="-c $query"
   fi
-  echo "psql $args"
-  psql -F $'\t' $args | pcsvt
+  psql -F $'\t' $args
 }
+
+
+sql() {
+  sql_ "$1" | pcsvt
+}
+
 
 source $DOTFILES/bash/rangercd.sh
 
