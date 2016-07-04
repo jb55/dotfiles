@@ -34,6 +34,7 @@ export NIX_PATH="dotfiles=$HOME/.dotfiles:$NIX_PATH"
 # other
 export EDITOR=vim
 export PAGER=less
+export LESS="-R"
 
 # go
 
@@ -48,8 +49,6 @@ FIXSSH=$HOME/bin/fixssh
 if [[ $TERM == screen* ]] && [[ -f $FIXSSH ]]; then
   source $FIXSSH
 fi
-
-#export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 
 
 ### Added by the Heroku Toolbelt
