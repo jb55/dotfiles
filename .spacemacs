@@ -86,7 +86,7 @@ values."
 (defun dotspacemacs/init ()
   (setq-default
    dotspacemacs-startup-banner 'official
-   dotspacemacs-themes '(base16-tomorrow-dark)
+   dotspacemacs-themes '(base16-solarized-light)
 
    dotspacemacs-default-font '("Source Code Pro"
                                :size 13

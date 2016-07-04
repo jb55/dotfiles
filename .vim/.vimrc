@@ -83,7 +83,7 @@ if has("gui_running")
 else
   set t_Co=256
   set clipboard=unnamed
-  colorscheme wombat256
+  colorscheme solarized
 endif
 
 " }}}

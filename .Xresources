@@ -1,7 +1,7 @@
 ! vim: foldmethod=marker:
 
-!#include ".Xresources.d/themes/solarized"
-#include ".Xresources.d/themes/baskerville"
+#include ".Xresources.d/themes/solarized"
+!#include ".Xresources.d/themes/baskerville"
 !#include ".Xresources.d/themes/sexy"
 !#include ".Xresources.d/themes/mocha"
 !#include ".Xresources.d/themes/tomorrow.light"
