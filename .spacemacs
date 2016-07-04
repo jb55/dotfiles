@@ -266,7 +266,7 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-shift-width 2)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
- '(fci-rule-character-color "#202020")
+ '(fci-rule-character-color "#202020" t)
  '(fci-rule-color "#202020" t)
  '(flycheck-clang-include-path nil)
  '(flycheck-clang-language-standard nil)
@@ -292,7 +292,7 @@ This function is called at the very end of Spacemacs initialization."
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-type (quote ghci))
  '(haskell-stylish-on-save nil)
- '(haskell-tags-on-save t)
+ '(haskell-tags-on-save nil)
  '(helm-echo-input-in-header-line nil)
  '(helm-ff-skip-boring-files t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
@@ -323,7 +323,7 @@ This function is called at the very end of Spacemacs initialization."
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p t)
  '(js2-strict-missing-semi-warning nil)
- '(linum-format " %7i ")
+ '(linum-format " %7i " t)
  '(magit-diff-use-overlays nil)
  '(main-line-color1 "#1E1E1E")
  '(main-line-color2 "#111111")
@@ -342,6 +342,9 @@ This function is called at the very end of Spacemacs initialization."
  '(org-directory "~/Dropbox/doc/org")
  '(org-refile-targets (quote ((org-agenda-files :maxlevel . 1))))
  '(org-use-sub-superscripts (quote {}))
+ '(package-selected-packages
+   (quote
+    (hlint-refactor company-ghci flycheck-elm elm-mode ledger-mode helm-gtags ggtags flycheck-ledger yaml-mode ws-butler window-numbering which-key web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org sql-indent spotify spacemacs-theme spaceline smooth-scrolling smeargle shm restart-emacs rainbow-delimiters racket-mode quelpa pyvenv pytest pyenv-mode py-yapf psci psc-ide popwin pip-requirements persp-mode pcre2el paradox page-break-lines orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-download open-junk-file nix-mode neotree move-text mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint leuven-theme json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-spotify helm-pydoc helm-projectile helm-nixos-options helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio gnuplot github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh-md flycheck-purescript flycheck-pos-tip flycheck-haskell flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emoji-cheat-sheet-plus elisp-slime-nav disaster define-word cython-mode csv-mode company-tern company-statistics company-quickhelp company-nixos-options company-irony company-ghc company-emoji company-cabal company-c-headers company-anaconda column-enforce-mode coffee-mode cmm-mode cmake-mode clean-aindent-mode clang-format buffer-move bracketed-paste base16-theme auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(powerline-color1 "#1E1E1E")
  '(powerline-color2 "#111111")
  '(projectile-globally-ignored-directories
