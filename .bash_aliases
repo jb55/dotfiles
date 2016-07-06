@@ -145,14 +145,13 @@ sql_() {
   local args=("-U" "$pg_user" -A "$cs")
   if [ ! -z "$query" ];
   then
-    args+="-c $query"
+    args+=(-c "$query")
   fi
-  psql -F $'\t' $args
+  psql -F $'\t' "${args[@]}"
 }
 
-
 sql() {
-  sql_ "$1" | pcsvt
+  sql_ "$@" | pcsvt
 }
 
 
