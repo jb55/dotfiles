@@ -166,9 +166,6 @@ vmap <Leader><Leader>j !jade -p % -o "{ prettyprint: true }"<CR>
 
 cmap w!! %!sudo tee > /dev/null %
 
-nnoremap x "_x
-nnoremap X "_X
-
 " I never use ctrl-b anyways
 nmap <C-b> <C-a>
 
