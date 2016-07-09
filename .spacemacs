@@ -47,6 +47,7 @@
 (setq jb55/additional-packages '(
                                  company-irony
                                  jade-mode
+                                 weechat
                                  markdown-mode
                                  ))
 
