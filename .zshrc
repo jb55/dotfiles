@@ -17,7 +17,7 @@ export KEYTIMEOUT=1
 bindkey "^R" history-incremental-search-backward
 bindkey "^F" history-incremental-search-forward
 
-export NIXPKGS=$HOME/nixpkgs
+export NIXPKGS=$HOME/etc/nixpkgs
 export NIX_FILES=$HOME/etc/nix-files
 
 # nix paths
