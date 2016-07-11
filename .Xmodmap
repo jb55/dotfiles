@@ -11,19 +11,19 @@
 
 keycode 204 = XF86Eject
 
-clear Mod5
-keycode 135 = Hyper_R
-add Mod5 = Hyper_R
+! clear Mod5
+! keycode 135 = Hyper_R
+! add Mod5 = Hyper_R
 
 !Swap left alt and left super
-clear Mod4
-clear Mod1
-keycode 64 = Super_L
-keycode 133 = Alt_L
-keycode 108 = Super_R
-keycode 134 = Alt_R
-add Mod4 = Super_L Super_R
-add Mod1 = Alt_L Alt_R
+! clear Mod4
+! clear Mod1
+! keycode 64 = Super_L
+! keycode 133 = Alt_L
+! keycode 108 = Super_R
+! keycode 134 = Alt_R
+! add Mod4 = Super_L Super_R
+! add Mod1 = Alt_L Alt_R
 
 ! symmetry by having mute in the middle
 

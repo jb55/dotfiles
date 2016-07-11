@@ -20,10 +20,6 @@
 "sleep 0.2; snap -s"
   Control + Print
 
-
-"mpc prev"
-  XF86AudioPrev
-
 "slock"
   Pause
 
