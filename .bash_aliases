@@ -3,7 +3,7 @@
 # generic stuff for non-interactive shells
 
 # sharefile
-export SHAREFILE_HOST='jb55.com:public/s/'
+export SHAREFILE_HOST='charon.jb55.com:public/s/'
 export SHAREFILE_URL='https://jb55.com/s/'
 export SHARE_SS_DIR="$HOME/Dropbox/img/ss"
 export DOTFILES=${DOTFILES:-$HOME/.dotfiles}
