@@ -9,7 +9,7 @@ export SHARE_SS_DIR="$HOME/Dropbox/img/ss"
 export DOTFILES=${DOTFILES:-$HOME/.dotfiles}
 export XZ=pxz
 
-alias ag="ag --pager="less -R""
+alias ag="ag --pager=less"
 alias attach="grabssh; screen -rD"
 alias awkt="awk -F $'\t'"
 alias catt="pygmentize -O style=monokai -f console256 -g"
