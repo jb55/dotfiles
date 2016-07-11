@@ -47,6 +47,7 @@
 (setq jb55/additional-packages '(
                                  company-irony
                                  jade-mode
+                                 weechat
                                  markdown-mode
                                  ))
 
@@ -266,7 +267,7 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-shift-width 2)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
- '(fci-rule-character-color "#202020" t)
+ '(fci-rule-character-color "#202020")
  '(fci-rule-color "#202020" t)
  '(flycheck-clang-include-path nil)
  '(flycheck-clang-language-standard nil)
@@ -323,7 +324,7 @@ This function is called at the very end of Spacemacs initialization."
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p t)
  '(js2-strict-missing-semi-warning nil)
- '(linum-format " %7i " t)
+ '(linum-format " %7i ")
  '(magit-diff-use-overlays nil)
  '(main-line-color1 "#1E1E1E")
  '(main-line-color2 "#111111")

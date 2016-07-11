@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 OHMY=.oh-my-zsh
 OLD=/tmp/old
 
@@ -37,6 +37,3 @@ fi
 
 git clone http://github.com/robbyrussell/oh-my-zsh.git $HOME/$OHMY
 ln -sf `pwd`/jb55.zsh-theme $HOME/$OHMY/themes/jb55.zsh-theme
-
-echo "Changing shell to /bin/zsh ..."
-chsh -s /bin/zsh

@@ -3,12 +3,13 @@
 # generic stuff for non-interactive shells
 
 # sharefile
-export SHAREFILE_HOST='jb55.com:public/s/'
+export SHAREFILE_HOST='charon.jb55.com:public/s/'
 export SHAREFILE_URL='https://jb55.com/s/'
 export SHARE_SS_DIR="$HOME/Dropbox/img/ss"
 export DOTFILES=${DOTFILES:-$HOME/.dotfiles}
 export XZ=pxz
 
+alias ag="ag --pager=less"
 alias attach="grabssh; screen -rD"
 alias awkt="awk -F $'\t'"
 alias catt="pygmentize -O style=monokai -f console256 -g"

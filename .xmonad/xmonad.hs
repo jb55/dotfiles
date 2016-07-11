@@ -37,7 +37,7 @@ baseLayout = Tall 1 (3/100) (1/2)
 layout = gaps allGaps
        -- . noBorders
        . smartBorders
-       . mkToggle (single FULL)
+       -- . mkToggle (single FULL)
        $ baseLayout
 
 -- myManageHook = composeAll
@@ -70,8 +70,8 @@ myKeys = [
     ("M-p", shellPrompt defaultXPConfig)
   , ("M-a", focusUrgent)
   , ("M-d", toggleWS)
-  -- , ("M-e", sendMessage NextLayout)
+  , ("M-r", sendMessage NextLayout)
   , ("M-f", toggleMaximized)
-  , ("M-r", toggleFull)
+  -- , ("M-r", toggleFull)
   , ("M-v", sendKey shiftMask xK_Insert)
   ]
