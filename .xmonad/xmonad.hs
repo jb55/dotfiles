@@ -16,6 +16,7 @@ import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
 import XMonad.Layout.Spiral
+import XMonad.Layout.ToggleLayouts (ToggleLayout(ToggleLayout))
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Util.EZConfig
