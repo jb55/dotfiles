@@ -130,6 +130,10 @@ haskell-shell() {
   nix-shell -Q -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [$*])"
 }
 
+nix-path() {
+  nix-instantiate --eval --expr 'with import <nixpkgs> {}; "${'"$1"'}"' | sed 's/"//g'
+}
+
 vnc-once() {
   x11vnc -safer -nopw -once -display ':0' $1
 }
