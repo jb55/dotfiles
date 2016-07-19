@@ -316,6 +316,7 @@ include "%L"
 # We can't use ! E E, because ! E maps to E-WITH-UNDERDOT.
 <Multi_key> <slash> <E> <E>             : "∄"   U2204           # THERE DOES NOT EXIST
 <Multi_key> <A> <A>                     : "∀"  U2200           # FOR ALL
+<Multi_key> <l> <l>		: "λ"	U03BB		# GREEK SMALL LETTER LAMBDA
 <Multi_key> <Multi_key> <Q> <E> <D>     : "∎"   U220E           # END OF PROOF
 <Multi_key> <8> <8>                     : "∞"  U221E           # INFINITY
 <Multi_key> <Multi_key> <a> <l> <e> <p> <h> : "ℵ" U2135	       # ALEF SYMBOL
@@ -404,6 +405,7 @@ include "%L"
 # There are a lot of angle brackets (3008/9, 27E8/9, 2329/A).  I'm deciding
 # to go with the mathematical brackets from now on, since they seem to be
 # better supported.
+
 <Multi_key> <less> <parenleft>	: "⟨" U27E8	# MATHEMATICAL LEFT ANGLE BRACKET
 <Multi_key> <greater> <parenright>: "⟩" U27E9	# MATHEMATICAL RIGHT ANGLE BRACKET
 <Multi_key> <bar> <bracketleft>	:   "⟦"	U27E6	# MATHEMATICAL LEFT WHITE SQUARE BRACKET
@@ -428,7 +430,6 @@ include "%L"
 <Multi_key> <L> <apostrophe>	    : "｣"     UFF63   # HALFWIDTH RIGHT CORNER BRACKET
 <Multi_key> <7> <quotedbl>	    : "『"    U300E   # LEFT WHITE CORNER BRACKET
 <Multi_key> <L> <quotedbl>	    : "』"    U300F   # RIGHT WHITE CORNER BRACKET
-<Multi_key> <l> <l>		: "ℓ" U2113	# SCRIPT SMALL L
 <Multi_key> <bracketleft> <bracketleft> : "⊏"   U228F           # SQUARE IMAGE OF
 <Multi_key> <bracketleft> <equal>       : "⊑"   U2291           # SQUARE IMAGE OF OR EQUAL TO
 <Multi_key> <bracketleft> <underscore>  : "⊑"   U2291           # SQUARE IMAGE OF OR EQUAL TO
@@ -807,7 +808,7 @@ include "%L"
 # Using backslash-minus-slash etc. conflicts with combining accents.
 <Multi_key> <grave> <minus> <apostrophe>	 : "⚞"	U269E  # THREE LINES CONVERGING RIGHT
 <Multi_key> <apostrophe> <minus> <grave>	 : "⚟"	U269F  # THREE LINES CONVERGING LEFT
-<Multi_key> <Multi_key> <B> <e> <l> <l> <s> <y> <m>	: "⍾" U237E  # BELL SYMBOL (or ALIENS LANDING) -- &-a-l-i-e-n ?
+#<Multi_key> <Multi_key> <B> <e> <l> <l> <s> <y> <m>	: "⍾" U237E  # BELL SYMBOL (or ALIENS LANDING) -- &-a-l-i-e-n ?
 # Other monstery characters... ѪꙚ (alien abductions?)
 # ඏൠഋ & others from Kannada et al...?
 # Can't use -^- for this; conflicts with -^ for ↑, and getting those arrows
@@ -1238,9 +1239,6 @@ include "%L"
 <Multi_key> <Multi_key> <dollar> <b> <a> <g>  : "💰"  U1F4B0 # MONEY BAG
 <Multi_key> <Multi_key> <c> <a> <k> <e>	    : "🍰"    U1F370 # SHORTCAKE
 # The cake is a lie... OK, too cutesy?
-<Multi_key> <o> <k>	    : "👌"    U1F44C # OK HAND SIGN
-<Multi_key> <equal> <1> : "👍"    U1F44D # THUMBS UP SIGN
-<Multi_key> <minus> <1> : "👎"    U1F44E # THUMBS DOWN SIGN
 # More useful in chat than U+1F48F KISS
 <Multi_key> <Multi_key> <k> <i> <s> <s>	    : "💋"    U1F48B # KISS MARK
 # ⛔ U+26D4 NO ENTRY for "Don't go there"?
@@ -1281,3 +1279,36 @@ include "%L"
 <Multi_key> <B> <minus> : "Ƀ" U0243 # ALTERNATIVE BITCOIN CURRENCY SIGN, LATIN CAPITAL LETTER B WITH STROKE
 <Multi_key> <minus> <b> : "ƀ" U0180 # ALTERNATIVE BIT CURRENCY SIGN, LATIN SMALL LETTER B WITH STROKE
 <Multi_key> <b> <minus> : "ƀ" U0180 # ALTERNATIVE BIT CURRENCY SIGN, LATIN SMALL LETTER B WITH STROKE
+
+# Monstercat slack
+<Multi_key> <Multi_key> <B> : ":bill:"
+
+<Multi_key> <j> <m> <a> <d> :         "(｀Д´)"
+<Multi_key> <p> <b> :                 "ᶘ ᵒᴥᵒᶅ"
+<Multi_key> <j> <c> <u> <t> <e> :     "(ﾉ≧ڡ≦)"
+<Multi_key> <j> <m> <a> <g> <i> <c> : "(っ・ω・）っ≡≡≡≡≡≡☆)"
+<Multi_key> <j> <C> <R> <Y> :         "(⋟﹏⋞)"
+<Multi_key> <j> <c> <r> <y> :         "(つ﹏⊂)"
+<Multi_key> <s> <h> <r> <u> <g> :     "¯\_(ツ)_/¯"
+<Multi_key> <j> <s> <h> <r> <u> <g> : "┐(´∀｀)┌"
+<Multi_key> <j> <f> <a> <l> <l> :     "ミ(ノ_ _)ノ"
+<Multi_key> <j> <y> <a> <y> :         "ヽ(＾Д＾)ﾉ"
+<Multi_key> <j> <r> <u> <n> :         "ε=ε=┏( >_<)┛　(ノ_ _)ノ"
+<Multi_key> <slash> <question> :      "¯\_(ツ)_/¯"
+<Multi_key> <l> <e> <n> <n> <y> :     "( ͡° ͜ʖ ͡°)"
+<Multi_key> <f> <l> <i> <p> :         "(ノಠ益ಠ)ノ彡┻━┻"
+<Multi_key> <p> <l> <a> <c> <e> :     "┬──┬ ノ( ゜-゜ノ)"
+<Multi_key> <j> <m> <u> <s> :         "♪～(￣ε￣)"
+<Multi_key> <j> <o> <k> :             "(　´_ゝ`)"
+<Multi_key> <j> <w> <u> <t> :         "(ﾟｰﾟ;)"
+<Multi_key> <colon> <3> :             "(づ｡◕‿‿◕｡)づ"
+<Multi_key> <j> <y> <o> <u> :         "(☞ﾟヮﾟ)☞"
+<Multi_key> <j> <t> <w> <o> :         "(☞ﾟヮﾟ)☞ ☜(ﾟヮﾟ☜)"
+<Multi_key> <d> <a> <n> <c> <e> :     "♪~ ᕕ(ᐛ)ᕗ"
+<Multi_key> <d> <o> <n> <g> :         "ヽ༼ຈل͜ຈ༽ﾉ"
+<Multi_key> <l> <m> <g> :             "http://lmgtfy.com/?q="
+<Multi_key> <o> <k>	    :             "👌"    U1F44C # OK HAND SIGN
+<Multi_key> <equal> <1> :             "👍"    U1F44D # THUMBS UP SIGN
+<Multi_key> <minus> <1> :             "👎"    U1F44E # THUMBS DOWN SIGN
+<Multi_key> <space> <h> :            "https://"
+<Multi_key> <space> <w> :            "www."
