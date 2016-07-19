@@ -1313,3 +1313,8 @@ include "%L"
 <Multi_key> <minus> <1> :             "👎"    U1F44E # THUMBS DOWN SIGN
 <Multi_key> <space> <h> :            "https://"
 <Multi_key> <space> <w> :            "www."
+<Multi_key> <space> <g> <a> :        " has:attachment"
+<Multi_key> <space> <g> <u> :        " is:unread"
+<Multi_key> <space> <g> <r> :        " is:read"
+<Multi_key> <space> <g> <s> :        " is:starred"
+<Multi_key> <space> <g> <m> :        " to:me"
