@@ -47,6 +47,7 @@
 (setq jb55/additional-packages '(
                                  company-irony
                                  jade-mode
+                                 weechat
                                  markdown-mode
                                  ))
 
@@ -87,13 +88,11 @@ values."
   (setq-default
    dotspacemacs-startup-banner 'official
    dotspacemacs-themes '(base16-tomorrow-dark)
-
    dotspacemacs-default-font '("Source Code Pro"
                                :size 13
                                :weight normal
                                :width normal
                                :powerline-scale 1.0)
-
    dotspacemacs-leader-key "SPC"
    dotspacemacs-remap-Y-to-y$ t
    dotspacemacs-emacs-leader-key "M-m"
@@ -292,7 +291,7 @@ This function is called at the very end of Spacemacs initialization."
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-type (quote ghci))
  '(haskell-stylish-on-save nil)
- '(haskell-tags-on-save t)
+ '(haskell-tags-on-save nil)
  '(helm-echo-input-in-header-line nil)
  '(helm-ff-skip-boring-files t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))

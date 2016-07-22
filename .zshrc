@@ -1,12 +1,12 @@
 # Path to your oh-my-zsh configuration.
-# export ZSH=$HOME/.oh-my-zsh
+#export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="jb55"
+#export ZSH_THEME="jb55"
 
-# export DISABLE_AUTO_UPDATE="true"
-# source $ZSH/oh-my-zsh.sh
+#export DISABLE_AUTO_UPDATE="true"
+#source $ZSH/oh-my-zsh.sh
 
 # vi
 bindkey -v
@@ -34,6 +34,7 @@ export NIX_PATH="dotfiles=$HOME/.dotfiles:$NIX_PATH"
 # other
 export EDITOR=vim
 export PAGER=less
+export LESS="-R"
 
 # go
 

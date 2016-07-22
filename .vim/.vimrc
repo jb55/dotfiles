@@ -24,6 +24,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet.vim'
 
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'kana/vim-arpeggio'
 NeoBundle 'dbakker/vim-projectroot'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'flazz/vim-colorschemes'
@@ -102,6 +103,7 @@ endif
 
 " Mappings {{{
 
+call arpeggio#map('i', '', 0, 'fd', '<Esc>')
 let mapleader = "\<SPACE>"
 let maplocalleader = "\<SPACE>"
 "let mapleader = "\\"
@@ -165,9 +167,6 @@ vmap <Leader><Leader>j !jade -p % -o "{ prettyprint: true }"<CR>
 "map <Leader>cr :!newclay % && ./main<CR>
 
 cmap w!! %!sudo tee > /dev/null %
-
-nnoremap x "_x
-nnoremap X "_X
 
 " I never use ctrl-b anyways
 nmap <C-b> <C-a>

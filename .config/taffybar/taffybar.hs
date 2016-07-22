@@ -8,6 +8,7 @@ import System.Taffybar.NetMonitor
 import System.Taffybar.SimpleClock
 import System.Taffybar.Systray
 import System.Taffybar.TaffyPager
+import System.Taffybar.CommandRunner
 import System.Taffybar.Weather
 import System.Process (readCreateProcess, shell)
 import Data.Time.Clock (getCurrentTime)
@@ -64,7 +65,8 @@ main = do
       mem = pollingGraphNew memCfg 1 memCallback
       cpu = pollingGraphNew cpuCfg 0.5 cpuCallback
       net = netMonitorNewWith 1.5 netdev 0 "▼ $inKB$KBps ▲ $outKB$KBps"
+      cap = commandRunnerNew 5 "ds4_battery" [] "" "#ff6f6f"
       tray = systrayNew
   defaultTaffybar defaultTaffybarConfig { startWidgets = [ pager, note ]
-                                        , endWidgets = reverse [ mpris, mem, cpu, net, wea, clock, tray ]
+                                        , endWidgets = reverse [ cap, mem, cpu, net, wea, clock, tray ]
                                         }

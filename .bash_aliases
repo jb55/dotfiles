@@ -3,13 +3,12 @@
 # generic stuff for non-interactive shells
 
 # sharefile
-export SHAREFILE_HOST='jb55.com:public/s/'
+export SHAREFILE_HOST='charon.jb55.com:public/s/'
 export SHAREFILE_URL='https://jb55.com/s/'
 export SHARE_SS_DIR="$HOME/Dropbox/img/ss"
 export DOTFILES=${DOTFILES:-$HOME/.dotfiles}
 export XZ=pxz
 
-alias ack="ack --pager='less -R'"
 alias ag="ag --pager=less"
 alias attach="grabssh; screen -rD"
 alias awkt="awk -F $'\t'"
@@ -53,7 +52,7 @@ sharess () {
 }
 
 lt () {
-  ls -lt "$@" | less
+  ls -lt "$@" | "$PAGER"
 }
 
 lt1 () {
@@ -73,7 +72,7 @@ pcsv () {
 }
 
 pcsvt () {
-  columnt "$@" | cat -n | less -S
+  columnt "$@" | cat -n | less -R -S
 }
 
 monstercam() {
@@ -131,6 +130,10 @@ haskell-shell() {
   nix-shell -Q -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [$*])"
 }
 
+nix-path() {
+  nix-instantiate --eval --expr 'with import <nixpkgs> {}; "${'"$1"'}"' | sed 's/"//g'
+}
+
 vnc-once() {
   x11vnc -safer -nopw -once -display ':0' $1
 }
@@ -140,17 +143,20 @@ sql_wineparty() {
   export PG_USER='jb55'
 }
 
-sql() {
+sql_() {
   local query="$1"
-  local cs=${CS:-'postgres://172.24.14.20/Monstercat'}
-  local pg_user=${PG_USER:-'postgres'}
+  local cs=${CS:-'postgres://pg-dev-zero.monstercat.com/Monstercat'}
+  local pg_user=${PG_USER:-'jb55'}
   local args=("-U" "$pg_user" -A "$cs")
   if [ ! -z "$query" ];
   then
-    args+="-c $query"
+    args+=(-c "$query")
   fi
-  echo "psql $args"
-  psql -F $'\t' $args | pcsvt
+  psql -F $'\t' "${args[@]}"
+}
+
+sql() {
+  sql_ "$@" | pcsvt
 }
 
 source $DOTFILES/bash/rangercd.sh
