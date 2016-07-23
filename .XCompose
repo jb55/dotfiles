@@ -1283,6 +1283,7 @@ include "%L"
 # Monstercat slack
 <Multi_key> <Multi_key> <B> : ":bill:"
 
+<Multi_key> <Multi_key> <h> <m> <m> :  "🤔"
 <Multi_key> <j> <m> <a> <d> :         "(｀Д´)"
 <Multi_key> <p> <b> :                 "ᶘ ᵒᴥᵒᶅ"
 <Multi_key> <j> <c> <u> <t> <e> :     "(ﾉ≧ڡ≦)"
