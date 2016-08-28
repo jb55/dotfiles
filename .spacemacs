@@ -283,6 +283,7 @@ This function is called at the very end of Spacemacs initialization."
  '(flycheck-clang-include-path nil)
  '(flycheck-clang-language-standard nil)
  '(flycheck-gcc-language-standard "c++11")
+ '(flycheck-ghc-args (quote ("-isrc")))
  '(flycheck-hlint-ignore-rules (quote ("Eta reduce")))
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-hl-line-mode t)
