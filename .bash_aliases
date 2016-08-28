@@ -41,6 +41,7 @@ alias xclip="xclip -selection clipboard"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias wanip=myip
 alias myipaddress=myip
+alias fzf="fzf --exact"
 
 
 share () {
