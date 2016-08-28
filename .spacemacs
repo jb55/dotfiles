@@ -156,6 +156,17 @@ values."
 This function is called at the very end of Spacemacs initialization."
   (setq jb55/org-path "~/Dropbox/doc/org")
 
+  (setq spacemacs-indent-sensitive-modes (add-to-list 'spacemacs-indent-sensitive-modes 'nix-mode))
+
+  (defun jb55/write-and-save ()
+    (interactive)
+    (evil-write-all nil)
+    (projectile-compile-project nil)
+    )
+
+  (spacemacs/set-leader-keys
+    "pS" 'jb55/write-and-save)
+
   (defun jb55/make-org-path (file)
     (concat (file-name-as-directory jb55/org-path) file))
 
