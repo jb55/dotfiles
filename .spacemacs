@@ -19,16 +19,15 @@
 
     auto-completion
     csv
-    elm
     emacs-lisp
     emoji
     finance
     git
+    elm
     github
     gnus
     gtags
     javascript
-    java
     lua
     markdown
     nixos
@@ -91,7 +90,7 @@ values."
 (defun dotspacemacs/init ()
   (setq-default
    dotspacemacs-startup-banner 'official
-   dotspacemacs-themes '(base16-tomorrow-dark)
+   dotspacemacs-themes '(base16-tomorrow-night)
 
    dotspacemacs-default-font '("Source Code Pro"
                                :size 13
@@ -161,6 +160,15 @@ This function is called at the very end of Spacemacs initialization."
   (setq jb55/org-path "~/Dropbox/doc/org")
 
   (setq spacemacs-indent-sensitive-modes (add-to-list 'spacemacs-indent-sensitive-modes 'nix-mode))
+
+  (defun jb55/write-and-save ()
+    (interactive)
+    (evil-write-all nil)
+    (projectile-compile-project nil)
+    )
+
+  (spacemacs/set-leader-keys
+    "pS" 'jb55/write-and-save)
 
   (defun jb55/make-org-path (file)
     (concat (file-name-as-directory jb55/org-path) file))
@@ -280,6 +288,7 @@ This function is called at the very end of Spacemacs initialization."
  '(flycheck-clang-include-path (quote ("deps")))
  '(flycheck-clang-language-standard nil)
  '(flycheck-gcc-language-standard "c++11")
+ '(flycheck-ghc-args (quote ("-isrc")))
  '(flycheck-hlint-ignore-rules (quote ("Eta reduce")))
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-hl-line-mode t)

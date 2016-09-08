@@ -1237,6 +1237,7 @@ include "%L"
 # Skipping U+1F4AA just now.
 <Multi_key> <Multi_key> <d> <i> <z> <z> <y> : "💫"    U1F4AB # DIZZY SYMBOL
 <Multi_key> <Multi_key> <dollar> <b> <a> <g>  : "💰"  U1F4B0 # MONEY BAG
+<Multi_key> <Multi_key> <dollar> <w> <i> <n> <g>  : "💸"  U1F4B8 # MONEY WITH WINGS
 <Multi_key> <Multi_key> <c> <a> <k> <e>	    : "🍰"    U1F370 # SHORTCAKE
 # The cake is a lie... OK, too cutesy?
 # More useful in chat than U+1F48F KISS
@@ -1283,7 +1284,7 @@ include "%L"
 # Monstercat slack
 <Multi_key> <Multi_key> <B> : ":bill:"
 
-<Multi_key> <h> <m> <m> :  "🤔"
+<Multi_key> <Multi_key> <h> <m> <m> :  "🤔"
 <Multi_key> <j> <m> <a> <d> :         "(｀Д´)"
 <Multi_key> <p> <b> :                 "ᶘ ᵒᴥᵒᶅ"
 <Multi_key> <j> <c> <u> <t> <e> :     "(ﾉ≧ڡ≦)"
@@ -1293,9 +1294,9 @@ include "%L"
 <Multi_key> <s> <h> <r> <u> <g> :     "¯\\_(ツ)_/¯"
 <Multi_key> <j> <s> <h> <r> <u> <g> : "┐(´∀｀)┌"
 <Multi_key> <j> <f> <a> <l> <l> :     "ミ(ノ_ _)ノ"
-<Multi_key> <j> <y> <a> <y> :         "ヽ(＾Д＾)ﾉ"
+<Multi_key> <j> <y> <a> <y> :         "(ﾉ^ヮ^)ﾉ*:・ﾟ✧"
 <Multi_key> <j> <r> <u> <n> :         "ε=ε=┏( >_<)┛　(ノ_ _)ノ"
-<Multi_key> <slash> <question> :      "¯\_(ツ)_/¯"
+<Multi_key> <slash> <question> :      "¯\\_(ツ)_/¯"
 <Multi_key> <l> <e> <n> <n> <y> :     "( ͡° ͜ʖ ͡°)"
 <Multi_key> <f> <l> <i> <p> :         "(ノಠ益ಠ)ノ彡┻━┻"
 <Multi_key> <p> <l> <a> <c> <e> :     "┬──┬ ノ( ゜-゜ノ)"

@@ -11,7 +11,7 @@ export XZ=pxz
 
 alias ag="ag --pager=less"
 alias attach="grabssh; screen -rD"
-alias awkt="awk -F $'\t'"
+alias awkt="awk -v FS=$'\t' -v OFS=$'\t'"
 alias catt="pygmentize -O style=monokai -f console256 -g"
 alias clip="xclip -selection clipboard"
 alias cpptags="ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++"
@@ -41,6 +41,7 @@ alias xclip="xclip -selection clipboard"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias wanip=myip
 alias myipaddress=myip
+alias fzf="fzf --exact"
 
 
 share () {
