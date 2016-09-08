@@ -19,15 +19,16 @@
 
     auto-completion
     csv
+    elm
     emacs-lisp
     emoji
     finance
     git
-    elm
     github
     gnus
     gtags
     javascript
+    java
     lua
     markdown
     nixos
@@ -35,6 +36,7 @@
     purescript
     python
     racket
+    search-engine
     spacemacs-helm
     spacemacs-layouts
     spotify
@@ -47,7 +49,9 @@
 (setq jb55/additional-packages '(
                                  company-irony
                                  jade-mode
+                                 glsl-mode
                                  weechat
+                                 emojify
                                  markdown-mode
                                  ))
 
@@ -156,6 +160,8 @@ values."
 This function is called at the very end of Spacemacs initialization."
   (setq jb55/org-path "~/Dropbox/doc/org")
 
+  (setq spacemacs-indent-sensitive-modes (add-to-list 'spacemacs-indent-sensitive-modes 'nix-mode))
+
   (defun jb55/make-org-path (file)
     (concat (file-name-as-directory jb55/org-path) file))
 
@@ -256,6 +262,7 @@ This function is called at the very end of Spacemacs initialization."
  '(ansi-term-color-vector
    [unspecified "#1d1f21" "#cc6666" "#b5bd68" "#f0c674" "#81a2be" "#b294bb" "#81a2be" "#c5c8c6"] t)
  '(browse-url-browser-function (quote browse-url-chromium))
+ '(company-clang-arguments (quote ("-Ideps")))
  '(compilation-message-face (quote default))
  '(csv-separators (quote ("," "	")))
  '(cua-global-mark-cursor-color "#2aa198")
@@ -263,13 +270,14 @@ This function is called at the very end of Spacemacs initialization."
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
  '(disaster-objdump "gobjdump -d -M att -Sl --no-show-raw-insn")
+ '(elm-indent-offset 2)
  '(eshell-prompt-function (quote jb55/eshell-prompt))
  '(evil-shift-width 2)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
  '(fci-rule-character-color "#202020")
  '(fci-rule-color "#202020" t)
- '(flycheck-clang-include-path nil)
+ '(flycheck-clang-include-path (quote ("deps")))
  '(flycheck-clang-language-standard nil)
  '(flycheck-gcc-language-standard "c++11")
  '(flycheck-hlint-ignore-rules (quote ("Eta reduce")))

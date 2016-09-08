@@ -1,6 +1,6 @@
 " vim: foldmethod=marker:
 
-if 0 | endif
+"if 0 | endif
 
 " neobundle {{{
 
@@ -66,6 +66,8 @@ NeoBundleCheck
 
 " }}}
 
+
+
 " Settings {{{
 set modeline
 set modelines=1
@@ -104,6 +106,7 @@ endif
 " Mappings {{{
 
 call arpeggio#map('i', '', 0, 'fd', '<Esc>')
+let g:arpeggio_timeoutlen = 100
 let mapleader = "\<SPACE>"
 let maplocalleader = "\<SPACE>"
 "let mapleader = "\\"
