@@ -15,12 +15,12 @@
 	editor = vim
 [url "git@github.com:"]
   insteadOf = gh:
-[url "git@dev.monstercat.com:monstercat/"]
-  insteadOf = mcat:
 [url "jb55.com:git/"]
   insteadOf = dev:
 [url "ssh://git@phabricator.monstercat.com/diffusion/"]
   insteadOf = phab:
+[url "http://git.zero.monster.cat/"]
+  insteadOf = mcat:
 [gui]
   recentrepo = /Users/jb55/src/js/titania
 [alias]
