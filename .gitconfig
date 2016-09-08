@@ -24,6 +24,7 @@
 [gui]
   recentrepo = /Users/jb55/src/js/titania
 [alias]
+  br = symbolic-ref --short HEAD
   ff = merge --ff-only
   try = merge --no-commit --no-ff
   pff = pull --ff-only
