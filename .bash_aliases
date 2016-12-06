@@ -8,6 +8,7 @@ export SHAREFILE_URL='https://jb55.com/s/'
 export SHARE_SS_DIR="$HOME/Dropbox/img/ss"
 export DOTFILES=${DOTFILES:-$HOME/.dotfiles}
 export XZ=pxz
+export HISTSIZE=50000
 
 alias ag="ag --pager=less"
 alias attach="grabssh; screen -rD"
@@ -86,7 +87,11 @@ monstercam-live() {
 }
 
 headers() {
-  head -n1 ${1:-"/dev/stdin"} | csv-delim | tr '\t' '\n' | cat -n
+  head -n1 "${1:-/dev/stdin}" | csv-delim | tr '\t' '\n' | cat -n
+}
+
+header() {
+  headers "${2:-/dev/stdin}" | grep "$1" | cutt -f1 | sed -E 's,^[ ]*,,g'
 }
 
 nsum() {

@@ -42,6 +42,7 @@
     sql
     syntax-checking
     yaml
+    spacemacs-ui-visual
 
    ))
 
@@ -92,7 +93,7 @@ values."
    dotspacemacs-startup-banner 'official
    dotspacemacs-themes '(base16-tomorrow-night)
 
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Noto Mono"
                                :size 13
                                :weight normal
                                :width normal

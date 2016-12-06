@@ -35,11 +35,13 @@ allGaps = (U, taffySize + if sideGaps then gapSize else 0) :
 baseLayout = Tall 1 (3/100) (1/2)
          ||| Full
 
-layout = gaps allGaps
-       -- . noBorders
-       . smartBorders
-       -- . mkToggle (single FULL)
-       $ baseLayout
+-- layout = gaps allGaps
+--        -- . noBorders
+--        . smartBorders
+--        -- . mkToggle (single FULL)
+--        $ baseLayout
+
+layout = smartBorders baseLayout
 
 -- myManageHook = composeAll
 --              [
@@ -72,7 +74,7 @@ myKeys = [
   , ("M-a", focusUrgent)
   , ("M-d", toggleWS)
   , ("M-r", sendMessage NextLayout)
-  , ("M-f", toggleMaximized)
+  -- , ("M-f", toggleMaximized)
   -- , ("M-r", toggleFull)
   , ("M-v", sendKey shiftMask xK_Insert)
   ]

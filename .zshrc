@@ -11,11 +11,18 @@
 # vi
 bindkey -v
 
+setopt AUTO_PUSHD
+setopt PUSHD_MINUS
+setopt CDABLE_VARS
+zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
+
 # short ESC delay
 export KEYTIMEOUT=1
 
 bindkey "^R" history-incremental-search-backward
 bindkey "^F" history-incremental-search-forward
+
+export HISTSIZE=50000
 
 export NIXPKGS=$HOME/nixpkgs
 export NIX_FILES=$HOME/etc/nix-files
@@ -25,7 +32,7 @@ export NIX_PATH="nixpkgs=$NIXPKGS:$NIX_PATH"
 export NIX_PATH="nixos-config=$NIX_FILES:$NIX_PATH"
 export NIX_PATH="monstercatpkgs=$HOME/etc/monstercatpkgs:$NIX_PATH"
 export NIX_PATH="jb55pkgs=$HOME/etc/jb55pkgs:$NIX_PATH"
-export NIX_PATH="dotfiles=$HOME/.dotfiles:$NIX_PATH"
+export NIX_PATH="dotfiles=$HOME/dotfiles:$NIX_PATH"
 
 # Customize to your needs...
 
