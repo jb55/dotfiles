@@ -15,15 +15,18 @@
 	editor = vim
 [url "git@github.com:"]
   insteadOf = gh:
-[url "git@dev.monstercat.com:monstercat/"]
-  insteadOf = mcat:
+[url "http://git.zero.jb55.com/"]
+  insteadOf = jb:
 [url "jb55.com:git/"]
   insteadOf = dev:
 [url "ssh://git@phabricator.monstercat.com/diffusion/"]
   insteadOf = phab:
+[url "http://git.zero.monster.cat/"]
+  insteadOf = mcat:
 [gui]
   recentrepo = /Users/jb55/src/js/titania
 [alias]
+  br = symbolic-ref --short HEAD
   ff = merge --ff-only
   try = merge --no-commit --no-ff
   pff = pull --ff-only

@@ -87,12 +87,14 @@ values."
 (defun dotspacemacs/init ()
   (setq-default
    dotspacemacs-startup-banner 'official
-   dotspacemacs-themes '(base16-tomorrow-dark)
+   dotspacemacs-themes '(base16-tomorrow-night)
+
    dotspacemacs-default-font '("Source Code Pro"
                                :size 13
                                :weight normal
                                :width normal
                                :powerline-scale 1.0)
+
    dotspacemacs-leader-key "SPC"
    dotspacemacs-remap-Y-to-y$ t
    dotspacemacs-emacs-leader-key "M-m"
@@ -153,6 +155,17 @@ values."
   "This is were you can ultimately override default Spacemacs configuration.
 This function is called at the very end of Spacemacs initialization."
   (setq jb55/org-path "~/Dropbox/doc/org")
+
+  (setq spacemacs-indent-sensitive-modes (add-to-list 'spacemacs-indent-sensitive-modes 'nix-mode))
+
+  (defun jb55/write-and-save ()
+    (interactive)
+    (evil-write-all nil)
+    (projectile-compile-project nil)
+    )
+
+  (spacemacs/set-leader-keys
+    "pS" 'jb55/write-and-save)
 
   (defun jb55/make-org-path (file)
     (concat (file-name-as-directory jb55/org-path) file))
@@ -242,18 +255,17 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(Linum-format "%7i ")
  '(ac-ispell-requires 4 t)
- '(ahs-case-fold-search nil t)
- '(ahs-default-range (quote ahs-range-whole-buffer) t)
- '(ahs-idle-interval 0.25 t)
+ '(ahs-case-fold-search nil)
+ '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil t)
+ '(ahs-inhibit-face-list nil)
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    ["#110F13" "#B13120" "#719F34" "#CEAE3E" "#7C9FC9" "#7868B5" "#009090" "#F4EAD5"])
  '(ansi-term-color-vector
    [unspecified "#1d1f21" "#cc6666" "#b5bd68" "#f0c674" "#81a2be" "#b294bb" "#81a2be" "#c5c8c6"] t)
- '(browse-url-browser-function (quote browse-url-chromium))
  '(compilation-message-face (quote default))
  '(csv-separators (quote ("," "	")))
  '(cua-global-mark-cursor-color "#2aa198")
@@ -266,7 +278,7 @@ This function is called at the very end of Spacemacs initialization."
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
  '(fci-rule-character-color "#202020")
- '(fci-rule-color "#202020" t)
+ '(fci-rule-color "#202020")
  '(flycheck-clang-include-path nil)
  '(flycheck-clang-language-standard nil)
  '(flycheck-gcc-language-standard "c++11")
@@ -277,14 +289,14 @@ This function is called at the very end of Spacemacs initialization."
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
  '(haskell-font-lock-symbols nil)
- '(haskell-hoogle-command nil)
- '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s")
+ '(haskell-hoogle-command nil t)
+ '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s" t)
  '(haskell-indentation-indent-leftmost t)
  '(haskell-interactive-mode-scroll-to-bottom t)
  '(haskell-interactive-popup-error nil t)
  '(haskell-mode-hook
    (quote
-    (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
+    (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)))
  '(haskell-notify-p t)
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
@@ -351,7 +363,7 @@ This function is called at the very end of Spacemacs initialization."
  '(rainbow-identifiers-cie-l*a*b*-lightness 80)
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
  '(rcirc-buffer-maximum-lines 10000)
- '(ring-bell-function (quote ignore))
+ '(ring-bell-function (quote ignore) t)
  '(rng-nxml-auto-validate-flag nil)
  '(rust-indent-offset 2)
  '(safe-local-variable-values

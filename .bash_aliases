@@ -11,7 +11,7 @@ export XZ=pxz
 
 alias ag="ag --pager=less"
 alias attach="grabssh; screen -rD"
-alias awkt="awk -F $'\t'"
+alias awkt="awk -v FS=$'\t' -v OFS=$'\t'"
 alias catt="pygmentize -O style=monokai -f console256 -g"
 alias clip="xclip -selection clipboard"
 alias cpptags="ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++"
@@ -76,12 +76,15 @@ pcsvt () {
 }
 
 monstercam() {
-  ssh archer "ffmpeg -f alsa -ar 16000 -i default -f v4l2 -s 640x480 -i /dev/video0 -f avi -pix_fmt yuv420p -"
+  host=${1:-archer.zero.monster.cat}
+  ssh $host "ffmpeg -f alsa -ar 16000 -i default -f v4l2 -s 640x480 -i /dev/video0 -f avi -pix_fmt yuv420p -"
 }
 
 monstercam-live() {
-  monstercam | tee /sand/vid/monstercam.avi \
-             | ffplay -
+  host=${1:-archer.zero.monster.cat}
+  monstercam $host \
+    | tee /sand/vid/monstercam.avi \
+    | ffplay -
 }
 
 headers() {
