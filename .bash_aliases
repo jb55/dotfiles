@@ -9,6 +9,7 @@ export SHARE_SS_DIR="$HOME/Dropbox/img/ss"
 export DOTFILES=${DOTFILES:-$HOME/.dotfiles}
 export XZ=pxz
 export HISTSIZE=50000
+export FZF_CTRL_R_OPTS="-e"
 
 alias ag="ag --pager=less"
 alias attach="grabssh; screen -rD"
