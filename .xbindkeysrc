@@ -10,7 +10,6 @@
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
   XF86AudioNext
 
-
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
   XF86AudioPrev
 
@@ -25,3 +24,12 @@
 
 "slock & systemctl suspend"
   Control + Pause
+
+"n date '+%a | %b %d | %R'"
+  Mod4 + F5
+
+"n btc"
+  Mod4 + F4
+
+"n cat /sys/class/power_supply/sony_controller_battery_84:17:66:bb:f2:4d/capacity"
+  Mod4 + F3
