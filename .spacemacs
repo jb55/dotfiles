@@ -17,16 +17,19 @@
            c-c++-enable-clang-support t
            )
 
-    auto-completion
+    (auto-completion :variables auto-completion-enable-help-tooltip t)
+    csharp
     csv
+    elm
     emacs-lisp
     emoji
     finance
+    fsharp
     git
-    elm
     github
     gnus
     gtags
+    idris
     javascript
     lua
     markdown
@@ -38,17 +41,25 @@
     search-engine
     spacemacs-helm
     spacemacs-layouts
+    spacemacs-ui-visual
     spotify
     sql
     syntax-checking
+    typescript
+		windows-scripts
     yaml
-    spacemacs-ui-visual
 
    ))
 
 (setq jb55/additional-packages '(
                                  company-irony
                                  jade-mode
+                                 vala-mode
+                                 (shen-elisp
+                                  :location (recipe :repo "deech/shen-elisp"
+                                                    :fetcher github
+                                                    :files ("shen*.el"))
+                                  :upgrade 't)
                                  glsl-mode
                                  weechat
                                  emojify
@@ -209,7 +220,6 @@ This function is called at the very end of Spacemacs initialization."
                         ))
             (tags-todo "vanessa")
             (tags "tinker")
-            (tags "project")
             (tags "errand"))
            ((org-agenda-tag-filter-preset '("-work"))
             (org-agenda-category-filter-preset '("-work"))
@@ -259,11 +269,11 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(Linum-format "%7i ")
  '(ac-ispell-requires 4 t)
- '(ahs-case-fold-search nil t)
- '(ahs-default-range (quote ahs-range-whole-buffer) t)
- '(ahs-idle-interval 0.25 t)
+ '(ahs-case-fold-search nil)
+ '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil t)
+ '(ahs-inhibit-face-list nil)
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
@@ -272,6 +282,7 @@ This function is called at the very end of Spacemacs initialization."
    [unspecified "#1d1f21" "#cc6666" "#b5bd68" "#f0c674" "#81a2be" "#b294bb" "#81a2be" "#c5c8c6"] t)
  '(browse-url-browser-function (quote browse-url-chromium))
  '(company-clang-arguments (quote ("-Ideps")))
+ '(company-quickhelp-mode t)
  '(compilation-message-face (quote default))
  '(csv-separators (quote ("," "	")))
  '(cua-global-mark-cursor-color "#2aa198")
@@ -284,7 +295,7 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-shift-width 2)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
- '(fci-rule-character-color "#202020")
+ '(fci-rule-character-color "#202020" t)
  '(fci-rule-color "#202020" t)
  '(flycheck-clang-include-path (quote ("deps")))
  '(flycheck-clang-language-standard nil)
@@ -297,20 +308,20 @@ This function is called at the very end of Spacemacs initialization."
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
  '(haskell-font-lock-symbols nil)
- '(haskell-hoogle-command nil)
- '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s")
+ '(haskell-hoogle-command nil t)
+ '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s" t)
  '(haskell-indentation-indent-leftmost t)
  '(haskell-interactive-mode-scroll-to-bottom t)
  '(haskell-interactive-popup-error nil t)
  '(haskell-mode-hook
    (quote
     (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
- '(haskell-notify-p t)
- '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-notify-p t t)
+ '(haskell-process-auto-import-loaded-modules t t)
  '(haskell-process-log t)
- '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-suggest-remove-import-lines t t)
  '(haskell-process-type (quote ghci))
- '(haskell-stylish-on-save nil)
+ '(haskell-stylish-on-save nil t)
  '(haskell-tags-on-save nil)
  '(helm-echo-input-in-header-line nil)
  '(helm-ff-skip-boring-files t)
@@ -342,7 +353,7 @@ This function is called at the very end of Spacemacs initialization."
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p t)
  '(js2-strict-missing-semi-warning nil)
- '(linum-format " %7i ")
+ '(linum-format " %7i " t)
  '(magit-diff-use-overlays nil)
  '(main-line-color1 "#1E1E1E")
  '(main-line-color2 "#111111")
