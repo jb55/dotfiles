@@ -21,9 +21,14 @@
   insteadOf = phab:
 [url "http://git.zero.monster.cat/"]
   insteadOf = mcat:
+[url "http://git.zero.jb55.com/"]
+  insteadOf = zero:
+[url "http://git.razor.jb55.com/"]
+  insteadOf = razor:
 [gui]
   recentrepo = /Users/jb55/src/js/titania
 [alias]
+  refl = reflog --date=relative
   br = symbolic-ref --short HEAD
   ff = merge --ff-only
   try = merge --no-commit --no-ff
