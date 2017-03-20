@@ -22,7 +22,6 @@ alias cutt="cut -d $'\t' --output-delimiter=$'\t'"
 alias emacs="env TERM=xterm-256color emacs"
 alias fixssh="source $HOME/bin/fixssh"
 alias githist="git reflog show | grep '}: commit' | nl | sort -nr | nl | sort -nr | cut --fields=1,3 | sed s/commit://g | sed -e 's/HEAD*@{[0-9]*}://g'"
-alias gpg=gpg2
 alias jsonpp="python -mjson.tool"
 alias ls="ls --color"
 alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
