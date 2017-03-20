@@ -22,7 +22,10 @@ export KEYTIMEOUT=1
 bindkey "^R" history-incremental-search-backward
 bindkey "^F" history-incremental-search-forward
 
+# history settings
 export HISTSIZE=50000
+export SAVEHIST=$HISTSIZE
+setopt hist_ignore_all_dups
 
 export NIXPKGS=$HOME/nixpkgs
 export NIX_FILES=$HOME/etc/nix-files
