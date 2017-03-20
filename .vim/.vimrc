@@ -106,10 +106,10 @@ endif
 
 call arpeggio#map('i', '', 0, 'fd', '<Esc>')
 let g:arpeggio_timeoutlen = 100
-let mapleader = "\<SPACE>"
-let maplocalleader = "\<SPACE>"
-"let mapleader = "\\"
-"let maplocalleader = "\\"
+"let mapleader = "\<SPACE>"
+"let maplocalleader = "\<SPACE>"
+let mapleader = "\\"
+let maplocalleader = "\\"
 
 " digraphs
 
