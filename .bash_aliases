@@ -78,7 +78,7 @@ pcsvt () {
 }
 
 monstercam() {
-  ssh archer "ffmpeg -f alsa -ar 16000 -i default -f v4l2 -s 640x480 -i /dev/video0 -f avi -pix_fmt yuv420p -"
+  ssh archer "ffmpeg -f alsa -ar 16000 -ac 1 -i hw:2 -f v4l2 -s 640x480 -i /dev/video0 -f avi -pix_fmt yuv420p -"
 }
 
 monstercam-live() {
