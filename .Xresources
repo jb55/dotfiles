@@ -11,6 +11,8 @@
 !#include ".Xresources.d/themes/shore"
 !#include ".Xresources.d/themes/tomorrow-night"
 
+#URxvt.perl-ext-common: color-themes
+
 ! urxvt
 !URxvt*boldFont: -*-profont-*-*-*-*-12-*-*-*-*-*-*-*
 !URxvt*font: xft:Source Code Pro:size=10:antialias=true;hinting=true,\
@@ -21,7 +23,16 @@ URxvt*font: xft:Monospace:size=11:antialias=false;hinting=true
 URxvt*internalBorder: 22
 URxvt*matcher.button: 1
 URxvt*perl-ext-common: default,matcher,clipboard
+
+URxvt.color-themes.autosave: 1
+URxvt.color-themes.state-file: ~/.urxvt-theme
+URxvt.color-themes.themedir:  ~/dotfiles/.Xresources.d/themes
+URxvt.keysym.Shift-Control-L:  perl:color-themes:load-state
+URxvt.keysym.Shift-Control-S:  perl:color-themes:save-state
+URxvt.keysym.Shift-Control-N:  perl:color-themes:next
+URxvt.keysym.Shift-Control-P:  perl:color-themes:prev
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+
 URxvt*scrollBar: false
 URxvt.iso14755: false
 URxvt*boldMode: false
