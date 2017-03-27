@@ -51,3 +51,5 @@
 	sslCAInfo = /home/jb55/.flynn/ca-certs/default.pem
 [credential "https://git.monstercat.com"]
 	helper = /home/jb55/bin/flynn git-credentials
+[gpg]
+	program = gpg2
