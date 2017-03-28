@@ -57,6 +57,7 @@
                                  company-irony
                                  jade-mode
                                  notmuch
+                                 helm-pages
                                  vala-mode
                                  (shen-elisp
                                   :location (recipe :repo "deech/shen-elisp"
