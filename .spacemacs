@@ -182,10 +182,22 @@ This function is called at the very end of Spacemacs initialization."
     (projectile-compile-project nil)
     )
 
+  (defun jb55/forward-page-recenter-top ()
+    (interactive)
+    (forward-page)
+    (evil-scroll-line-to-top (line-number-at-pos)))
+
+  (defun jb55/backward-page-recenter-top ()
+    (interactive)
+    (backward-page)
+    (evil-scroll-line-to-top (line-number-at-pos)))
+
   (spacemacs/set-leader-keys
     "pS" 'jb55/write-and-save
     "anj" 'notmuch-jump-search
     "ans" 'notmuch-search
+    "]" 'jb55/forward-page-recenter-top
+    "[" 'jb55/backward-page-recenter-top
     )
 
   (defun jb55/make-org-path (file)
