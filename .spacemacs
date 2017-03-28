@@ -18,12 +18,14 @@
            )
 
     auto-completion
+    csharp
     csv
+    typescript
+    elm
     emacs-lisp
     emoji
     finance
     git
-    elm
     github
     gnus
     gtags
