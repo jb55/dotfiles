@@ -668,7 +668,7 @@ include "%L"
 <Multi_key> <o> <period> <o>		: "ꙭ"  UA66D		# CYRILLIC SMALL LETTER DOUBLE MONOCULAR O
 <Multi_key> <O> <colon>	 		: "Ꙫ"  UA66A		# CYRILLIC CAPITAL LETTER BINOCULAR O * used in the dual of words based on the root for 'eye'
 <Multi_key> <o> <colon> 		: "ꙫ"  UA66B 		# CYRILLIC SMALL LETTER BINOCULAR O
-<Multi_key> <o> <plus>			: "ꙮ"  UA66E		# CYRILLIC LETTER MULTIOCULAR O * used in the epithet 'many-eyed'
+# <Multi_key> <o> <plus>			: "ꙮ"  UA66E		# CYRILLIC LETTER MULTIOCULAR O * used in the epithet 'many-eyed'
 # While we're doing stacks of circles with dots.
 <Multi_key> <o> <3>			: "߷"	U07F7		# NKO SYMBOL GBAKURUNEN
 <Multi_key> <exclam> <question>         : "‽"   U203D           # INTERROBANG
@@ -1237,6 +1237,7 @@ include "%L"
 # Skipping U+1F4AA just now.
 <Multi_key> <Multi_key> <d> <i> <z> <z> <y> : "💫"    U1F4AB # DIZZY SYMBOL
 <Multi_key> <Multi_key> <dollar> <b> <a> <g>  : "💰"  U1F4B0 # MONEY BAG
+<Multi_key> <Multi_key> <dollar> <w> <i> <n> <g>  : "💸"  U1F4B8 # MONEY WITH WINGS
 <Multi_key> <Multi_key> <c> <a> <k> <e>	    : "🍰"    U1F370 # SHORTCAKE
 # The cake is a lie... OK, too cutesy?
 # More useful in chat than U+1F48F KISS
@@ -1281,8 +1282,7 @@ include "%L"
 <Multi_key> <b> <minus> : "ƀ" U0180 # ALTERNATIVE BIT CURRENCY SIGN, LATIN SMALL LETTER B WITH STROKE
 
 # Monstercat slack
-<Multi_key> <Multi_key> <B> : ":bill:"
-
+<Multi_key> <h> <m> <m> :  "🤔"
 <Multi_key> <j> <m> <a> <d> :         "(｀Д´)"
 <Multi_key> <p> <b> :                 "ᶘ ᵒᴥᵒᶅ"
 <Multi_key> <j> <c> <u> <t> <e> :     "(ﾉ≧ڡ≦)"
@@ -1292,9 +1292,9 @@ include "%L"
 <Multi_key> <s> <h> <r> <u> <g> :     "¯\\_(ツ)_/¯"
 <Multi_key> <j> <s> <h> <r> <u> <g> : "┐(´∀｀)┌"
 <Multi_key> <j> <f> <a> <l> <l> :     "ミ(ノ_ _)ノ"
-<Multi_key> <j> <y> <a> <y> :         "ヽ(＾Д＾)ﾉ"
+<Multi_key> <j> <y> <a> <y> :         "(ﾉ^ヮ^)ﾉ*:・ﾟ✧"
 <Multi_key> <j> <r> <u> <n> :         "ε=ε=┏( >_<)┛　(ノ_ _)ノ"
-<Multi_key> <slash> <question> :      "¯\_(ツ)_/¯"
+<Multi_key> <slash> <question> :      "¯\\_(ツ)_/¯"
 <Multi_key> <l> <e> <n> <n> <y> :     "( ͡° ͜ʖ ͡°)"
 <Multi_key> <f> <l> <i> <p> :         "(ノಠ益ಠ)ノ彡┻━┻"
 <Multi_key> <p> <l> <a> <c> <e> :     "┬──┬ ノ( ゜-゜ノ)"
@@ -1312,3 +1312,349 @@ include "%L"
 <Multi_key> <minus> <1> :             "👎"    U1F44E # THUMBS DOWN SIGN
 <Multi_key> <space> <h> :            "https://"
 <Multi_key> <space> <w> :            "www."
+
+<Multi_key> <g> <r> <i> <n> : "😁" U1F601 # "grin" grinning face with smiling eyes
+<Multi_key> <j> <o> <y> : "😂" U1F602 # "joy" face with tears of joy
+<Multi_key> <s> <m> <i> <l> <e> <y> : "😃" U1F603 # "smiley" smiling face with open mouth
+<Multi_key> <s> <m> <i> <l> <e> : "😄" U1F604 # "smile" smiling face with open mouth & smiling eyes
+<Multi_key> <w> <i> <n> <k> : "😉" U1F609 # "wink" winking face
+<Multi_key> <b> <l> <u> <s> <h> : "😊" U1F60A # "blush" smiling face with smiling eyes
+<Multi_key> <y> <u> <m> : "😋" U1F60B # "yum" face savouring delicious food
+<Multi_key> <h> <u> <g> <s> : "🤗" U1F917 # "hugs" hugging face
+<Multi_key> <s> <m> <i> <r> <k> : "😏" U1F60F # "smirk" smirking face
+<Multi_key> <a> <n> <g> <r> <y> : "😠" U1F620 # "angry" angry face
+<Multi_key> <r> <a> <g> <e> : "😡" U1F621 # "rage" pouting face
+<Multi_key> <w> <e> <a> <r> <y> : "😩" U1F629 # "weary" weary face
+<Multi_key> <s> <c> <r> <e> <a> <m> : "😱" U1F631 # "scream" face screaming in fear
+<Multi_key> <h> <u> <s> <h> <e> <d> : "😯" U1F62F # "hushed" hushed face
+<Multi_key> <c> <r> <y> : "😢" U1F622 # "cry" crying face
+<Multi_key> <s> <l> <e> <e> <p> <y> : "😪" U1F62A # "sleepy" sleepy face
+<Multi_key> <s> <w> <e> <a> <t> : "😓" U1F613 # "sweat" face with cold sweat
+<Multi_key> <s> <o> <b> : "😭" U1F62D # "sob" loudly crying face
+<Multi_key> <m> <a> <s> <k> : "😷" U1F637 # "mask" face with medical mask
+<Multi_key> <z> <z> <z> : "💤" U1F4A4 # "zzz" 
+<Multi_key> <p> <o> <o> : "💩" U1F4A9 # "poo" pile of poo
+<Multi_key> <i> <m> <p> : "👿" U1F47F # "imp" angry face with horns
+<Multi_key> <g> <h> <o> <s> <t> : "👻" U1F47B # "ghost" 
+<Multi_key> <s> <k> <u> <l> <l> : "💀" U1F480 # "skull" 
+<Multi_key> <a> <l> <i> <e> <n> : "👽" U1F47D # "alien" 
+<Multi_key> <r> <o> <b> <o> <t> : "🤖" U1F916 # "robot" robot face
+<Multi_key> <j> <o> <y> <c> <a> <t> : "😹" U1F639 # "joy_cat" cat face with tears of joy
+<Multi_key> <c> <l> <a> <p> : "👏" U1F44F # "clap" clapping hands
+<Multi_key> <plus> <1> : "👍" U1F44D # "+1" thumbs up
+<Multi_key> <minus> <1> : "👎" U1F44E # "-1" thumbs down
+<Multi_key> <f> <i> <s> <t> : "✊" U270A # "fist" raised fist
+<Multi_key> <w> <a> <v> <e> : "👋" U1F44B # "wave" waving hand
+<Multi_key> <o> <k> <h> <a> <n> <d> : "👌" U1F44C # "ok_hand" OK hand
+<Multi_key> <v> : "✌️" U270C # "v" victory hand
+<Multi_key> <h> <a> <n> <d> : "✋" U270B # "hand" raised hand
+<Multi_key> <m> <u> <s> <c> <l> <e> : "💪" U1F4AA # "muscle" flexed biceps
+<Multi_key> <p> <r> <a> <y> : "🙏" U1F64F # "pray" folded hands
+<Multi_key> <m> <e> <t> <a> <l> : "🤘" U1F918 # "metal" sign of the horns
+<Multi_key> <l> <i> <p> <s> : "👄" U1F444 # "lips" mouth
+<Multi_key> <t> <o> <n> <g> <u> <e> : "👅" U1F445 # "tongue" 
+<Multi_key> <e> <a> <r> : "👂" U1F442 # "ear" 
+<Multi_key> <n> <o> <s> <e> : "👃" U1F443 # "nose" 
+<Multi_key> <e> <y> <e> : "👁" U1F441 # "eye" 
+<Multi_key> <e> <y> <e> <s> : "👀" U1F440 # "eyes" 
+<Multi_key> <b> <a> <b> <y> : "👶" U1F476 # "baby" 
+<Multi_key> <b> <o> <y> : "👦" U1F466 # "boy" 
+<Multi_key> <g> <i> <r> <l> : "👧" U1F467 # "girl" 
+<Multi_key> <m> <a> <n> : "👨" U1F468 # "man" 
+<Multi_key> <w> <o> <m> <a> <n> : "👩" U1F469 # "woman" 
+<Multi_key> <s> <a> <n> <t> <a> : "🎅" U1F385 # "santa" Santa Claus
+<Multi_key> <a> <n> <g> <e> <l> : "👼" U1F47C # "angel" baby angel
+<Multi_key> <d> <a> <n> <c> <e> <r> : "💃" U1F483 # "dancer" woman dancing
+<Multi_key> <c> <o> <u> <p> <l> <e> : "👫" U1F46B # "couple" man and woman holding hands
+<Multi_key> <s> <h> <i> <r> <t> : "👕" U1F455 # "shirt" t-shirt
+<Multi_key> <j> <e> <a> <n> <s> : "👖" U1F456 # "jeans" 
+<Multi_key> <d> <r> <e> <s> <s> : "👗" U1F457 # "dress" 
+<Multi_key> <b> <i> <k> <i> <n> <i> : "👙" U1F459 # "bikini" 
+<Multi_key> <k> <i> <m> <o> <n> <o> : "👘" U1F458 # "kimono" 
+<Multi_key> <k> <i> <s> <s> : "💋" U1F48B # "kiss" kiss mark
+<Multi_key> <s> <a> <n> <d> <a> <l> : "👡" U1F461 # "sandal" woman’s sandal
+<Multi_key> <b> <o> <o> <t> : "👢" U1F462 # "boot" woman’s boot
+<Multi_key> <t> <o> <p> <h> <a> <t> : "🎩" U1F3A9 # "tophat" top hat
+<Multi_key> <c> <r> <o> <w> <n> : "👑" U1F451 # "crown" 
+<Multi_key> <p> <o> <u> <c> <h> : "👝" U1F45D # "pouch" clutch bag
+<Multi_key> <p> <u> <r> <s> <e> : "👛" U1F45B # "purse" 
+<Multi_key> <r> <i> <n> <g> : "💍" U1F48D # "ring" 
+<Multi_key> <d> <o> <g> : "🐶" U1F436 # "dog" dog face
+<Multi_key> <c> <a> <t> : "🐱" U1F431 # "cat" cat face
+<Multi_key> <m> <o> <u> <s> <e> : "🐭" U1F42D # "mouse" mouse face
+<Multi_key> <r> <a> <b> <b> <i> <t> : "🐰" U1F430 # "rabbit" rabbit face
+<Multi_key> <b> <e> <a> <r> : "🐻" U1F43B # "bear" bear face
+<Multi_key> <k> <o> <a> <l> <a> : "🐨" U1F428 # "koala" 
+<Multi_key> <t> <i> <g> <e> <r> : "🐯" U1F42F # "tiger" tiger face
+<Multi_key> <l> <i> <o> <n> : "🦁" U1F981 # "lion" lion face
+<Multi_key> <c> <o> <w> : "🐮" U1F42E # "cow" cow face
+<Multi_key> <p> <i> <g> : "🐷" U1F437 # "pig" pig face
+<Multi_key> <f> <r> <o> <g> : "🐸" U1F438 # "frog" frog face
+<Multi_key> <m> <o> <n> <k> <e> <y> : "🐒" U1F412 # "monkey" 
+<Multi_key> <b> <i> <r> <d> : "🐦" U1F426 # "bird" 
+<Multi_key> <w> <o> <l> <f> : "🐺" U1F43A # "wolf" wolf face
+<Multi_key> <b> <o> <a> <r> : "🐗" U1F417 # "boar" 
+<Multi_key> <h> <o> <r> <s> <e> : "🐴" U1F434 # "horse" horse face
+<Multi_key> <b> <e> <e> : "🐝" U1F41D # "bee" honeybee
+<Multi_key> <b> <u> <g> : "🐛" U1F41B # "bug" 
+<Multi_key> <s> <n> <a> <i> <l> : "🐌" U1F40C # "snail" 
+<Multi_key> <b> <e> <e> <t> <l> <e> : "🐞" U1F41E # "beetle" lady beetle
+<Multi_key> <a> <n> <t> : "🐜" U1F41C # "ant" 
+<Multi_key> <s> <p> <i> <d> <e> <r> : "🕷" U1F577 # "spider" 
+<Multi_key> <c> <r> <a> <b> : "🦀" U1F980 # "crab" 
+<Multi_key> <s> <n> <a> <k> <e> : "🐍" U1F40D # "snake" 
+<Multi_key> <t> <u> <r> <t> <l> <e> : "🐢" U1F422 # "turtle" 
+<Multi_key> <f> <i> <s> <h> : "🐟" U1F41F # "fish" 
+<Multi_key> <w> <h> <a> <l> <e> : "🐳" U1F433 # "whale" spouting whale
+<Multi_key> <w> <h> <a> <l> <e> <2> : "🐋" U1F40B # "whale2" whale
+<Multi_key> <t> <i> <g> <e> <r> <2> : "🐅" U1F405 # "tiger2" tiger
+<Multi_key> <o> <x> : "🐂" U1F402 # "ox" 
+<Multi_key> <c> <o> <w> <2> : "🐄" U1F404 # "cow2" cow
+<Multi_key> <c> <a> <m> <e> <l> : "🐫" U1F42B # "camel" two-hump camel
+<Multi_key> <g> <o> <a> <t> : "🐐" U1F410 # "goat" 
+<Multi_key> <r> <a> <m> : "🐏" U1F40F # "ram" 
+<Multi_key> <s> <h> <e> <e> <p> : "🐑" U1F411 # "sheep" 
+<Multi_key> <p> <i> <g> <2> : "🐖" U1F416 # "pig2" pig
+<Multi_key> <r> <a> <t> : "🐀" U1F400 # "rat" 
+<Multi_key> <m> <o> <u> <s> <e> <2> : "🐁" U1F401 # "mouse2" mouse
+<Multi_key> <t> <u> <r> <k> <e> <y> : "🦃" U1F983 # "turkey" 
+<Multi_key> <d> <o> <v> <e> : "🕊" U1F54A # "dove" 
+<Multi_key> <d> <o> <g> <2> : "🐕" U1F415 # "dog2" dog
+<Multi_key> <p> <o> <o> <d> <l> <e> : "🐩" U1F429 # "poodle" 
+<Multi_key> <c> <a> <t> <2> : "🐈" U1F408 # "cat2" cat
+<Multi_key> <f> <e> <e> <t> : "🐾" U1F43E # "feet" paw prints
+<Multi_key> <d> <r> <a> <g> <o> <n> : "🐉" U1F409 # "dragon" 
+<Multi_key> <c> <a> <c> <t> <u> <s> : "🌵" U1F335 # "cactus" 
+<Multi_key> <h> <e> <r> <b> : "🌿" U1F33F # "herb" 
+<Multi_key> <b> <a> <m> <b> <o> <o> : "🎍" U1F38D # "bamboo" pine decoration
+<Multi_key> <l> <e> <a> <v> <e> <s> : "🍃" U1F343 # "leaves" leaf fluttering in wind
+<Multi_key> <r> <o> <s> <e> : "🌹" U1F339 # "rose" 
+<Multi_key> <t> <u> <l> <i> <p> : "🌷" U1F337 # "tulip" 
+<Multi_key> <s> <h> <e> <l> <l> : "🐚" U1F41A # "shell" spiral shell
+<Multi_key> <m> <o> <o> <n> : "🌔" U1F314 # "moon" waxing gibbous moon
+<Multi_key> <s> <t> <a> <r> : "⭐️" U2B50 # "star" white medium star
+<Multi_key> <s> <t> <a> <r> <2> : "🌟" U1F31F # "star2" glowing star
+<Multi_key> <d> <i> <z> <z> <y> : "💫" U1F4AB # "dizzy" 
+<Multi_key> <c> <o> <m> <e> <t> : "☄️" U2604 # "comet" 
+<Multi_key> <s> <u> <n> <n> <y> : "☀️" U2600 # "sunny" sun
+<Multi_key> <c> <l> <o> <u> <d> : "☁️" U2601 # "cloud" 
+<Multi_key> <z> <a> <p> : "⚡️" U26A1 # "zap" high voltage
+<Multi_key> <f> <i> <r> <e> : "🔥" U1F525 # "fire" 
+<Multi_key> <b> <o> <o> <m> : "💥" U1F4A5 # "boom" collision
+<Multi_key> <d> <a> <s> <h> : "💨" U1F4A8 # "dash" dashing away
+<Multi_key> <f> <o> <g> : "🌫" U1F32B # "fog" 
+<Multi_key> <o> <c> <e> <a> <n> : "🌊" U1F30A # "ocean" water wave
+<Multi_key> <a> <p> <p> <l> <e> : "🍎" U1F34E # "apple" red apple
+<Multi_key> <p> <e> <a> <r> : "🍐" U1F350 # "pear" 
+<Multi_key> <l> <e> <m> <o> <n> : "🍋" U1F34B # "lemon" 
+<Multi_key> <b> <a> <n> <a> <n> <a> : "🍌" U1F34C # "banana" 
+<Multi_key> <g> <r> <a> <p> <e> <s> : "🍇" U1F347 # "grapes" 
+<Multi_key> <m> <e> <l> <o> <n> : "🍈" U1F348 # "melon" 
+<Multi_key> <p> <e> <a> <c> <h> : "🍑" U1F351 # "peach" 
+<Multi_key> <t> <o> <m> <a> <t> <o> : "🍅" U1F345 # "tomato" 
+<Multi_key> <c> <o> <r> <n> : "🌽" U1F33D # "corn" ear of corn
+<Multi_key> <b> <r> <e> <a> <d> : "🍞" U1F35E # "bread" 
+<Multi_key> <c> <h> <e> <e> <s> <e> : "🧀" U1F9C0 # "cheese" cheese wedge
+<Multi_key> <e> <g> <g> : "🍳" U1F373 # "egg" cooking
+<Multi_key> <f> <r> <i> <e> <s> : "🍟" U1F35F # "fries" french fries
+<Multi_key> <h> <o> <t> <d> <o> <g> : "🌭" U1F32D # "hotdog" hot dog
+<Multi_key> <p> <i> <z> <z> <a> : "🍕" U1F355 # "pizza" 
+<Multi_key> <t> <a> <c> <o> : "🌮" U1F32E # "taco" 
+<Multi_key> <r> <a> <m> <e> <n> : "🍜" U1F35C # "ramen" steaming bowl
+<Multi_key> <s> <t> <e> <w> : "🍲" U1F372 # "stew" pot of food
+<Multi_key> <s> <u> <s> <h> <i> : "🍣" U1F363 # "sushi" 
+<Multi_key> <b> <e> <n> <t> <o> : "🍱" U1F371 # "bento" bento box
+<Multi_key> <c> <u> <r> <r> <y> : "🍛" U1F35B # "curry" curry rice
+<Multi_key> <r> <i> <c> <e> : "🍚" U1F35A # "rice" cooked rice
+<Multi_key> <o> <d> <e> <n> : "🍢" U1F362 # "oden" 
+<Multi_key> <d> <a> <n> <g> <o> : "🍡" U1F361 # "dango" 
+<Multi_key> <c> <a> <k> <e> : "🍰" U1F370 # "cake" shortcake
+<Multi_key> <c> <a> <n> <d> <y> : "🍬" U1F36C # "candy" 
+<Multi_key> <c> <o> <o> <k> <i> <e> : "🍪" U1F36A # "cookie" 
+<Multi_key> <b> <e> <e> <r> : "🍺" U1F37A # "beer" beer mug
+<Multi_key> <b> <e> <e> <r> <s> : "🍻" U1F37B # "beers" clinking beer mugs
+<Multi_key> <s> <a> <k> <e> : "🍶" U1F376 # "sake" 
+<Multi_key> <t> <e> <a> : "🍵" U1F375 # "tea" teacup without handle
+<Multi_key> <c> <o> <f> <f> <e> <e> : "☕️" U2615 # "coffee" hot beverage
+<Multi_key> <s> <o> <c> <c> <e> <r> : "⚽️" U26BD # "soccer" soccer ball
+<Multi_key> <t> <e> <n> <n> <i> <s> : "🎾" U1F3BE # "tennis" 
+<Multi_key> <8> <b> <a> <l> <l> : "🎱" U1F3B1 # "8ball" pool 8 ball
+<Multi_key> <g> <o> <l> <f> : "⛳️" U26F3 # "golf" flag in hole
+<Multi_key> <s> <k> <i> : "🎿" U1F3BF # "ski" skis
+<Multi_key> <s> <k> <i> <e> <r> : "⛷" U26F7 # "skier" 
+<Multi_key> <b> <a> <t> <h> : "🛀" U1F6C0 # "bath" person taking bath
+<Multi_key> <t> <r> <o> <p> <h> <y> : "🏆" U1F3C6 # "trophy" 
+<Multi_key> <d> <a> <r> <t> : "🎯" U1F3AF # "dart" direct hit
+<Multi_key> <t> <i> <c> <k> <e> <t> : "🎫" U1F3AB # "ticket" 
+<Multi_key> <a> <r> <t> : "🎨" U1F3A8 # "art" artist palette
+<Multi_key> <g> <u> <i> <t> <a> <r> : "🎸" U1F3B8 # "guitar" 
+<Multi_key> <v> <i> <o> <l> <i> <n> : "🎻" U1F3BB # "violin" 
+<Multi_key> <c> <a> <r> : "🚗" U1F697 # "car" automobile
+<Multi_key> <t> <a> <x> <i> : "🚕" U1F695 # "taxi" 
+<Multi_key> <b> <u> <s> : "🚌" U1F68C # "bus" 
+<Multi_key> <t> <r> <u> <c> <k> : "🚚" U1F69A # "truck" delivery truck
+<Multi_key> <b> <i> <k> <e> : "🚲" U1F6B2 # "bike" bicycle
+<Multi_key> <t> <r> <a> <i> <n> : "🚋" U1F68B # "train" tram car
+<Multi_key> <t> <r> <a> <i> <n> <2> : "🚆" U1F686 # "train2" train
+<Multi_key> <m> <e> <t> <r> <o> : "🚇" U1F687 # "metro" 
+<Multi_key> <t> <r> <a> <m> : "🚊" U1F68A # "tram" 
+<Multi_key> <b> <o> <a> <t> : "⛵️" U26F5 # "boat" sailboat
+<Multi_key> <f> <e> <r> <r> <y> : "⛴" U26F4 # "ferry" 
+<Multi_key> <r> <o> <c> <k> <e> <t> : "🚀" U1F680 # "rocket" 
+<Multi_key> <s> <e> <a> <t> : "💺" U1F4BA # "seat" 
+<Multi_key> <a> <n> <c> <h> <o> <r> : "⚓️" U2693 # "anchor" 
+<Multi_key> <s> <h> <i> <p> : "🚢" U1F6A2 # "ship" 
+<Multi_key> <f> <o> <g> <g> <y> : "🌁" U1F301 # "foggy" 
+<Multi_key> <j> <a> <p> <a> <n> : "🗾" U1F5FE # "japan" map of Japan
+<Multi_key> <t> <e> <n> <t> : "⛺️" U26FA # "tent" 
+<Multi_key> <d> <e> <s> <e> <r> <t> : "🏜" U1F3DC # "desert" 
+<Multi_key> <s> <t> <a> <r> <s> : "🌠" U1F320 # "stars" shooting star
+<Multi_key> <h> <o> <u> <s> <e> <s> : "🏘" U1F3D8 # "houses" house
+<Multi_key> <h> <o> <u> <s> <e> : "🏠" U1F3E0 # "house" 
+<Multi_key> <o> <f> <f> <i> <c> <e> : "🏢" U1F3E2 # "office" office building
+<Multi_key> <b> <a> <n> <k> : "🏦" U1F3E6 # "bank" 
+<Multi_key> <h> <o> <t> <e> <l> : "🏨" U1F3E8 # "hotel" 
+<Multi_key> <s> <c> <h> <o> <o> <l> : "🏫" U1F3EB # "school" 
+<Multi_key> <c> <h> <u> <r> <c> <h> : "⛪️" U26EA # "church" 
+<Multi_key> <m> <o> <s> <q> <u> <e> : "🕌" U1F54C # "mosque" 
+<Multi_key> <k> <a> <a> <b> <a> : "🕋" U1F54B # "kaaba" 
+<Multi_key> <w> <a> <t> <c> <h> : "⌚️" U231A # "watch" 
+<Multi_key> <i> <p> <h> <o> <n> <e> : "📱" U1F4F1 # "iphone" mobile phone
+<Multi_key> <c> <l> <a> <m> <p> : "🗜" U1F5DC # "clamp" 
+<Multi_key> <c> <d> : "💿" U1F4BF # "cd" optical disk
+<Multi_key> <d> <v> <d> : "📀" U1F4C0 # "dvd" 
+<Multi_key> <v> <h> <s> : "📼" U1F4FC # "vhs" videocassette
+<Multi_key> <c> <a> <m> <e> <r> <a> : "📷" U1F4F7 # "camera" 
+<Multi_key> <p> <h> <o> <n> <e> : "☎️" U260E # "phone" telephone
+<Multi_key> <p> <a> <g> <e> <r> : "📟" U1F4DF # "pager" 
+<Multi_key> <f> <a> <x> : "📠" U1F4E0 # "fax" fax machine
+<Multi_key> <t> <v> : "📺" U1F4FA # "tv" television
+<Multi_key> <r> <a> <d> <i> <o> : "📻" U1F4FB # "radio" 
+<Multi_key> <b> <u> <l> <b> : "💡" U1F4A1 # "bulb" light bulb
+<Multi_key> <c> <a> <n> <d> <l> <e> : "🕯" U1F56F # "candle" 
+<Multi_key> <d> <o> <l> <l> <a> <r> : "💵" U1F4B5 # "dollar" dollar banknote
+<Multi_key> <y> <e> <n> : "💴" U1F4B4 # "yen" yen banknote
+<Multi_key> <e> <u> <r> <o> : "💶" U1F4B6 # "euro" euro banknote
+<Multi_key> <p> <o> <u> <n> <d> : "💷" U1F4B7 # "pound" pound banknote
+<Multi_key> <g> <e> <m> : "💎" U1F48E # "gem" gem stone
+<Multi_key> <w> <r> <e> <n> <c> <h> : "🔧" U1F527 # "wrench" 
+<Multi_key> <h> <a> <m> <m> <e> <r> : "🔨" U1F528 # "hammer" 
+<Multi_key> <p> <i> <c> <k> : "⛏" U26CF # "pick" 
+<Multi_key> <g> <e> <a> <r> : "⚙" U2699 # "gear" 
+<Multi_key> <c> <h> <a> <i> <n> <s> : "⛓" U26D3 # "chains" 
+<Multi_key> <g> <u> <n> : "🔫" U1F52B # "gun" pistol
+<Multi_key> <b> <o> <m> <b> : "💣" U1F4A3 # "bomb" 
+<Multi_key> <h> <o> <c> <h> <o> : "🔪" U1F52A # "hocho" kitchen knife
+<Multi_key> <d> <a> <g> <g> <e> <r> : "🗡" U1F5E1 # "dagger" 
+<Multi_key> <s> <h> <i> <e> <l> <d> : "🛡" U1F6E1 # "shield" 
+<Multi_key> <c> <o> <f> <f> <i> <n> : "⚰" U26B0 # "coffin" 
+<Multi_key> <b> <a> <r> <b> <e> <r> : "💈" U1F488 # "barber" barber pole
+<Multi_key> <h> <o> <l> <e> : "🕳" U1F573 # "hole" 
+<Multi_key> <p> <i> <l> <l> : "💊" U1F48A # "pill" 
+<Multi_key> <t> <o> <i> <l> <e> <t> : "🚽" U1F6BD # "toilet" 
+<Multi_key> <s> <h> <o> <w> <e> <r> : "🚿" U1F6BF # "shower" 
+<Multi_key> <k> <e> <y> : "🔑" U1F511 # "key" 
+<Multi_key> <o> <l> <d> <k> <e> <y> : "🗝" U1F5DD # "old_key" old key
+<Multi_key> <d> <o> <o> <r> : "🚪" U1F6AA # "door" 
+<Multi_key> <b> <e> <d> : "🛏" U1F6CF # "bed" 
+<Multi_key> <m> <o> <y> <a> <i> : "🗿" U1F5FF # "moyai" moai
+<Multi_key> <g> <i> <f> <t> : "🎁" U1F381 # "gift" wrapped gift
+<Multi_key> <f> <l> <a> <g> <s> : "🎏" U1F38F # "flags" carp streamer
+<Multi_key> <r> <i> <b> <b> <o> <n> : "🎀" U1F380 # "ribbon" 
+<Multi_key> <t> <a> <d> <a> : "🎉" U1F389 # "tada" party popper
+<Multi_key> <d> <o> <l> <l> <s> : "🎎" U1F38E # "dolls" Japanese dolls
+<Multi_key> <e> <m> <a> <i> <l> : "📧" U1F4E7 # "email" e-mail
+<Multi_key> <l> <a> <b> <e> <l> : "🏷" U1F3F7 # "label" 
+<Multi_key> <s> <c> <r> <o> <l> <l> : "📜" U1F4DC # "scroll" 
+<Multi_key> <d> <a> <t> <e> : "📅" U1F4C5 # "date" calendar
+<Multi_key> <l> <e> <d> <g> <e> <r> : "📒" U1F4D2 # "ledger" 
+<Multi_key> <b> <o> <o> <k> <s> : "📚" U1F4DA # "books" 
+<Multi_key> <b> <o> <o> <k> : "📖" U1F4D6 # "book" open book
+<Multi_key> <l> <i> <n> <k> : "🔗" U1F517 # "link" 
+<Multi_key> <c> <r> <a> <y> <o> <n> : "🖍" U1F58D # "crayon" 
+<Multi_key> <p> <e> <n> : "🖊" U1F58A # "pen" 
+<Multi_key> <m> <e> <m> <o> : "📝" U1F4DD # "memo" 
+<Multi_key> <l> <o> <c> <k> : "🔒" U1F512 # "lock" locked
+<Multi_key> <u> <n> <l> <o> <c> <k> : "🔓" U1F513 # "unlock" unlocked
+<Multi_key> <m> <a> <g> : "🔍" U1F50D # "mag" left-pointing magnifying glass
+<Multi_key> <h> <e> <a> <r> <t> : "❤️" U2764 # "heart" red heart
+<Multi_key> <c> <u> <p> <i> <d> : "💘" U1F498 # "cupid" heart with arrow
+<Multi_key> <o> <m> : "🕉" U1F549 # "om" 
+<Multi_key> <a> <r> <i> <e> <s> : "♈️" U2648 # "aries" Aries
+<Multi_key> <t> <a> <u> <r> <u> <s> : "♉️" U2649 # "taurus" Taurus
+<Multi_key> <g> <e> <m> <i> <n> <i> : "♊️" U264A # "gemini" Gemini
+<Multi_key> <c> <a> <n> <c> <e> <r> : "♋️" U264B # "cancer" Cancer
+<Multi_key> <l> <e> <o> : "♌️" U264C # "leo" Leo
+<Multi_key> <v> <i> <r> <g> <o> : "♍️" U264D # "virgo" Virgo
+<Multi_key> <l> <i> <b> <r> <a> : "♎️" U264E # "libra" Libra
+<Multi_key> <p> <i> <s> <c> <e> <s> : "♓️" U2653 # "pisces" Pisces
+<Multi_key> <i> <d> : "🆔" U1F194 # "id" ID button
+<Multi_key> <u> <7> <a> <7> <a> : "🈳" U1F233 # "u7a7a" Japanese “vacancy” button
+<Multi_key> <u> <5> <2> <7> <2> : "🈹" U1F239 # "u5272" Japanese “discount” button
+<Multi_key> <u> <6> <7> <0> <9> : "🈶" U1F236 # "u6709" Japanese “not free of charge” button
+<Multi_key> <u> <7> <1> <2> <1> : "🈚️" U1F21A # "u7121" Japanese “free of charge” button
+<Multi_key> <u> <7> <5> <3> <3> : "🈸" U1F238 # "u7533" Japanese “application” button
+<Multi_key> <u> <5> <5> <b> <6> : "🈺" U1F23A # "u55b6" Japanese “open for business” button
+<Multi_key> <u> <6> <7> <0> <8> : "🈷️" U1F237 # "u6708" Japanese “monthly amount” button
+<Multi_key> <v> <s> : "🆚" U1F19A # "vs" VS button
+<Multi_key> <a> <c> <c> <e> <p> <t> : "🉑" U1F251 # "accept" Japanese “acceptable” button
+<Multi_key> <s> <e> <c> <r> <e> <t> : "㊙️" U3299 # "secret" Japanese “secret” button
+<Multi_key> <u> <5> <4> <0> <8> : "🈴" U1F234 # "u5408" Japanese “passing grade” button
+<Multi_key> <u> <6> <e> <8> <0> : "🈵" U1F235 # "u6e80" Japanese “no vacancy” button
+<Multi_key> <u> <7> <9> <8> <1> : "🈲" U1F232 # "u7981" Japanese “prohibited” button
+<Multi_key> <a> : "🅰️" U1F170 # "a" A button (blood type)
+<Multi_key> <b> : "🅱️" U1F171 # "b" B button (blood type)
+<Multi_key> <a> <b> : "🆎" U1F18E # "ab" AB button (blood type)
+<Multi_key> <c> <l> : "🆑" U1F191 # "cl" CL button
+<Multi_key> <o> <2> : "🅾️" U1F17E # "o2" O button (blood type)
+<Multi_key> <s> <o> <s> : "🆘" U1F198 # "sos" SOS button
+<Multi_key> <x> : "❌" U274C # "x" cross mark
+<Multi_key> <o> : "⭕️" U2B55 # "o" heavy large circle
+<Multi_key> <a> <n> <g> <e> <r> : "💢" U1F4A2 # "anger" anger symbol
+<Multi_key> <1> <0> <0> : "💯" U1F4AF # "100" hundred points
+<Multi_key> <u> <6> <3> <0> <7> : "🈯️" U1F22F # "u6307" Japanese “reserved” button
+<Multi_key> <c> <h> <a> <r> <t> : "💹" U1F4B9 # "chart" chart increasing with yen
+<Multi_key> <m> : "Ⓜ️" U24C2 # "m" circled M
+<Multi_key> <l> <o> <o> <p> : "➿" U27BF # "loop" double curly loop
+<Multi_key> <a> <t> <m> : "🏧" U1F3E7 # "atm" ATM sign
+<Multi_key> <s> <a> : "🈂️" U1F202 # "sa" Japanese “service charge” button
+<Multi_key> <w> <c> : "🚾" U1F6BE # "wc" water closet
+<Multi_key> <m> <e> <n> <s> : "🚹" U1F6B9 # "mens" men’s room
+<Multi_key> <w> <o> <m> <e> <n> <s> : "🚺" U1F6BA # "womens" women’s room
+<Multi_key> <c> <i> <n> <e> <m> <a> : "🎦" U1F3A6 # "cinema" 
+<Multi_key> <k> <o> <k> <o> : "🈁" U1F201 # "koko" Japanese “here” button
+<Multi_key> <a> <b> <c> : "🔤" U1F524 # "abc" input latin letters
+<Multi_key> <a> <b> <c> <d> : "🔡" U1F521 # "abcd" input latin lowercase
+<Multi_key> <n> <g> : "🆖" U1F196 # "ng" NG button
+<Multi_key> <o> <k> : "🆗" U1F197 # "ok" OK button
+<Multi_key> <u> <p> : "🆙" U1F199 # "up" UP! button
+<Multi_key> <c> <o> <o> <l> : "🆒" U1F192 # "cool" COOL button
+<Multi_key> <n> <e> <w> : "🆕" U1F195 # "new" NEW button
+<Multi_key> <f> <r> <e> <e> : "🆓" U1F193 # "free" FREE button
+<Multi_key> <1> <2> <3> <4> : "🔢" U1F522 # "1234" input numbers
+<Multi_key> <r> <e> <w> <i> <n> <d> : "⏪" U23EA # "rewind" fast reverse button
+<Multi_key> <r> <e> <p> <e> <a> <t> : "🔁" U1F501 # "repeat" repeat button
+<Multi_key> <n> <o> <t> <e> <s> : "🎶" U1F3B6 # "notes" musical notes
+<Multi_key> <t> <m> : "™️" U2122 # "tm" trade mark
+<Multi_key> <e> <n> <d> : "🔚" U1F51A # "end" END arrow
+<Multi_key> <b> <a> <c> <k> : "🔙" U1F519 # "back" BACK arrow
+<Multi_key> <o> <n> : "🔛" U1F51B # "on" ON! arrow
+<Multi_key> <t> <o> <p> : "🔝" U1F51D # "top" TOP arrow
+<Multi_key> <s> <o> <o> <n> : "🔜" U1F51C # "soon" SOON arrow
+<Multi_key> <m> <u> <t> <e> : "🔇" U1F507 # "mute" muted speaker
+<Multi_key> <s> <o> <u> <n> <d> : "🔉" U1F509 # "sound" speaker medium volume
+<Multi_key> <n> <o> <b> <e> <l> <l> : "🔕" U1F515 # "no_bell" bell with slash
+<Multi_key> <b> <e> <l> <l> : "🔔" U1F514 # "bell" 
+<Multi_key> <m> <e> <g> <a> : "📣" U1F4E3 # "mega" megaphone
+<Multi_key> <s> <p> <a> <d> <e> <s> : "♠️" U2660 # "spades" spade suit
+<Multi_key> <c> <l> <u> <b> <s> : "♣️" U2663 # "clubs" club suit
+<Multi_key> <h> <e> <a> <r> <t> <s> : "♥️" U2665 # "hearts" heart suit
+<Multi_key> <c> <l> <o> <c> <k> <1> : "🕐" U1F550 # "clock1" one o’clock
+<Multi_key> <c> <l> <o> <c> <k> <2> : "🕑" U1F551 # "clock2" two o’clock
+<Multi_key> <c> <l> <o> <c> <k> <3> : "🕒" U1F552 # "clock3" three o’clock
+<Multi_key> <c> <l> <o> <c> <k> <4> : "🕓" U1F553 # "clock4" four o’clock
+<Multi_key> <c> <l> <o> <c> <k> <5> : "🕔" U1F554 # "clock5" five o’clock
+<Multi_key> <c> <l> <o> <c> <k> <6> : "🕕" U1F555 # "clock6" six o’clock
+<Multi_key> <c> <l> <o> <c> <k> <7> : "🕖" U1F556 # "clock7" seven o’clock
+<Multi_key> <c> <l> <o> <c> <k> <8> : "🕗" U1F557 # "clock8" eight o’clock
+<Multi_key> <c> <l> <o> <c> <k> <9> : "🕘" U1F558 # "clock9" nine o’clock

@@ -8,6 +8,8 @@ export SHAREFILE_URL='https://jb55.com/s/'
 export SHARE_SS_DIR="$HOME/Dropbox/img/ss"
 export DOTFILES=${DOTFILES:-$HOME/.dotfiles}
 export XZ=pxz
+export HISTSIZE=50000
+export FZF_CTRL_R_OPTS="-e"
 
 alias ag="ag --pager=less"
 alias attach="grabssh; screen -rD"
@@ -20,7 +22,6 @@ alias cutt="cut -d $'\t' --output-delimiter=$'\t'"
 alias emacs="env TERM=xterm-256color emacs"
 alias fixssh="source $HOME/bin/fixssh"
 alias githist="git reflog show | grep '}: commit' | nl | sort -nr | nl | sort -nr | cut --fields=1,3 | sed s/commit://g | sed -e 's/HEAD*@{[0-9]*}://g'"
-alias gpg=gpg2
 alias jsonpp="python -mjson.tool"
 alias ls="ls --color"
 alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
@@ -40,6 +41,7 @@ alias xclip="xclip -selection clipboard"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias wanip=myip
 alias myipaddress=myip
+alias fzf="fzf --exact"
 
 
 share () {
@@ -76,7 +78,7 @@ pcsvt () {
 
 monstercam() {
   host=${1:-archer.zero.monster.cat}
-  ssh $host "ffmpeg -f alsa -ar 16000 -i default -f v4l2 -s 640x480 -i /dev/video0 -f avi -pix_fmt yuv420p -"
+  ssh $host "ffmpeg -f alsa -ar 16000 -ac 1 -i hw:2 -f v4l2 -s 640x480 -i /dev/video0 -f avi -pix_fmt yuv420p -"
 }
 
 monstercam-live() {
@@ -87,7 +89,11 @@ monstercam-live() {
 }
 
 headers() {
-  head -n1 ${1:-"/dev/stdin"} | csv-delim | tr '\t' '\n' | cat -n
+  head -n1 "${1:-/dev/stdin}" | csv-delim | tr '\t' '\n' | cat -n
+}
+
+header() {
+  headers "${2:-/dev/stdin}" | grep "$1" | cutt -f1 | sed -E 's,^[ ]*,,g'
 }
 
 nsum() {

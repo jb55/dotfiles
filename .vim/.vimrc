@@ -1,6 +1,6 @@
 " vim: foldmethod=marker:
 
-if 0 | endif
+"if 0 | endif
 
 " neobundle {{{
 
@@ -24,16 +24,17 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet.vim'
 
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'kana/vim-arpeggio'
 NeoBundle 'dbakker/vim-projectroot'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'jb55/typescript-ctags'
 NeoBundle 'jb55/vim-snippets'
+NeoBundle 'jceb/vim-orgmode'
 NeoBundle 'junegunn/fzf'
 NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'junegunn/gv.vim'
+NeoBundle 'kana/vim-arpeggio'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'Lokaltog/vim-powerline'
@@ -104,10 +105,11 @@ endif
 " Mappings {{{
 
 call arpeggio#map('i', '', 0, 'fd', '<Esc>')
-let mapleader = "\<SPACE>"
-let maplocalleader = "\<SPACE>"
-"let mapleader = "\\"
-"let maplocalleader = "\\"
+let g:arpeggio_timeoutlen = 100
+"let mapleader = "\<SPACE>"
+"let maplocalleader = "\<SPACE>"
+let mapleader = "\\"
+let maplocalleader = "\\"
 
 " digraphs
 
@@ -268,7 +270,7 @@ augroup encrypted
   autocmd BufReadPre,FileReadPre *.gpg set bin
   autocmd BufReadPre,FileReadPre *.gpg let ch_save = &ch|set ch=2
   " (If you use tcsh, you may need to alter this line.)
-  autocmd BufReadPost,FileReadPost *.gpg '[,']!gpg --decrypt 2> /dev/null
+  autocmd BufReadPost,FileReadPost *.gpg '[,']!gpg2 --decrypt 2> /dev/null
 
   " Switch to normal mode for editing
   autocmd BufReadPost,FileReadPost *.gpg set nobin
@@ -277,7 +279,7 @@ augroup encrypted
 
   " Convert all text to encrypted text before writing
   " (If you use tcsh, you may need to alter this line.)
-  autocmd BufWritePre,FileWritePre *.gpg '[,']!gpg --default-recipient-self -ae 2>/dev/null
+  autocmd BufWritePre,FileWritePre *.gpg '[,']!gpg2 --default-recipient-self -ae 2>/dev/null
   " Undo the encryption so we are back in the normal text, directly
   " after the file has been written.
   autocmd BufWritePost,FileWritePost *.gpg u

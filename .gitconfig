@@ -17,15 +17,18 @@
   insteadOf = gh:
 [url "http://git.zero.jb55.com/"]
   insteadOf = jb:
-[url "jb55.com:git/"]
-  insteadOf = dev:
 [url "ssh://git@phabricator.monstercat.com/diffusion/"]
   insteadOf = phab:
 [url "http://git.zero.monster.cat/"]
   insteadOf = mcat:
+[url "http://git.zero.jb55.com/"]
+  insteadOf = zero:
+[url "http://git.razor.jb55.com/"]
+  insteadOf = razor:
 [gui]
   recentrepo = /Users/jb55/src/js/titania
 [alias]
+  refl = reflog --date=relative
   br = symbolic-ref --short HEAD
   ff = merge --ff-only
   try = merge --no-commit --no-ff
@@ -48,3 +51,5 @@
 	sslCAInfo = /home/jb55/.flynn/ca-certs/default.pem
 [credential "https://git.monstercat.com"]
 	helper = /home/jb55/bin/flynn git-credentials
+[gpg]
+	program = gpg2
