@@ -23,6 +23,7 @@ import XMonad.Util.EZConfig
 import XMonad.Util.Paste
 import XMonad.Hooks.UrgencyHook (focusUrgent)
 import XMonad.Actions.UpdatePointer
+import XMonad.Layout.Spiral
 
 gapSize = 10
 taffySize = 25
@@ -33,15 +34,16 @@ allGaps = (U, taffySize + if sideGaps then gapSize else 0) :
                         else []
 
 baseLayout = Tall 1 (3/100) (1/2)
+         ||| spiral (6/7)
          ||| Full
 
--- layout = gaps allGaps
---        -- . noBorders
---        . smartBorders
---        -- . mkToggle (single FULL)
---        $ baseLayout
+layout = -- gaps allGaps
+       -- . noBorders
+         smartBorders
+       . mkToggle (single FULL)
+       $ baseLayout
 
-layout = smartBorders baseLayout
+-- layout = smartBorders baseLayout
 
 -- myManageHook = composeAll
 --              [
@@ -73,7 +75,7 @@ myKeys = [
     ("M-p", shellPrompt defaultXPConfig)
   , ("M-a", focusUrgent)
   , ("M-d", toggleWS)
-  , ("M-r", sendMessage NextLayout)
+  , ("M-r", toggleFull)
   -- , ("M-f", toggleMaximized)
   -- , ("M-r", toggleFull)
   , ("M-v", sendKey shiftMask xK_Insert)
