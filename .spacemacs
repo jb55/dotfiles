@@ -547,7 +547,7 @@ This function is called at the very end of Spacemacs initialization."
      (:name "sent" :query "tag:sent" :key "t")
      (:name "drafts" :query "tag:draft" :key "d")
      (:name "all mail" :query "*" :key "a")
-     (:name "inbox" :query "tag:inbox and ((not tag:list and not tag:rss and not tag:busy and not:youtube) or tag:flagged or tag:best) " :key "i")
+     (:name "inbox" :query "tag:inbox and ((not tag:list and not tag:rss and not tag:busy and not tag:youtube) or tag:flagged or tag:best) " :key "i")
      (:name "lists" :query "tag:inbox and tag:list" :key "l")
      (:name "github" :query "tag:github and tag:inbox" :key "g")
      (:name "rss" :query "tag:rss and tag:inbox" :key "r")
