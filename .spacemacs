@@ -27,7 +27,6 @@
     finance
     fsharp
     git
-    github
     gnus
     gtags
     idris
