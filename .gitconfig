@@ -44,6 +44,8 @@
   co = checkout
 [push]
 	default = simple
+[rebase]
+	autosquash = true
 [rerere]
 	enabled = true
 	autoupdate = true
