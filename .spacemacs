@@ -80,6 +80,17 @@
                                  base-excluded)
                                ))
 
+(setq jb55/light-theme 'spacemacs-light)
+(setq jb55/dark-theme 'base16-onedark)
+
+(defun jb55/determine-theme ()
+  (let* ((time (decode-time))
+         (hour (nth 2 time)))
+    (if (and (> hour 6)
+             (< hour 20))
+        jb55/light-theme
+      jb55/dark-theme)))
+
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -103,7 +114,7 @@ values."
 (defun dotspacemacs/init ()
   (setq-default
    dotspacemacs-startup-banner 'official
-   dotspacemacs-themes '(base16-tomorrow-night)
+   dotspacemacs-themes (list (jb55/determine-theme))
 
    dotspacemacs-default-font '("Noto Mono"
                                :size 13
