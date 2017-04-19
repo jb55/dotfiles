@@ -1,6 +1,5 @@
 {-# LANGUAGE TupleSections #-}
 
---import XMonad.Hooks.ICCCMFocus
 import Data.Ratio
 import System.Taffybar.Hooks.PagerHints (pagerHints)
 import XMonad
@@ -21,16 +20,27 @@ import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Util.EZConfig
 import XMonad.Util.Paste
-import XMonad.Hooks.UrgencyHook (focusUrgent)
-import XMonad.Actions.UpdatePointer
-import XMonad.Layout.Spiral
+import XMonad.Hooks.UrgencyHook
+import XMonad.Util.NamedWindows
+import XMonad.Util.Run
+
+import qualified XMonad.StackSet as W
+
+data LibNotifyUrgencyHook = LibNotifyUrgencyHook deriving (Read, Show)
+
+instance UrgencyHook LibNotifyUrgencyHook where
+    urgencyHook LibNotifyUrgencyHook w = do
+        name     <- getName w
+        Just idx <- W.findTag w <$> gets windowset
+
+        safeSpawn "notify-send" [show name, "workspace " ++ idx]
 
 gapSize = 10
 taffySize = 25
 sideGaps = False
 
 allGaps = (U, taffySize + if sideGaps then gapSize else 0) :
-            if sideGaps then (map (,gapSize) (enumFrom D))
+            if sideGaps then map (,gapSize) (enumFrom D)
                         else []
 
 baseLayout = Tall 1 (3/100) (1/2)
@@ -51,20 +61,21 @@ layout = -- gaps allGaps
 --              , manageDocks
 --              ]
 
-main = xmonad $
-    ewmh $
-    pagerHints $
-    defaultConfig {
-            terminal    = "urxvtc"
-          , modMask     = mod4Mask
-          , logHook     = updatePointer (1 / 2, 1 / 2) (0, 0)
-          , layoutHook  = layout
-          , startupHook = setWMName "LG3D"
-          , manageHook  = manageDocks
-          , normalBorderColor = "#222"
-          , focusedBorderColor = "#555"
-    }
-    `additionalKeysP` myKeys
+main = xmonad
+     $ withUrgencyHook LibNotifyUrgencyHook
+     $ ewmh
+     $ pagerHints
+     $ defaultConfig {
+             terminal    = "urxvtc"
+           , modMask     = mod4Mask
+           , logHook     = updatePointer (1 / 2, 1 / 2) (0, 0)
+           , layoutHook  = layout
+           , startupHook = setWMName "LG3D"
+           , manageHook  = manageDocks
+           , normalBorderColor = "#222"
+           , focusedBorderColor = "#555"
+     }
+     `additionalKeysP` myKeys
 
 
 toggleGaps = sendMessage ToggleGaps
