@@ -40,6 +40,7 @@
     purescript
     python
     racket
+    rust
     search-engine
     spacemacs-helm
     spacemacs-layouts
