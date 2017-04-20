@@ -86,8 +86,8 @@
 (defun jb55/determine-theme ()
   (let* ((time (decode-time))
          (hour (nth 2 time)))
-    (if (and (> hour 6)
-             (< hour 20))
+    (if (and (>= hour 9)
+             (<  hour 17))
         jb55/light-theme
       jb55/dark-theme)))
 
