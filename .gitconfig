@@ -2,17 +2,14 @@
   name = William Casarin
   email = jb55@jb55.com
   signingkey = 0x415AF4A3
-[sendemail]
-  smtpencryption = tls
-  smtpserver = smtp.gmail.com
-  smtpuser = jackbox55@gmail.com
-  smtpserverport = 587
 [color]
   diff = auto
   status = auto
 [core]
   excludesfile = /Users/jb55/.gitignore_global
 	editor = vim
+[sendemail]
+  smtpServer=/run/wrappers/bin/sendmail
 [url "git@github.com:"]
   insteadOf = gh:
 [url "jb55.com:git/"]
