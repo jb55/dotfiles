@@ -172,6 +172,15 @@ values."
 This function is called at the very end of Spacemacs initialization."
   (setq jb55/org-path "~/Dropbox/doc/org")
 
+  (defun jb55/notmuch-show-insert-header-p (part hide)
+    ;; Show all part buttons except for text/plain and multipart
+    (let ((mime-type (notmuch-show-mime-type part)))
+      (not (member mime-type (list "multipart/alternative"
+                                   "multipart/mixed"
+                                   "text/plain")))))
+
+  (setq notmuch-show-insert-header-p-function 'jb55/notmuch-show-insert-header-p)
+
   (setq spacemacs-indent-sensitive-modes (add-to-list 'spacemacs-indent-sensitive-modes 'nix-mode))
 
   (defun jb55/write-and-save ()
@@ -179,6 +188,8 @@ This function is called at the very end of Spacemacs initialization."
     (evil-write-all nil)
     (projectile-compile-project nil)
     )
+
+  (setq notmuch-command "/Users/jb55/bin/notmuch-remote")
 
   (spacemacs/set-leader-keys
     "pS" 'jb55/write-and-save
@@ -446,9 +457,9 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(Linum-format "%7i ")
  '(ac-ispell-requires 4 t)
- '(ahs-case-fold-search nil t)
- '(ahs-default-range (quote ahs-range-whole-buffer) t)
- '(ahs-idle-interval 0.25 t)
+ '(ahs-case-fold-search nil)
+ '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
  '(ansi-color-faces-vector
@@ -457,7 +468,7 @@ This function is called at the very end of Spacemacs initialization."
    ["#110F13" "#B13120" "#719F34" "#CEAE3E" "#7C9FC9" "#7868B5" "#009090" "#F4EAD5"])
  '(ansi-term-color-vector
    [unspecified "#1d1f21" "#cc6666" "#b5bd68" "#f0c674" "#81a2be" "#b294bb" "#81a2be" "#c5c8c6"] t)
- '(browse-url-browser-function (quote browse-url-chromium))
+ '(browse-url-browser-function (quote browse-url-default-macosx-browser))
  '(company-clang-arguments (quote ("-Ideps")))
  '(company-quickhelp-mode t)
  '(compilation-message-face (quote default))
