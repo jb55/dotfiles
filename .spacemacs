@@ -246,6 +246,8 @@ This function is called at the very end of Spacemacs initialization."
   (defun task-body (label)
     (concat "* " label " %?\n  %i\n  %a"))
 
+  (setq anki-body "* %?\n** Front\n** Back")
+
   (setq todo-task (task-body "TODO"))
 
   (setq org-capture-templates
@@ -255,10 +257,11 @@ This function is called at the very end of Spacemacs initialization."
            "* %?\nEntered on %U\n  %i\n  %a")
           ("n" "Notes" entry (file+headline ,(jb55/make-org-path "notes.org") "Notes")
            ,(task-body "NOTE"))
+          ("a" "Anki" entry (file+headline ,(jb55/make-org-path "anki.org") "Anki")
+           ,anki-body)
           ("w" "Work task" entry (file+headline ,(jb55/make-org-path "work.org") "Tasks")
            ,todo-task)
-          ("p" "Phabricator task" entry (file+headline ,(jb55/make-org-path "work.org") "Tasks")
-           "* TODO ([[https://phabricator.monstercat.com/%^{T123}][%\\1]]) %?\n  %i")))
+          ))
 
   (setq org-agenda-custom-commands
         '(("w" "Work review"
