@@ -234,6 +234,7 @@ This function is called at the very end of Spacemacs initialization."
   (spacemacs/set-leader-keys
     "pS" 'jb55/write-and-save
     "anj" 'notmuch-jump-search
+    "anh" 'notmuch-hello
     "ans" 'notmuch-search
     "]" 'jb55/forward-page-recenter-top
     "[" 'jb55/backward-page-recenter-top
