@@ -138,30 +138,31 @@ values."
                                :width normal
                                :powerline-scale 1.2)
 
-   dotspacemacs-leader-key "SPC"
-   dotspacemacs-remap-Y-to-y$ t
-   dotspacemacs-emacs-leader-key "M-m"
+   dotspacemacs-active-transparency 90
+   dotspacemacs-auto-save-file-location 'cache
+   dotspacemacs-colorize-cursor-according-to-state t
+   dotspacemacs-command-key ":"
+   dotspacemacs-default-package-repository nil
    dotspacemacs-editing-style 'vim
-   dotspacemacs-startup-lists '()
    dotspacemacs-elpa-https t
    dotspacemacs-elpa-timeout 5
-   dotspacemacs-major-mode-leader-key ","
-   dotspacemacs-verbose-loading nil
-   dotspacemacs-command-key ":"
-   dotspacemacs-guide-key-delay 0.4
+   dotspacemacs-emacs-leader-key "M-m"
+   dotspacemacs-enable-paste-transient-state nil
    dotspacemacs-fullscreen-at-startup nil
    dotspacemacs-fullscreen-use-non-native nil
-   dotspacemacs-maximized-at-startup nil
-   dotspacemacs-active-transparency 90
+   dotspacemacs-guide-key-delay 0.4
    dotspacemacs-inactive-transparency 90
+   dotspacemacs-install-packages 'used-but-keep-unused
+   dotspacemacs-leader-key "SPC"
+   dotspacemacs-major-mode-leader-key ","
+   dotspacemacs-maximized-at-startup nil
    dotspacemacs-mode-line-unicode-symbols t
-   dotspacemacs-smooth-scrolling t
-   dotspacemacs-smartparens-strict-mode t
    dotspacemacs-persistent-server nil
-   dotspacemacs-default-package-repository nil
-   dotspacemacs-auto-save-file-location 'cache
-   dotspacemacs-enable-paste-transient-state nil
-   dotspacemacs-colorize-cursor-according-to-state t
+   dotspacemacs-remap-Y-to-y$ t
+   dotspacemacs-smartparens-strict-mode t
+   dotspacemacs-smooth-scrolling t
+   dotspacemacs-startup-lists '()
+   dotspacemacs-verbose-loading nil
 
    ))
 
