@@ -171,6 +171,8 @@ values."
     (concat (abbreviate-file-name (eshell/basename (eshell/pwd)))
             (if (= (user-uid) 0) " # " " $ ")))
 
+  (load "urweb-mode/urweb-mode-startup")
+
   (defun colorize-compilation-buffer ()
     (toggle-read-only)
     (ansi-color-apply-on-region (point-min) (point-max))
