@@ -326,10 +326,6 @@ This function is called at the very end of Spacemacs initialization."
 
 
   (custom-set-variables
-   ;; custom-set-variables was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
    '(Linum-format "%7i ")
    '(ac-ispell-requires 4 t)
    '(ahs-case-fold-search nil)
@@ -414,6 +410,22 @@ This function is called at the very end of Spacemacs initialization."
       ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
    '(if (version< emacs-version "24.4"))
    '(js-indent-level 2)
+   '(notmuch-saved-searches
+     (quote
+       ((:name "unread" :query "tag:unread and tag:inbox" :key "u")
+       (:name "flagged" :query "tag:flagged" :key "f")
+       (:name "sent" :query "tag:sent" :key "t")
+       (:name "drafts" :query "tag:draft" :key "d")
+       (:name "all mail" :query "*" :key "a")
+       (:name "inbox" :query "tag:inbox and ((not tag:list and not tag:rss and not tag:busy and not tag:youtube) or tag:flagged or tag:best) " :key "i")
+       (:name "lists" :query "tag:inbox and tag:list" :key "l")
+       (:name "github" :query "tag:github and tag:inbox" :key "g")
+       (:name "rss" :query "tag:rss and tag:inbox and not tag:youtube and not tag:busy" :key "r")
+       (:name "best" :query "tag:best and tag:inbox" :key "b")
+       (:name "lobsters" :query "tag:lobsters and tag:inbox" :key "o")
+       (:name "youtube" :query "tag:youtube and tag:inbox" :key "y")
+       (:name "inbox2" :query "tag:inbox and (not tag:busy or tag:flagged or tag:best)" :key "I")
+       (:name "later" :query "tag:later" :key "L"))))
    '(js2-basic-offset 2)
    '(js2-bounce-indent-p t)
    '(js2-strict-missing-semi-warning nil)
@@ -426,25 +438,10 @@ This function is called at the very end of Spacemacs initialization."
    '(notmuch-message-headers-visible nil)
    '(notmuch-poll-script "notmuch-update")
    '(notmuch-search-oldest-first nil)
-   '(notmuch-saved-searches
-     (quote
-       ((:name "unread" :query "tag:unread" :key "u")
-       (:name "flagged" :query "tag:flagged" :key "f")
-       (:name "sent" :query "tag:sent" :key "t")
-       (:name "drafts" :query "tag:draft" :key "d")
-       (:name "all mail" :query "*" :key "a")
-       (:name "inbox" :query "tag:inbox and ((not tag:list and not tag:rss and not tag:busy and not tag:youtube) or tag:flagged or tag:best) " :key "i")
-       (:name "lists" :query "tag:inbox and tag:list" :key "l")
-       (:name "github" :query "tag:github and tag:inbox" :key "g")
-       (:name "rss" :query "tag:rss and tag:inbox" :key "r")
-       (:name "best" :query "tag:best and tag:inbox" :key "b")
-       (:name "lobsters" :query "tag:lobsters and tag:inbox" :key "o")
-       (:name "youtube" :query "tag:youtube and tag:inbox" :key "y")
-       (:name "inbox2" :query "tag:inbox and (not tag:busy or tag:flagged or tag:best)" :key "I"))))
    '(org-agenda-current-time-string
      #("=========================== NOW ===========================" 0 59
        (org-heading t)))
-   '(org-agenda-files (quote ("~/Dropbox/doc/org" "~/var/ical2org")))
+   '(org-agenda-files (quote ("~/Dropbox/doc/org")))
    '(org-agenda-time-grid
      (quote
       ((daily today require-timed)
@@ -490,7 +487,7 @@ This function is called at the very end of Spacemacs initialization."
    '(weechat-modules (quote (weechat-button weechat-image weechat-complete)))))
 
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
+ ;; custa/sa/savem-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
@@ -529,9 +526,6 @@ This function is called at the very end of Spacemacs initialization."
  '(cua-normal-cursor-color "#657b83")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
- '(custom-safe-themes
-   (quote
-    ("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default)))
  '(disaster-objdump "gobjdump -d -M att -Sl --no-show-raw-insn")
  '(elm-indent-offset 2)
  '(eshell-prompt-function (quote jb55/eshell-prompt))
@@ -539,8 +533,8 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-want-Y-yank-to-eol t)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
- '(fci-rule-character-color "#202020" t)
- '(fci-rule-color "#202020" t)
+ '(fci-rule-character-color "#202020")
+ '(fci-rule-color "#202020")
  '(flycheck-clang-include-path (quote ("deps")))
  '(flycheck-clang-language-standard nil)
  '(flycheck-gcc-language-standard "c++11")
@@ -607,7 +601,7 @@ This function is called at the very end of Spacemacs initialization."
  '(notmuch-poll-script "notmuch-update")
  '(notmuch-saved-searches
    (quote
-    ((:name "unread" :query "tag:unread" :key "u")
+    ((:name "unread" :query "tag:unread and tag:inbox" :key "u")
      (:name "flagged" :query "tag:flagged" :key "f")
      (:name "sent" :query "tag:sent" :key "t")
      (:name "drafts" :query "tag:draft" :key "d")
@@ -619,12 +613,13 @@ This function is called at the very end of Spacemacs initialization."
      (:name "best" :query "tag:best and tag:inbox" :key "b")
      (:name "lobsters" :query "tag:lobsters and tag:inbox" :key "o")
      (:name "youtube" :query "tag:youtube and tag:inbox" :key "y")
-     (:name "inbox2" :query "tag:inbox and (not tag:busy or tag:flagged or tag:best)" :key "I"))))
+     (:name "inbox2" :query "tag:inbox and (not tag:busy or tag:flagged or tag:best)" :key "I")
+     (:name "later" :query "tag:later" :key "L"))))
  '(notmuch-search-oldest-first nil)
  '(org-agenda-current-time-string
    #("=========================== NOW ===========================" 0 59
      (org-heading t)))
- '(org-agenda-files (quote ("~/Dropbox/doc/org" "~/var/ical2org")))
+ '(org-agenda-files (quote ("~/Dropbox/doc/org/anki" "~/Dropbox/doc/org")))
  '(org-agenda-time-grid
    (quote
     ((daily today require-timed)
@@ -632,11 +627,15 @@ This function is called at the very end of Spacemacs initialization."
      (800 1000 1200 1400 1600 1800 2000))))
  '(org-archive-location "archive/%s_archive::")
  '(org-directory "~/Dropbox/doc/org")
+ '(org-format-latex-options
+   (quote
+    (:foreground default :background default :scale 2.0 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
+                 ("begin" "$1" "$" "$$" "\\(" "\\["))))
  '(org-refile-targets (quote ((org-agenda-files :maxlevel . 1))))
  '(org-use-sub-superscripts (quote {}))
  '(package-selected-packages
    (quote
-    (symon string-inflection toml-mode racer flycheck-rust seq cargo rust-mode meghanada groovy-mode groovy-imports gradle-mode ensime sbt-mode scala-mode company-emacs-eclim eclim org-brain git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl browse-at-remote spinner ereader xml+ helm-pages company-auctex auctex yapfify winum weechat tracking vala-mode tide typescript-mode powerline shen-elisp faceup py-isort purescript-mode powershell org-projectile alert log4e gntp omnisharp markdown-mode magithub skewer-mode simple-httpd json-snatcher json-reformat multiple-cursors js2-mode intero idris-mode prop-menu hydra parent-mode hide-comnt multi helm-purpose window-purpose imenu-list projectile request glsl-mode gitignore-mode github-search gh marshal logito pcache fuzzy fsharp-mode flycheck pkg-info epl flx evil-unimpaired magit magit-popup git-commit with-editor smartparens iedit anzu evil goto-chg undo-tree highlight engine-mode emojify ht dumb-jump diminish csharp-mode dash-functional tern pos-tip nixos-options irony ghc haskell-mode company bind-map bind-key yasnippet packed anaconda-mode pythonic f dash s helm avy helm-core async auto-complete popup notmuch hlint-refactor company-ghci flycheck-elm elm-mode ledger-mode helm-gtags ggtags flycheck-ledger yaml-mode ws-butler window-numbering which-key web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org sql-indent spotify spacemacs-theme spaceline smooth-scrolling smeargle shm restart-emacs rainbow-delimiters racket-mode quelpa pyvenv pytest pyenv-mode py-yapf psci psc-ide popwin pip-requirements persp-mode pcre2el paradox page-break-lines orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-download open-junk-file nix-mode neotree move-text mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint leuven-theme json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-spotify helm-pydoc helm-projectile helm-nixos-options helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio gnuplot github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh-md flycheck-purescript flycheck-pos-tip flycheck-haskell flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emoji-cheat-sheet-plus elisp-slime-nav disaster define-word cython-mode csv-mode company-tern company-statistics company-quickhelp company-nixos-options company-irony company-ghc company-emoji company-cabal company-c-headers company-anaconda column-enforce-mode coffee-mode cmm-mode cmake-mode clean-aindent-mode clang-format buffer-move bracketed-paste base16-theme auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (auctex-latexmk org-bullets exec-path-from-shell yapfify yaml-mode ws-butler winum which-key weechat web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toml-mode toc-org tide symon string-inflection sql-indent spotify spaceline smeargle shen-mode shen-elisp restart-emacs realgud rainbow-delimiters racket-mode racer pyvenv pytest pyenv-mode py-isort psci psc-ide powershell popwin pip-requirements persp-mode pcre2el paradox orgit org-projectile org-present org-pomodoro org-download org-brain open-junk-file omnisharp ob-sml notmuch nix-mode neotree move-text mmm-mode meghanada mastodon markdown-toc magit-gitflow macrostep lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint ledger-mode json-mode js2-refactor js-doc jade-mode intero info+ indent-guide idris-mode hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-spotify helm-pydoc helm-purpose helm-projectile helm-pages helm-nixos-options helm-mode-manager helm-make helm-hoogle helm-gtags helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag haskell-snippets groovy-mode groovy-imports gradle-mode google-translate golden-ratio gnuplot glsl-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md ggtags fuzzy fsharp-mode flycheck-rust flycheck-pos-tip flycheck-ledger flycheck-haskell flycheck-elm flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu ereader erc-yt erc-view-log erc-social-graph erc-image erc-hl-nicks ensime engine-mode emojify emoji-cheat-sheet-plus elm-mode elisp-slime-nav dumb-jump disaster define-word cython-mode csv-mode company-tern company-statistics company-nixos-options company-irony company-ghci company-ghc company-emoji company-emacs-eclim company-cabal company-c-headers company-auctex company-anaconda column-enforce-mode coffee-mode cmm-mode cmake-mode clean-aindent-mode clang-format cargo base16-theme auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(powerline-color1 "#1E1E1E")
  '(powerline-color2 "#111111")
  '(projectile-globally-ignored-directories
@@ -685,3 +684,4 @@ This function is called at the very end of Spacemacs initialization."
  '(package-selected-packages
    (quote
     (window-numbering spacemacs-theme ido-vertical-mode quelpa package-build yapfify yaml-mode ws-butler winum which-key weechat web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tide sql-indent spotify spaceline smeargle shen-elisp restart-emacs rainbow-delimiters racket-mode pyvenv pytest pyenv-mode py-isort psci psc-ide powershell popwin pip-requirements persp-mode pcre2el paradox orgit org-projectile org-present org-pomodoro org-download open-junk-file omnisharp notmuch nix-mode neotree move-text mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint ledger-mode json-mode js2-refactor js-doc jade-mode intero info+ indent-guide idris-mode hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-spotify helm-pydoc helm-projectile helm-pages helm-nixos-options helm-mode-manager helm-make helm-hoogle helm-gtags helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio gnuplot glsl-mode github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh-md ggtags fuzzy fsharp-mode flycheck-pos-tip flycheck-ledger flycheck-haskell flycheck-elm flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu ereader engine-mode emojify emoji-cheat-sheet-plus elm-mode elisp-slime-nav dumb-jump disaster define-word cython-mode csv-mode company-tern company-statistics company-nixos-options company-irony company-ghci company-ghc company-emoji company-cabal company-c-headers company-auctex company-anaconda column-enforce-mode coffee-mode cmm-mode cmake-mode clean-aindent-mode clang-format base16-theme auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+
