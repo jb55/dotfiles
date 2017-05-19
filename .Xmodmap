@@ -28,15 +28,15 @@ keycode 204 = XF86Eject
 ! symmetry by having mute in the middle
 
 ! F12
-keycode 96 = XF86AudioRaiseVolume
+!keycode 96 = XF86AudioRaiseVolume
 ! F11
-keycode 95 = XF86AudioMute
+!keycode 95 = XF86AudioMute
 ! F110
-keycode 76 = XF86AudioLowerVolume
+!keycode 76 = XF86AudioLowerVolume
 
 ! F8
-keycode 74 = XF86AudioNext
+!keycode 74 = XF86AudioNext
 ! F7
-keycode 73 = XF86AudioPlay
+!keycode 73 = XF86AudioPlay
 ! F6
-keycode 72 = XF86AudioPrev
+!keycode 72 = XF86AudioPrev
