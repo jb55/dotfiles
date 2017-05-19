@@ -33,3 +33,6 @@
 
 "n ds4_battery"
   Mod4 + F3
+
+"n chromecast-stop"
+  Mod4 + F10
