@@ -205,9 +205,11 @@ This function is called at the very end of Spacemacs initialization."
   (defun jb55/notmuch-show-insert-header-p (part hide)
     ;; Show all part buttons except for the first part if it is text/plain.
     (let ((mime-type (notmuch-show-mime-type part)))
-      (not (member mime-type (list "multipart/alternative"
-                                   "multipart/mixed"
-                                   "text/plain")))))
+      (not (or (and (string= mime-type "text/plain")
+                    (<= (plist-get part :id) 3))
+               (member mime-type (list "multipart/alternative"
+                                       "multipart/mixed"
+                                       "multipart/signed"))))))
 
   (setq notmuch-show-insert-header-p-function 'jb55/notmuch-show-insert-header-p)
 
