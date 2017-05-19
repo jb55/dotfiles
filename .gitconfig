@@ -39,6 +39,8 @@
   cloner = clone --recursive
   st = status -sb
   co = checkout
+[rebase]
+  autosquash = true
 [push]
 	default = simple
 [rerere]
