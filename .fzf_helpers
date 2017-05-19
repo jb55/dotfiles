@@ -15,7 +15,7 @@ fda() {
 
 # fz - cd to directories known to z
 fz() {
-  local dir=$(z | fzcmd) && cd "$dir"
+  local dir=$(z | fzcmd "$1") && cd "$dir"
 }
 
 # fzt - cd to most recently accessed dirs
@@ -25,7 +25,8 @@ fzt() {
 
 # fz helper
 fzcmd() {
-  awk '{ print $2 }' | fzf --tac +s
+  awk '{ print $2 }' | fzf --query="$1" --tac +s
+}
 }
 
 # fni - nix install
