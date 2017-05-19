@@ -15,7 +15,7 @@ fda() {
 
 # fz - cd to directories known to z
 fz() {
-  local dir=$(z | fzcmd) && cd "$dir"
+  local dir=$(z | fzcmd "$1") && cd "$dir"
 }
 
 # fzt - cd to most recently accessed dirs
@@ -25,16 +25,22 @@ fzt() {
 
 # fz helper
 fzcmd() {
-  awk '{ print $2 }' | fzf --tac +s
+  awk '{ print $2 }' | fzf --query="$1" --tac +s
+}
+
+# fn - nix packages
+fn() {
+  fzf < ~/.nix-grep-cache
 }
 
 # fni - nix install
 fni() {
   local pkg
-  pkg=$(<$HOME/.nixenv.cache fzf) && \
+  pkg=$(<$HOME/.nix-grep-cache fzf) && \
   nix-install $(echo $pkg | awk '{ print $1 }')
 }
 
+# fns - nix shell
 fns() {
   local pkg
   pkg=$(<$HOME/.nixenv.cache fzf) && \

@@ -46,7 +46,7 @@ NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
+NeoBundle 'vim-syntastic/syntastic'
 NeoBundle 'szw/vim-maximizer'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'tpope/vim-commentary'
@@ -235,13 +235,21 @@ let g:clang_complete_copen = 1
 let g:clang_snippets = 1
 let g:clang_use_library = 1
 
-let g:syntastic_haskell_checkers = []
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_args = '~/.eslintrc'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 let g:syntastic_coffee_coffeelint_conf = '~/.coffeelintrc'
 let g:syntastic_enable_signs=1
 let g:syntastic_error_symbol='✗'
+let g:syntastic_haskell_checkers = []
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_args = '~/.eslintrc'
 let g:syntastic_warning_symbol='⚠'
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 let g:EasyMotion_leader_key = '<Leader>'
 
@@ -287,6 +295,7 @@ augroup END
 
 "au BufEnter *.hs compiler ghc
 au BufRead,BufNewFile *.nix set syn=nix
+au BufRead,BufNewFile *.nix set filetype=nix
 au BufRead,BufNewFile *.c,*.cpp,*.h set cindent
 au BufRead,BufNewFile *.c,*.cpp,*.h set cino=(0
 au BufRead,BufNewFile *.clay set syn=clay

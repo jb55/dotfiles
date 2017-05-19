@@ -1,7 +1,7 @@
 ! vim: foldmethod=marker:
 
 !#include ".Xresources.d/themes/solarized"
-#include ".Xresources.d/themes/baskerville"
+!#include ".Xresources.d/themes/baskerville"
 !#include ".Xresources.d/themes/sexy"
 !#include ".Xresources.d/themes/mocha"
 !#include ".Xresources.d/themes/tomorrow.light"
@@ -9,7 +9,7 @@
 !#include ".Xresources.d/themes/ashes.light"
 !#include ".Xresources.d/themes/polygon"
 !#include ".Xresources.d/themes/shore"
-!#include ".Xresources.d/themes/tomorrow-night"
+#include ".Xresources.d/themes/tomorrow-night"
 
 #URxvt.perl-ext-common: color-themes
 
@@ -50,7 +50,7 @@ URxvt*scrollTtyOutput:      false
 URxvt*scrollWithBuffer:     true
 URxvt*scrollTtyKeypress:    true
 
-Emacs.font: Monospace-10
+!Emacs.font: Monospace-10
 
 ! XTerm
 XTerm*boldFont: fixed

@@ -25,11 +25,14 @@
 "slock & systemctl suspend"
   Control + Pause
 
-"n date '+%a | %b %d | %R'"
+"n date '+%a | %b %d | %R | %F'"
   Mod4 + F5
 
 "n btc"
   Mod4 + F4
 
-"n cat /sys/class/power_supply/sony_controller_battery_84:17:66:bb:f2:4d/capacity"
+"n ds4_battery"
   Mod4 + F3
+
+"n chromecast-stop"
+  Mod4 + F10

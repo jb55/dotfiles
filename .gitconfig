@@ -1,12 +1,7 @@
 [user]
   name = William Casarin
-  email = bill@casarin.me
+  email = jb55@jb55.com
   signingkey = 0x415AF4A3
-[sendemail]
-  smtpencryption = tls
-  smtpserver = smtp.gmail.com
-  smtpuser = jackbox55@gmail.com
-  smtpserverport = 587
 [color]
   diff = auto
   status = auto
@@ -17,6 +12,8 @@
   insteadOf = gh:
 [url "http://git.zero.jb55.com/"]
   insteadOf = jb:
+[url "jb55.com:git/"]
+  insteadOf = dev:
 [url "ssh://git@phabricator.monstercat.com/diffusion/"]
   insteadOf = phab:
 [url "http://git.zero.monster.cat/"]

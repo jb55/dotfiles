@@ -40,8 +40,36 @@ alias xclip="xclip -selection clipboard"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias wanip=myip
 alias myipaddress=myip
+alias ns="nix-shell -p"
 alias fzf="fzf --exact"
 
+cdnp () {
+  nix-build '<nixpkgs>' --no-out-link -A "$1"
+  cd $(nix-path "$1")
+}
+
+np () {
+  nix-path "$1"
+}
+
+nsr () {
+  local cmd="$1"
+  shift
+  nix-shell -p "$cmd" --run "$@"
+}
+
+nsr2 () {
+    local cmd="$1"
+    shift
+    local cmd2="$(<<<"$cmd" rev | cut -d. -f1 | rev) $@"
+    nsr "$cmd" "$cmd2"
+}
+
+nsc () {
+  local cmd="$1"
+  shift
+  nix-shell -p "$cmd" --command "$@"
+}
 
 share () {
   sharefile "$@" | xclip
@@ -164,8 +192,6 @@ sql_() {
 sql() {
   sql_ "$@" | pcsvt
 }
-
-source $DOTFILES/bash/rangercd.sh
 
 # fzf
 source $DOTFILES/.fzf_helpers
