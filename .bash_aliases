@@ -193,9 +193,6 @@ sql() {
   sql_ "$@" | pcsvt
 }
 
-
-source $DOTFILES/bash/rangercd.sh
-
 # fzf
 source $DOTFILES/.fzf_helpers
 
