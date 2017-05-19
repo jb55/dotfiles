@@ -22,26 +22,28 @@
     csharp
     csv
     elm
+    erc
     emacs-lisp
     emoji
     finance
     fsharp
     git
-    ;;github
-    gnus
     gtags
     idris
     javascript
+    (java :variables java-backend 'eclim)
     latex
     lua
     markdown
+    (debug :variables c-c++-enable-debug t)
     nixos
     org
     purescript
     python
     racket
     rust
-    search-engine
+    search-engineur
+    sml
     spacemacs-helm
     spacemacs-layouts
     spacemacs-ui-visual
@@ -49,7 +51,6 @@
     sql
     syntax-checking
     typescript
-    (java :variables java-backend 'eclim)
 		windows-scripts
     yaml
 
@@ -60,6 +61,7 @@
                                  company-irony
                                  base16-theme
                                  emojify
+                                 shen-mode
                                  ereader
                                  glsl-mode
                                  (flycheck
