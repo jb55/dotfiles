@@ -131,8 +131,9 @@ values."
    dotspacemacs-startup-banner 'official
    dotspacemacs-themes (list (jb55/determine-theme))
 
-   dotspacemacs-default-font '("Noto Mono"
-                               :size 13
+   dotspacemacs-default-font '("Inconsolata"
+                               :size 14
+                               :style medium
                                :weight normal
                                :width normal
                                :powerline-scale 1.2)
