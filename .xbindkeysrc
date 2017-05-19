@@ -25,7 +25,7 @@
 "slock & systemctl suspend"
   Control + Pause
 
-"n date '+%a | %b %d | %R'"
+"n date '+%a | %b %d | %R | %F'"
   Mod4 + F5
 
 "n btc"
