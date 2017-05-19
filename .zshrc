@@ -50,7 +50,7 @@ export LESS="-R"
 
 export GOPATH=$HOME/dev/gocode
 export RUBYBIN=$HOME/.ruby/1.8/gems/bin
-export PATH=$RUBYBIN:$HOME/.npm/bin:$GOPATH/bin:$PATH
+export PATH=$HOME/bin:$RUBYBIN:$HOME/.npm/bin:$GOPATH/bin:$PATH
 
 # alias
 
@@ -85,3 +85,7 @@ DIRCOLORS="$HOME/.dircolors"
 [ -e "$DIRCOLORS" ] && eval "$(dircolors -b "$DIRCOLORS")"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+. /Users/jb55/.nix-profile/etc/profile.d/nix.sh
+
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ '

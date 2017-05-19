@@ -23,7 +23,6 @@ alias emacs="env TERM=xterm-256color emacs"
 alias fixssh="source $HOME/bin/fixssh"
 alias githist="git reflog show | grep '}: commit' | nl | sort -nr | nl | sort -nr | cut --fields=1,3 | sed s/commit://g | sed -e 's/HEAD*@{[0-9]*}://g'"
 alias jsonpp="python -mjson.tool"
-alias ls="ls --color"
 alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
 alias nfmt="numfmt --to=si"
 alias noder="env NODE_NO_READLINE=1 rlwrap node"
@@ -78,13 +77,12 @@ pcsvt () {
 
 monstercam() {
   host=${1:-archer.zero.monster.cat}
-  ssh $host "ffmpeg -f alsa -ar 16000 -ac 1 -i hw:2 -f v4l2 -s 640x480 -i /dev/video0 -f avi -pix_fmt yuv420p -"
+  ssh $host "ffmpeg -thread_queue_size 512 -f alsa -ar 16000 -ac 1 -i hw:1 -f v4l2 -s 640x480 -i /dev/video0  -f avi -pix_fmt yuv420p -"
 }
 
 monstercam-live() {
   host=${1:-archer.zero.monster.cat}
   monstercam $host \
-    | tee /sand/vid/monstercam.avi \
     | ffplay -
 }
 

@@ -47,11 +47,13 @@
     sql
     syntax-checking
     typescript
+    themes-megapack
     yaml
 
    ))
 
 (setq jb55/additional-packages '(
+                                 base16-theme
                                  company-irony
                                  jade-mode
                                  notmuch
@@ -495,8 +497,8 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-want-Y-yank-to-eol t)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
- '(fci-rule-character-color "#202020")
- '(fci-rule-color "#202020")
+ '(fci-rule-character-color "#202020" t)
+ '(fci-rule-color "#202020" t)
  '(flycheck-clang-include-path (quote ("deps")))
  '(flycheck-clang-language-standard nil)
  '(flycheck-gcc-language-standard "c++11")
@@ -515,9 +517,9 @@ This function is called at the very end of Spacemacs initialization."
  '(haskell-interactive-popup-error nil t)
  '(haskell-mode-hook
    (quote
-    (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)))
- '(haskell-notify-p t)
- '(haskell-process-auto-import-loaded-modules t)
+    (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
+ '(haskell-notify-p t t)
+ '(haskell-process-auto-import-loaded-modules t t)
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t t)
  '(haskell-process-type (quote ghci))
@@ -558,6 +560,7 @@ This function is called at the very end of Spacemacs initialization."
  '(main-line-color1 "#1E1E1E")
  '(main-line-color2 "#111111")
  '(main-line-separator-style (quote chamfer))
+ '(notmuch-command "/Users/jb55/bin/notmuch-remote")
  '(notmuch-fcc-dirs ".Sent +sent")
  '(notmuch-message-headers-visible nil)
  '(notmuch-poll-script "notmuch-update")
