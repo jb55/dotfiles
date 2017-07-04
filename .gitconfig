@@ -37,6 +37,7 @@
   lg = !"git lg1"
   serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
   cloner = clone --recursive
+  hash = !"git rev-parse HEAD | tr -d '\n' | xclip"
   st = status -sb
   co = checkout
 [rebase]
