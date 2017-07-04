@@ -37,6 +37,7 @@
     racket
     search-engine
     spacemacs-helm
+    shell-scripts
     spacemacs-layouts
     spotify
     sql
