@@ -3,6 +3,7 @@ defflow off
 defscrollback 5000
 vbell off
 startup_message off
+term screen-256color
 
 bindkey -d -k kb stuff "\010"
 attrcolor b ".I"

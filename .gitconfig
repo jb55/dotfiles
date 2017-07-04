@@ -1,18 +1,15 @@
 [user]
   name = William Casarin
-  email = bill@casarin.me
+  email = jb55@jb55.com
   signingkey = 0x415AF4A3
-[sendemail]
-  smtpencryption = tls
-  smtpserver = smtp.gmail.com
-  smtpuser = jackbox55@gmail.com
-  smtpserverport = 587
 [color]
   diff = auto
   status = auto
 [core]
   excludesfile = /Users/jb55/.gitignore_global
 	editor = vim
+[sendemail]
+  smtpServer=/run/wrappers/bin/sendmail
 [url "git@github.com:"]
   insteadOf = gh:
 [url "jb55.com:git/"]
@@ -21,9 +18,15 @@
   insteadOf = phab:
 [url "http://git.zero.monster.cat/"]
   insteadOf = mcat:
+[url "http://git.zero.jb55.com/"]
+  insteadOf = zero:
+[url "http://git.razor.jb55.com/"]
+  insteadOf = razor:
 [gui]
   recentrepo = /Users/jb55/src/js/titania
 [alias]
+  refl = reflog --date=relative
+  br = symbolic-ref --short HEAD
   ff = merge --ff-only
   try = merge --no-commit --no-ff
   pff = pull --ff-only
@@ -36,6 +39,8 @@
   cloner = clone --recursive
   st = status -sb
   co = checkout
+[rebase]
+  autosquash = true
 [push]
 	default = simple
 [rerere]
@@ -45,3 +50,5 @@
 	sslCAInfo = /home/jb55/.flynn/ca-certs/default.pem
 [credential "https://git.monstercat.com"]
 	helper = /home/jb55/bin/flynn git-credentials
+[gpg]
+	program = gpg2

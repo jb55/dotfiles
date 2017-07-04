@@ -1,2 +1,4 @@
 h left-scroll
 l right-scroll
+J next-file
+K prev-file

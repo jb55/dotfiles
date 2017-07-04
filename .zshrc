@@ -1,3 +1,4 @@
+#
 # Path to your oh-my-zsh configuration.
 #export ZSH=$HOME/.oh-my-zsh
 
@@ -22,6 +23,7 @@ export KEYTIMEOUT=1
 bindkey "^R" history-incremental-search-backward
 bindkey "^F" history-incremental-search-forward
 
+# history settings
 export HISTSIZE=50000
 export SAVEHIST=$HISTSIZE
 setopt hist_ignore_all_dups
@@ -84,3 +86,5 @@ DIRCOLORS="$HOME/.dircolors"
 [ -e "$DIRCOLORS" ] && eval "$(dircolors -b "$DIRCOLORS")"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ '

@@ -78,6 +78,7 @@ application/x-doc=libreoffice-writer.desktop
 application/x-dos_ms_excel=libreoffice-calc.desktop
 application/x-excel=libreoffice-calc.desktop
 application/x-extension-mp4=vlc.desktop
+application/x-extension-mkv=vlc.desktop
 application/x-flac=vlc.desktop
 application/x-gzip=xarchiver.desktop
 application/xhtml+xml=chromium.desktop

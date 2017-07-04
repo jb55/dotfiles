@@ -2,5 +2,5 @@ map [normal] d scroll half-down
 map [normal] u scroll half-up
 map [normal] <C-d> toggle_page_mode 2
 set recolor true
-set recolor-darkcolor "#ddd"
-set recolor-lightcolor "#333"
+set recolor-lightcolor "#232323"
+set recolor-darkcolor "#B0B0B0"

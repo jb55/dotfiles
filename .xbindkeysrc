@@ -10,7 +10,6 @@
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
   XF86AudioNext
 
-
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
   XF86AudioPrev
 
@@ -25,3 +24,15 @@
 
 "slock & systemctl suspend"
   Control + Pause
+
+"n date '+%a | %b %d | %R | %F'"
+  Mod4 + F5
+
+"n btc"
+  Mod4 + F4
+
+"n ds4_battery"
+  Mod4 + F3
+
+"n chromecast-stop"
+  Mod4 + F10
