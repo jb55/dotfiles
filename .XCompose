@@ -169,8 +169,8 @@ include "%L"
 <Multi_key> <equal> <Down> <Left>	: "⏎"	U23CE	# RETURN SYMBOL
 # These are just too cool-looking not to have (if your font supports them)
 <Multi_key> <equal> <period> <equal>	: "⸎"	U2E0E		# EDITORIAL CORONIS
-<Multi_key> <Multi_key> <p> <a> <l> <m>	: "⸙"	U2E19		# PALM BRANCH
-<Multi_key> <Multi_key> <b> <r> <a> <n> <c> <h>: "⸙"	U2E19		# PALM BRANCH
+<Multi_key> <p> <a> <l> <m>	: "⸙"	U2E19		# PALM BRANCH
+<Multi_key> <b> <r> <a> <n> <c> <h>: "⸙"	U2E19		# PALM BRANCH
 
 
 <Multi_key> <f> <f>		: "ﬀ"	   UFB00   # LATIN SMALL LIGATURE FF
@@ -298,9 +298,9 @@ include "%L"
 <Multi_key> <backslash> <slash>         : "∨"  U2228           # LOGICAL OR
 <Multi_key> <backslash> <underscore> <slash>    : "⊻" U22BB     # XOR
 <Multi_key> <minus> <comma>	     :	"¬"	U00AC 		# NOT SIGN
-<Multi_key> <Multi_key> <asterisk> <o>              : "∘"   U2218           # RING OPERATOR (function composition)
-<Multi_key> <Multi_key> <asterisk> <x>             : "⨯"   U2A2F           # CROSS PRODUCT
-<Multi_key> <Multi_key> <asterisk>  <period>        : "⋅"   U22C5           # DOT OPERATOR (dot product)
+<Multi_key> <asterisk> <o>              : "∘"   U2218           # RING OPERATOR (function composition)
+<Multi_key> <asterisk> <x>             : "⨯"   U2A2F           # CROSS PRODUCT
+<Multi_key> <asterisk>  <period>        : "⋅"   U22C5           # DOT OPERATOR (dot product)
 <Multi_key> <0> <slash>                 : "∅"   U2205           # EMPTY SET (thanks jsled!)
 <Multi_key> <slash> <0>                 : "∅"   U2205           # EMPTY SET
 # I'm hoping { can work as a set mnemonic
@@ -317,23 +317,23 @@ include "%L"
 <Multi_key> <slash> <E> <E>             : "∄"   U2204           # THERE DOES NOT EXIST
 <Multi_key> <A> <A>                     : "∀"  U2200           # FOR ALL
 <Multi_key> <l> <l>		: "λ"	U03BB		# GREEK SMALL LETTER LAMBDA
-<Multi_key> <Multi_key> <Q> <E> <D>     : "∎"   U220E           # END OF PROOF
+<Multi_key> <Q> <E> <D>     : "∎"   U220E           # END OF PROOF
 <Multi_key> <8> <8>                     : "∞"  U221E           # INFINITY
-<Multi_key> <Multi_key> <a> <l> <e> <p> <h> : "ℵ" U2135	       # ALEF SYMBOL
-<Multi_key> <Multi_key> <a> <l> <e> <p> <0> : "ℵ₀"        # ALEF Null
-<Multi_key> <Multi_key> <a> <l> <e> <p> <1> : "ℵ₁"        # ALEF One
-<Multi_key> <Multi_key> <a> <l> <e> <f> : "ℵ" U2135	       # ALEF SYMBOL
+<Multi_key> <a> <l> <e> <p> <h> : "ℵ" U2135	       # ALEF SYMBOL
+<Multi_key> <a> <l> <e> <p> <0> : "ℵ₀"        # ALEF Null
+<Multi_key> <a> <l> <e> <p> <1> : "ℵ₁"        # ALEF One
+<Multi_key> <a> <l> <e> <f> : "ℵ" U2135	       # ALEF SYMBOL
 <Multi_key> <KP_Multiply> <KP_Multiply>    : "∗"   U2217 # ASTERISK OPERATOR
-<Multi_key> <parenleft> <plus> <parenright>     : "⊕"  U2295    # CIRCLED PLUS
-<Multi_key> <parenleft> <minus> <parenright>    : "⊖"  U2296    # CIRCLED MINUS
-<Multi_key> <parenleft> <x> <x> <parenright>    : "⊗"  U2297    # CIRCLED TIMES
-<Multi_key> <parenleft> <slash> <parenright>    : "⊘"  U2298    # CIRCLED DIVISION SLASH
-<Multi_key> <parenleft> <asterisk> <parenright> : "⊛"  U229B    # CIRCLED ASTERISK OPERATOR
+<Multi_key> <o> <plus> : "⊕"  U2295    # CIRCLED PLUS
+<Multi_key> <o> <minus>    : "⊖"  U2296    # CIRCLED MINUS
+<Multi_key> <o> <x>     : "⊗"  U2297    # CIRCLED TIMES
+<Multi_key> <o> <slash>    : "⊘"  U2298    # CIRCLED DIVISION SLASH
+<Multi_key> <o> <asterisk> : "⊛"  U229B    # CIRCLED ASTERISK OPERATOR
 # )- conflicts with system for }.
 <Multi_key> <parenright> <underscore>    : "⟌"   	U27CC		# LONG DIVISION
 <Multi_key> <period> <quotedbl>	   	: "∴"	U2234  		# THEREFORE
 <Multi_key> <quotedbl> <period>	   	: "∵"	U2235  		# BECAUSE
-<Multi_key> <Multi_key> <b> <e> <c> <a> <u> <s> <e>	   	: "∵"	U2235  		# BECAUSE
+<Multi_key> <b> <e> <c> <a> <u> <s> <e>	   	: "∵"	U2235  		# BECAUSE
 <Multi_key> <percent> <percent>		: "‱"	U2031	# PER TEN THOUSAND (basis points)
 <Multi_key> <slash> <u>                : "µ"   U00B5      # MICRO SIGN
 # Ordinal indicators, for femenine and masculine, used in Romance languages
@@ -341,32 +341,32 @@ include "%L"
 <Multi_key> <minus> <o>			: "º"	U00BA		# MASCULINE ORDINAL INDICATOR
 
 # See also U03A3 (Greek capital sigma)
-<Multi_key> <Multi_key> <s> <u> <m>	: "∑"	U2211		# N-ARY SUMMATION
+<Multi_key> <s> <u> <m>	: "∑"	U2211		# N-ARY SUMMATION
 # OK, absolutely cannot believe we made it this long without NABLA or INTEGRAL
 # or PARTIAL DIFFERENTIAL
-<Multi_key> <Multi_key> <i> <n> <t>	: "∫"	U222B		# INTEGRAL
-<Multi_key> <Multi_key> <u> <i> <n> <t>	: "⨛"	U2A1B		# UPPER INTEGRAL
-<Multi_key> <Multi_key> <l> <i> <n> <t>	: "⨜"	U2A1C		# LOWER INTEGRAL
-<Multi_key> <Multi_key> <i> <i> <n> <t>	: "∬"	U222C		# DOUBLE INTEGRAL
-<Multi_key> <Multi_key> <i> <i> <i> <n> <t>	: "∭"	U222D		# TRIPLE INTEGRAL
-<Multi_key> <Multi_key> <i> <i> <i> <i> <n> <t>	: "⨌"	U2A0C		# QUADRUPLE INTEGRAL
-<Multi_key> <Multi_key> <o> <i> <n> <t>	: "∮"	U222E		# CONTOUR INTEGRAL
-<Multi_key> <Multi_key> <p> <i> <n> <t>	: "⨕"	U2A15		# SEMICIRCULAR POLE INTEGRAL
-<Multi_key> <Multi_key> <c> <P> <i> <n> <t>	: "⨓"	U2A13		# INTEGRAL AROUND POINT
-<Multi_key> <Multi_key> <o> <i> <i> <n> <t>	: "∯"	U222F		# SURFACE INTEGRAL
-<Multi_key> <Multi_key> <o> <i> <i> <i> <n> <t>	: "∰"	U2230		# VOLUME INTEGRAL
-<Multi_key> <Multi_key> <g> <i> <n> <t>	: "⨘"	U2A18		# GEOMETRIC INTEGRAL
-<Multi_key> <Multi_key> <s> <i> <n> <t>	: "⨋"	U2A0B		# SUM/INTEGRAL
+<Multi_key> <i> <n> <t>	: "∫"	U222B		# INTEGRAL
+<Multi_key> <u> <i> <n> <t>	: "⨛"	U2A1B		# UPPER INTEGRAL
+<Multi_key> <l> <i> <n> <t>	: "⨜"	U2A1C		# LOWER INTEGRAL
+<Multi_key> <i> <i> <n> <t>	: "∬"	U222C		# DOUBLE INTEGRAL
+<Multi_key> <i> <i> <i> <n> <t>	: "∭"	U222D		# TRIPLE INTEGRAL
+<Multi_key> <i> <i> <i> <i> <n> <t>	: "⨌"	U2A0C		# QUADRUPLE INTEGRAL
+<Multi_key> <o> <i> <n> <t>	: "∮"	U222E		# CONTOUR INTEGRAL
+<Multi_key> <p> <i> <n> <t>	: "⨕"	U2A15		# SEMICIRCULAR POLE INTEGRAL
+<Multi_key> <c> <P> <i> <n> <t>	: "⨓"	U2A13		# INTEGRAL AROUND POINT
+<Multi_key> <o> <i> <i> <n> <t>	: "∯"	U222F		# SURFACE INTEGRAL
+<Multi_key> <o> <i> <i> <i> <n> <t>	: "∰"	U2230		# VOLUME INTEGRAL
+<Multi_key> <g> <i> <n> <t>	: "⨘"	U2A18		# GEOMETRIC INTEGRAL
+<Multi_key> <s> <i> <n> <t>	: "⨋"	U2A0B		# SUM/INTEGRAL
 #Now for some WTF integrals: ⨙ ⨚ 	
-<Multi_key> <Multi_key> <d> <e> <l>	: "∇"	U2207	        # NABLA
-<Multi_key> <Multi_key> <p> <a> <r> <t>   : "∂" U2202		# PARTIAL DIFFERENTIAL
+<Multi_key> <d> <e> <l>	: "∇"	U2207	        # NABLA
+<Multi_key> <p> <a> <r> <t>   : "∂" U2202		# PARTIAL DIFFERENTIAL
 <Multi_key> <asterisk> <period> <period> <d>   : "∂" U2202	# PARTIAL DIFFERENTIAL
 <Multi_key> <R> <e>    		: "ℜ"	 U211C 	     	# BLACK-LETTER CAPITAL R (Real Part)
 <Multi_key> <I> <m>		: "ℑ"	 U2111		# BLACK-LETTER CAPTIAL I (Imaginary Part)
-<Multi_key> <Multi_key> <h> <b> <a> <r>	:   "ℏ"	U210F	# PLANCK CONSTANT OVER TWO PI
+<Multi_key> <h> <b> <a> <r>	:   "ℏ"	U210F	# PLANCK CONSTANT OVER TWO PI
 <Multi_key> <h> <minus>			:   "ℏ"	U210F	# PLANCK CONSTANT OVER TWO PI
 <Multi_key> <h> <p>	    :	"ℎ"	    U210E   # PLANCK CONSTANT
-<Multi_key> <Multi_key> <e> <x> <p> :   "ℯ"	U212F   # SCRIPT SMALL E
+<Multi_key> <e> <x> <p> :   "ℯ"	U212F   # SCRIPT SMALL E
 <Multi_key> <e> <1> <0> :	"⏨" 	U23E8   # DECIMAL EXPONENT SYMBOL
 <Multi_key> <w> <p> 	:	"℘"	U2118	# SCRIPT CAPITAL P
 # Would we prefer 20D1 COMBINING RIGHT HARPOON ABOVE?
@@ -696,20 +696,20 @@ include "%L"
 <Multi_key> <less> <braceright>	: "♠" U2660		# BLACK SPADE SUIT
 <Multi_key> <E> <greater>		: "♡" U2661		# WHITE HEART SUIT
 # "shamrock" is too long; there IS a limit to these!
-<Multi_key> <Multi_key> <s> <h> <m> <r> <c> <k>		: "☘" U2618   # SHAMROCK
-<Multi_key> <Multi_key> <s> <h> <a> <m> <r> <o>		: "☘" U2618   # SHAMROCK
-<Multi_key> <Multi_key> <p> <c>         : "☮"   U262E           # PEACE SYMBOL
-<Multi_key> <Multi_key> <p> <e> <a> <c> <e> : "☮"   U262E           # PEACE SYMBOL
-<Multi_key> <Multi_key> <y> <y>		: "☯" U262F		# YIN YANG
-<Multi_key> <Multi_key> <y> <i>	<n> <y> <a> <n>	: "☯" U262F	# YIN YANG
+<Multi_key> <s> <h> <m> <r> <c> <k>		: "☘" U2618   # SHAMROCK
+<Multi_key> <s> <h> <a> <m> <r> <o>		: "☘" U2618   # SHAMROCK
+<Multi_key> <p> <c>         : "☮"   U262E           # PEACE SYMBOL
+<Multi_key> <p> <e> <a> <c> <e> : "☮"   U262E           # PEACE SYMBOL
+<Multi_key> <y> <y>		: "☯" U262F		# YIN YANG
+<Multi_key> <y> <i>	<n> <y> <a> <n>	: "☯" U262F	# YIN YANG
 # And now that we are into hearts...
 <Multi_key> <Left> <less> <3>           : "❥"  U2765            # ROTATED HEAVY BLACK HEART BULLET
 <Multi_key> <exclam> <less> <3>         : "❣"  U2763            # HEAVY HEART EXCLAMATION MARK ORNAMENT
 <Multi_key> <f> <less> <3>              : "❦"  U2766            # FLORAL HEART
 <Multi_key> <Left> <f> <less> <3>       : "❧"  U2767            # ROTATED FLORAL HEART BULLET
 <Multi_key> <Right> <f> <less> <3>      : "☙"  U2619            # REVERSED ROTATED FLORAL HEART BULLET
-<Multi_key> <Multi_key> <t> <e> <l>			: "☎" 	U260E		# BLACK TELEPHONE
-<Multi_key> <Multi_key> <t> <e> <a>		: "☕"	U2615		# HOT BEVERAGE
+<Multi_key> <t> <e> <l>			: "☎" 	U260E		# BLACK TELEPHONE
+<Multi_key> <t> <e> <a>		: "☕"	U2615		# HOT BEVERAGE
 # These last two bother me less, though they can still be improved.
 # Other possibly useful symbols:
 # 2668 HOT SPRINGS (for chat, for running off to shower?)
@@ -717,7 +717,7 @@ include "%L"
 # We need a Dingbats prefix, for ❛❜❝❞❢
 <Multi_key> <bracketleft> <space> <bracketright> :	"☐"	U2610	# BALLOT BOX
 # Better keystrokes anyone?  This one breaks the pattern. [c]? [v]? [y]? [/]?
-<Multi_key> <Multi_key> <c> <h> <k>	      :	 "☑"  U2611		# BALLOT BOX WITH CHECK
+<Multi_key> <c> <h> <k>	      :	 "☑"  U2611		# BALLOT BOX WITH CHECK
 <Multi_key> <bracketleft> <slash> <bracketright>     :	 "☑"  U2611		# BALLOT BOX WITH CHECK
 <Multi_key> <bracketleft> <x> <bracketright>  :	 "☒"  U2612		# BALLOT BOX WITH X
 # @ for dingbats?
@@ -740,25 +740,25 @@ include "%L"
 # 267B BLACK UNIVERSAL RECYCLING SYMBOL
 
 # Keystrokes okay?
-<Multi_key> <Multi_key> <f> <d> <l>   	        : "⚜"	U269C	  # FLEUR-DE-LIS
-<Multi_key> <Multi_key> <a> <t> <o> <m>	        : "⚛"	U269B		# ATOM SYMBOL
-<Multi_key> <Multi_key> <c> <c> <c> <p>		: "☭" 	U262D		# HAMMER AND SICKLE
+<Multi_key> <f> <d> <l>   	        : "⚜"	U269C	  # FLEUR-DE-LIS
+<Multi_key> <a> <t> <o> <m>	        : "⚛"	U269B		# ATOM SYMBOL
+<Multi_key> <c> <c> <c> <p>		: "☭" 	U262D		# HAMMER AND SICKLE
 <Multi_key> <slash> <exclam> <backslash> : "⚠"  U26A0           # WARNING SIGN
 <Multi_key> <exclam> <asciicircum>	: "⚠"	U26A0		# WARNING SIGN 
-<Multi_key> <Multi_key> <z> <a> <p>	  		: "⚡"	U26A1		# HIGH VOLTAGE SIGN 
+<Multi_key> <z> <a> <p>	  		: "⚡"	U26A1		# HIGH VOLTAGE SIGN 
 # Shouldn't use just <r><a> because it's too likely to be a prefix for
 # a useful word.
-<Multi_key> <Multi_key> <r> <a> <d>	: "☢"	U2622		# RADIOACTIVE SIGN
-<Multi_key> <Multi_key> <b> <h>		: "☣"	U2623		# BIOHAZARD SIGN
-<Multi_key> <Multi_key> <b> <i> <o> <h>	<a> <z>	: "☣"	U2623		# BIOHAZARD SIGN
+<Multi_key> <r> <a> <d>	: "☢"	U2622		# RADIOACTIVE SIGN
+<Multi_key> <b> <h>		: "☣"	U2623		# BIOHAZARD SIGN
+<Multi_key> <b> <i> <o> <h>	<a> <z>	: "☣"	U2623		# BIOHAZARD SIGN
 # Changing this from ⚝
-<Multi_key> <Multi_key> <A> <A> <A> <A> <A>	:	"⛤" U26E4 # PENTAGRAM (pentalpha, get it?)
-<Multi_key> <Multi_key> <p> <l> <a> <n> <e>	: "✈"   U2708	  # AIRPLANE
-<Multi_key> <Multi_key> <m> <a> <i> <l>		: "✉"	U2709	  # ENVELOPE
-<Multi_key> <Multi_key> <w> <h> <l> <c> <h>	: "♿"	U267F	  # WHEELCHAIR SYMBOL
-<Multi_key> <Multi_key> <m> <e> <d> 		: "☤"	U2624	  # CADEUCEUS
+<Multi_key> <A> <A> <A> <A> <A>	:	"⛤" U26E4 # PENTAGRAM (pentalpha, get it?)
+<Multi_key> <p> <l> <a> <n> <e>	: "✈"   U2708	  # AIRPLANE
+<Multi_key> <m> <a> <i> <l>		: "✉"	U2709	  # ENVELOPE
+<Multi_key> <w> <h> <l> <c> <h>	: "♿"	U267F	  # WHEELCHAIR SYMBOL
+<Multi_key> <m> <e> <d> 		: "☤"	U2624	  # CADEUCEUS
 # Something different for STAFF OF AESCULAPIUS?
-<Multi_key> <Multi_key> <1> <m> <e> <d>		: "⚕"	U2695	# STAFF OF AESCULAPIUS
+<Multi_key> <1> <m> <e> <d>		: "⚕"	U2695	# STAFF OF AESCULAPIUS
 # 26B0 COFFIN ?
 # One of the SNOWFLAKEs?
 # SNOWMAN? COMET? ANCHOR?
@@ -773,26 +773,26 @@ include "%L"
 # 2324 UP ARROWHEAD BETWEEN TWO HORIZONTAL BARS a.k.a. NOT AMUSED
 # 237E BELL SYMBOL a.k.a. ALIENS LANDING
 
-<Multi_key> <o> <minus> <plus>		: "♀"	U2640		# FEMALE SIGN
-<Multi_key> <o> <minus> <greater>	: "♂"	U2642		# MALE SIGN
+# <Multi_key> <o> <minus> <plus>		: "♀"	U2640		# FEMALE SIGN
+# <Multi_key> <o> <minus> <greater>	: "♂"	U2642		# MALE SIGN
 
-<Multi_key> <Multi_key> <g> <a> <y>                 :   "⚣"     U26A3   # DOUBLED MALE SIGN
-<Multi_key> <Multi_key> <l> <e> <s> <b> <i> <a> <n> :   "⚢"     U26A2   # DOUBLED FEMALE SIGN
-<Multi_key> <Multi_key> <h> <e> <t> <e> <r> <o>     :   "⚤"     U26A4   # INTERLOCKED FEMALE AND MALE SIGN
+<Multi_key> <g> <a> <y>                 :   "⚣"     U26A3   # DOUBLED MALE SIGN
+<Multi_key> <l> <e> <s> <b> <i> <a> <n> :   "⚢"     U26A2   # DOUBLED FEMALE SIGN
+<Multi_key> <h> <e> <t> <e> <r> <o>     :   "⚤"     U26A4   # INTERLOCKED FEMALE AND MALE SIGN
 
 # 'trans': short for transgender/transexual
 # 'genderq': short for genderqueer.
 # Wasn't sure which to call which symbol, and wanted to include both
-<Multi_key> <Multi_key> <t> <r> <a> <n> <s>         :   "⚥"     U26A5   # MALE AND FEMALE SIGN
-<Multi_key> <Multi_key> <g> <e> <n> <d> <e> <r> <q> :   "⚧"     U26A7   # MALE WITH STROKE AND MALE AND FEMALE SIGN
+<Multi_key> <t> <r> <a> <n> <s>         :   "⚥"     U26A5   # MALE AND FEMALE SIGN
+<Multi_key> <g> <e> <n> <d> <e> <r> <q> :   "⚧"     U26A7   # MALE WITH STROKE AND MALE AND FEMALE SIGN
 
 
 <Multi_key> <O> <X>: 			"☠" U2620 # SKULL AND CROSSBONES
-<Multi_key> <Multi_key> <d> <e> <a> <t> <h>:	  "☠" U2620 # SKULL AND CROSSBONES
-<Multi_key> <Multi_key> <X> <b> <o> <n> <e> <s>:	  "☠" U2620 # SKULL AND CROSSBONES
-<Multi_key> <Multi_key> <k> <b> <d> :	"⌨"	  U2328	    # KEYBOARD
-<Multi_key> <Multi_key> <r> <h> <a> <n> <d>	: "☞" U261E # WHITE RIGHT POINTING INDEX
-<Multi_key> <Multi_key> <l> <h> <a> <n> <d>	: "☜" U261C # WHITE LEFT POINTING INDEX
+<Multi_key> <d> <e> <a> <t> <h>:	  "☠" U2620 # SKULL AND CROSSBONES
+<Multi_key> <X> <b> <o> <n> <e> <s>:	  "☠" U2620 # SKULL AND CROSSBONES
+<Multi_key> <k> <b> <d> :	"⌨"	  U2328	    # KEYBOARD
+<Multi_key> <r> <h> <a> <n> <d>	: "☞" U261E # WHITE RIGHT POINTING INDEX
+<Multi_key> <l> <h> <a> <n> <d>	: "☜" U261C # WHITE LEFT POINTING INDEX
 <Multi_key> <asterisk> <asterisk>	:"★" U2605 # BLACK STAR
 <Multi_key> <asterisk> <0>	:"☆" U2606 # WHITE STAR
 <Multi_key> <asterisk> <minus>	:"✪" U272A # CIRCLED WHITE STAR
@@ -808,16 +808,16 @@ include "%L"
 # Using backslash-minus-slash etc. conflicts with combining accents.
 <Multi_key> <grave> <minus> <apostrophe>	 : "⚞"	U269E  # THREE LINES CONVERGING RIGHT
 <Multi_key> <apostrophe> <minus> <grave>	 : "⚟"	U269F  # THREE LINES CONVERGING LEFT
-#<Multi_key> <Multi_key> <B> <e> <l> <l> <s> <y> <m>	: "⍾" U237E  # BELL SYMBOL (or ALIENS LANDING) -- &-a-l-i-e-n ?
+#<Multi_key> <B> <e> <l> <l> <s> <y> <m>	: "⍾" U237E  # BELL SYMBOL (or ALIENS LANDING) -- &-a-l-i-e-n ?
 # Other monstery characters... ѪꙚ (alien abductions?)
 # ඏൠഋ & others from Kannada et al...?
 # Can't use -^- for this; conflicts with -^ for ↑, and getting those arrows
 # workable was complicated enough.  How about this?
 <Multi_key> <underscore> <asciicircum> <underscore>	: "⌤" U2324  # UP ARROWHEAD BETWEEN TWO HORIZONTAL BARS; aka ENTER KEY, aka NOT AMUSED.
-<Multi_key> <Multi_key> <w> <a> <i> <t>		: "⌛" U231B   # HOURGLASS
-<Multi_key> <Multi_key> <h> <o> <u> <r>		: "⌛" U231B   # HOURGLASS
-<Multi_key> <Multi_key> <t> <i> <m> <e>		: "⌚" U231A   # WATCH
-<Multi_key> <Multi_key> <w> <a> <t> <c> <h>	: "⌚" U231A   # WATCH
+<Multi_key> <w> <a> <i> <t>		: "⌛" U231B   # HOURGLASS
+<Multi_key> <h> <o> <u> <r>		: "⌛" U231B   # HOURGLASS
+<Multi_key> <t> <i> <m> <e>		: "⌚" U231A   # WATCH
+<Multi_key> <w> <a> <t> <c> <h>	: "⌚" U231A   # WATCH
 <Multi_key> <space> <N>		  : " "	U2002  # EN SPACE
 <Multi_key> <space> <M>		  : " " U2003  # EM SPACE
 <Multi_key> <space> <3> <M>	  : " "	U2004  # THREE-PER-EM SPACE
@@ -1076,24 +1076,24 @@ include "%L"
 # and http://dotfiles.org/~inky/.XCompose
 # and http://paste.lisp.org/display/73094
 
-<Multi_key> <Multi_key> <s> <u> <n>	: "☉"	U2609	# SUN (Sunday)
-<Multi_key> <Multi_key> <m> <o> <o> <n>	: "☽"	U263D	# FIRST QUARTER MOON (Monday)
-<Multi_key> <Multi_key> <m> <e> <r> <c> <u> <r> <y> : "☿" U263F	# MERCURY (Wednesday)
+<Multi_key> <s> <u> <n>	: "☉"	U2609	# SUN (Sunday)
+<Multi_key> <m> <o> <o> <n>	: "☽"	U263D	# FIRST QUARTER MOON (Monday)
+<Multi_key> <m> <e> <r> <c> <u> <r> <y> : "☿" U263F	# MERCURY (Wednesday)
 # We already have Venus (Friday) and Mars (Tuesday) as Male/Female signs; do we need them here too?
-#<Multi_key> <Multi_key> <v> <e> <n> <u> <s>  : "♀" U2640    # FEMALE SIGN
-#<Multi_key> <Multi_key> <m> <a> <r> <s>  : "♂"	U2642   # MALE SIGN
-<Multi_key> <Multi_key> <j> <u> <p> <i> <t> <e> <r> : "♃" U2643	# JUPITER (Thursday)
-<Multi_key> <Multi_key> <s> <a> <t> <u> <r> <n>     : "♄" U2644	# SATURN (Saturday)
-<Multi_key> <Multi_key> <u> <r> <a> <n> <u> <s>	    : "♅" U2645	# URANUS (or ⛢ U26E2?)
-<Multi_key> <Multi_key> <n> <e> <p> <t> <u> <n> <e> : "♆" U2646	# NEPTUNE
-<Multi_key> <Multi_key> <p> <l> <u> <t> <o> 	    : "♇" U2647	# PLUTO (ok, it isn't a planet anymore, but we still love it.)
+#<Multi_key> <v> <e> <n> <u> <s>  : "♀" U2640    # FEMALE SIGN
+#<Multi_key> <m> <a> <r> <s>  : "♂"	U2642   # MALE SIGN
+<Multi_key> <j> <u> <p> <i> <t> <e> <r> : "♃" U2643	# JUPITER (Thursday)
+<Multi_key> <s> <a> <t> <u> <r> <n>     : "♄" U2644	# SATURN (Saturday)
+<Multi_key> <u> <r> <a> <n> <u> <s>	    : "♅" U2645	# URANUS (or ⛢ U26E2?)
+<Multi_key> <n> <e> <p> <t> <u> <n> <e> : "♆" U2646	# NEPTUNE
+<Multi_key> <p> <l> <u> <t> <o> 	    : "♇" U2647	# PLUTO (ok, it isn't a planet anymore, but we still love it.)
 # Minor planets, whilst we're at it?
-<Multi_key> <Multi_key> <c> <e> <r> <e> <s>	: "⚳"	U26B3	# CERES
-<Multi_key> <Multi_key> <p> <a> <l> <l> <a> <s>	: "⚴"	U26B4	# PALLAS
-<Multi_key> <Multi_key> <j> <u> <n> <o>     	: "⚵"	U26B5	# JUNO
-<Multi_key> <Multi_key> <v> <e> <s> <t> <a>    	: "⚶"	U26B6	# VESTA
-<Multi_key> <Multi_key> <c> <h> <i> <r> <o> <n>	: "⚷"	U26B7	# CHIRON
-<Multi_key> <Multi_key> <l> <i> <l> <i> <t> <h>	: "⚸"	U26B8	# BLACK MOON LILITH
+<Multi_key> <c> <e> <r> <e> <s>	: "⚳"	U26B3	# CERES
+<Multi_key> <p> <a> <l> <l> <a> <s>	: "⚴"	U26B4	# PALLAS
+<Multi_key> <j> <u> <n> <o>     	: "⚵"	U26B5	# JUNO
+<Multi_key> <v> <e> <s> <t> <a>    	: "⚶"	U26B6	# VESTA
+<Multi_key> <c> <h> <i> <r> <o> <n>	: "⚷"	U26B7	# CHIRON
+<Multi_key> <l> <i> <l> <i> <t> <h>	: "⚸"	U26B8	# BLACK MOON LILITH
 
 # Unicode 6.0 gave us all kinds of things, perhaps more than we can use...
 
@@ -1200,77 +1200,11 @@ include "%L"
 # As for the emoji... We can't possibly get all of them, even just all of the
 # cool/useful ones.  Maybe we can pick and choose some high-fliers.
 
-<Multi_key> <Multi_key> <d> <e> <g> <r> <e> <e> 		: "°"	U00B0	# DEGREE SIGN
-<Multi_key> <Multi_key> <d> <e> <g> <C> 		: "℃"   U2103 	# DEGREE CELSIUS
-<Multi_key> <Multi_key> <d> <e> <g> <c> 		: "℃"   U2103 	# DEGREE CELSIUS
-<Multi_key> <Multi_key> <d> <e> <g> <F> 		: "℉"   U2109   # DEGREE FAHRENHEIT
-<Multi_key> <Multi_key> <d> <e> <g> <f> 		: "℉"   U2109   # DEGREE FAHRENHEIT
-
-# Zodiacal symbols?
-<Multi_key> <Multi_key> <a> <r> <i> <e> <s>	: "♈"	U2648	# ARIES
-<Multi_key> <Multi_key> <t> <a> <u> <r> <u> <s>	: "♉"	U2649	# TAURUS
-<Multi_key> <Multi_key> <g> <e> <m> <i> <n> <i>	: "♊"	U264A	# GEMINI
-<Multi_key> <Multi_key> <c> <a> <n> <c> <e> <r>	: "♋"	U264B	# CANCER
-<Multi_key> <Multi_key> <l> <e> <o> 		: "♌"	U264C	# LEO
-<Multi_key> <Multi_key> <v> <i> <r> <g> <o>	: "♍"	U264D	# VIRGO
-<Multi_key> <Multi_key> <l> <i> <b> <r> <a>	: "♎"	U264E	# LIBRA
-# Abbreviating some of the longer ones.
-<Multi_key> <Multi_key> <s> <c> <o> <r> <p>	: "♏"	U264F	# SCORPIUS
-<Multi_key> <Multi_key> <s> <a> <g> <i> <t>	: "♐"	U2650	# SAGITTARIUS
-<Multi_key> <Multi_key> <c> <a> <p> <r> <i> <c>	: "♑"	U2651	# CAPRICORN
-<Multi_key> <Multi_key> <a> <q> <u> <a> <r>	: "♒"	U2652	# AQUARIUS
-<Multi_key> <Multi_key> <p> <i> <s> <c> <e> <s>	: "♓"	U2653	# PISCES
-# Really, this should be SERPENTARIUS.  All the other signs are in Latin.
-<Multi_key> <Multi_key> <o> <p> <h> <i> <u> <c> : "⛎"	U26CE	# OPHIUCHUS
-
-# Sigh.  So many emoji...  I think the first ones I'd go for would be
-# 💡💢💣💤💥💦💧💨💫 (1F4A1-1F4A8 and 1F4AB).  Maybe 1F550-1F567 are useful.  
-<Multi_key> <Multi_key> <i> <d> <e> <a>	    : "💡"    U1F4A1 # ELECTRIC LIGHT BULB
-<Multi_key> <Multi_key> <a> <n> <g> <e> <r> : "💢"    U1F4A2 # ANGER SYMBOL
-<Multi_key> <Multi_key> <b> <o> <m> <b>	    : "💣"    U1F4A3 # BOMB
-<Multi_key> <Multi_key> <z> <z> <z> 	    : "💤"    U1F4A4 # SLEEPING SYMBOL
-<Multi_key> <Multi_key> <p> <o> <w>	    : "💥"    U1F4A5 # COLLISION SYMBOL
-<Multi_key> <Multi_key> <s> <w> <e> <a> <t> : "💦"    U1F4A6 # SPLASHING SWEAT SYMBOL
-<Multi_key> <Multi_key> <d> <r> <o> <p>	    : "💧"    U1F4A7 # DROPLET
-<Multi_key> <Multi_key> <z> <i> <p> 	    : "💨"    U1F4A8 # DASH SYMBOL
-<Multi_key> <Multi_key> <p> <o> <o>	    : "💩"    U1F4A9 # PILE OF POO
-# Skipping U+1F4AA just now.
-<Multi_key> <Multi_key> <d> <i> <z> <z> <y> : "💫"    U1F4AB # DIZZY SYMBOL
-<Multi_key> <Multi_key> <dollar> <b> <a> <g>  : "💰"  U1F4B0 # MONEY BAG
-<Multi_key> <Multi_key> <dollar> <w> <i> <n> <g>  : "💸"  U1F4B8 # MONEY WITH WINGS
-<Multi_key> <Multi_key> <c> <a> <k> <e>	    : "🍰"    U1F370 # SHORTCAKE
-# The cake is a lie... OK, too cutesy?
-# More useful in chat than U+1F48F KISS
-<Multi_key> <Multi_key> <k> <i> <s> <s>	    : "💋"    U1F48B # KISS MARK
-# ⛔ U+26D4 NO ENTRY for "Don't go there"?
-# So many hearts... I'm not touching them for now.
-# And emoticons? (U+1F600 et seq)
-
-<Multi_key> <parenleft> <1> <colon> <0> <0> <parenright> : "🕐" U1F550 # CLOCK FACE ONE OCLOCK
-<Multi_key> <parenleft> <2> <colon> <0> <0> <parenright> : "🕑" U1F551 # CLOCK FACE TWO OCLOCK
-<Multi_key> <parenleft> <3> <colon> <0> <0> <parenright> : "🕒" U1F552 # CLOCK FACE THREE OCLOCK
-<Multi_key> <parenleft> <4> <colon> <0> <0> <parenright> : "🕓" U1F553 # CLOCK FACE FOUR OCLOCK
-<Multi_key> <parenleft> <5> <colon> <0> <0> <parenright> : "🕔" U1F554 # CLOCK FACE FIVE OCLOCK
-<Multi_key> <parenleft> <6> <colon> <0> <0> <parenright> : "🕕" U1F555 # CLOCK FACE SIX OCLOCK
-<Multi_key> <parenleft> <7> <colon> <0> <0> <parenright> : "🕖" U1F556 # CLOCK FACE SEVEN OCLOCK
-<Multi_key> <parenleft> <8> <colon> <0> <0> <parenright> : "🕗" U1F557 # CLOCK FACE EIGHT OCLOCK
-<Multi_key> <parenleft> <9> <colon> <0> <0> <parenright> : "🕘" U1F558 # CLOCK FACE NINE OCLOCK
-<Multi_key> <parenleft> <1> <0> <colon> <0> <0> <parenright> : "🕙" U1F559 # CLOCK FACE TEN OCLOCK
-<Multi_key> <parenleft> <1> <1> <colon> <0> <0> <parenright> : "🕚" U1F55A # CLOCK FACE ELEVEN OCLOCK
-<Multi_key> <parenleft> <1> <2> <colon> <0> <0> <parenright> : "🕛" U1F55B # CLOCK FACE TWELVE OCLOCK
-
-<Multi_key> <parenleft> <1> <colon> <3> <0> <parenright>     : "🕜" U1F55C # CLOCK FACE ONE-THIRTY
-<Multi_key> <parenleft> <2> <colon> <3> <0> <parenright>     : "🕝" U1F55D # CLOCK FACE TWO-THIRTY
-<Multi_key> <parenleft> <3> <colon> <3> <0> <parenright>     : "🕞" U1F55E # CLOCK FACE THREE-THIRTY
-<Multi_key> <parenleft> <4> <colon> <3> <0> <parenright>     : "🕟" U1F55F # CLOCK FACE FOUR-THIRTY
-<Multi_key> <parenleft> <5> <colon> <3> <0> <parenright>     : "🕠" U1F560 # CLOCK FACE FIVE-THIRTY
-<Multi_key> <parenleft> <6> <colon> <3> <0> <parenright>     : "🕡" U1F561 # CLOCK FACE SIX-THIRTY
-<Multi_key> <parenleft> <7> <colon> <3> <0> <parenright>     : "🕢" U1F562 # CLOCK FACE SEVEN-THIRTY
-<Multi_key> <parenleft> <8> <colon> <3> <0> <parenright>     : "🕣" U1F563 # CLOCK FACE EIGHT-THIRTY
-<Multi_key> <parenleft> <9> <colon> <3> <0> <parenright>     : "🕤" U1F564 # CLOCK FACE NINE-THIRTY
-<Multi_key> <parenleft> <1> <0> <colon> <3> <0> <parenright>     : "🕥" U1F565 # CLOCK FACE TEN-THIRTY
-<Multi_key> <parenleft> <1> <1> <colon> <3> <0> <parenright>     : "🕦" U1F566 # CLOCK FACE ELEVEN-THIRTY
-<Multi_key> <parenleft> <1> <2> <colon> <3> <0> <parenright>     : "🕧" U1F567 # CLOCK FACE TWELVE-THIRTY
+<Multi_key> <d> <e> <g> <r> <e> <e> 		: "°"	U00B0	# DEGREE SIGN
+<Multi_key> <d> <e> <g> <C> 		: "℃"   U2103 	# DEGREE CELSIUS
+<Multi_key> <d> <e> <g> <c> 		: "℃"   U2103 	# DEGREE CELSIUS
+<Multi_key> <d> <e> <g> <F> 		: "℉"   U2109   # DEGREE FAHRENHEIT
+<Multi_key> <d> <e> <g> <f> 		: "℉"   U2109   # DEGREE FAHRENHEIT
 
 # Bitcoin signs
 # Real bitcoin codepoint coming at U+20BF!
