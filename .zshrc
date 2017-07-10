@@ -90,5 +90,4 @@ DIRCOLORS="$HOME/.dircolors"
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ '
 
 # undistract-me is great
-. $HOME/etc/bash/undistract-me
-notify_when_long_running_commands_finish_install
+[ -e $HOME/dotfiles/zsh/undistract-me.zsh ] && . $HOME/dotfiles/zsh/undistract-me.zsh
