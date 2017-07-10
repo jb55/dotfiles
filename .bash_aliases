@@ -161,7 +161,7 @@ build-nix-cache() {
 }
 
 haskell-shell() {
-  nix-shell -Q -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [$*])"
+  nix-shell -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [$*])"
 }
 
 nix-path() {
