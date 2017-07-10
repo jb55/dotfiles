@@ -82,7 +82,7 @@ sharess () {
 }
 
 lt () {
-  ls -lt "$@" | "$PAGER"
+  ls -ltah "$@" | "$PAGER"
 }
 
 lt1 () {
