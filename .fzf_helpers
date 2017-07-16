@@ -18,6 +18,22 @@ fz() {
   local dir=$(z | fzcmd "$1") && cd "$dir"
 }
 
+findlt () {
+  local all=$(find . -maxdepth "$1" -type "${2:-f}" -printf "%T@ %Tc %p\n" | sort -nr | cut -f2- -d" " | fzf +s)
+  <<<"$all" cut -f3- -d" "
+}
+
+ftd() {
+  local res="$(findlt ${1:-1} d)"
+  cd "$res"
+}
+
+ft() {
+  local res=$(findlt ${1:-1} f)
+  printf "%s\n" "$res" 1>&2
+  <<<$res xclip
+}
+
 # fzt - cd to most recently accessed dirs
 fzt() {
   local dir=$(z -et | fzcmd) && cd "$dir"
