@@ -1,8 +1,8 @@
 "amixer sset Master 3%+"
-  Mod4 + F12
+  XF86AudioRaiseVolume
 
 "amixer sset Master 3%-"
-  Mod4 + F10
+  XF86AudioLowerVolume
 
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
   Mod4 + F6
@@ -20,10 +20,10 @@
   Control + Print
 
 "slock"
-  Pause
+  XF86Display
 
 "slock & systemctl suspend"
-  Control + Pause
+  Control + XF86Display
 
 "n date '+%a | %b %d | %R | %F'"
   Mod4 + F5
@@ -36,3 +36,10 @@
 
 "n chromecast-stop"
   Mod4 + F10
+
+"xbacklight -dec 5"
+  XF86MonBrightnessDown
+
+"xbacklight -inc 5"
+  XF86MonBrightnessUp
+
