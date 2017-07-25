@@ -26,7 +26,7 @@
   Control + XF86Display
 
 "n date '+%a | %b %d | %R | %F'"
-  Mod4 + F5
+  XF86AudioMicMute
 
 "n btc"
   Mod4 + F4
@@ -36,6 +36,9 @@
 
 "n chromecast-stop"
   Mod4 + F10
+
+"n acpi"
+  XF86Tools
 
 "xbacklight -dec 5"
   XF86MonBrightnessDown
