@@ -62,6 +62,7 @@
                                  company-irony
                                  base16-theme
                                  emojify
+                                 w3m
                                  shen-mode
                                  ereader
                                  glsl-mode
