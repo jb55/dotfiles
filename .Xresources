@@ -4,12 +4,13 @@
 !#include ".Xresources.d/themes/baskerville"
 !#include ".Xresources.d/themes/sexy"
 !#include ".Xresources.d/themes/mocha"
-#include ".Xresources.d/themes/tomorrow.light"
-!#include ".Xresources.d/themes/tomorrow.dark"
+!#include ".Xresources.d/themes/tomorrow.light"
+#include ".Xresources.d/themes/tomorrow.dark"
 !#include ".Xresources.d/themes/ashes.light"
 !#include ".Xresources.d/themes/polygon"
 !#include ".Xresources.d/themes/shore"
 !#include ".Xresources.d/themes/tomorrow-night"
+!#include ".Xresources.d/themes/lucius-white-high-contrast"
 
 #URxvt.perl-ext-common: color-themes
 
