@@ -130,15 +130,16 @@ values."
 
 (defun dotspacemacs/init ()
   (setq-default
-   dotspacemacs-startup-banner 'official
-   dotspacemacs-themes (list (jb55/determine-theme))
-
    dotspacemacs-default-font '("Inconsolata"
-                               :size 14
+                               :size 22
                                :style medium
                                :weight normal
                                :width normal
                                :powerline-scale 1.2)
+
+
+   dotspacemacs-startup-banner 'official
+   dotspacemacs-themes (list (jb55/determine-theme))
 
    dotspacemacs-active-transparency 90
    dotspacemacs-auto-save-file-location 'cache
@@ -281,7 +282,7 @@ This function is called at the very end of Spacemacs initialization."
   (defun notmuch-switch-to-work ()
     (interactive)
     (setq notmuch-command "notmuch")
-    (setq notmuch-poll-script "notmuch-update-mcat")
+    (setq notmuch-poll-script "fetch-email")
     (setq notmuch-saved-searches notmuch-saved-searches-work))
 
   (defun jb55/make-org-path (file)
@@ -371,14 +372,6 @@ This function is called at the very end of Spacemacs initialization."
 
 )
 
-(custom-set-faces
- ;; custa/sa/savem-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background nil))))
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
@@ -559,7 +552,6 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
 )
