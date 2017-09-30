@@ -51,6 +51,7 @@ export LESS="-R"
 
 export GOPATH=$HOME/dev/gocode
 export RUBYBIN=$HOME/.ruby/1.8/gems/bin
+export PATH=$HOME/.local/bin:$PATH
 export PATH=$RUBYBIN:$HOME/.npm/bin:$GOPATH/bin:$PATH
 
 # alias
@@ -84,6 +85,8 @@ ALIASES="$HOME/.bash_aliases"
 
 DIRCOLORS="$HOME/.dircolors"
 [ -e "$DIRCOLORS" ] && eval "$(dircolors -b "$DIRCOLORS")"
+
+export FZF_DEFAULT_OPTS="--color=light"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
