@@ -1,8 +1,18 @@
 map [normal] d scroll half-down
 map [normal] u scroll half-up
 map [normal] <C-d> toggle_page_mode 2
+
+set adjust-open "best-fit"
+
 set recolor "false"
 set default-bg         "#000000"
 set recolor-lightcolor "#282c34"
 set recolor-darkcolor  "#abb2bf"
 set recolor-keephue    "true"
+
+set scroll-page-aware "true"
+set smooth-scroll "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+
+set font "inconsolata 15"
