@@ -7,10 +7,22 @@ fd() {
   cd "$dir"
 }
 
+nma() {
+  if [ ! -e ~/.notmuch-address-cache ]; then
+    (notmuch-personal address \*; notmuch address \*) | sort -u > ~/.notmuch-address-cache
+  fi
+  fzy < ~/.notmuch-address-cache | tee /dev/tty | xclip
+}
+
 # fda - including hidden directories
 fda() {
   local dir
   dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+}
+
+flp () {
+  id="$(lpass ls | fzf | grep -P '\d+' -o)"
+  [ ! -z "$id" ] && lpass show "$id"
 }
 
 # fz - cd to directories known to z
@@ -30,8 +42,12 @@ ftd() {
 
 ft() {
   local res=$(findlt ${1:-1} f)
-  printf "%s\n" "$res" 1>&2
   <<<$res xclip
+  printf "%s\n" "$res"
+}
+
+fto() {
+  open "$(findlt ${1:-1} f)" & disown
 }
 
 # fzt - cd to most recently accessed dirs
