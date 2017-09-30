@@ -21,3 +21,4 @@ node_modules/
 /.xmonad/xmonad.state
 /.vim/.netrwhist
 /.msmtprc
+/.dynamic-colors/
