@@ -25,8 +25,11 @@
 "slock & systemctl suspend"
   Control + XF86Display
 
-"n date '+%a | %b %d | %R | %F'"
-  XF86AudioMicMute
+"n date '+%a | %b %d | %H:%M:%S | %F'"
+  Mod4 + F5
+
+"env TZ='America/New_York' n date '+%a | %b %d | %H:%M:%S | %F'"
+  Mod4 + Control + F5
 
 "n btc"
   Mod4 + F4
@@ -39,6 +42,18 @@
 
 "n acpi"
   XF86Tools
+
+"dclip"
+  Alt + Control + p
+
+"colorpick"
+  Alt + Control + o
+
+"themeswitch light"
+  Alt + Control + l
+
+"themeswitch dark"
+  Alt + Control + d
 
 "xbacklight -dec 5"
   XF86MonBrightnessDown
