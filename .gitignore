@@ -14,3 +14,10 @@ node_modules/
 /mimeapps2.list
 /.weechat/logs
 /.weechat/weechat.log
+/.gimp*
+/.weechat/fifo.conf
+/.weechat/buflist.conf
+/.config
+/.xmonad/prompt-history
+/.xmonad/xmonad.state
+/.vim/.netrwhist
