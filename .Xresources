@@ -5,26 +5,32 @@
 !#include ".Xresources.d/themes/sexy"
 !#include ".Xresources.d/themes/mocha"
 !#include ".Xresources.d/themes/tomorrow.light"
-#include ".Xresources.d/themes/tomorrow.dark"
+!#include ".Xresources.d/themes/tomorrow.dark"
 !#include ".Xresources.d/themes/ashes.light"
 !#include ".Xresources.d/themes/polygon"
 !#include ".Xresources.d/themes/shore"
 !#include ".Xresources.d/themes/tomorrow-night"
 !#include ".Xresources.d/themes/lucius-white-high-contrast"
+#include ".Xresources.d/themes/current"
 
-#URxvt.perl-ext-common: color-themes
+URxvt.perl-lib: /home/jb55/.Xresources.d/perl
+URxvt*perl-ext-common: default,matcher,clipboard,keyboard-select
+
+URxvt.keysym.M-v: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
 
 ! urxvt
 !URxvt*boldFont: -*-profont-*-*-*-*-12-*-*-*-*-*-*-*
 !URxvt*font: xft:Source Code Pro:size=10:antialias=true;hinting=true,\
 !            xft:Kochi Gothic:antialias=true,hinting=true
-URxvt*font: xft:Inconsolata:size=14:antialias=true;hinting=true
+URxvt*font: xft:Inconsolata:size=18
 
+!xft:Inconsolata:size=18:antialias=true;hinting=true
+!
 /* URxvt*font: xft:Noto Serif:size=10:antialias=true;hinting=true */
 !xterm*faceName: Terminus:style=Regular:size=10
 URxvt*internalBorder: 22
 URxvt*matcher.button: 1
-URxvt*perl-ext-common: default,matcher,clipboard
 
 URxvt.color-themes.autosave: 1
 URxvt.color-themes.state-file: ~/.urxvt-theme
@@ -58,4 +64,5 @@ URxvt*scrollTtyKeypress:    true
 ! XTerm
 XTerm*boldFont: fixed
 URxvt*url-launcher: chromium
+
 
