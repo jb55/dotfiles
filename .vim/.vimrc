@@ -27,6 +27,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'dbakker/vim-projectroot'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'joshdick/onedark.vim'
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'jb55/typescript-ctags'
 NeoBundle 'jb55/vim-snippets'
@@ -92,13 +93,13 @@ if $VIM_CRONTAB == "true"
 endif
 
 " gvim fonts
-if has("gui_running")
-  colorscheme molokai
-else
-  set t_Co=256
-  set clipboard=unnamed
-  colorscheme wombat256
-endif
+"if has("gui_running")
+"  colorscheme molokai
+"else
+"  set t_Co=256
+"  set clipboard=unnamed
+"  colorscheme onedark
+"endif
 
 " }}}
 
