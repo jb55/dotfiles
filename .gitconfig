@@ -16,7 +16,7 @@
   insteadOf = dev:
 [url "ssh://git@phabricator.monstercat.com/diffusion/"]
   insteadOf = phab:
-[url "http://git.zero.monster.cat/"]
+[url "http://git.monster.cat/"]
   insteadOf = mcat:
 [url "http://git.zero.jb55.com/"]
   insteadOf = zero:
@@ -30,10 +30,11 @@
   ff = merge --ff-only
   try = merge --no-commit --no-ff
   pff = pull --ff-only
+  lgrep = log --grep
   default = !git config branch.master.remote origin && git config branch.master.merge refs/heads/master
-  lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+  lg1 = log --graph --branches --tags --remotes --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
   lg2 = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-  lg3 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
+  lg3 = log --graph --branches --tags --remotes --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
   lg = !"git lg1"
   serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
   cloner = clone --recursive
@@ -53,3 +54,5 @@
 	helper = /home/jb55/bin/flynn git-credentials
 [gpg]
 	program = gpg2
+[magit]
+	hideCampaign = true
