@@ -1,0 +1,27 @@
+ ! "black"
+ *color0:  #4d4d4d
+ *color8:  #5a5a5a
+ ! red
+ *color1:  #C70031
+ *color9:  #F05178
+ ! green
+ *color2:  #29CF13
+ *color10: #6CE05C
+ ! yellow
+ *color3:  #D8E30E
+ *color11: #F3F79E
+ ! blue
+ *color4:  #3449D1
+ *color12: #97A4F7
+ ! magenta
+ *color5:  #8400FF
+ *color13: #C495F0
+ ! cyan
+ *color6:  #0798AB
+ *color14: #68F2E0
+ ! "white"
+ *color7:  #E2D1E3
+ *color15: #FFFFFF
+
+ URxvt*background: #151515
+ URxvt*foreground: #aeaeae
