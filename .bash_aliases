@@ -3,14 +3,16 @@
 # generic stuff for non-interactive shells
 
 # sharefile
-export SHAREFILE_HOST='charon.jb55.com:public/s/'
+export SHAREFILE_HOST='charon:public/s/'
 export SHAREFILE_URL='https://jb55.com/s/'
 export SHARE_SS_DIR="$HOME/var/img/ss"
 export DOTFILES=${DOTFILES:-$HOME/.dotfiles}
 export XZ=pxz
 export HISTSIZE=50000
 export FZF_CTRL_R_OPTS="-e"
+export FZF_DEFAULT_OPTS="-e"
 
+alias info="info --vi-keys"
 alias ag="ag --pager=less"
 alias attach="grabssh; screen -rD"
 alias awkt="awk -v FS=$'\t' -v OFS=$'\t'"
@@ -93,10 +95,6 @@ mv1 () {
   mv $(lt1 | stripansi) "$@"
 }
 
-columnt () {
-  column -t -s $'\t' "$@"
-}
-
 pcsv () {
   csv-delim "$@" | pcsvt
 }
@@ -112,10 +110,6 @@ monstercam() {
 monstercam-live() {
   monstercam | tee /sand/vid/monstercam.avi \
              | ffplay -
-}
-
-headers() {
-  head -n1 "${1:-/dev/stdin}" | csv-delim | tr '\t' '\n' | cat -n
 }
 
 header() {
@@ -179,9 +173,7 @@ sql_wineparty() {
 
 sql_() {
   local query="$1"
-  local cs=${CS:-'postgres://pg-dev-zero.monstercat.com/Monstercat'}
-  local pg_user=${PG_USER:-'jb55'}
-  local args=("-U" "$pg_user" -A "$cs")
+  local args=("-U" "$pg_user" -A)
   if [ ! -z "$query" ];
   then
     args+=(-c "$query")
