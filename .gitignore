@@ -20,3 +20,4 @@ node_modules/
 /.xmonad/prompt-history
 /.xmonad/xmonad.state
 /.vim/.netrwhist
+/.msmtprc
