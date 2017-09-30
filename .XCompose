@@ -1242,7 +1242,7 @@ include "%L"
 <Multi_key> <d> <a> <n> <c> <e> :     "♪~ ᕕ(ᐛ)ᕗ"
 <Multi_key> <d> <o> <n> <g> :         "ヽ༼ຈل͜ຈ༽ﾉ"
 <Multi_key> <l> <m> <g> :             "http://lmgtfy.com/?q="
-<Multi_key> <o> <k>	    :             "👌"    U1F44C # OK HAND SIGN
+<Multi_key> <o> <k> <a> <y>	    :             "👌"    U1F44C # OK HAND SIGN
 <Multi_key> <equal> <1> :             "👍"    U1F44D # THUMBS UP SIGN
 <Multi_key> <minus> <1> :             "👎"    U1F44E # THUMBS DOWN SIGN
 <Multi_key> <space> <h> :            "https://"
