@@ -15,8 +15,7 @@ node_modules/
 /.weechat/logs
 /.weechat/weechat.log
 /.gimp*
-/.weechat/fifo.conf
-/.weechat/buflist.conf
+/.weechat
 /.config
 /.xmonad/prompt-history
 /.xmonad/xmonad.state
