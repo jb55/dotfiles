@@ -28,6 +28,7 @@
     finance
     notmuch
     git
+    github
     gtags
     idris
     javascript
