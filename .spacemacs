@@ -298,12 +298,14 @@ This function is called at the very end of Spacemacs initialization."
 
   (defun notmuch-switch-to-home ()
     (interactive)
+    (setq message-signature-file "~/.signature")
     (setq notmuch-command "notmuch")
     (setq notmuch-poll-script "notmuch-update")
     (setq notmuch-saved-searches notmuch-saved-searches-home))
 
   (defun notmuch-switch-to-work ()
     (interactive)
+    (setq message-signature-file "~/.signature-work")
     (setq notmuch-command "notmuch-work")
     (setq notmuch-poll-script "fetch-work-mail")
     (setq notmuch-saved-searches notmuch-saved-searches-work))
