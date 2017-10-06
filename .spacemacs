@@ -113,7 +113,7 @@
 
 (defun jb55/determine-theme ()
   (if (jb55/at-work)
-      jb55/light-theme
+      jb55/dark-theme
     jb55/dark-theme))
 
 (defun dotspacemacs/layers ()
