@@ -1226,9 +1226,9 @@ include "%L"
 <Multi_key> <j> <c> <r> <y> :         "(つ﹏⊂)"
 <Multi_key> <s> <h> <r> <u> <g> :     "¯\\_(ツ)_/¯"
 <Multi_key> <j> <s> <h> <r> <u> <g> : "┐(´∀｀)┌"
-<Multi_key> <j> <f> <a> <l> <l> :     "ミ(ノ_ _)ノ"
-<Multi_key> <j> <y> <a> <y> :         "(ﾉ^ヮ^)ﾉ*:・ﾟ✧"
-<Multi_key> <j> <r> <u> <n> :         "ε=ε=┏( >_<)┛　(ノ_ _)ノ"
+<Multi_key> <j> <f> <a> <l> <l> :     "ミ(ノ_ _)ノ"             #jfall
+<Multi_key> <j> <y> <a> <y> :         "(ﾉ^ヮ^)ﾉ*:・ﾟ✧"          #jyay
+<Multi_key> <j> <r> <u> <n> :         "ε=ε=┏( >_<)┛　(ノ_ _)ノ" #jrun
 <Multi_key> <slash> <question> :      "¯\\_(ツ)_/¯"
 <Multi_key> <l> <e> <n> <n> <y> :     "( ͡° ͜ʖ ͡°)"
 <Multi_key> <f> <l> <i> <p> :         "(ノಠ益ಠ)ノ彡┻━┻"
