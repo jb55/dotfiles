@@ -22,8 +22,15 @@
 "slock"
   XF86Display
 
+"slock"
+  Pause
+
 "slock & systemctl suspend"
   Control + XF86Display
+
+"slock & systemctl suspend"
+  Control + Pause
+
 
 "n date '+%a | %b %d | %H:%M:%S | %F'"
   Mod4 + F5
