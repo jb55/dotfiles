@@ -590,6 +590,7 @@ This function is called at the very end of Spacemacs initialization."
     ((flycheck-clang-include-path "./include" "../include"))))
  '(send-mail-function (quote smtpmail-send-it))
  '(sendmail-program "sendmail")
+ '(org-adapt-indentation nil)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(smerge-command-prefix "m")
  '(smtpmail-smtp-server "smtp.jb55.com")
