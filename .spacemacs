@@ -2,12 +2,6 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
-
-;; Configuration Layers
-;; --------------------
-
-;; custom stuff
-
 (setq jb55/base-layers
   '((haskell :variables
              haskell-enable-ghc-mod-support nil
@@ -36,19 +30,16 @@
     latex
     lua
     markdown
-    (debug :variables c-c++-enable-debug t)
+    ;; (debug :variables c-c++-enable-debug t)
     nixos
     (org :variables org-want-todo-bindings t)
     purescript
     python
     racket
     rust
-    search-engineur
     sml
-    spacemacs-helm
     shell-scripts
     spacemacs-layouts
-    spacemacs-ui-visual
     spotify
     sql
     syntax-checking
@@ -69,7 +60,7 @@
      (notmuch
        :location (recipe :fetcher github
                          :repo "jb55/notmuch"
-                         :branch "sort-updates-wip-emacs"
+                         :branch "sort-updates"
                          :upgrade 't
                          :files ("emacs/notmuch*.el")))
      ereader
@@ -97,7 +88,7 @@
                     jb55/base-layers))
 
 
-(setq jb55/excluded-packages (let ((base-excluded '(org-bullets anaconda-mode)))
+(setq jb55/excluded-packages (let ((base-excluded '(org-bullets vi-tilde-fringe anaconda-mode)))
                                (if (not (is-mac))
                                    (cons 'exec-path-from-shell base-excluded)
                                  base-excluded)
@@ -118,72 +109,118 @@
     jb55/dark-theme))
 
 (defun dotspacemacs/layers ()
-  "Configuration Layers declaration.
-You should not put any user code in this function besides modifying the variable
-values."
+  "Layer configuration:
+This function should only modify configuration layer settings."
   (setq-default
    dotspacemacs-distribution 'spacemacs
-   dotspacemacs-enable-lazy-installation nil
+   ;;dotspacemacs-enable-lazy-installation nil
+   ;;dotspacemacs-delete-orphan-packages t
+   dotspacemacs-enable-lazy-installation 'unused
+   dotspacemacs-ask-for-lazy-installation t
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers jb55/layers
    dotspacemacs-additional-packages jb55/additional-packages
+   dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages jb55/excluded-packages
-   dotspacemacs-delete-orphan-packages t))
-
-
-;; Settings
-;; --------
-
-;; Initialization Hooks
-;; --------------------
+   dotspacemacs-install-packages 'used-only))
 
 (defun dotspacemacs/init ()
+  "Initialization:
+This function is called at the very beginning of Spacemacs startup,
+before layer configuration.
+It should only modify the values of Spacemacs settings."
   (setq-default
+   dotspacemacs-themes (list (jb55/determine-theme))
+   dotspacemacs-elpa-https t
+   dotspacemacs-elpa-timeout 5
+   dotspacemacs-use-spacelpa nil
+   dotspacemacs-verify-spacelpa-archives nil
+   dotspacemacs-check-for-update nil
+   dotspacemacs-elpa-subdirectory 'emacs-version
+   dotspacemacs-editing-style 'vim
+   dotspacemacs-verbose-loading nil
+   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-lists '((recents . 5)
+                                (projects . 7))
+   dotspacemacs-startup-buffer-responsive t
+   dotspacemacs-scratch-mode 'text-mode
+   ;; dotspacemacs-themes '(spacemacs-dark
+   ;;                       spacemacs-light)
+   dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Inconsolata"
-                               :size 22
+                               :size 20
                                :style medium
                                :weight normal
                                :width normal
                                :powerline-scale 1.2)
-
-
-   dotspacemacs-startup-banner 'official
-   dotspacemacs-themes (list (jb55/determine-theme))
-
-   dotspacemacs-active-transparency 90
-   dotspacemacs-auto-save-file-location 'cache
-   dotspacemacs-colorize-cursor-according-to-state t
-   dotspacemacs-command-key ":"
-   dotspacemacs-default-package-repository nil
-   dotspacemacs-editing-style 'vim
-   dotspacemacs-elpa-https t
-   dotspacemacs-elpa-timeout 5
+   ;;dotspacemacs-default-font '("Source Code Pro"
+   ;;                            :size 13
+   ;;                            :weight normal
+   ;;                            :width normal
+   ;;                            :powerline-scale 1.1)
+   dotspacemacs-leader-key "SPC"
+   dotspacemacs-emacs-command-key "SPC"
+   dotspacemacs-ex-command-key ":"
    dotspacemacs-emacs-leader-key "M-m"
+   dotspacemacs-major-mode-leader-key ","
+   dotspacemacs-major-mode-emacs-leader-key "C-M-m"
+   dotspacemacs-distinguish-gui-tab nil
+   dotspacemacs-remap-Y-to-y$ nil
+   dotspacemacs-retain-visual-state-on-shift t
+   dotspacemacs-visual-line-move-text nil
+   dotspacemacs-ex-substitute-global nil
+   dotspacemacs-default-layout-name "Default"
+   dotspacemacs-display-default-layout nil
+   dotspacemacs-auto-resume-layouts nil
+   dotspacemacs-auto-generate-layout-names nil
+   dotspacemacs-large-file-size 1
+   dotspacemacs-auto-save-file-location 'cache
+   dotspacemacs-max-rollback-slots 5
+   dotspacemacs-helm-resize nil
+   dotspacemacs-helm-no-header nil
+   dotspacemacs-helm-position 'bottom
+   dotspacemacs-helm-use-fuzzy 'always
    dotspacemacs-enable-paste-transient-state nil
+   dotspacemacs-which-key-delay 0.4
+   dotspacemacs-which-key-position 'bottom
+   dotspacemacs-switch-to-buffer-prefers-purpose nil
+   dotspacemacs-loading-progress-bar t
    dotspacemacs-fullscreen-at-startup nil
    dotspacemacs-fullscreen-use-non-native nil
-   dotspacemacs-guide-key-delay 0.4
-   dotspacemacs-inactive-transparency 90
-   dotspacemacs-install-packages 'used-but-keep-unused
-   dotspacemacs-leader-key "SPC"
-   dotspacemacs-major-mode-leader-key ","
    dotspacemacs-maximized-at-startup nil
+   dotspacemacs-active-transparency 90
+   dotspacemacs-inactive-transparency 90
+   dotspacemacs-show-transient-state-title t
+   dotspacemacs-show-transient-state-color-guide t
    dotspacemacs-mode-line-unicode-symbols t
-   dotspacemacs-persistent-server nil
-   dotspacemacs-remap-Y-to-y$ t
-   dotspacemacs-smartparens-strict-mode t
    dotspacemacs-smooth-scrolling t
-   dotspacemacs-startup-lists '()
-   dotspacemacs-verbose-loading nil
-
+   dotspacemacs-line-numbers nil
+   dotspacemacs-folding-method 'evil
+   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smart-closing-parenthesis nil
+   dotspacemacs-highlight-delimiters 'all
+   dotspacemacs-persistent-server nil
+   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
+   dotspacemacs-default-package-repository nil
+   dotspacemacs-frame-title-format "%I@%S"
+   dotspacemacs-icon-title-format nil
+   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-zone-out-when-idle nil
+   dotspacemacs-pretty-docs nil
    ))
 
 (defun dotspacemacs/user-init ()
+  "Initialization for user code:
+This function is called immediately after `dotspacemacs/init', before layer
+configuration.
+It is mostly for variables that should be set before packages are loaded.
+If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (defun jb55/eshell-prompt ()
     (concat (abbreviate-file-name (eshell/basename (eshell/pwd)))
             (if (= (user-uid) 0) " # " " $ ")))
 
   (load "urweb-mode/urweb-mode-startup")
+  (load "~/src/elisp/notmuch/github.el")
 
   (defun colorize-compilation-buffer ()
     (toggle-read-only)
@@ -206,12 +243,15 @@ values."
   (set-face-foreground 'vertical-border "#1e1f22")
   (global-hl-line-mode -1)
   (setq compilation-scroll-output t)
-)
 
+  )
 
 (defun dotspacemacs/user-config ()
-  "This is were you can ultimately override default Spacemacs configuration.
-This function is called at the very end of Spacemacs initialization."
+  "Configuration for user code:
+This function is called at the very end of Spacemacs startup, after layer
+configuration.
+Put your configuration code here, except for variables that should be set
+before packages are loaded."
   (setq jb55/org-path "~/Dropbox/doc/org")
 
   (defun jb55/notmuch-show-insert-header-p (part hide)
@@ -261,7 +301,7 @@ This function is called at the very end of Spacemacs initialization."
          ((:name "unread" :query "tag:unread and tag:inbox" :key "u")
           (:name "flagged" :query "tag:flagged and tag:inbox" :key "f")
           (:name "sent" :query "tag:sent" :key "t")
-          (:name "inbox" :query "tag:inbox and not tag:filed and not tag:noise" :key "i")
+          (:name "inbox" :query "tag:inbox and not tag:filed and not tag:noise" :key "i" :sort-order newest-first)
           (:name "list" :query "tag:list and tag:inbox and not tag:busy" :key "l" :sort-order subject-ascending)
           (:name "list-busy" :query "tag:list and tag:inbox and tag:busy" :key "L" :sort-order subject-ascending)
           (:name "github" :query "tag:github and tag:inbox" :key "g" :sort-order subject-ascending)
@@ -282,7 +322,7 @@ This function is called at the very end of Spacemacs initialization."
           (:name "internal" :query "tag:internal and tag:inbox" :key "m")
           (:name "noise" :query "tag:noise and tag:inbox" :key "n")
           (:name "report" :query "tag:report" :key "R")
-          (:name "dev" :query "tag:dev and tag:inbox" :key "d")
+          (:name "dev" :query "tag:dev and (tag:inbox or tag:unmerged)" :key "d")
           (:name "events" :query "tag:events and tag:inbox" :key "e")
           (:name "filed" :query "tag:inbox and tag:filed" :key "I")
           (:name "royalties" :query "tag:royalties and tag:inbox" :key "r")
@@ -300,12 +340,13 @@ This function is called at the very end of Spacemacs initialization."
     (interactive)
     (setq message-signature-file "~/.signature")
     (setq notmuch-command "notmuch")
-    (setq notmuch-poll-script "notmuch-update")
+    (setq notmuch-poll-script "notmuch-update-personal")
     (setq notmuch-saved-searches notmuch-saved-searches-home))
 
   (defun notmuch-switch-to-work ()
     (interactive)
     (setq message-signature-file "~/.signature-work")
+    (setq notmuch-command "notmuch-work")
     (setq notmuch-command "notmuch-work")
     (setq notmuch-poll-script "fetch-work-mail")
     (setq notmuch-saved-searches notmuch-saved-searches-work))
@@ -384,21 +425,9 @@ This function is called at the very end of Spacemacs initialization."
   (setq haskell-hoogle-url "http://localhost:8080/?hoogle=%s")
   ;; (setq haskell-process-type (quote ghci))
 
-  (fset 'phab-task
-        [?\" ?z ?y ?i ?w ?i ?\[ ?\[ ?h ?t ?t ?p ?s ?: ?/ ?/ ?p ?h ?a ?b ?r ?i ?c ?a ?t ?o ?r ?. ?m ?o ?n ?s ?t ?e ?r ?c ?a ?t ?. ?c ?o ?m ?/ escape ?E ?a ?\] ?\[ escape ?\" ?z ?p ?a ?\] ?\] escape ?y ?s ?i ?W ?\) ?i ?* ?* ?* ?* ?  escape ?f ?\) ?l ?l ?i ?+ escape ?A ?+ escape ?j ?0])
-
-  (use-package jade-mode :defer t)
-
-  (notmuch-switch)
-
-  ;; Custom variables
-  ;; ----------------
-
-  ;; Do not write anything in this section. This is where Emacs will
-  ;; auto-generate custom variable definitions.
+  )
 
 
-)
 
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
@@ -412,11 +441,11 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(Linum-format "%7i ")
  '(ac-ispell-requires 4 t)
- '(ahs-case-fold-search nil)
- '(ahs-default-range (quote ahs-range-whole-buffer))
- '(ahs-idle-interval 0.25)
+ '(ahs-case-fold-search nil t)
+ '(ahs-default-range (quote ahs-range-whole-buffer) t)
+ '(ahs-idle-interval 0.25 t)
  '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil)
+ '(ahs-inhibit-face-list nil t)
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
@@ -454,21 +483,21 @@ This function is called at the very end of Spacemacs initialization."
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
  '(haskell-font-lock-symbols nil)
- '(haskell-hoogle-command nil)
- '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s")
+ '(haskell-hoogle-command nil t)
+ '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s" t)
  '(haskell-indentation-indent-leftmost t)
  '(haskell-interactive-mode-scroll-to-bottom t)
  '(haskell-interactive-popup-error nil t)
  '(haskell-mode-hook
    (quote
-    (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)))
- '(haskell-notify-p t)
+    (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
+ '(haskell-notify-p t t)
  '(haskell-process-args-ghci (quote ("-isrc" "-XOverloadedStrings" "-ferror-spans")))
- '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-auto-import-loaded-modules t t)
  '(haskell-process-log t)
- '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-suggest-remove-import-lines t t)
  '(haskell-process-type (quote ghci))
- '(haskell-stylish-on-save nil)
+ '(haskell-stylish-on-save nil t)
  '(haskell-tags-on-save nil)
  '(helm-echo-input-in-header-line nil)
  '(helm-ff-skip-boring-files t)
@@ -512,6 +541,7 @@ This function is called at the very end of Spacemacs initialization."
  '(link-hint-delete-trailing-paren t)
  '(linum-format " %7i ")
  '(magit-diff-use-overlays nil)
+ '(magit-revision-show-gravatars nil)
  '(mail-envelope-from (quote header))
  '(mail-specify-envelope-from nil)
  '(main-line-color1 "#1E1E1E")
@@ -547,6 +577,7 @@ This function is called at the very end of Spacemacs initialization."
  '(notmuch-show-insert-text/plain-hook
    (quote
     (notmuch-wash-convert-inline-patch-to-part notmuch-wash-wrap-long-lines notmuch-wash-tidy-citations notmuch-wash-elide-blank-lines notmuch-wash-excerpt-citations)))
+ '(org-adapt-indentation nil)
  '(org-agenda-current-time-string
    #("=========================== NOW ===========================" 0 59
      (org-heading t)))
@@ -590,7 +621,6 @@ This function is called at the very end of Spacemacs initialization."
     ((flycheck-clang-include-path "./include" "../include"))))
  '(send-mail-function (quote smtpmail-send-it))
  '(sendmail-program "sendmail")
- '(org-adapt-indentation nil)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(smerge-command-prefix "m")
  '(smtpmail-smtp-server "smtp.jb55.com")
@@ -609,14 +639,6 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+ )
 )
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (window-numbering spacemacs-theme ido-vertical-mode quelpa package-build yapfify yaml-mode ws-butler winum which-key weechat web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tide sql-indent spotify spaceline smeargle shen-elisp restart-emacs rainbow-delimiters racket-mode pyvenv pytest pyenv-mode py-isort psci psc-ide powershell popwin pip-requirements persp-mode pcre2el paradox orgit org-projectile org-present org-pomodoro org-download open-junk-file omnisharp notmuch nix-mode neotree move-text mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint ledger-mode json-mode js2-refactor js-doc jade-mode intero info+ indent-guide idris-mode hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-spotify helm-pydoc helm-projectile helm-pages helm-nixos-options helm-mode-manager helm-make helm-hoogle helm-gtags helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio gnuplot glsl-mode github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh-md ggtags fuzzy fsharp-mode flycheck-pos-tip flycheck-ledger flycheck-haskell flycheck-elm flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu ereader engine-mode emojify emoji-cheat-sheet-plus elm-mode elisp-slime-nav dumb-jump disaster define-word cython-mode csv-mode company-tern company-statistics company-nixos-options company-irony company-ghci company-ghc company-emoji company-cabal company-c-headers company-auctex company-anaconda column-enforce-mode coffee-mode cmm-mode cmake-mode clean-aindent-mode clang-format base16-theme auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+
