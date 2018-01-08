@@ -46,6 +46,11 @@ alias myipaddress=myip
 alias ns="nix-shell -p"
 alias fzf="fzf --exact"
 
+
+ghclone () {
+  cd "$(gh-clone "$@")"
+}
+
 cdnp () {
   nix-build '<nixpkgs>' --no-out-link -A "$1"
   cd $(nix-path "$1")
