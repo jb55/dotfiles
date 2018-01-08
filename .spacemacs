@@ -52,6 +52,7 @@
 (setq jb55/additional-packages
   '( company-irony
      base16-theme
+     gnu-apl-mode
      bison-mode
      graphviz-dot-mode
      emojify
