@@ -27,7 +27,6 @@ alias githist="git reflog show | grep '}: commit' | nl | sort -nr | nl | sort -n
 alias jsonpp="python -mjson.tool"
 alias ls="ls --color"
 alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
-alias nfmt="numfmt --to=si"
 alias noder="env NODE_NO_READLINE=1 rlwrap node"
 alias nr="npm run"
 alias open=xdg-open
