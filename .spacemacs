@@ -556,6 +556,7 @@ This function is called at the very end of Spacemacs initialization."
  '(message-sendmail-f-is-evil t)
  '(mm-text-html-renderer (quote w3m))
  '(notmuch-command "notmuch" t)
+ '(notmuch-wash-wrap-lines-length 80)
  '(notmuch-fcc-dirs ".Sent +sent -inbox -unread")
  '(notmuch-hello-tag-list-make-query "tag:inbox")
  '(notmuch-message-headers-visible t)
