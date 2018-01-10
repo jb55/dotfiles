@@ -15,6 +15,7 @@
 
     csharp
     csv
+    semantic
     elm
     go
     emacs-lisp
