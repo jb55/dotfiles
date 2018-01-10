@@ -25,11 +25,13 @@
 [gui]
   recentrepo = /Users/jb55/src/js/titania
 [alias]
+  prs = log --no-merges --date=local --author-date-order --glob='pull/origin/*'
+  prs-merged = log --merges --date=local --author-date-order --glob='pull/origin/*'
   refl = reflog --date=relative
   br = symbolic-ref --short HEAD
   ff = merge --ff-only
   try = merge --no-commit --no-ff
-  pff = pull --ff-only
+  puff = pull --ff-only
   lgrep = log --grep
   default = !git config branch.master.remote origin && git config branch.master.merge refs/heads/master
   lg1 = log --graph --branches --tags --remotes --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
@@ -46,13 +48,13 @@
 [push]
 	default = simple
 [rerere]
-	enabled = true
-	autoupdate = true
+	enabled = false
+	autoupdate = false
 [http "https://git.monstercat.com"]
 	sslCAInfo = /home/jb55/.flynn/ca-certs/default.pem
 [credential "https://git.monstercat.com"]
 	helper = /home/jb55/bin/flynn git-credentials
 [gpg]
-	program = gpg2
+	program = gpg
 [magit]
 	hideCampaign = true
