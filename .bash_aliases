@@ -204,6 +204,9 @@ source $DOTFILES/.fzf_helpers
 # z
 source $HOME/bin/z.sh
 
+# private stuff
+source $HOME/.bash_private
+
 # nix
 #. /Users/jb55/.nix-profile/etc/profile.d/nix.sh
 
