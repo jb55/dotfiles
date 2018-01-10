@@ -46,6 +46,15 @@ alias myipaddress=myip
 alias ns="nix-shell -p"
 alias fzf="fzf --exact"
 
+alias lcli=lightning-cli
+alias lcli1="lcli --lightning-dir=$HOME/.clightning/lightningd1"
+alias lcli2="lcli --lightning-dir=$HOME/.clightning/lightningd2"
+alias lcli3="lcli --lightning-dir=$HOME/.clightning/lightningd3"
+
+alias lid1="lightningd --lightning-dir=$HOME/.clightning/lightningd1 --log-level=debug"
+alias lid2="lightningd --lightning-dir=$HOME/.clightning/lightningd2 --log-level=debug"
+alias lid3="lightningd --lightning-dir=$HOME/.clightning/lightningd3 --log-level=debug"
+
 
 ghclone () {
   cd "$(gh-clone "$@")"
