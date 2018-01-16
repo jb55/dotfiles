@@ -241,8 +241,6 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
                )
 
   (add-to-list 'compilation-error-regexp-alist 'npm)
-  (set-face-background 'fringe "#1e1f22")
-  (set-face-foreground 'vertical-border "#1e1f22")
   (global-hl-line-mode -1)
   (setq compilation-scroll-output t)
 
@@ -257,6 +255,9 @@ before packages are loaded."
   (setq jb55/org-path "~/Dropbox/doc/org")
 
   (defun jb55/notmuch-show-insert-header-p (part hide)
+  (set-face-background 'fringe "#1e1f22")
+  (set-face-foreground 'vertical-border "#1e1f22")
+
     ;; Show all part buttons except for the first part if it is text/plain.
     (let ((mime-type (notmuch-show-mime-type part)))
       (not (or (and (string= mime-type "text/plain")
