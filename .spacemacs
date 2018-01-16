@@ -24,6 +24,7 @@
     notmuch
     git
     github
+    ivy
     gtags
     idris
     javascript
