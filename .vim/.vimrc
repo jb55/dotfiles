@@ -151,6 +151,8 @@ map <Leader>] :tnext<CR>
 map <Leader>[ :tprev<CR>
 map <S-l> :cn<CR>
 map <S-h> :cN<CR>
+map <C-n> :lnext<CR>
+map <C-p> :lprev<CR>
 nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
 map <Leader>a :%s/\ at\ /\r\ at\ /g<CR>
@@ -236,6 +238,7 @@ let g:clang_complete_copen = 1
 let g:clang_snippets = 1
 let g:clang_use_library = 1
 
+let g:syntastic_loc_list_height=3
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
