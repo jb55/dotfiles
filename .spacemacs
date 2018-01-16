@@ -305,6 +305,7 @@ before packages are loaded."
          ((:name "unread" :query "tag:unread and tag:inbox" :key "u")
           (:name "flagged" :query "tag:flagged and tag:inbox" :key "f")
           (:name "sent" :query "tag:sent" :key "t")
+          (:name "lightning" :query "tag:inbox and tag:lightning" :key "k" :sort-order newest-first)
           (:name "inbox" :query "tag:inbox and not tag:filed and not tag:noise" :key "i" :sort-order newest-first)
           (:name "list" :query "tag:list and tag:inbox and not tag:busy" :key "l" :sort-order subject-ascending)
           (:name "list-busy" :query "tag:list and tag:inbox and tag:busy" :key "L" :sort-order subject-ascending)
