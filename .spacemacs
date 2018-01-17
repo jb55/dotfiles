@@ -560,6 +560,27 @@ This function is called at the very end of Spacemacs initialization."
  '(message-sendmail-f-is-evil t)
  '(mm-text-html-renderer (quote w3m))
  '(notmuch-command "notmuch" t)
+ '(notmuch-tag-formats
+   '(("unread"
+      (propertize tag 'face 'notmuch-tag-unread))
+     ("flagged"
+      (notmuch-tag-format-image-data tag (notmuch-tag-star-icon))
+      (propertize tag 'face 'notmuch-tag-flagged))
+     ("pr"
+      (notmuch-apply-face tag '(:foreground "green")))
+     ("issue"
+      (notmuch-apply-face tag '(:foreground "orange")))
+     ("filed")
+     ("list")
+     ("github")
+     ("inbox"
+      #("⬇" 0 1
+        (face (:foreground "white"))))
+      (notmuch-apply-face tag '(:foreground "white")))
+     ("lightning"
+      #("⚡" 0 1
+        (face (:foreground "yellow"))))
+      (notmuch-apply-face tag '(:foreground "yellow")))
  '(notmuch-wash-wrap-lines-length 80)
  '(notmuch-fcc-dirs ".Sent +sent -inbox -unread")
  '(notmuch-hello-tag-list-make-query "tag:inbox")
