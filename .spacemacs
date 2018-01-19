@@ -255,10 +255,10 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (setq jb55/org-path "~/Dropbox/doc/org")
 
-  (defun jb55/notmuch-show-insert-header-p (part hide)
   (set-face-background 'fringe "#1e1f22")
   (set-face-foreground 'vertical-border "#1e1f22")
 
+  (defun jb55/notmuch-show-insert-header-p (part hide)
     ;; Show all part buttons except for the first part if it is text/plain.
     (let ((mime-type (notmuch-show-mime-type part)))
       (not (or (and (string= mime-type "text/plain")
