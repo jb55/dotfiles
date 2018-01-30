@@ -106,6 +106,7 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/dev/github/bitcoin/bitcoin/src
 
 # added by travis gem
 [ -f /Users/jb55/.travis/travis.sh ] && source /Users/jb55/.travis/travis.sh
