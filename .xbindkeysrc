@@ -4,14 +4,8 @@
 "amixer sset Master 3%-"
   XF86AudioLowerVolume
 
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-  Mod4 + F6
-
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
   Mod4 + F7
-
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-  Mod4 + F8
 
 "snap"
   Print
@@ -37,6 +31,12 @@
 
 "env TZ='America/New_York' n date '+%a | %b %d | %H:%M:%S | %F'"
   Mod4 + Control + F5
+
+"xbacklight -set 20"
+  Mod4 + F5
+
+"xbacklight -set 100"
+  Mod4 + F6
 
 "n btc"
   Mod4 + F4
