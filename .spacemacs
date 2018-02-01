@@ -294,8 +294,6 @@ before packages are loaded."
     "yj" 'notmuch-jump-search
     "yi" 'notmuch-hello
     "ys" 'notmuch-search
-    "yw" 'notmuch-switch-to-work
-    "yh" 'notmuch-switch-to-home
     "]" 'jb55/forward-page-recenter-top
     "[" 'jb55/backward-page-recenter-top
     )
@@ -320,23 +318,6 @@ before packages are loaded."
            #("⚡" 0 1
              (face (:foreground "yellow"))))))
 
-  (setq notmuch-saved-searches-home
-        (quote
-         ((:name "unread" :query "tag:unread and tag:inbox" :key "u")
-          (:name "flagged" :query "tag:flagged and tag:inbox" :key "f")
-          (:name "sent" :query "tag:sent" :key "t")
-          (:name "lightning" :query "tag:inbox and tag:lightning" :key "k" :sort-order newest-first)
-          (:name "inbox" :query "tag:inbox and not tag:filed and not tag:noise" :key "i" :sort-order newest-first)
-          (:name "list" :query "tag:list and tag:inbox and not tag:busy" :key "l" :sort-order subject-ascending)
-          (:name "list-busy" :query "tag:list and tag:inbox and tag:busy" :key "L" :sort-order subject-ascending)
-          (:name "github" :query "tag:github and tag:inbox" :key "g" :sort-order subject-ascending)
-          (:name "filed" :query "tag:inbox and tag:filed" :key "I")
-          (:name "today" :query "date:today and tag:inbox" :key "1")
-          (:name "rss" :query "tag:rss and tag:inbox and not tag:busy" :key "r" :sort-order from-ascending)
-          (:name "rss-busy" :query "tag:rss and tag:inbox and tag:busy" :key "R" :sort-order from-ascending)
-          (:name "2-day" :query "date:yesterday.. and tag:inbox" :key "2")
-          (:name "week" :query "date:week.. and tag:inbox" :key "3"))))
-
   (setq notmuch-saved-searches-work
         (quote
          ((:name "unread" :query "tag:unread and tag:inbox" :key "u")
@@ -355,28 +336,22 @@ before packages are loaded."
           (:name "2-day" :query "date:yesterday.. and tag:inbox" :key "2")
           (:name "week" :query "date:week.. and tag:inbox" :key "3"))) )
 
-  (defun notmuch-switch ()
-    (interactive)
-    (if (jb55/at-work)
-        (notmuch-switch-to-work)
-      (notmuch-switch-to-home)))
-
   (defun notmuch-switch-to-home ()
-    (interactive)
     (setq message-signature-file "~/.signature")
     (setq notmuch-command "notmuch")
     (setq notmuch-poll-script "notmuch-update-personal")
-    (setq notmuch-saved-searches notmuch-saved-searches-home))
+    ;;(setq notmuch-saved-searches notmuch-saved-searches-home)
+    )
 
-  (defun notmuch-switch-to-work ()
-    (interactive)
-    (setq message-signature-file "~/.signature-work")
-    (setq notmuch-command "notmuch-work")
-    (setq notmuch-command "notmuch-work")
-    (setq notmuch-poll-script "fetch-work-mail")
-    (setq notmuch-saved-searches notmuch-saved-searches-work))
+  ;; (defun notmuch-switch-to-work ()
+  ;;   (interactive)
+  ;;   (setq message-signature-file "~/.signature-work")
+  ;;   (setq notmuch-command "notmuch-work")
+  ;;   (setq notmuch-command "notmuch-work")
+  ;;   (setq notmuch-poll-script "fetch-work-mail")
+  ;;   (setq notmuch-saved-searches notmuch-saved-searches-work))
 
-  (notmuch-switch)
+  (notmuch-switch-to-home)
 
   (defun jb55/make-org-path (file)
     (concat (file-name-as-directory jb55/org-path) file))
@@ -586,17 +561,20 @@ This function is called at the very end of Spacemacs initialization."
  '(notmuch-message-headers-visible t)
  '(notmuch-saved-searches
    (quote
-    ((:name "unread" :query "tag:unread and tag:inbox" :key "u")
-     (:name "flagged" :query "tag:flagged and tag:inbox" :key "f")
-     (:name "sent" :query "tag:sent" :key "t")
-     (:name "inbox" :query "tag:inbox and not tag:filed and not tag:noise" :key "i")
-     (:name "list" :query "tag:list and tag:inbox and not tag:busy" :key "l")
-     (:name "github" :query "tag:github and tag:inbox" :key "g")
-     (:name "filed" :query "tag:inbox and tag:filed" :key "I")
-     (:name "today" :query "date:today and tag:inbox" :key "1")
-     (:name "rss" :query "tag:rss and tag:inbox" :key "r" :sort-order from-ascending)
-     (:name "2-day" :query "date:yesterday.. and tag:inbox" :key "2")
-     (:name "week" :query "date:week.. and tag:inbox" :key "3"))) t)
+         ((:name "unread" :query "tag:unread and tag:inbox" :key "u")
+          (:name "flagged" :query "tag:flagged and tag:inbox" :key "f")
+          (:name "sent" :query "tag:sent" :key "t")
+          (:name "lightning" :query "tag:inbox and tag:lightning" :key "k" :sort-order newest-first)
+          (:name "inbox" :query "tag:inbox and not tag:filed and not tag:noise" :key "i" :sort-order newest-first)
+          (:name "list" :query "tag:list and tag:inbox and not tag:busy" :key "l" :sort-order subject-ascending)
+          (:name "list-busy" :query "tag:list and tag:inbox and tag:busy" :key "L" :sort-order subject-ascending)
+          (:name "github" :query "tag:github and tag:inbox" :key "g" :sort-order subject-ascending)
+          (:name "filed" :query "tag:inbox and tag:filed" :key "I")
+          (:name "today" :query "date:today and tag:inbox" :key "1")
+          (:name "rss" :query "tag:rss and tag:inbox and not tag:busy" :key "r" :sort-order from-ascending)
+          (:name "rss-busy" :query "tag:rss and tag:inbox and tag:busy" :key "R" :sort-order from-ascending)
+          (:name "2-day" :query "date:yesterday.. and tag:inbox" :key "2")
+          (:name "week" :query "date:week.. and tag:inbox" :key "3"))) t)
  '(notmuch-search-oldest-first nil)
  '(notmuch-search-sort-order (quote newest-first))
  '(notmuch-show-all-tags-list t)
