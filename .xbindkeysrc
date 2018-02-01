@@ -32,9 +32,6 @@
 "env TZ='America/New_York' n date '+%a | %b %d | %H:%M:%S | %F'"
   Mod4 + Control + F5
 
-"xbacklight -set 20"
-  Mod4 + F5
-
 "xbacklight -set 100"
   Mod4 + F6
 
