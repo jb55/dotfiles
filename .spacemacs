@@ -223,7 +223,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
             (if (= (user-uid) 0) " # " " $ ")))
 
   (load "urweb-mode/urweb-mode-startup")
-  (load "~/src/elisp/notmuch/github.el")
+  (load "~/src/elisp/notmuch/notmuch-github.el")
 
   (defun colorize-compilation-buffer ()
     (toggle-read-only)
