@@ -12,6 +12,8 @@
   smtpServer=/run/wrappers/bin/sendmail
 [url "git@github.com:"]
   insteadOf = gh:
+[url "git@gitlab.com:"]
+  insteadOf = gitlab:
 [url "jb55.com:git/"]
   insteadOf = dev:
 [url "ssh://git@phabricator.monstercat.com/diffusion/"]
