@@ -19,14 +19,13 @@
 "slock"
   Pause
 
-"slock & systemctl suspend"
+"slock & my-suspend"
   Control + XF86Display
 
-"slock & systemctl suspend"
+"slock & my-suspend"
   Control + Pause
 
-
-"n date '+%a | %b %d | %H:%M:%S | %F'"
+"n mydate"
   Mod4 + F5
 
 "env TZ='America/New_York' n date '+%a | %b %d | %H:%M:%S | %F'"
@@ -34,6 +33,9 @@
 
 "xbacklight -set 100"
   Mod4 + F6
+
+"vmtoggle"
+  Mod4 + F12
 
 "n btc"
   Mod4 + F4
