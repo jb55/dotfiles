@@ -59,7 +59,12 @@
    (quote
     (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
  '(haskell-notify-p t t)
- '(haskell-process-args-ghci (quote ("-isrc" "-XOverloadedStrings" "-ferror-spans")))
+ '(haskell-process-args-cabal-repl
+   (quote
+    ("--ghc-options=-ferror-spans -fshow-loaded-modules")))
+ '(haskell-process-args-ghci
+   (quote
+    ("-isrc" "-XOverloadedStrings" "-ferror-spans" "-fshow-loaded-modules")))
  '(haskell-process-auto-import-loaded-modules t t)
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t t)
