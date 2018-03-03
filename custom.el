@@ -160,6 +160,7 @@
      (800 1000 1200 1400 1600 1800 2000))))
  '(org-archive-location "archive/%s_archive::")
  '(org-directory "~/docs/org")
+ '(org-duration-format (quote ((special . h:mm))))
  '(org-export-headline-levels 2)
  '(org-export-with-section-numbers nil)
  '(org-export-with-toc nil)
