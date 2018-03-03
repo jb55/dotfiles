@@ -54,6 +54,7 @@
 (setq jb55/additional-packages
   '( company-irony
      base16-theme
+     org-clock-csv
      gnu-apl-mode
      bison-mode
      graphviz-dot-mode
