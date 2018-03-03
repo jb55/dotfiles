@@ -77,13 +77,19 @@ main = xmonad
      }
      `additionalKeysP` myKeys
 
+myXPConfig =
+    defaultXPConfig {
+      font        = "xft:Inconsolata:size=16",
+      height      = 25,
+      borderColor = "#000000"
+    }
 
 toggleGaps = sendMessage ToggleGaps
 toggleFull = sendMessage (Toggle FULL)
 toggleMaximized = toggleGaps >> toggleFull
 
 myKeys = [
-    ("M-p", shellPrompt defaultXPConfig)
+    ("M-p", shellPrompt myXPConfig)
   , ("M-a", focusUrgent)
   , ("M-d", toggleWS)
   , ("M-r", toggleFull)
