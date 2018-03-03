@@ -273,9 +273,11 @@ before packages are loaded."
                                        "multipart/mixed"
                                        "multipart/signed"))))))
 
-  (setq notmuch-show-insert-header-p-function 'jb55/notmuch-show-insert-header-p)
+  (setq notmuch-show-insert-header-p-function
+        'jb55/notmuch-show-insert-header-p)
 
-  (setq spacemacs-indent-sensitive-modes (add-to-list 'spacemacs-indent-sensitive-modes 'nix-mode))
+  (setq spacemacs-indent-sensitive-modes
+        (add-to-list 'spacemacs-indent-sensitive-modes 'nix-mode))
 
   (setq org-want-todo-bindings 't)
 
