@@ -11,6 +11,7 @@ export XZ=pxz
 export HISTSIZE=50000
 export FZF_CTRL_R_OPTS="-e"
 export FZF_DEFAULT_OPTS="-e"
+export EMACS_SERVER_FILE="/tmp/emacs-server-socket"
 
 alias info="info --vi-keys"
 alias ag="ag --pager=less"

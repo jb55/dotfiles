@@ -22,7 +22,7 @@
   insteadOf = mcat:
 [url "http://git.zero.jb55.com/"]
   insteadOf = zero:
-[url "http://git.razor.jb55.com/"]
+[url "http://git.razorcx.com/"]
   insteadOf = razor:
 [gui]
   recentrepo = /Users/jb55/src/js/titania
@@ -37,7 +37,8 @@
   lgrep = log --grep
   default = !git config branch.master.remote origin && git config branch.master.merge refs/heads/master
   lg1 = log --graph --branches --tags --remotes --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-  lg2 = log --branches --tags --remotes --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+  lg2 = log --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+  lg3 = log --branches --tags --remotes --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
   lg = !"git lg1"
   serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
   cloner = clone --recursive
@@ -59,3 +60,5 @@
 	program = gpg
 [magit]
 	hideCampaign = true
+[github]
+	user = jb55

@@ -1,3 +1,2 @@
-:set -XNoMonomorphismRestriction
 :m + Data.Char
 :set prompt "λ "

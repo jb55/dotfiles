@@ -172,88 +172,6 @@ include "%L"
 <Multi_key> <p> <a> <l> <m>	: "⸙"	U2E19		# PALM BRANCH
 <Multi_key> <b> <r> <a> <n> <c> <h>: "⸙"	U2E19		# PALM BRANCH
 
-
-<Multi_key> <f> <f>		: "ﬀ"	   UFB00   # LATIN SMALL LIGATURE FF
-<Multi_key> <f> <i>		: "ﬁ"	   UFB01   # LATIN SMALL LIGATURE FI
-<Multi_key> <F> <i>		: "ﬃ"	   UFB03   # LATIN SMALL LIGATURE FFI
-<Multi_key> <f> <l>		: "ﬂ"	   UFB02   # LATIN SMALL LIGATURE FL
-<Multi_key> <F> <l>		: "ﬄ"	   UFB04   # LATIN SMALL LIGATURE FFL
-<Multi_key> <s> <t>		: "ﬆ"  UFB06	   # LATIN SMALL LIGATURE ST
-<Multi_key> <f> <t>		: "ﬅ"  UFB05	   # LATIN SMALL LIGATURE LONG S T
-# allow me still to use my ſ key, okay?
-<Multi_key> <U017F> <t>		: "ﬅ"  UFB05	   # LATIN SMALL LIGATURE LONG S T
-# ß is already available as <s><s> I think.  But now it comes in industrial size!
-<Multi_key> <S> <S> 		: "ẞ"  U1E9E	   # LATIN CAPITAL LETTER SHARP S
-
-# Eventually we'll have to look over the really crazy-cakes Latin letters 
-# they're adding as "mediævalist extensions"
-# ꜢꜣꜤꜥ for the Egyptologists, Ꝏꝏ because they're cꝏl...  Maybe some others.
-# Can't do <o> <o> for ꝏ though, since that's already °.
-# Epigraphics should not be missed:
-<Multi_key> <F> <less>		: "ꟻ"	UA7FB	# LATIN EPIGRAPHIC LETTER REVERSED F
-<Multi_key> <P> <less>		: "ꟼ"	UA7FC	# LATIN EPIGRAPHIC LETTER REVERSED P
-<Multi_key> <F> <BackSpace>		: "ꟻ"	UA7FB	# LATIN EPIGRAPHIC LETTER REVERSED F
-<Multi_key> <P> <BackSpace>		: "ꟼ"	UA7FC	# LATIN EPIGRAPHIC LETTER REVERSED P
-<Multi_key> <M> <W>		: "ꟽ"	UA7FD	# LATIN EPIGRAPHIC LETTER INVERTED M
-<Multi_key> <I> <bar>		: "ꟾ"	UA7FE	# LATIN EPIGRAPHIC LETTER I LONGA
-<Multi_key> <M> <slash>		: "ꟿ"	UA7FF	# LATIN EPIGRAPHIC LETTER ARCHAIC M
-# I'd been avoiding this because we already have ∃...
-# Hey, these, being *letters* can be used as identifiers in some languages...
-<Multi_key> <E> <less>	 	 : "Ǝ"	    U018E	# LATIN CAPITAL LETTER REVERSED E
-<Multi_key> <E> <BackSpace>	 : "Ǝ"	    U018E	# LATIN CAPITAL LETTER REVERSED E
-<Multi_key> <e> <less>		 : "ɘ"	    U0258	# LATIN SMALL LETTER REVERSED E
-<Multi_key> <e> <BackSpace>	 : "ɘ"	    U0258	# LATIN SMALL LETTER REVERSED E
-# Complete the set
-<Multi_key> <A> <less>		 : "Ɐ"	    U2C6F	# LATIN CAPITAL LETTER TURNED A
-# These seem too long as keystrokes; any suggestions?
-# How about 2o?
-<Multi_key> <o> <ampersand> <o>	: "ꝏ"	UA74F	# LATIN SMALL LETTER OO
-<Multi_key> <O> <ampersand> <O> : "Ꝏ"	UA74E	# LATIN CAPITAL LETTER OO
-<Multi_key> <2> <o>	: "ꝏ"	UA74F	# LATIN SMALL LETTER OO
-<Multi_key> <2> <O> 	: "Ꝏ"	UA74E	# LATIN CAPITAL LETTER OO
-# Latin-D chars I'm particularly thinking about:
-# (side note: "I" has many referents in this file.)
-# ꜲꜳꜴꜵꜶꜷꜸꜹꜼꜽꝒꝓꝔꝕꝚꝛꝜꝝꝠꝡꝪꝫꝸ
-# The ligature pairs are so easy, might as well include them (probably
-# using ampersand though).  P with flourish?  Squirrel tail?  How
-# pretty!  I like the r and rum rotunda, and et actually has something
-# close to usefulness (it was very common for abbreviations, and is the 
-# source of the "z" in abbreviations like oz. and viz.)  Some others 
-# are a little appealing too.
-
-<Multi_key> <A> <ampersand> <A> :	"Ꜳ"	UA732		# LATIN CAPITAL LETTER AA
-<Multi_key> <a> <ampersand> <a> :	"ꜳ"	UA733		# LATIN SMALL LETTER AA
-<Multi_key> <2> <A> :	"Ꜳ"	UA732		# LATIN CAPITAL LETTER AA
-<Multi_key> <2> <a> :	"ꜳ"	UA733		# LATIN SMALL LETTER AA
-<Multi_key> <A> <ampersand> <O>	:	"Ꜵ"	UA734	# LATIN CAPITAL LETTER AO
-<Multi_key> <a> <ampersand> <o>	:	"ꜵ"	UA735	# LATIN SMALL LETTER AO
-<Multi_key> <A> <ampersand> <U>	:	"Ꜷ"	UA736	# LATIN CAPITAL LETTER AU
-<Multi_key> <a> <ampersand> <u>	:	"ꜷ"	UA737	# LATIN SMALL LETTER AU
-<Multi_key> <A> <ampersand> <V> :	"Ꜹ"	UA738	# LATIN CAPITAL LETTER AV
-<Multi_key> <a> <ampersand> <v> :	"ꜹ"	UA739	# LATIN SMALL LETTER AV
-<Multi_key> <A> <ampersand> <Y> :	"Ꜽ"	UA73C	# LATIN CAPITAL LETTER AY
-<Multi_key> <a> <ampersand> <y> :	"ꜽ"	UA73D	# LATIN SMALL LETTER AY
-<Multi_key> <slash> <ampersand> <L> :	"Ꝇ"	UA746	# LATIN CAPITAL LETTER BROKEN L
-<Multi_key> <slash> <ampersand> <l> :	"ꝇ"	UA747	# LATIN SMALL LETTER BROKEN L
-# (See above for reason behind keystrokes)
-<Multi_key> <Z> <period>	:	"Ꝫ"	UA75A	# LATIN CAPITAL LETTER ET
-<Multi_key> <z> <period>	:	"ꝫ"	UA75B	# LATIN SMALL LETTER ET
-<Multi_key> <V> <ampersand> <Y>	:	"Ꝡ"	UA760	# LATIN CAPITAL LETTER VY
-<Multi_key> <v> <ampersand> <y>	:	"ꝡ"	UA761	# LATIN SMALL LETTER VY
-<Multi_key> <C> <Z>	    	:	"Ꝣ"	UA762	# LATIN CAPITAL LETTER VISIGOTHIC Z
-<Multi_key> <c> <z>		:	"ꝣ"	UA763	# LATIN SMALL LETTER VISIGOTHIC Z
-<Multi_key> <L> <ampersand> <L>	:	"Ỻ"	U1EFA	# LATIN CAPITAL LETTER MIDDLE-WELSH LL
-<Multi_key> <l> <ampersand> <l>	:	"ỻ"	U1EFB	# LATIN SMALL LETTER MIDDLE-WELSH LL
-<Multi_key> <V> <ampersand> <V>	:	"Ỽ"	U1EFC	# LATIN CAPITAL LETTER MIDDLE-WELSH V
-<Multi_key> <v> <ampersand> <v>	:	"ỽ"	U1EFD	# LATIN SMALL LETTER MIDDLE-WELSH V
-<Multi_key> <d> <ampersand> <b>	:	"ȸ"	U0238	# LATIN SMALL LETTER DB DIGRAPH
-<Multi_key> <q> <ampersand> <p>	:	"ȹ"	U0239	# LATIN SMALL LETTER QP DIGRAPH
-<Multi_key> <w> <y>	    	:	"ƿ"	U01BF	# LATIN LETTER WYNN
-<Multi_key> <W> <Y>		:	"Ƿ"	U01F7	# LATIN CAPITAL LETTER WYNN
-<Multi_key> <O> <U>		:	"Ȣ"	U0222	# LATIN CAPITAL LETTER OU
-<Multi_key> <o> <u>		:	"ȣ"	U0223	# LATIN SMALL LETTER OU
-<Multi_key> <y> <r>		:	"Ʀ"	U01A6	# LATIN LETTER YR
-
 # Custom additions: Mathematical symbols
 <Multi_key> <exclam> <equal>		: "≠"	U2260		# NOT EQUAL TO
 <Multi_key> <slash> <equal>		: "≠"	U2260		# NOT EQUAL TO
@@ -1283,7 +1201,7 @@ include "%L"
 <Multi_key> <o> <k> <h> <a> <n> <d> : "👌" U1F44C # "ok_hand" OK hand
 <Multi_key> <v> : "✌️" U270C # "v" victory hand
 <Multi_key> <h> <a> <n> <d> : "✋" U270B # "hand" raised hand
-<Multi_key> <m> <u> <s> <c> <l> <e> : "💪" U1F4AA # "muscle" flexed biceps
+<Multi_key> <f> <l> <e> <x> : "💪" U1F4AA # "muscle" flexed biceps
 <Multi_key> <p> <r> <a> <y> : "🙏" U1F64F # "pray" folded hands
 <Multi_key> <m> <e> <t> <a> <l> : "🤘" U1F918 # "metal" sign of the horns
 <Multi_key> <l> <i> <p> <s> : "👄" U1F444 # "lips" mouth
@@ -1593,3 +1511,5 @@ include "%L"
 <Multi_key> <c> <l> <o> <c> <k> <7> : "🕖" U1F556 # "clock7" seven o’clock
 <Multi_key> <c> <l> <o> <c> <k> <8> : "🕗" U1F557 # "clock8" eight o’clock
 <Multi_key> <c> <l> <o> <c> <k> <9> : "🕘" U1F558 # "clock9" nine o’clock
+<Multi_key> <l> <i> <f> <t> : "🏋️" U1F3CB # weight lifter
+<Multi_key> <s> <h> <o> <e> : "👞" U1F45E # shoe

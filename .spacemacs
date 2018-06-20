@@ -21,9 +21,9 @@
     emacs-lisp
     emoji
     finance
+    fsharp
     notmuch
     git
-    github
     ivy
     gtags
     idris
@@ -124,7 +124,8 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers jb55/layers
    dotspacemacs-additional-packages jb55/additional-packages
-   dotspacemacs-frozen-packages '()
+   dotspacemacs-frozen-packages '(fsharp
+                                  )
    dotspacemacs-excluded-packages jb55/excluded-packages
    dotspacemacs-install-packages 'used-only))
 

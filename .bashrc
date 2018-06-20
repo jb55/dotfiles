@@ -112,3 +112,4 @@ PATH=$PATH:$HOME/dev/github/bitcoin/bitcoin/src
 [ -f /Users/jb55/.travis/travis.sh ] && source /Users/jb55/.travis/travis.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+. `which env_parallel.bash`
