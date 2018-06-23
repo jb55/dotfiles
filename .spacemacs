@@ -13,9 +13,9 @@
 
     (auto-completion :variables auto-completion-enable-help-tooltip t)
 
+    fsharp
     csharp
     csv
-    semantic
     elm
     go
     emacs-lisp
@@ -277,6 +277,8 @@ before packages are loaded."
   (setq notmuch-show-insert-header-p-function
         'jb55/notmuch-show-insert-header-p)
 
+  (setq ivy-initial-inputs-alist (list))
+
   (setq spacemacs-indent-sensitive-modes
         (add-to-list 'spacemacs-indent-sensitive-modes 'nix-mode))
 
@@ -301,6 +303,7 @@ before packages are loaded."
   (spacemacs/set-leader-keys
     "pS" 'jb55/write-and-save
     "yj" 'notmuch-jump-search
+    "is" 'company-yasnippet
     "yi" 'notmuch-hello
     "ys" 'notmuch-search
     "]" 'jb55/forward-page-recenter-top
