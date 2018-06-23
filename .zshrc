@@ -96,3 +96,6 @@ export FZF_DEFAULT_OPTS="--color=light"
 
 # undistract-me is great
 [ -e $HOME/dotfiles/zsh/undistract-me.zsh ] && . $HOME/dotfiles/zsh/undistract-me.zsh
+
+# added by travis gem
+[ -f /home/jb55/.travis/travis.sh ] && source /home/jb55/.travis/travis.sh

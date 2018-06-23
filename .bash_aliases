@@ -6,7 +6,7 @@
 export SHAREFILE_HOST='charon:public/s/'
 export SHAREFILE_URL='https://jb55.com/s/'
 export SHARE_SS_DIR="$HOME/var/img/ss"
-export DOTFILES=${DOTFILES:-$HOME/.dotfiles}
+export DOTFILES=${DOTFILES:-$HOME/dotfiles}
 export XZ=pxz
 export HISTSIZE=50000
 export FZF_CTRL_R_OPTS="-e"
@@ -177,7 +177,7 @@ sql_wineparty() {
 
 sql_() {
   local query="$1"
-  local args=("-U" "$pg_user" -A)
+  local args=("-U" "$pg_user" -At)
   if [ ! -z "$query" ];
   then
     args+=(-c "$query")
