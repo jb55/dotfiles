@@ -141,8 +141,8 @@
      (:name "bitcoin" :query "tag:core and tag:inbox" :key "b" :sort-order newest-first)
      (:name "best" :query "tag:best and tag:inbox" :key "B" :sort-order newest-first)
      (:name "inbox" :query "tag:inbox and not tag:filed and not tag:noise" :key "i" :sort-order newest-first)
-     (:name "list" :query "tag:list and tag:inbox and not tag:busy and not tag:github" :key "l" :sort-order subject-ascending)
-     (:name "list-busy" :query "tag:list and tag:inbox and tag:busy" :key "L" :sort-order subject-ascending)
+     (:name "list" :query "tag:list and not tag:github and tag:inbox and not tag:busy" :key "l" :sort-order subject-ascending)
+     (:name "list-busy" :query "tag:list and not tag:github and tag:inbox and tag:busy" :key "L" :sort-order subject-ascending)
      (:name "github" :query "tag:github and tag:inbox" :key "g" :sort-order subject-ascending)
      (:name "filed" :query "tag:inbox and tag:filed" :key "I")
      (:name "today" :query "date:today and tag:inbox" :key "1")
@@ -150,12 +150,66 @@
      (:name "rss-busy" :query "tag:rss and tag:inbox and tag:busy" :key "R" :sort-order from-ascending)
      (:name "2-day" :query "date:yesterday.. and tag:inbox" :key "2")
      (:name "week" :query "date:week.. and tag:inbox" :key "3"))))
+ '(notmuch-search-line-faces
+   (quote
+    (("unread" . notmuch-search-unread-face)
+     ("flagged" . notmuch-search-flagged-face))))
  '(notmuch-search-oldest-first nil)
  '(notmuch-search-sort-order (quote newest-first))
  '(notmuch-show-all-tags-list t)
  '(notmuch-show-insert-text/plain-hook
    (quote
     (notmuch-wash-convert-inline-patch-to-part notmuch-wash-wrap-long-lines notmuch-wash-tidy-citations notmuch-wash-elide-blank-lines notmuch-wash-excerpt-citations)))
+ '(notmuch-tag-formats
+   (quote
+    (("unread" "?"
+      (propertize tag
+                  (quote face)
+                  (quote notmuch-tag-unread)))
+     ("flagged"
+      (notmuch-tag-format-image-data tag
+                                     (notmuch-tag-star-icon))
+      (propertize tag
+                  (quote face)
+                  (quote notmuch-tag-flagged)))
+     ("pr"
+      (notmuch-apply-face tag
+                          (quote
+                           (:foreground "green"))))
+     ("issue"
+      (notmuch-apply-face tag
+                          (quote
+                           (:foreground "orange"))))
+     ("filed")
+     ("list")
+     ("github" "gh"
+      (notmuch-apply-face tag
+                          (quote
+                           (:foreground "dim gray"))))
+     ("inbox" "⬇"
+      (notmuch-apply-face tag
+                          (quote
+                           (:foreground "white"))))
+     ("lightning" "⚡"
+      (notmuch-apply-face tag
+                          (quote
+                           (:foreground "yellow"))))
+     ("closed"
+      (notmuch-apply-face tag
+                          (quote
+                           (:foreground "wheat"))))
+     ("merged"
+      (notmuch-apply-face tag
+                          (quote
+                           (:foreground "yellow"))))
+     ("bot" "☃"
+      (notmuch-apply-face tag
+                          (quote
+                           (:family "Noto Emoji" :weight bold :foreground "white smoke"))))
+     ("busy" "☄"
+      (notmuch-apply-face tag
+                          (quote
+                           (:foreground "cyan")))))))
  '(notmuch-wash-wrap-lines-length 80)
  '(org-adapt-indentation nil)
  '(org-agenda-current-time-string
@@ -168,7 +222,7 @@
      ""
      (800 1000 1200 1400 1600 1800 2000))))
  '(org-archive-location "archive/%s_archive::")
- '(org-directory "~/docs/org" t)
+ '(org-directory "~/docs/org")
  '(org-duration-format (quote ((special . h:mm))))
  '(org-export-headline-levels 2)
  '(org-export-with-section-numbers nil)
