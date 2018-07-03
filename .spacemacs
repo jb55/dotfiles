@@ -310,26 +310,6 @@ before packages are loaded."
     "[" 'jb55/backward-page-recenter-top
     )
 
-  (setq notmuch-tag-formats
-        '(("unread"
-           (propertize tag 'face 'notmuch-tag-unread))
-          ("flagged"
-           (notmuch-tag-format-image-data tag (notmuch-tag-star-icon))
-           (propertize tag 'face 'notmuch-tag-flagged))
-          ("pr"
-           (notmuch-apply-face tag '(:foreground "green")))
-          ("issue"
-           (notmuch-apply-face tag '(:foreground "orange")))
-          ("filed")
-          ("list")
-          ("github")
-          ("inbox"
-           #("⬇" 0 1
-             (face (:foreground "white"))))
-          ("lightning"
-           #("⚡" 0 1
-             (face (:foreground "yellow"))))))
-
   (setq notmuch-saved-searches-work
         (quote
          ((:name "unread" :query "tag:unread and tag:inbox" :key "u")
