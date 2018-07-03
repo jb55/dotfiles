@@ -1,7 +1,6 @@
 {-# LANGUAGE TupleSections #-}
 
 import Data.Ratio
-import System.Taffybar.Hooks.PagerHints (pagerHints)
 import XMonad
 import XMonad.Actions.CycleWS
 import XMonad.Actions.UpdatePointer
@@ -64,7 +63,6 @@ layout = -- gaps allGaps
 main = xmonad
      $ withUrgencyHook LibNotifyUrgencyHook
      $ ewmh
-     $ pagerHints
      $ defaultConfig {
              terminal    = "urxvtc"
            , modMask     = mod4Mask
