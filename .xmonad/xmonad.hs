@@ -68,7 +68,7 @@ main = xmonad
      $ defaultConfig {
              terminal    = "urxvtc"
            , modMask     = mod4Mask
-           --, logHook     = updatePointer (1 / 2, 1 / 2) (0, 0)
+           , logHook     = updatePointer (1 / 2, 1 / 2) (0, 0)
            , layoutHook  = layout
            , startupHook = setWMName "LG3D"
            , manageHook  = manageDocks
