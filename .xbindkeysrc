@@ -1,77 +1,17 @@
-"amixer sset Master 3%+"
-  XF86AudioRaiseVolume
-
-"amixer sset Master 3%-"
-  XF86AudioLowerVolume
-
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-  Mod4 + F7
-
-"phonectl music:playpause"
-  Mod4 + Control + F7
-
-"snap"
-  Print
-
-"sleep 0.2; snap -s"
-  Control + Print
-
 "slock"
   XF86Display
 
 "slock"
   Pause
 
-"slock & my-suspend"
-  Control + XF86Display
-
-"slock & my-suspend"
-  Control + Pause
-
-"n mydate"
-  Mod4 + F5
+"cmdtree"
+  Mod4 + u
 
 "env TZ='America/New_York' n date '+%a | %b %d | %H:%M:%S | %F'"
   Mod4 + Control + F5
 
-"xbacklight -set 100"
-  Mod4 + F6
-
-"phonectl music:down"
-  Mod4 + F2
-
-"phonectl music:up"
-  Mod4 + F3
-
-"n phone-batt"
-  Mod4 + F9
-
-"vmtoggle"
-  Mod4 + F12
-
-"n btc"
-  Mod4 + F4
-
-"n cardano"
-  Mod4 + Control + F4
-
-"n chromecast-stop"
-  Mod4 + F10
-
-"n acpi"
-  XF86Tools
-
 "dclip"
-  Alt + Control + p
-
-"colorpick"
-  Alt + Control + o
-
-"themeswitch light"
-  Alt + Control + l
-
-"themeswitch dark"
-  Alt + Control + d
+Alt + Control + p
 
 "xbacklight -dec 5"
   XF86MonBrightnessDown
