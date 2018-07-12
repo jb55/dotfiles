@@ -233,7 +233,7 @@ include "%L"
 <Multi_key> <E> <E>                     : "∃"  U2203           # THERE EXISTS
 # We can't use ! E E, because ! E maps to E-WITH-UNDERDOT.
 <Multi_key> <slash> <E> <E>             : "∄"   U2204           # THERE DOES NOT EXIST
-<Multi_key> <A> <A>                     : "∀"  U2200           # FOR ALL
+<Multi_key> <a> <a>                     : "∀"  U2200           # FOR ALL
 <Multi_key> <l> <l>		: "λ"	U03BB		# GREEK SMALL LETTER LAMBDA
 <Multi_key> <Q> <E> <D>     : "∎"   U220E           # END OF PROOF
 <Multi_key> <8> <8>                     : "∞"  U221E           # INFINITY
@@ -671,7 +671,6 @@ include "%L"
 <Multi_key> <b> <h>		: "☣"	U2623		# BIOHAZARD SIGN
 <Multi_key> <b> <i> <o> <h>	<a> <z>	: "☣"	U2623		# BIOHAZARD SIGN
 # Changing this from ⚝
-<Multi_key> <A> <A> <A> <A> <A>	:	"⛤" U26E4 # PENTAGRAM (pentalpha, get it?)
 <Multi_key> <p> <l> <a> <n> <e>	: "✈"   U2708	  # AIRPLANE
 <Multi_key> <m> <a> <i> <l>		: "✉"	U2709	  # ENVELOPE
 <Multi_key> <w> <h> <l> <c> <h>	: "♿"	U267F	  # WHEELCHAIR SYMBOL
@@ -813,7 +812,6 @@ include "%L"
 # doubling a letter seems to be mostly used for turning
 <Multi_key> <w> <w>			: "ʍ"	U028D		# LATIN SMALL LETTER TURNED W
 <Multi_key> <y> <y>			: "ʎ"	U028E		# LATIN SMALL LETTER TURNED Y
-<Multi_key> <a> <a>			: "ɐ"	U0250		# LATIN SMALL LETTER TURNED A
 # ı is already available in the "standard" .XCompose
 <Multi_key> <j> <period>    		: "ȷ"	U0237		# LATIN SMALL LETTER DOTLESS J
 # I'll use capitals for a different double
