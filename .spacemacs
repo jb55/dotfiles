@@ -39,6 +39,7 @@
     purescript
     python
     racket
+    twitter
     rust
     sml
     shell-scripts
@@ -320,6 +321,7 @@ before packages are loaded."
     "is" 'company-yasnippet
     "yi" 'notmuch-hello
     "ys" 'notmuch-search
+    "aTn" 'twittering-update-status-interactive
     "]" 'jb55/forward-page-recenter-top
     "[" 'jb55/backward-page-recenter-top
     )
