@@ -10,9 +10,6 @@
 "env TZ='America/New_York' n date '+%a | %b %d | %H:%M:%S | %F'"
   Mod4 + Control + F5
 
-"dclip"
-Alt + Control + p
-
 "xbacklight -dec 5"
   XF86MonBrightnessDown
 
