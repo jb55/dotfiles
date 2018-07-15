@@ -17,6 +17,7 @@
     csharp
     csv
     elm
+    html
     go
     emacs-lisp
     emoji
@@ -223,6 +224,11 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq custom-file "~/dotfiles/custom.el")
   (load custom-file)
 
+  (defun cd-github ()
+    (interactive)
+    (cd (concat "/home/jb55/dev/github/" (read-string "Repo: "))))
+
+
   (defun jb55/eshell-prompt ()
     (concat (abbreviate-file-name (eshell/basename (eshell/pwd)))
             (if (= (user-uid) 0) " # " " $ ")))
@@ -231,6 +237,11 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   (load "urweb-mode/urweb-mode-startup")
   (load "~/src/elisp/notmuch/notmuch-github.el")
+
+  (defun cd-repo ()
+    (interactive)
+    (let ((repo (notmuch-repo-from-message)))
+      (cd (concat "/home/jb55/dev/github/" repo))))
 
   (defun colorize-compilation-buffer ()
     (toggle-read-only)
