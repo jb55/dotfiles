@@ -63,3 +63,5 @@
 	hideCampaign = true
 [github]
 	user = jb55
+[pull]
+	rebase = true
