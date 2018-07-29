@@ -27,7 +27,6 @@ alias fixssh="source $HOME/bin/fixssh"
 alias githist="git reflog show | grep '}: commit' | nl | sort -nr | nl | sort -nr | cut --fields=1,3 | sed s/commit://g | sed -e 's/HEAD*@{[0-9]*}://g'"
 alias jsonpp="python -mjson.tool"
 alias ls="ls --color"
-alias mvne="mvn -Declipse.workspace=$ECLIPSE_WORKSPACE eclipse:add-maven-repo"
 alias noder="env NODE_NO_READLINE=1 rlwrap node"
 alias nr="npm run"
 alias open=xdg-open
@@ -125,7 +124,7 @@ nsum() {
 }
 
 sumcol() {
-  cut -f $1 | nsum
+  cut -f "$1" | nsum
 }
 
 uniqc() {
@@ -155,7 +154,7 @@ haskell-env-tools() {
 }
 
 build-nix-cache() {
-  nix-env -f $NIXPKGS -qaP \* > ~/.nixenv.cache
+  nix-env -f "$NIXPKGS" -qaP \* > ~/.nixenv.cache
 }
 
 haskell-shell() {
@@ -167,7 +166,7 @@ nix-path() {
 }
 
 vnc-once() {
-  x11vnc -safer -nopw -once -display ':0' $1
+  x11vnc -safer -nopw -once -display ':0' "$1"
 }
 
 sql_wineparty() {
