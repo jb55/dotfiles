@@ -326,7 +326,13 @@ before packages are loaded."
     (backward-page)
     (evil-scroll-line-to-top (line-number-at-pos)))
 
+  (defun jb55/xref-find-def ()
+    (interactive)
+    (let ((current-prefix-arg 4))
+      (call-interactively 'xref-find-definitions)))
+
   (spacemacs/set-leader-keys
+    "d"  'jb55/xref-find-def
     "pS" 'jb55/write-and-save
     "yj" 'notmuch-jump-search
     "is" 'company-yasnippet
