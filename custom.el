@@ -302,6 +302,7 @@
  '(smtpmail-smtp-server "smtp.jb55.com")
  '(smtpmail-smtp-service 587)
  '(standard-indent 4)
+ '(tab-width 8)
  '(user-full-name "William Casarin")
  '(user-mail-address "jb55@jb55.com")
  '(vc-follow-symlinks nil)
