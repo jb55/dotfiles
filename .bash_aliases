@@ -3,6 +3,7 @@
 # generic stuff for non-interactive shells
 
 # sharefile
+export LPASS_HOME=$HOME/.config/lpass
 export SHAREFILE_HOST='charon:public/s/'
 export SHAREFILE_URL='https://jb55.com/s/'
 export SHARE_SS_DIR="$HOME/var/img/ss"

@@ -56,6 +56,7 @@
 (setq jb55/additional-packages
   '( company-irony
      base16-theme
+     mastodon
      org-clock-csv
      gnu-apl-mode
      bison-mode
@@ -339,6 +340,8 @@ before packages are loaded."
     "yi" 'notmuch-hello
     "ys" 'notmuch-search
     "aTn" 'twittering-update-status-interactive
+    "aTu" 'twittering-user-timeline
+    "aTm" 'twittering-mentions-timeline
     "]" 'jb55/forward-page-recenter-top
     "[" 'jb55/backward-page-recenter-top
     )

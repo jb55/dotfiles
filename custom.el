@@ -19,7 +19,8 @@
  '(before-save-hook
    (quote
     (spacemacs//python-sort-imports gofmt-before-save org-update-all-dblocks)))
- '(browse-url-browser-function (quote browse-url-chromium))
+ '(browse-url-browser-function (quote browse-url-generic))
+ '(browse-url-generic-program "qutebrowser")
  '(company-clang-arguments (quote ("-Ideps")))
  '(company-quickhelp-mode t)
  '(compilation-message-face (quote default))
@@ -37,8 +38,8 @@
  '(evil-want-Y-yank-to-eol t)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
- '(fci-rule-character-color "#202020" t)
- '(fci-rule-color "#202020" t)
+ '(fci-rule-character-color "#202020")
+ '(fci-rule-color "#202020")
  '(flycheck-clang-include-path (quote ("deps")))
  '(flycheck-clang-language-standard nil)
  '(flycheck-gcc-language-standard "c++11")
@@ -57,21 +58,21 @@
  '(haskell-interactive-popup-error nil t)
  '(haskell-mode-hook
    (quote
-    (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
- '(haskell-notify-p t t)
+    (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)))
+ '(haskell-notify-p t)
  '(haskell-process-args-cabal-repl
    (quote
     ("--ghc-options=-ferror-spans -fshow-loaded-modules")))
  '(haskell-process-args-ghci
    (quote
     ("-isrc" "-XOverloadedStrings" "-ferror-spans" "-fshow-loaded-modules")))
- '(haskell-process-auto-import-loaded-modules t t)
+ '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
- '(haskell-process-suggest-remove-import-lines t t)
+ '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-type (quote ghci))
- '(haskell-stylish-on-save nil t)
+ '(haskell-stylish-on-save nil)
  '(haskell-tags-on-save nil)
- '(helm-echo-input-in-header-line nil t)
+ '(helm-echo-input-in-header-line nil)
  '(helm-ff-skip-boring-files t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
@@ -114,13 +115,14 @@
  '(linum-format " %7i ")
  '(magit-diff-use-overlays nil)
  '(magit-revision-insert-related-refs nil)
- '(magit-revision-show-gravatars nil t)
+ '(magit-revision-show-gravatars nil)
  '(magit-revision-use-hash-sections (quote quickest))
  '(mail-envelope-from (quote header))
  '(mail-specify-envelope-from nil)
  '(main-line-color1 "#1E1E1E")
  '(main-line-color2 "#111111")
  '(main-line-separator-style (quote chamfer))
+ '(mastodon-instance-url "https://maly.io")
  '(message-auto-save-directory "~/mail/drafts")
  '(message-kill-buffer-on-exit t)
  '(message-mode-hook nil)
@@ -128,7 +130,6 @@
  '(message-sendmail-envelope-from (quote header))
  '(message-sendmail-f-is-evil t)
  '(mm-text-html-renderer (quote w3m))
- '(notmuch-command "notmuch")
  '(notmuch-fcc-dirs ".Sent +sent -inbox -unread")
  '(notmuch-hello-tag-list-make-query "tag:inbox")
  '(notmuch-message-headers-visible t)
@@ -143,7 +144,7 @@
      (:name "inbox" :query "tag:inbox and not tag:filed and not tag:noise" :key "i" :sort-order newest-first)
      (:name "list" :query "tag:list and not tag:github and tag:inbox and not tag:busy" :key "l" :sort-order subject-ascending)
      (:name "list-busy" :query "tag:list and not tag:github and tag:inbox and tag:busy" :key "L" :sort-order subject-ascending)
-     (:name "github" :query "tag:github and tag:inbox" :key "g" :sort-order subject-ascending)
+     (:name "github" :query "tag:github and not tag:busy and tag:inbox" :key "g" :sort-order subject-ascending)
      (:name "filed" :query "tag:inbox and tag:filed" :key "I")
      (:name "today" :query "date:today and tag:inbox" :key "1")
      (:name "rss" :query "tag:rss and tag:inbox and not tag:busy" :key "r" :sort-order from-ascending)
@@ -305,7 +306,7 @@
  '(tab-width 8)
  '(user-full-name "William Casarin")
  '(user-mail-address "jb55@jb55.com")
- '(vc-follow-symlinks nil)
+ '(vc-follow-symlinks t)
  '(weechat-auto-monitor-buffers
    (quote
     ("monstercat.#general" "monstercat.#payments" "monstercat.#code")))
