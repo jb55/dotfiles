@@ -278,16 +278,16 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (setq jb55/org-path "~/Dropbox/doc/org")
 
-  (require 'magit)
+  ;; (require 'magit)
 
-  (defun magit-merge-ff (rev &optional args nocommit)
-    (interactive (list (magit-read-other-branch-or-commit "Merge")
-                       (magit-merge-arguments)
-                       current-prefix-arg))
-    (magit-merge rev (cons "--ff-only" args) nocommit))
+  ;; (defun magit-merge-ff (rev &optional args nocommit)
+  ;;   (interactive (list (magit-read-other-branch-or-commit "Merge")
+  ;;                      (magit-merge-arguments)
+  ;;                      current-prefix-arg))
+  ;;   (magit-merge rev (cons "--ff-only" args) nocommit))
 
-  (magit-define-popup-action 'magit-merge-popup
-     ?f "Fast-forward merge" 'magit-merge-ff)
+  ;; (magit-define-popup-switch 'magit-merge-popup
+  ;;    ?f "Fast-forward merge" 'magit-merge-ff)
 
   (set-face-background 'fringe "#1e1f22")
   (set-face-foreground 'vertical-border "#1e1f22")

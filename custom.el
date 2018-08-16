@@ -24,6 +24,7 @@
  '(company-clang-arguments (quote ("-Ideps")))
  '(company-quickhelp-mode t)
  '(compilation-message-face (quote default))
+ '(compilation-window-height 10)
  '(csv-separators (quote ("," "	")))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#657b83")
