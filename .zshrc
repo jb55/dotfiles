@@ -43,7 +43,8 @@ export NIX_PATH="dotfiles=$HOME/dotfiles:$NIX_PATH"
 [ -e $HOME/.profile ] && source $HOME/.profile
 
 # other
-export EDITOR=vim
+export EDITOR="emacsclient -s $HOME/.emacs.d/server/server -c -a vim"
+export VISUAL="emacsclient -s $HOME/.emacs.d/server/server -c -a emacs"
 export PAGER=less
 export LESS="-R"
 

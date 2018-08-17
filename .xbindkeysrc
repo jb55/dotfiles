@@ -16,3 +16,6 @@
 "xbacklight -inc 5"
   XF86MonBrightnessUp
 
+"snap"
+  Control + Print
+

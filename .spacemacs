@@ -208,6 +208,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-smart-closing-parenthesis nil
    dotspacemacs-highlight-delimiters 'all
    dotspacemacs-persistent-server nil
+   dotspacemacs-server-socket-dir "~/.emacs.d/server"
    dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
    dotspacemacs-default-package-repository nil
    dotspacemacs-frame-title-format "%I@%S"
@@ -228,6 +229,7 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  (setq server-socket-dir "/home/jb55/.emacs.d/server")
 
   (defun cd-github ()
     (interactive)

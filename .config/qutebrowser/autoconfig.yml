@@ -3,6 +3,9 @@
 
 config_version: 2
 settings:
+  editor.command:
+    - edit
+    - '{file}'
   aliases:
     global:
       q: quit
