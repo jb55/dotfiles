@@ -2,9 +2,14 @@
 # Documentation:
 #   qute://help/configuring.html
 #   qute://help/settings.html
+import socket
+hostname = socket.gethostname()
 
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
+
+if hostname == 'quiver':
+  config.set('zoom.default', 125)
 
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
@@ -44,6 +49,7 @@ c.bindings.key_mappings = {'<Ctrl+6>': '<Ctrl+^>', '<Ctrl+Enter>': '<Ctrl+Return
 # Bindings for normal mode
 config.bind('d', 'scroll-page 0 0.5')
 config.bind('u', 'scroll-page 0 -0.5')
+config.bind('e', 'open-editor')
 
 config.set('url.default_page', 'about:blank')
 
