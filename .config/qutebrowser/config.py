@@ -55,6 +55,7 @@ config.bind('gl', 'tab-move +')
 config.bind('gh', 'tab-move -')
 
 config.bind('<Space><Tab>', 'tab-focus last')
+config.bind('<Space>tm', 'tab-mute')
 
 config.set('tabs.select_on_remove', 'last-used')
 
