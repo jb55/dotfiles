@@ -42,7 +42,7 @@ allGaps = (U, taffySize + if sideGaps then gapSize else 0) :
             if sideGaps then map (,gapSize) (enumFrom D)
                         else []
 
-baseLayout = Tall 1 (3/100) (1/2)
+baseLayout = Mirror (Tall 1 (3/100) (1/2))
          ||| spiral (6/7)
          ||| Full
 
@@ -71,7 +71,7 @@ main = xmonad
            , startupHook = setWMName "LG3D"
            , manageHook  = manageDocks
            , normalBorderColor = "#222"
-           , focusedBorderColor = "#555"
+           , focusedBorderColor = "#97C178"
      }
      `additionalKeysP` myKeys
 

@@ -7,6 +7,9 @@
 "cmdtree"
   Mod4 + u
 
+"cmdtree"
+  Mod4 + grave
+
 "env TZ='America/New_York' n date '+%a | %b %d | %H:%M:%S | %F'"
   Mod4 + Control + F5
 

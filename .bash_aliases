@@ -30,7 +30,6 @@ alias jsonpp="python -mjson.tool"
 alias ls="ls --color"
 alias noder="env NODE_NO_READLINE=1 rlwrap node"
 alias nr="npm run"
-alias open=xdg-open
 alias page=$PAGER
 alias prettyjson=jsonpp
 alias sorry='sudo $(fc -l -n -1)'

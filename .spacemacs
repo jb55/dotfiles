@@ -278,7 +278,7 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (setq jb55/org-path "~/Dropbox/doc/org")
+  (setq jb55/org-path "~/docs/org")
 
   ;; (require 'magit)
 
@@ -313,12 +313,6 @@ before packages are loaded."
 
   (setq org-want-todo-bindings 't)
 
-  (defun jb55/write-and-save ()
-    (interactive)
-    (evil-write-all nil)
-    (projectile-compile-project nil)
-    )
-
   (defun jb55/forward-page-recenter-top ()
     (interactive)
     (forward-page)
@@ -336,7 +330,6 @@ before packages are loaded."
 
   (spacemacs/set-leader-keys
     "d"  'jb55/xref-find-def
-    "pS" 'jb55/write-and-save
     "yj" 'notmuch-jump-search
     "is" 'company-yasnippet
     "yi" 'notmuch-hello
@@ -389,8 +382,6 @@ before packages are loaded."
   (defun task-body (label)
     (concat "* " label " %?\n  %i\n  %a"))
 
-  (setq anki-body "* %?\n** Front\n** Back")
-
   (setq todo-task (task-body "TODO"))
 
   (setq org-capture-templates
@@ -400,9 +391,7 @@ before packages are loaded."
            "* %?\nEntered on %U\n  %i\n  %a")
           ("n" "Notes" entry (file+headline ,(jb55/make-org-path "notes.org") "Notes")
            ,(task-body "NOTE"))
-          ("a" "Anki" entry (file+headline ,(jb55/make-org-path "anki.org") "Anki")
-           ,anki-body)
-          ("w" "Work task" entry (file+headline ,(jb55/make-org-path "work.org") "Tasks")
+          ("w" "Work task" entry (file+headline "~/projects/razorcx/doc/org/todo.org" "Backlog")
            ,todo-task)
           ))
 

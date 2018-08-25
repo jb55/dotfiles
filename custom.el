@@ -227,19 +227,21 @@
       (notmuch-apply-face tag
                           (quote
                            (:foreground "cyan")))))))
- '(notmuch-wash-wrap-lines-length 80)
+ '(notmuch-wash-wrap-lines-length nil)
  '(org-adapt-indentation nil)
  '(org-agenda-current-time-string
    #("=========================== NOW ===========================" 0 59
      (org-heading t)))
- '(org-agenda-files (quote ("~/docs/org/anki" "~/docs/org")))
+ '(org-agenda-files
+   (quote
+    ("/home/jb55/docs/org/projects.org" "/home/jb55/docs/org/tasks.org" "/home/jb55/projects/razorcx/doc/org/todo.org")))
  '(org-agenda-time-grid
    (quote
     ((daily today require-timed)
      ""
      (800 1000 1200 1400 1600 1800 2000))))
  '(org-archive-location "archive/%s_archive::")
- '(org-directory "~/docs/org" t)
+ '(org-directory "~/docs/org")
  '(org-duration-format (quote ((special . h:mm))))
  '(org-export-headline-levels 2)
  '(org-export-with-section-numbers nil)
