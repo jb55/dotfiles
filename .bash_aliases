@@ -14,6 +14,10 @@ export FZF_CTRL_R_OPTS="-e"
 export FZF_DEFAULT_OPTS="-e"
 export EMACSCLIENT=edit
 
+md () {
+    mandown README*
+}
+
 alias info="info --vi-keys"
 alias ag="ag --pager=less"
 alias attach="grabssh; screen -rD"
