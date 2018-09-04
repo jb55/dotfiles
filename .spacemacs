@@ -316,13 +316,13 @@ before packages are loaded."
 
   (defun jb55/forward-page-recenter-top ()
     (interactive)
-    (forward-page)
-    (evil-scroll-line-to-top (line-number-at-pos)))
+    (evil-ex-search-next)
+    (evil-scroll-line-to-center (line-number-at-pos)))
 
   (defun jb55/backward-page-recenter-top ()
     (interactive)
-    (backward-page)
-    (evil-scroll-line-to-top (line-number-at-pos)))
+    (evil-ex-search-previous)
+    (evil-scroll-line-to-center (line-number-at-pos)))
 
   (defun jb55/xref-find-def ()
     (interactive)
