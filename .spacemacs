@@ -393,6 +393,8 @@ before packages are loaded."
            ,(task-body "NOTE"))
           ("w" "Work task" entry (file+headline "~/projects/razorcx/doc/org/todo.org" "Backlog")
            ,todo-task)
+          ("v" "Viscal" entry (file+headline "~/src/c/viscal/TODOs.org" "Current")
+           ,todo-task)
           ))
 
   (setq org-agenda-custom-commands
