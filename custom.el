@@ -270,7 +270,7 @@
  '(rcirc-buffer-maximum-lines 10000)
  '(ring-bell-function (quote ignore))
  '(rng-nxml-auto-validate-flag nil)
- '(rust-indent-offset 2)
+ '(rust-indent-offset 4)
  '(safe-local-variable-values
    (quote
     ((eval c-set-offset
