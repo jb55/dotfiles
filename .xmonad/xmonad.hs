@@ -1,4 +1,7 @@
 {-# LANGUAGE TupleSections #-}
+{-# LANGUAGE TypeSynonymInstances #-}
+{-# LANGUAGE TypeSynonymInstances #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
 
 import Data.Ratio
 import XMonad
@@ -10,7 +13,9 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.UrgencyHook
-import XMonad.Layout.CenteredMaster
+import XMonad.Layout.ResizeScreen
+import XMonad.Layout.LayoutModifier
+import qualified XMonad.Layout.HintedTile as HT
 import XMonad.Layout.Gaps
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
@@ -37,6 +42,13 @@ instance UrgencyHook LibNotifyUrgencyHook where
 
         safeSpawn "notify-send" [show name, "workspace " ++ idx]
 
+data Center = Center deriving (Show, Read, Eq, Typeable)
+
+instance Transformer Center Window where
+    transform Center x k = k (centered x) (const x)
+
+
+centered = resizeHorizontal 300 . resizeHorizontalRight 300
 gapSize = 10
 taffySize = 25
 sideGaps = False
@@ -49,23 +61,13 @@ baseLayout =
     let
         tall = ResizableTall 1 (3/100) (1/2) []
     in
-          tall
-      ||| Mirror tall
+        tall ||| Mirror tall
 -- ||| spiral (6/7)
 
-layout = -- gaps allGaps
-       -- . noBorders
+layout =
          smartBorders
-       . mkToggle (single FULL)
+       . mkToggle (FULL ?? Center ?? EOT)
        $ baseLayout
-
--- layout = smartBorders baseLayout
-
--- myManageHook = composeAll
---              [
---                isFullscreen --> toggleMaximized
---              , manageDocks
---              ]
 
 main = xmonad
      $ withUrgencyHook LibNotifyUrgencyHook
@@ -91,6 +93,7 @@ myXPConfig =
 
 toggleGaps = sendMessage ToggleGaps
 toggleFull = sendMessage (Toggle FULL)
+toggleCenter = sendMessage (Toggle Center)
 toggleMaximized = toggleGaps >> toggleFull
 
 myKeys = [
@@ -98,6 +101,7 @@ myKeys = [
   , ("M-a", focusUrgent)
   , ("M-d", toggleWS)
   , ("M-r", toggleFull)
+  , ("M-c", toggleCenter)
   -- , ("M-f", toggleMaximized)
   -- , ("M-r", toggleFull)
   , ("M-v", sendKey shiftMask xK_Insert)
