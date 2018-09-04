@@ -54,14 +54,6 @@ config.bind('co', 'tab-only --keep-pinned')
 config.bind('gl', 'tab-move +')
 config.bind('gh', 'tab-move -')
 
-config.bind('<Space><Tab>', 'tab-focus last')
-config.bind('<Space>tm', 'tab-mute')
-config.bind('<Space>d', 'tab-close')
-config.bind('<Space>1', 'tab-focus 1')
-config.bind('<Space>2', 'tab-focus 2')
-config.bind('<Space>3', 'tab-focus 3')
-config.bind('<Space>4', 'tab-focus 4')
-
 config.set('tabs.select_on_remove', 'last-used')
 
 config.set('url.default_page', 'about:blank')
