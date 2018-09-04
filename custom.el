@@ -228,6 +228,7 @@
                           (quote
                            (:foreground "cyan")))))))
  '(notmuch-wash-wrap-lines-length nil)
+ '(olivetti-body-width 100)
  '(org-adapt-indentation nil)
  '(org-agenda-current-time-string
    #("=========================== NOW ===========================" 0 59
@@ -269,7 +270,7 @@
  '(rcirc-buffer-maximum-lines 10000)
  '(ring-bell-function (quote ignore))
  '(rng-nxml-auto-validate-flag nil)
- '(rust-indent-offset 2)
+ '(rust-indent-offset 4)
  '(safe-local-variable-values
    (quote
     ((eval c-set-offset

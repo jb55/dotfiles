@@ -60,6 +60,7 @@
      org-clock-csv
      gnu-apl-mode
      bison-mode
+     olivetti
      graphviz-dot-mode
      emojify
      w3m
@@ -127,7 +128,9 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers jb55/layers
    dotspacemacs-additional-packages jb55/additional-packages
-   dotspacemacs-frozen-packages '(fsharp
+   dotspacemacs-frozen-packages '(ruby
+                                  elixir
+                                  fsharp
                                   )
    dotspacemacs-excluded-packages jb55/excluded-packages
    dotspacemacs-install-packages 'used-only))
@@ -315,20 +318,23 @@ before packages are loaded."
 
   (defun jb55/forward-page-recenter-top ()
     (interactive)
-    (forward-page)
-    (evil-scroll-line-to-top (line-number-at-pos)))
+    (evil-ex-search-next)
+    (evil-scroll-line-to-center (line-number-at-pos)))
 
   (defun jb55/backward-page-recenter-top ()
     (interactive)
-    (backward-page)
-    (evil-scroll-line-to-top (line-number-at-pos)))
+    (evil-ex-search-previous)
+    (evil-scroll-line-to-center (line-number-at-pos)))
 
   (defun jb55/xref-find-def ()
     (interactive)
     (let ((current-prefix-arg 4))
       (call-interactively 'xref-find-definitions)))
 
+  (setq-default olivetti-body-width 80)
+
   (spacemacs/set-leader-keys
+    "wc" 'olivetti-mode
     "d"  'jb55/xref-find-def
     "yj" 'notmuch-jump-search
     "is" 'company-yasnippet
