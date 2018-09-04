@@ -60,6 +60,7 @@
      org-clock-csv
      gnu-apl-mode
      bison-mode
+     olivetti
      graphviz-dot-mode
      emojify
      w3m
@@ -328,7 +329,10 @@ before packages are loaded."
     (let ((current-prefix-arg 4))
       (call-interactively 'xref-find-definitions)))
 
+  (setq-default olivetti-body-width 80)
+
   (spacemacs/set-leader-keys
+    "wc" 'olivetti-mode
     "d"  'jb55/xref-find-def
     "yj" 'notmuch-jump-search
     "is" 'company-yasnippet
