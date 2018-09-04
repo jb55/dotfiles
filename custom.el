@@ -228,6 +228,7 @@
                           (quote
                            (:foreground "cyan")))))))
  '(notmuch-wash-wrap-lines-length nil)
+ '(olivetti-body-width 100)
  '(org-adapt-indentation nil)
  '(org-agenda-current-time-string
    #("=========================== NOW ===========================" 0 59
