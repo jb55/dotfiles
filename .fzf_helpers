@@ -47,7 +47,7 @@ ft() {
 }
 
 fto() {
-  open "$(findlt ${1:-1} f)" & disown
+  open "$(findlt ${1:-1} f)"
 }
 
 # fzt - cd to most recently accessed dirs
