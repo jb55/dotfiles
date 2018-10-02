@@ -311,9 +311,6 @@
  '(user-full-name "William Casarin")
  '(user-mail-address "jb55@jb55.com")
  '(vc-follow-symlinks t)
- '(weechat-auto-monitor-buffers
-   (quote
-    ("monstercat.#general" "monstercat.#payments" "monstercat.#code")))
  '(weechat-auto-monitor-new-buffers t)
  '(weechat-modules (quote (weechat-button weechat-image weechat-complete))))
 (custom-set-faces
