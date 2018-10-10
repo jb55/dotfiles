@@ -45,6 +45,7 @@ export NIX_PATH="dotfiles=$HOME/dotfiles:$NIX_PATH"
 # other
 export EDITOR="emacsclient -s $HOME/.emacs.d/server/server -c -a vim"
 export VISUAL="emacsclient -s $HOME/.emacs.d/server/server -c -a emacs"
+export BROWSER="qbrowser"
 export PAGER=less
 export LESS="-R"
 

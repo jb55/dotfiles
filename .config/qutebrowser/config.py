@@ -86,7 +86,7 @@ config.set('url.searchengines', {
   'lh': 'http://localhost:8080/?hoogle={}',
   'hoogle': 'http://www.haskell.org/hoogle/?hoogle={}',
   'github': 'http://github.com/search?q={}',
-  'r': 'https://www.reddit.com/r/{}',
+  'r': 'https://old.reddit.com/r/{}',
   'a': 'http://blockchain.info/address/{}',
   'bgg': 'http://www.boardgamegeek.com/metasearch.php?searchtype=game&search={}',
   'pgp': 'http://pgp.mit.edu/pks/lookup?search={}&op=index',
