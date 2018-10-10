@@ -264,7 +264,7 @@
  '(projectile-mode-line (quote Projectile))
  '(psc-ide-add-import-on-completion t t)
  '(psc-ide-rebuild-on-save nil t)
- '(python-indent-offset 2)
+ '(python-indent-offset 4)
  '(rainbow-identifiers-cie-l*a*b*-lightness 80)
  '(rainbow-identifiers-cie-l*a*b*-saturation 18)
  '(rcirc-buffer-maximum-lines 10000)
