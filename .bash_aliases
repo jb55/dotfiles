@@ -4,10 +4,14 @@
 
 # sharefile
 export LPASS_HOME="$HOME/.config/lpass"
+export GNUPGHOME="$HOME/.gnupg/trezor"
 export SHAREFILE_HOST='charon:public/s/'
+export KINDLE_FROM_EMAIL='jackbox55@gmail.com'
+export KINDLE_EMAIL='jb55@free.kindle.com'
 export SHAREFILE_URL='https://jb55.com/s/'
 export SHARE_SS_DIR="$HOME/var/img/ss"
 export DOTFILES=${DOTFILES:-$HOME/dotfiles}
+export VI_MODE=1
 export XZ=pxz
 export HISTSIZE=50000
 export FZF_CTRL_R_OPTS="-e"
