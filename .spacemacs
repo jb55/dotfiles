@@ -65,7 +65,7 @@
      (notmuch
        :location (recipe :fetcher github
                          :repo "jb55/notmuch"
-                         :branch "sort-updates"
+                         :branch "dev"
                          :upgrade 't
                          :files ("emacs/notmuch*.el")))
      ereader
