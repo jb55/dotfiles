@@ -156,7 +156,7 @@ It should only modify the values of Spacemacs settings."
    ;;                       spacemacs-light)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Inconsolata"
-                               :size 20
+                               :size 18
                                :style medium
                                :weight normal
                                :width normal
