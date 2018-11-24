@@ -21,9 +21,9 @@ URxvt.keysym.M-s: perl:keyboard-select:search
 
 ! urxvt
 !URxvt*boldFont: -*-profont-*-*-*-*-12-*-*-*-*-*-*-*
-!URxvt*font: xft:Source Code Pro:size=10:antialias=true;hinting=true,\
+!URxvt*font: xft:Source Code Pro:size=13:antialias=true;hinting=true,\
 !            xft:Kochi Gothic:antialias=true,hinting=true
-URxvt*font: xft:Inconsolata:size=16
+URxvt*font: xft:Inconsolata:size=14
 
 !xft:Inconsolata:size=18:antialias=true;hinting=true
 !
