@@ -50,10 +50,12 @@ c.bindings.key_mappings = {'<Ctrl+6>': '<Ctrl+^>', '<Ctrl+Enter>': '<Ctrl+Return
 config.bind('d', 'scroll-page 0 0.5')
 config.bind('u', 'scroll-page 0 -0.5')
 config.bind('e', 'open-editor')
-config.bind('co', 'tab-only --keep-pinned')
+config.bind('co', 'tab-only')
 config.bind('gl', 'tab-move +')
 config.bind('gh', 'tab-move -')
+config.bind('gF', 'hint all tab-bg')
 
+config.set('downloads.position', 'bottom')
 config.set('tabs.select_on_remove', 'last-used')
 
 config.set('url.default_page', 'about:blank')
