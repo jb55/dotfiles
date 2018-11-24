@@ -91,6 +91,15 @@ myXPConfig =
       borderColor = "#000000"
     }
 
+nWindows :: X Int
+nWindows = fmap go get
+  where
+    go = length . W.integrate'
+                . W.stack
+                . W.workspace
+                . W.current
+                . windowset
+
 toggleGaps = sendMessage ToggleGaps
 toggleFull = sendMessage (Toggle FULL)
 toggleCenter = sendMessage (Toggle Center)
