@@ -136,17 +136,13 @@
  '(notmuch-message-headers-visible t)
  '(notmuch-saved-searches
    (quote
-    ((:name "unread" :query "tag:unread and tag:inbox" :key "u")
-     (:name "flagged" :query "tag:flagged and tag:inbox" :key "f")
-     (:name "sent" :query "tag:sent" :key "t")
+    ((:name "flagged" :query "tag:flagged and tag:inbox" :key "f")
      (:name "lightning" :query "tag:inbox and tag:lightning" :key "k" :sort-order newest-first)
      (:name "bitcoin" :query "tag:core and tag:inbox" :key "b" :sort-order newest-first)
      (:name "best" :query "tag:best and tag:inbox" :key "B" :sort-order newest-first)
      (:name "inbox" :query "tag:inbox and not tag:filed and not tag:noise" :key "i" :sort-order newest-first)
      (:name "list" :query "tag:list and not tag:github and tag:inbox and not tag:busy" :key "l" :sort-order subject-ascending)
-     (:name "list-busy" :query "tag:list and not tag:github and tag:inbox and tag:busy" :key "L" :sort-order subject-ascending)
      (:name "github" :query "tag:github and not tag:busy and tag:inbox" :key "g" :sort-order subject-ascending)
-     (:name "filed" :query "tag:inbox and tag:filed" :key "I")
      (:name "today" :query "date:today and tag:inbox" :key "1")
      (:name "rss" :query "tag:rss and tag:inbox and not tag:busy" :key "r" :sort-order from-ascending)
      (:name "rss-busy" :query "tag:rss and tag:inbox and tag:busy" :key "R" :sort-order from-ascending)
