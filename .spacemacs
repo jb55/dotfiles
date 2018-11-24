@@ -13,43 +13,40 @@
 
     (auto-completion :variables auto-completion-enable-help-tooltip t)
 
-    fsharp
     csharp
     csv
     elm
-    html
-    go
     emacs-lisp
     emoji
     finance
     fsharp
-    notmuch
+    fsharp
     git
-    ivy
+    go
     gtags
+    html
     idris
+    ivy
     javascript
-    (java :variables java-backend 'eclim)
     latex
     lua
     markdown
-    ;; (debug :variables c-c++-enable-debug t)
     nixos
-    (org :variables org-want-todo-bindings t)
+    notmuch
     purescript
     python
     racket
-    twitter
     rust
-    sml
     shell-scripts
+    sml
     spacemacs-layouts
     spotify
     sql
     syntax-checking
+    twitter
     typescript
-		windows-scripts
     yaml
+    (org :variables org-want-todo-bindings t)
 
    ))
 
