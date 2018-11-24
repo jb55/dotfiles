@@ -108,6 +108,14 @@
     (and (>= hour 9)
          (<  hour 17))))
 
+(defun jb55/load-theme (theme)
+  (counsel-load-theme-action (symbol-name theme)))
+
+(defun jb55/themeswitch (theme)
+  (if (eq theme 'light) (jb55/load-theme jb55/light-theme)
+    (when (eq theme 'dark)
+      (jb55/load-theme jb55/dark-theme))))
+
 (defun jb55/determine-theme ()
   (if (jb55/at-work)
       jb55/dark-theme
@@ -395,6 +403,8 @@ before packages are loaded."
           ("n" "Notes" entry (file+headline ,(jb55/make-org-path "notes.org") "Notes")
            ,(task-body "NOTE"))
           ("w" "Work task" entry (file+headline "~/projects/razorcx/doc/org/todo.org" "Backlog")
+           ,todo-task)
+          ("v" "Viscal" entry (file+headline "~/src/c/viscal/TODOs.org" "Current")
            ,todo-task)
           ))
 
