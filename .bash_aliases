@@ -99,7 +99,8 @@ lt () {
 }
 
 lt1 () {
-  ls -t "$@" | head -n1
+  res=$(ls -1 -t "$@" | head -n1)
+  printf '%s/%s\n' "$1" "$res"
 }
 
 mv1 () {
