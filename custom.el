@@ -21,6 +21,7 @@
     (spacemacs//python-sort-imports gofmt-before-save org-update-all-dblocks)))
  '(browse-url-browser-function (quote browse-url-generic))
  '(browse-url-generic-program "qutebrowser")
+ '(c-basic-offset 4)
  '(company-clang-arguments (quote ("-Ideps")))
  '(company-quickhelp-mode t)
  '(compilation-message-face (quote default))
@@ -34,6 +35,7 @@
  '(debug-on-quit nil)
  '(disaster-objdump "objdump -d -M att -Sl --no-show-raw-insn")
  '(elm-indent-offset 4)
+ '(epg-gpg-home-directory "~/.gnupg/trezor")
  '(eshell-prompt-function (quote jb55/eshell-prompt))
  '(evil-shift-width 2)
  '(evil-want-Y-yank-to-eol t)
@@ -59,19 +61,19 @@
  '(haskell-interactive-popup-error nil t)
  '(haskell-mode-hook
    (quote
-    (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)))
- '(haskell-notify-p t)
+    (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
+ '(haskell-notify-p t t)
  '(haskell-process-args-cabal-repl
    (quote
     ("--ghc-options=-ferror-spans -fshow-loaded-modules")))
  '(haskell-process-args-ghci
    (quote
     ("-isrc" "-XOverloadedStrings" "-ferror-spans" "-fshow-loaded-modules")))
- '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-auto-import-loaded-modules t t)
  '(haskell-process-log t)
- '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-suggest-remove-import-lines t t)
  '(haskell-process-type (quote ghci))
- '(haskell-stylish-on-save nil)
+ '(haskell-stylish-on-save nil t)
  '(haskell-tags-on-save nil)
  '(helm-echo-input-in-header-line nil)
  '(helm-ff-skip-boring-files t)
@@ -136,22 +138,19 @@
  '(notmuch-message-headers-visible t)
  '(notmuch-saved-searches
    (quote
-    ((:name "unread" :query "tag:unread and tag:inbox" :key "u")
-     (:name "flagged" :query "tag:flagged and tag:inbox" :key "f")
-     (:name "sent" :query "tag:sent" :key "t")
+    ((:name "flagged" :query "tag:flagged and tag:inbox" :key "f")
      (:name "lightning" :query "tag:inbox and tag:lightning" :key "k" :sort-order newest-first)
      (:name "bitcoin" :query "tag:core and tag:inbox" :key "b" :sort-order newest-first)
      (:name "best" :query "tag:best and tag:inbox" :key "B" :sort-order newest-first)
      (:name "inbox" :query "tag:inbox and not tag:filed and not tag:noise" :key "i" :sort-order newest-first)
+     (:name "nixpkgs" :query "tag:nixpkgs and tag:inbox" :key "n" :sort-order subject-ascending)
+     (:name "notmuch" :query "tag:notmuch and tag:inbox" :key "N" :sort-order newest-first)
      (:name "list" :query "tag:list and not tag:github and tag:inbox and not tag:busy" :key "l" :sort-order subject-ascending)
      (:name "list-busy" :query "tag:list and not tag:github and tag:inbox and tag:busy" :key "L" :sort-order subject-ascending)
      (:name "github" :query "tag:github and not tag:busy and tag:inbox" :key "g" :sort-order subject-ascending)
-     (:name "filed" :query "tag:inbox and tag:filed" :key "I")
      (:name "today" :query "date:today and tag:inbox" :key "1")
      (:name "rss" :query "tag:rss and tag:inbox and not tag:busy" :key "r" :sort-order from-ascending)
-     (:name "rss-busy" :query "tag:rss and tag:inbox and tag:busy" :key "R" :sort-order from-ascending)
-     (:name "2-day" :query "date:yesterday.. and tag:inbox" :key "2")
-     (:name "week" :query "date:week.. and tag:inbox" :key "3"))))
+     (:name "2-day" :query "date:yesterday.. and tag:inbox" :key "2"))))
  '(notmuch-search-line-faces
    (quote
     (("unread" . notmuch-search-unread-face)
@@ -228,7 +227,7 @@
                           (quote
                            (:foreground "cyan")))))))
  '(notmuch-wash-wrap-lines-length nil)
- '(olivetti-body-width 100)
+ '(olivetti-body-width 100 t)
  '(org-adapt-indentation nil)
  '(org-agenda-current-time-string
    #("=========================== NOW ===========================" 0 59
@@ -251,11 +250,14 @@
    (quote
     (:foreground default :background default :scale 2.0 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
                  ("begin" "$1" "$" "$$" "\\(" "\\["))))
+ '(org-html-head-include-default-style nil)
+ '(org-html-head-include-scripts nil)
+ '(org-html-postamble nil)
  '(org-refile-targets (quote ((org-agenda-files :maxlevel . 1))))
  '(org-use-sub-superscripts (quote {}))
  '(package-selected-packages
    (quote
-    (carbon-now-sh pipenv magithub ghub+ apiwrap magit-svn json-navigator hierarchy ivy-xref magit-gh-pulls magit ghub let-alist org-clock-csv yasnippet-snippets spaceline-all-the-icons all-the-icons memoize centered-cursor-mode font-lock+ visual-fill-column org-mime evil-org tracking w3m typescript-mode powerline test-simple loc-changes load-relative faceup purescript-mode password-generator spinner alert log4e gntp shut-up sml-mode markdown-mode skewer-mode simple-httpd json-snatcher json-reformat multiple-cursors js2-mode insert-shebang prop-menu hydra parent-mode multi window-purpose imenu-list projectile request gitignore-mode pug-mode dot-mode graphviz-dot-mode transcription-mode emms transcribe godoctor go-rename go-guru go-eldoc company-go go-mode magit-popup git-commit with-editor dash async org-category-capture org-plus-contrib helm-notmuch bison-mode smartparens auctex-latexmk org-bullets exec-path-from-shell yapfify yaml-mode ws-butler winum which-key weechat web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toml-mode toc-org tide symon string-inflection sql-indent spotify spaceline smeargle shen-mode shen-elisp restart-emacs realgud rainbow-delimiters racket-mode racer pyvenv pytest pyenv-mode py-isort psci psc-ide powershell popwin pip-requirements persp-mode pcre2el paradox orgit org-projectile org-present org-pomodoro org-download org-brain open-junk-file omnisharp ob-sml notmuch nix-mode neotree move-text mmm-mode meghanada mastodon markdown-toc magit-gitflow macrostep lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint ledger-mode json-mode js2-refactor js-doc jade-mode intero info+ indent-guide idris-mode hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-spotify helm-pydoc helm-purpose helm-projectile helm-pages helm-nixos-options helm-mode-manager helm-make helm-hoogle helm-gtags helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag haskell-snippets groovy-mode groovy-imports gradle-mode google-translate golden-ratio gnuplot glsl-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md ggtags fuzzy fsharp-mode flycheck-rust flycheck-pos-tip flycheck-ledger flycheck-haskell flycheck-elm flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu ereader erc-yt erc-view-log erc-social-graph erc-image erc-hl-nicks ensime engine-mode emojify emoji-cheat-sheet-plus elm-mode elisp-slime-nav dumb-jump disaster define-word cython-mode csv-mode company-tern company-statistics company-nixos-options company-irony company-ghci company-ghc company-emoji company-emacs-eclim company-cabal company-c-headers company-auctex company-anaconda column-enforce-mode coffee-mode cmm-mode cmake-mode clean-aindent-mode clang-format cargo base16-theme auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (elm-test-runner doom-modeline eldoc-eval shrink-path counsel-spotify ob-ipython ein request-deferred websocket carbon-now-sh pipenv magithub ghub+ apiwrap magit-svn json-navigator hierarchy ivy-xref magit-gh-pulls magit ghub let-alist org-clock-csv yasnippet-snippets spaceline-all-the-icons all-the-icons memoize centered-cursor-mode font-lock+ visual-fill-column org-mime evil-org tracking w3m typescript-mode powerline test-simple loc-changes load-relative faceup purescript-mode password-generator spinner alert log4e gntp shut-up sml-mode markdown-mode skewer-mode simple-httpd json-snatcher json-reformat multiple-cursors js2-mode insert-shebang prop-menu hydra parent-mode multi window-purpose imenu-list projectile request gitignore-mode pug-mode dot-mode graphviz-dot-mode transcription-mode emms transcribe godoctor go-rename go-guru go-eldoc company-go go-mode magit-popup git-commit with-editor dash async org-category-capture org-plus-contrib helm-notmuch bison-mode smartparens auctex-latexmk org-bullets exec-path-from-shell yapfify yaml-mode ws-butler winum which-key weechat web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toml-mode toc-org tide symon string-inflection sql-indent spotify spaceline smeargle shen-mode shen-elisp restart-emacs realgud rainbow-delimiters racket-mode racer pyvenv pytest pyenv-mode py-isort psci psc-ide powershell popwin pip-requirements persp-mode pcre2el paradox orgit org-projectile org-present org-pomodoro org-download org-brain open-junk-file omnisharp ob-sml notmuch nix-mode neotree move-text mmm-mode meghanada mastodon markdown-toc magit-gitflow macrostep lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint ledger-mode json-mode js2-refactor js-doc jade-mode intero info+ indent-guide idris-mode hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-spotify helm-pydoc helm-purpose helm-projectile helm-pages helm-nixos-options helm-mode-manager helm-make helm-hoogle helm-gtags helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag haskell-snippets groovy-mode groovy-imports gradle-mode google-translate golden-ratio gnuplot glsl-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md ggtags fuzzy fsharp-mode flycheck-rust flycheck-pos-tip flycheck-ledger flycheck-haskell flycheck-elm flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu ereader erc-yt erc-view-log erc-social-graph erc-image erc-hl-nicks ensime engine-mode emojify emoji-cheat-sheet-plus elm-mode elisp-slime-nav dumb-jump disaster define-word cython-mode csv-mode company-tern company-statistics company-nixos-options company-irony company-ghci company-ghc company-emoji company-emacs-eclim company-cabal company-c-headers company-auctex company-anaconda column-enforce-mode coffee-mode cmm-mode cmake-mode clean-aindent-mode clang-format cargo base16-theme auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(powerline-color1 "#1E1E1E")
  '(powerline-color2 "#111111")
  '(projectile-globally-ignored-directories
@@ -311,6 +313,9 @@
  '(user-full-name "William Casarin")
  '(user-mail-address "jb55@jb55.com")
  '(vc-follow-symlinks t)
+ '(weechat-auto-monitor-buffers
+   (quote
+    ("monstercat.#general" "monstercat.#payments" "monstercat.#code")))
  '(weechat-auto-monitor-new-buffers t)
  '(weechat-modules (quote (weechat-button weechat-image weechat-complete))))
 (custom-set-faces
