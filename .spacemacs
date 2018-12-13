@@ -35,6 +35,7 @@
     markdown
     ;; (debug :variables c-c++-enable-debug t)
     nixos
+    ;; org
     (org :variables org-want-todo-bindings t)
     purescript
     python
@@ -44,11 +45,10 @@
     sml
     shell-scripts
     spacemacs-layouts
-    spotify
     sql
     syntax-checking
     typescript
-		windows-scripts
+    windows-scripts
     yaml
 
    ))
@@ -102,7 +102,7 @@
                                  base-excluded)
                                ))
 
-(setq jb55/light-theme 'spacemacs-light)
+(setq jb55/light-theme 'tsdh-light)
 (setq jb55/dark-theme 'base16-onedark)
 
 (defun jb55/at-work ()
