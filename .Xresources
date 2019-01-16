@@ -66,6 +66,5 @@ URxvt*scrollTtyKeypress:    true
 ! XTerm
 XTerm*boldFont: fixed
 URxvt*url-launcher: qbrowser
-URxvt*urlLauncher: qbrowser
 
 

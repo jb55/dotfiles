@@ -203,7 +203,7 @@ sub on_start {
   ($self->{name} = __PACKAGE__) =~ s/.*:://;
   $self->{name} =~ tr/_/-/;
   $self->{launcher} = $self->my_resource("launcher") ||
-                      $self->x_resource("urlLauncher") ||
+                      $self->x_resource("url-launcher") ||
                       "sensible-browser";
   $self->{descending} = ($self->my_resource("order") eq "descending");
   $self->{url_picker} = ();
