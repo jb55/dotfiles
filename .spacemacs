@@ -53,32 +53,34 @@
 (setq jb55/additional-packages
   '( company-irony
      base16-theme
-     mastodon
-     org-clock-csv
-     gnu-apl-mode
      bison-mode
-     olivetti
-     graphviz-dot-mode
      emojify
-     w3m
+     ereader
+     forge
+     glsl-mode
+     gnu-apl-mode
+     graphviz-dot-mode
+     helm-pages
+     jade-mode
+     markdown-mode
+     mastodon
+     olivetti
+     org-brain
+     org-clock-csv
      shen-mode
+     w3m
+     weechat
+
      (notmuch
        :location (recipe :fetcher github
                          :repo "jb55/notmuch"
                          :branch "dev"
                          :upgrade 't
                          :files ("emacs/notmuch*.el")))
-     ereader
-     glsl-mode
      (flycheck
        :location (recipe :repo "flycheck/flycheck"
                          :fetcher github)
                          :upgrade 't)
-     helm-pages
-     jade-mode
-     markdown-mode
-     org-brain
-     weechat
 
      (shen-elisp
        :location (recipe :repo "deech/shen-elisp"
