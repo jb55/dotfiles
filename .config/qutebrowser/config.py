@@ -54,6 +54,8 @@ config.bind('co', 'tab-only')
 config.bind('gl', 'tab-move +')
 config.bind('gh', 'tab-move -')
 config.bind('gF', 'hint all tab-bg')
+config.unbind('D')
+config.bind('Do', 'download-open')
 
 config.set('downloads.position', 'bottom')
 config.set('tabs.select_on_remove', 'last-used')
