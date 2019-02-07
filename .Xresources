@@ -26,11 +26,11 @@ URxvt.keysym.M-f:    perl:url-picker
 !URxvt*font: xft:Source Code Pro:size=13:antialias=true;hinting=true,\
 !            xft:Kochi Gothic:antialias=true,hinting=true
 URxvt*font: xft:Inconsolata:size=14
+!xterm*faceName: Terminus:style=Regular:size=10
 
 !xft:Inconsolata:size=18:antialias=true;hinting=true
 !
 /* URxvt*font: xft:Noto Serif:size=10:antialias=true;hinting=true */
-!xterm*faceName: Terminus:style=Regular:size=10
 URxvt*internalBorder: 22
 URxvt*matcher.button: 1
 
