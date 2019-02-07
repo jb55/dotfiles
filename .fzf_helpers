@@ -50,6 +50,10 @@ fto() {
   open "$(findlt ${1:-1} f)"
 }
 
+fte() {
+  edit "$(findlt ${1:-1} f)"
+}
+
 # fzt - cd to most recently accessed dirs
 fzt() {
   local dir=$(z -et | fzcmd) && cd "$dir"
@@ -112,7 +116,7 @@ fo() {
   key=$(head -1 <<< "$out")
   file=$(head -2 <<< "$out" | tail -1)
   if [ -n "$file" ]; then
-      [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
+      [ "$key" = ctrl-o ] && open "$file" || edit "$file"
   fi
 }
 
