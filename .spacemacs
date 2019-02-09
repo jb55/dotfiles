@@ -20,7 +20,6 @@
     emoji
     finance
     fsharp
-    fsharp
     git
     go
     gtags
@@ -250,10 +249,9 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
     (concat (abbreviate-file-name (eshell/basename (eshell/pwd)))
             (if (= (user-uid) 0) " # " " $ ")))
 
-
-
   (load "urweb-mode/urweb-mode-startup")
   (load "~/src/elisp/notmuch/notmuch-github.el")
+  (load "~/src/elisp/overlays/overlays.el")
 
   (defun cd-repo ()
     (interactive)
