@@ -339,8 +339,12 @@ before packages are loaded."
   (setq-default olivetti-body-width 80)
 
   (spacemacs/set-leader-keys
+    "Ju" 'jb55/unhighlight-line
+    "J]" 'jb55/forward-page-recenter-top
+    "J[" 'jb55/backward-page-recenter-top
+
     "wc" 'olivetti-mode
-    "d"  'jb55/xref-find-def
+    "Jd" 'jb55/xref-find-def
     "yj" 'notmuch-jump-search
     "is" 'company-yasnippet
     "yi" 'notmuch-hello
@@ -348,8 +352,6 @@ before packages are loaded."
     "aTn" 'twittering-update-status-interactive
     "aTu" 'twittering-user-timeline
     "aTm" 'twittering-mentions-timeline
-    "]" 'jb55/forward-page-recenter-top
-    "[" 'jb55/backward-page-recenter-top
     )
 
   (setq notmuch-saved-searches-work
