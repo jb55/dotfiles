@@ -32,6 +32,7 @@
     markdown
     nixos
     notmuch
+    (org :variables org-want-todo-bindings t)
     purescript
     python
     racket
@@ -39,7 +40,6 @@
     shell-scripts
     sml
     spacemacs-layouts
-    spotify
     sql
     syntax-checking
     twitter
@@ -175,56 +175,56 @@ It should only modify the values of Spacemacs settings."
    ;;                            :weight normal
    ;;                            :width normal
    ;;                            :powerline-scale 1.1)
-   dotspacemacs-leader-key "SPC"
-   dotspacemacs-emacs-command-key "SPC"
-   dotspacemacs-ex-command-key ":"
-   dotspacemacs-emacs-leader-key "M-m"
-   dotspacemacs-major-mode-leader-key ","
-   dotspacemacs-major-mode-emacs-leader-key "C-M-m"
-   dotspacemacs-distinguish-gui-tab nil
-   dotspacemacs-remap-Y-to-y$ 't
-   dotspacemacs-retain-visual-state-on-shift t
-   dotspacemacs-visual-line-move-text nil
-   dotspacemacs-ex-substitute-global nil
-   dotspacemacs-default-layout-name "Default"
-   dotspacemacs-display-default-layout nil
-   dotspacemacs-auto-resume-layouts nil
+   dotspacemacs-active-transparency 90
    dotspacemacs-auto-generate-layout-names nil
-   dotspacemacs-large-file-size 1
+   dotspacemacs-auto-resume-layouts nil
    dotspacemacs-auto-save-file-location 'cache
-   dotspacemacs-max-rollback-slots 5
-   dotspacemacs-helm-resize nil
-   dotspacemacs-helm-no-header nil
-   dotspacemacs-helm-position 'bottom
-   dotspacemacs-helm-use-fuzzy 'always
+   dotspacemacs-default-layout-name "Default"
+   dotspacemacs-default-package-repository nil
+   dotspacemacs-display-default-layout nil
+   dotspacemacs-distinguish-gui-tab nil
+   dotspacemacs-emacs-command-key "SPC"
+   dotspacemacs-emacs-leader-key "M-m"
    dotspacemacs-enable-paste-transient-state nil
-   dotspacemacs-which-key-delay 0.4
-   dotspacemacs-which-key-position 'bottom
-   dotspacemacs-switch-to-buffer-prefers-purpose nil
-   dotspacemacs-loading-progress-bar t
+   dotspacemacs-ex-command-key ":"
+   dotspacemacs-ex-substitute-global nil
+   dotspacemacs-folding-method 'evil
+   dotspacemacs-frame-title-format "%I@%S"
    dotspacemacs-fullscreen-at-startup nil
    dotspacemacs-fullscreen-use-non-native nil
-   dotspacemacs-maximized-at-startup nil
-   dotspacemacs-active-transparency 90
-   dotspacemacs-inactive-transparency 90
-   dotspacemacs-show-transient-state-title t
-   dotspacemacs-show-transient-state-color-guide t
-   dotspacemacs-mode-line-unicode-symbols t
-   dotspacemacs-smooth-scrolling t
-   dotspacemacs-line-numbers nil
-   dotspacemacs-folding-method 'evil
-   dotspacemacs-smartparens-strict-mode nil
-   dotspacemacs-smart-closing-parenthesis nil
+   dotspacemacs-helm-no-header nil
+   dotspacemacs-helm-position 'bottom
+   dotspacemacs-helm-resize nil
+   dotspacemacs-helm-use-fuzzy 'always
    dotspacemacs-highlight-delimiters 'all
-   dotspacemacs-persistent-server nil
-   dotspacemacs-server-socket-dir "~/.emacs.d/server"
-   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
-   dotspacemacs-default-package-repository nil
-   dotspacemacs-frame-title-format "%I@%S"
    dotspacemacs-icon-title-format nil
+   dotspacemacs-inactive-transparency 90
+   dotspacemacs-large-file-size 1
+   dotspacemacs-leader-key "SPC"
+   dotspacemacs-line-numbers nil
+   dotspacemacs-loading-progress-bar t
+   dotspacemacs-major-mode-emacs-leader-key "C-M-m"
+   dotspacemacs-major-mode-leader-key ","
+   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-max-rollback-slots 5
+   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-persistent-server nil
+   dotspacemacs-pretty-docs nil
+   dotspacemacs-remap-Y-to-y$ 't
+   dotspacemacs-retain-visual-state-on-shift t
+   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
+   dotspacemacs-server-socket-dir "~/.emacs.d/server"
+   dotspacemacs-show-transient-state-color-guide t
+   dotspacemacs-show-transient-state-title t
+   dotspacemacs-smart-closing-parenthesis nil
+   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smooth-scrolling t
+   dotspacemacs-switch-to-buffer-prefers-purpose nil
+   dotspacemacs-visual-line-move-text nil
+   dotspacemacs-which-key-delay 0.4
+   dotspacemacs-which-key-position 'bottom
    dotspacemacs-whitespace-cleanup nil
    dotspacemacs-zone-out-when-idle nil
-   dotspacemacs-pretty-docs nil
    ))
 
 (defun dotspacemacs/user-env ()
