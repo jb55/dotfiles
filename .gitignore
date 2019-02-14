@@ -13,6 +13,7 @@ node_modules/
 /.xmonad/history
 /mimeapps2.list
 /.weechat/logs
+/.weechat/irc.conf
 /.weechat/weechat.log
 /.gimp*
 /.weechat
