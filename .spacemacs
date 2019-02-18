@@ -164,12 +164,12 @@ It should only modify the values of Spacemacs settings."
    ;; dotspacemacs-themes '(spacemacs-dark
    ;;                       spacemacs-light)
    dotspacemacs-colorize-cursor-according-to-state t
-   dotspacemacs-default-font '("Inconsolata"
-                               :size 18
-                               :style medium
+   dotspacemacs-default-font '("terminus"
+                               :size 14
+                               :style normal
                                :weight normal
                                :width normal
-                               :powerline-scale 1.2)
+                               )
    ;;dotspacemacs-default-font '("Source Code Pro"
    ;;                            :size 13
    ;;                            :weight normal
@@ -207,7 +207,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-major-mode-leader-key ","
    dotspacemacs-maximized-at-startup nil
    dotspacemacs-max-rollback-slots 5
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols nil
    dotspacemacs-persistent-server nil
    dotspacemacs-pretty-docs nil
    dotspacemacs-remap-Y-to-y$ 't
