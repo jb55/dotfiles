@@ -102,7 +102,7 @@
                                  base-excluded)
                                ))
 
-(setq jb55/light-theme 'tsdh-light)
+(setq jb55/light-theme 'spacemacs-light)
 (setq jb55/dark-theme 'base16-onedark)
 
 (defun jb55/at-work ()
