@@ -41,7 +41,6 @@ alias nr="npm run"
 alias page=$PAGER
 alias prettyjson=jsonpp
 alias sorry='sudo $(fc -l -n -1)'
-alias st="git sourcetree"
 alias tmuxa="tmux a -d -t "
 alias tmux="tmux -2"
 alias vless="/usr/share/vim/vim72/macros/less.sh"
@@ -53,6 +52,7 @@ alias wanip=myip
 alias myipaddress=myip
 alias ns="nix-shell -p"
 alias fzf="fzf --exact"
+alias u="cd .."
 
 ghclone () {
   cd "$(gh-clone "$@")"
@@ -99,7 +99,9 @@ lt () {
 }
 
 lt1 () {
-  ls -t "$@" | head -n1
+  res=$(\ls -1 -t "$@" | head -n1)
+  xclip <<<"$res"
+  printf '%s\n' "$res"
 }
 
 mv1 () {
@@ -112,15 +114,6 @@ pcsv () {
 
 pcsvt () {
   columnt "$@" | cat -n | less -R -S
-}
-
-monstercam() {
-  ssh archer "ffmpeg -f alsa -ar 16000 -ac 1 -i hw:2 -f v4l2 -s 640x480 -i /dev/video0 -f avi -pix_fmt yuv420p -"
-}
-
-monstercam-live() {
-  monstercam | tee /sand/vid/monstercam.avi \
-             | ffplay -
 }
 
 header() {
@@ -184,7 +177,7 @@ sql_wineparty() {
 
 sql_() {
   local query="$1"
-  local args=("-U" "$pg_user" -At)
+  local args=("-U" "$pg_user" -A)
   if [ ! -z "$query" ];
   then
     args+=(-c "$query")
@@ -193,7 +186,7 @@ sql_() {
 }
 
 sql() {
-  sql_ "$@" | pcsvt
+  sql_ -t "$@" | pcsvt
 }
 
 # fzf

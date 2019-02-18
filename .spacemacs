@@ -13,75 +13,73 @@
 
     (auto-completion :variables auto-completion-enable-help-tooltip t)
 
-    fsharp
     csharp
     csv
     elm
-    html
-    go
     emacs-lisp
     emoji
     finance
     fsharp
-    notmuch
     git
-    ivy
+    go
     gtags
+    html
     idris
+    ivy
     javascript
-    (java :variables java-backend 'eclim)
     latex
     lua
     markdown
-    ;; (debug :variables c-c++-enable-debug t)
     nixos
-    ;; org
+    notmuch
     (org :variables org-want-todo-bindings t)
     purescript
     python
     racket
-    twitter
     rust
-    sml
     shell-scripts
+    sml
     spacemacs-layouts
     sql
     syntax-checking
+    twitter
     typescript
-    windows-scripts
     yaml
+    (org :variables org-want-todo-bindings t)
 
    ))
 
 (setq jb55/additional-packages
   '( company-irony
      base16-theme
-     mastodon
-     org-clock-csv
-     gnu-apl-mode
      bison-mode
-     olivetti
-     graphviz-dot-mode
      emojify
-     w3m
+     ereader
+     forge
+     glsl-mode
+     gnu-apl-mode
+     graphviz-dot-mode
+     helm-pages
+     jade-mode
+     markdown-mode
+     mastodon
+     olivetti
+     org-brain
+     org-clock-csv
      shen-mode
+     w3m
+     weechat
+
      (notmuch
        :location (recipe :fetcher github
                          :repo "jb55/notmuch"
-                         :branch "sort-updates"
+                         :branch "dev"
                          :upgrade 't
                          :files ("emacs/notmuch*.el")))
-     ereader
-     glsl-mode
      (flycheck
        :location (recipe :repo "flycheck/flycheck"
                          :fetcher github)
                          :upgrade 't)
-     helm-pages
-     jade-mode
-     markdown-mode
-     org-brain
-     weechat
 
      (shen-elisp
        :location (recipe :repo "deech/shen-elisp"
@@ -166,12 +164,12 @@ It should only modify the values of Spacemacs settings."
    ;; dotspacemacs-themes '(spacemacs-dark
    ;;                       spacemacs-light)
    dotspacemacs-colorize-cursor-according-to-state t
-   dotspacemacs-default-font '("Inconsolata"
-                               :size 20
-                               :style medium
+   dotspacemacs-default-font '("terminus"
+                               :size 14
+                               :style normal
                                :weight normal
                                :width normal
-                               :powerline-scale 1.2)
+                               )
    ;;dotspacemacs-default-font '("Source Code Pro"
    ;;                            :size 13
    ;;                            :weight normal
@@ -209,7 +207,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-major-mode-leader-key ","
    dotspacemacs-maximized-at-startup nil
    dotspacemacs-max-rollback-slots 5
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols nil
    dotspacemacs-persistent-server nil
    dotspacemacs-pretty-docs nil
    dotspacemacs-remap-Y-to-y$ 't
@@ -251,10 +249,9 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
     (concat (abbreviate-file-name (eshell/basename (eshell/pwd)))
             (if (= (user-uid) 0) " # " " $ ")))
 
-
-
   (load "urweb-mode/urweb-mode-startup")
   (load "~/src/elisp/notmuch/notmuch-github.el")
+  (load "~/src/elisp/overlays/overlays.el")
 
   (defun cd-repo ()
     (interactive)
@@ -342,8 +339,12 @@ before packages are loaded."
   (setq-default olivetti-body-width 80)
 
   (spacemacs/set-leader-keys
+    "Ju" 'jb55/unhighlight-line
+    "J]" 'jb55/forward-page-recenter-top
+    "J[" 'jb55/backward-page-recenter-top
+
     "wc" 'olivetti-mode
-    "d"  'jb55/xref-find-def
+    "Jd" 'jb55/xref-find-def
     "yj" 'notmuch-jump-search
     "is" 'company-yasnippet
     "yi" 'notmuch-hello
@@ -351,8 +352,6 @@ before packages are loaded."
     "aTn" 'twittering-update-status-interactive
     "aTu" 'twittering-user-timeline
     "aTm" 'twittering-mentions-timeline
-    "]" 'jb55/forward-page-recenter-top
-    "[" 'jb55/backward-page-recenter-top
     )
 
   (setq notmuch-saved-searches-work
@@ -462,3 +461,23 @@ before packages are loaded."
 
   )
 
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (vi-tilde-fringe org-bullets helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line yasnippet-snippets yapfify yaml-mode ws-butler winum which-key wgrep weechat web-mode web-beautify w3m volatile-highlights uuidgen use-package twittering-mode toml-mode toc-org tide tagedit symon string-inflection sql-indent spotify spaceline-all-the-icons smex smeargle slim-mode shen-mode shen-elisp scss-mode sass-mode restart-emacs request rainbow-delimiters racket-mode racer pyvenv pytest pyenv-mode py-isort pug-mode psci psc-ide powershell popwin pippel pipenv pip-requirements persp-mode pcre2el password-generator paradox overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-clock-csv org-brain open-junk-file omnisharp ob-sml nix-mode neotree nameless mvn move-text mmm-mode meghanada maven-test-mode mastodon markdown-toc magit-svn magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint ledger-mode json-navigator json-mode js2-refactor js-doc jade-mode ivy-yasnippet ivy-xref ivy-rtags ivy-purpose ivy-hydra intero insert-shebang indent-guide importmagic impatient-mode idris-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation helm-pages helm-make haskell-snippets groovy-mode groovy-imports graphviz-dot-mode gradle-mode google-translate google-c-style golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gnuplot gnu-apl-mode glsl-mode gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md ggtags fuzzy fsharp-mode font-lock+ flycheck-rust flycheck-rtags flycheck-pos-tip flycheck-ledger flycheck-haskell flycheck-elm flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-cleverparens evil-args evil-anzu eval-sexp-fu ereader ensime emojify emoji-cheat-sheet-plus emmet-mode elm-mode elisp-slime-nav editorconfig dumb-jump dotenv-mode disaster diminish define-word dante cython-mode csv-mode counsel-projectile counsel-notmuch counsel-gtags counsel-css company-web company-tern company-statistics company-shell company-rtags company-nixos-options company-lua company-irony company-go company-ghci company-ghc company-emoji company-emacs-eclim company-cabal company-c-headers company-auctex company-anaconda column-enforce-mode cmm-mode clean-aindent-mode clang-format centered-cursor-mode cargo bison-mode base16-theme auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent ace-window ace-link ac-ispell))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+)

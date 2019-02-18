@@ -1133,7 +1133,7 @@ include "%L"
 <Multi_key> <b> <minus> : "ƀ" U0180 # ALTERNATIVE BIT CURRENCY SIGN, LATIN SMALL LETTER B WITH STROKE
 
 # Monstercat slack
-<Multi_key> <h> <m> <m> :  "🤔"
+<Multi_key> <h> <m> <m> :  "🤔" U1F914 
 <Multi_key> <j> <m> <a> <d> :         "(｀Д´)"
 <Multi_key> <p> <b> :                 "ᶘ ᵒᴥᵒᶅ"
 <Multi_key> <j> <c> <u> <t> <e> :     "(ﾉ≧ڡ≦)"

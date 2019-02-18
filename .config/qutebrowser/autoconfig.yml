@@ -3,26 +3,7 @@
 
 config_version: 2
 settings:
-  editor.command:
-    - edit
-    - '{file}'
-  aliases:
-    global:
-      q: quit
-      w: session-save
-      wq: quit --save
-  bindings.commands:
-    global:
-      normal:
-        d: scroll-page 0 0.5
-        u: scroll-page 0 -0.5
-  bindings.key_mappings:
-    global:
-      <Ctrl-6>: <Ctrl-^>
-      <Ctrl-Enter>: <Ctrl-Return>
-      <Ctrl-J>: <Return>
-      <Ctrl-M>: <Return>
-      <Ctrl-[>: <Escape>
-      <Enter>: <Return>
-      <Shift-Enter>: <Return>
-      <Shift-Return>: <Return>
+  content.host_blocking.enabled:
+    global: true
+  downloads.position:
+    global: bottom

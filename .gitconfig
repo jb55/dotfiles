@@ -24,10 +24,6 @@
   insteadOf = zero:
 [url "http://git.razorcx.com/"]
   insteadOf = razor:
-[url "git@git.sr.ht:~jb55/"]
-  insteadOf = srht:
-[url "https://git.sr.ht/~"]
-  insteadOf = srhtro:
 [gui]
   recentrepo = /Users/jb55/src/js/titania
 [alias]

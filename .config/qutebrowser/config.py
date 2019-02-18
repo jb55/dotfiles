@@ -9,7 +9,7 @@ hostname = socket.gethostname()
 # config.load_autoconfig()
 
 if hostname == 'quiver':
-  config.set('zoom.default', 135)
+  config.set('zoom.default', 125)
 
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
@@ -53,7 +53,11 @@ config.bind('e', 'open-editor')
 config.bind('co', 'tab-only')
 config.bind('gl', 'tab-move +')
 config.bind('gh', 'tab-move -')
+config.bind('gF', 'hint all tab-bg')
+config.unbind('D')
+config.bind('Do', 'download-open')
 
+config.set('downloads.position', 'bottom')
 config.set('tabs.select_on_remove', 'last-used')
 
 config.set('url.default_page', 'about:blank')
