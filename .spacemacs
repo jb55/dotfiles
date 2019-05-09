@@ -174,16 +174,16 @@ It should only modify the values of Spacemacs settings."
    ;;                       spacemacs-light)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("terminus"
-                               :size 14
+                               :size 16
                                :style normal
                                :weight normal
                                :width normal
                                )
-   ;;dotspacemacs-default-font '("Source Code Pro"
-   ;;                            :size 13
+   ;; dotspacemacs-default-font '("Inconsolata"
+   ;;                            :size 18
+   ;;                            :style medium
    ;;                            :weight normal
-   ;;                            :width normal
-   ;;                            :powerline-scale 1.1)
+   ;;                            :width normal)
    dotspacemacs-active-transparency 90
    dotspacemacs-auto-generate-layout-names nil
    dotspacemacs-auto-resume-layouts nil
