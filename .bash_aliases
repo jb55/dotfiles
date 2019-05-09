@@ -186,7 +186,7 @@ sql_() {
 }
 
 sql() {
-  sql_ -t "$@" | pcsvt
+  sql_ "$@" -t | pcsvt
 }
 
 # fzf
