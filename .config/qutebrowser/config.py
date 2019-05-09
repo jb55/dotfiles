@@ -8,9 +8,6 @@ hostname = socket.gethostname()
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
 
-if hostname == 'quiver':
-  config.set('zoom.default', 125)
-
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
 # Type: Dict
@@ -91,16 +88,17 @@ config.set('url.searchengines', {
   'hoogle': 'http://www.haskell.org/hoogle/?hoogle={}',
   'github': 'http://github.com/search?q={}',
   'r': 'https://old.reddit.com/r/{}',
-  'a': 'http://blockchain.info/address/{}',
+  'a': 'http://blockstream.info/address/{}',
   'bgg': 'http://www.boardgamegeek.com/metasearch.php?searchtype=game&search={}',
   'pgp': 'http://pgp.mit.edu/pks/lookup?search={}&op=index',
   'task': 'https://phabricator.monstercat.com/{}',
   'phab': 'https://phabricator.monstercat.com/r{}',
   'gh': 'https://github.com/{}',
-  'c': 'http://component.io/search/{}',
+  'cd': 'https://docs.rs/{}/latest',
+  'c': 'https://crates.io/crates/{}',
   'repo': 'http://npmrepo.com/{}',
   'ec': 'http://package.elm-lang.org/packages/elm-lang/{}/latest',
-  'tx': 'https://blockchain.info/tx/{}'
+  'tx': 'https://blockstream.info/tx/{}'
 })
 
 
