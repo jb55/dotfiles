@@ -21,7 +21,6 @@
     (spacemacs//python-sort-imports gofmt-before-save org-update-all-dblocks)))
  '(browse-url-browser-function (quote browse-url-generic))
  '(browse-url-generic-program "qutebrowser")
- '(c-basic-offset 4)
  '(company-clang-arguments (quote ("-Ideps")))
  '(company-quickhelp-mode t)
  '(compilation-message-face (quote default))
@@ -292,31 +291,7 @@
  '(rust-indent-offset 4)
  '(safe-local-variable-values
    (quote
-    ((eval c-set-offset
-           (quote access-label)
-           (quote -))
-     (eval c-set-offset
-           (quote substatement-open)
-           0)
-     (eval c-set-offset
-           (quote arglist-cont-nonempty)
-           (quote +))
-     (eval c-set-offset
-           (quote arglist-cont)
-           0)
-     (eval c-set-offset
-           (quote arglist-intro)
-           (quote +))
-     (eval c-set-offset
-           (quote inline-open)
-           0)
-     (eval c-set-offset
-           (quote defun-open)
-           0)
-     (eval c-set-offset
-           (quote innamespace)
-           0)
-     (indicate-empty-lines . t)
+    ((indicate-empty-lines . t)
      (indent-tabs-mode . f)
      (flycheck-clang-include-path "./include" "../include"))))
  '(send-mail-function (quote smtpmail-send-it))
@@ -326,7 +301,7 @@
  '(smtpmail-smtp-server "smtp.jb55.com")
  '(smtpmail-smtp-service 587)
  '(standard-indent 4)
- '(tab-width 8)
+ '(tab-width 4)
  '(user-full-name "William Casarin")
  '(user-mail-address "jb55@jb55.com")
  '(vc-follow-symlinks t)

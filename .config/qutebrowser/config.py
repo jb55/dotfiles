@@ -8,9 +8,6 @@ hostname = socket.gethostname()
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
 
-if hostname == 'quiver':
-  config.set('zoom.default', 125)
-
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
 # Type: Dict
@@ -97,7 +94,8 @@ config.set('url.searchengines', {
   'task': 'https://phabricator.monstercat.com/{}',
   'phab': 'https://phabricator.monstercat.com/r{}',
   'gh': 'https://github.com/{}',
-  'c': 'https://docs.rs/{}/latest',
+  'cd': 'https://docs.rs/{}/latest',
+  'c': 'https://crates.io/crates/{}',
   'repo': 'http://npmrepo.com/{}',
   'ec': 'http://package.elm-lang.org/packages/elm-lang/{}/latest',
   'tx': 'https://blockstream.info/tx/{}'
