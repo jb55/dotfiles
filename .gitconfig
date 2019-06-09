@@ -9,7 +9,7 @@
   excludesfile = /Users/jb55/.gitignore_global
 	editor = vim
 [sendemail]
-  smtpServer=/run/wrappers/bin/sendmail
+  smtpServer=/run/current-system/sw/bin/sendmail
 [url "git@github.com:"]
   insteadOf = gh:
 [url "git@gitlab.com:"]
