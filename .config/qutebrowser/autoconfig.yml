@@ -4,6 +4,4 @@
 config_version: 2
 settings:
   content.host_blocking.enabled:
-    global: true
-  downloads.position:
-    global: bottom
+    global: false
