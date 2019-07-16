@@ -133,6 +133,7 @@
  '(link-hint-delete-trailing-paren t)
  '(linum-format " %7i ")
  '(magit-diff-use-overlays nil)
+ '(magit-log-margin (quote (nil age magit-log-margin-width nil 18)))
  '(magit-revision-insert-related-refs nil)
  '(magit-revision-show-gravatars nil)
  '(magit-revision-use-hash-sections (quote quickest))
