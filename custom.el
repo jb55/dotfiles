@@ -132,6 +132,19 @@
  '(message-sendmail-envelope-from (quote header))
  '(message-sendmail-f-is-evil t)
  '(mm-text-html-renderer (quote w3m))
+ '(mml-secure-key-preferences
+   (quote
+    ((OpenPGP
+      (sign
+       ("jb55@jb55.com" "5B2B1E4F62216BC74362AC61D4FBA2FC4535A2A9"))
+      (encrypt
+       ("jb55@jb55.com" "8860420C3C135662EABEADF96342E010C44A6337" "5B2B1E4F62216BC74362AC61D4FBA2FC4535A2A9")))
+     (CMS
+      (sign)
+      (encrypt)))))
+ '(mml-secure-openpgp-encrypt-to-self
+   (quote
+    ("8860420C3C135662EABEADF96342E010C44A6337" "87D78CE40B38B817" "5B2B1E4F62216BC74362AC61D4FBA2FC4535A2A9")))
  '(notmuch-fcc-dirs ".Sent +sent -inbox -unread")
  '(notmuch-hello-tag-list-make-query "tag:inbox")
  '(notmuch-message-headers-visible t)
