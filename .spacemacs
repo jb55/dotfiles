@@ -122,15 +122,6 @@
     (when (eq theme 'dark)
       (jb55/load-theme jb55/dark-theme))))
 
-(defun jb55/link-hint-download ()
-  (interactive)
-  (let ((before (current-kill 0)))
-    (link-hint-copy-link)
-    (let ((after (current-kill 0)))
-      (if (not (eq after before))
-          (find-file after)))))
-
-
 (defun jb55/determine-theme ()
   (if (jb55/at-work)
       jb55/dark-theme
