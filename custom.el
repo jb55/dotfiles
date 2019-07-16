@@ -139,6 +139,7 @@
  '(magit-revision-use-hash-sections (quote quickest))
  '(mail-envelope-from (quote header))
  '(mail-specify-envelope-from nil)
+ '(mailcap-user-mime-data (quote (("zathura %s" "application/pdf" nil))))
  '(main-line-color1 "#1E1E1E")
  '(main-line-color2 "#111111")
  '(main-line-separator-style (quote chamfer))
