@@ -150,6 +150,7 @@
  '(message-send-mail-function (quote message-send-mail-with-sendmail))
  '(message-sendmail-envelope-from (quote header))
  '(message-sendmail-f-is-evil nil)
+ '(mm-sign-option (quote guided))
  '(mm-text-html-renderer (quote w3m))
  '(mml-secure-key-preferences
    (quote
