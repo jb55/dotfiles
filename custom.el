@@ -34,7 +34,7 @@
  '(debug-on-quit nil)
  '(disaster-objdump "objdump -d -M att -Sl --no-show-raw-insn")
  '(elm-indent-offset 4)
- '(epg-gpg-home-directory "~/.gnupg/trezor")
+ '(epg-gpg-home-directory "~/.gnupg")
  '(eshell-prompt-function (quote jb55/eshell-prompt))
  '(evil-shift-width 2)
  '(evil-want-Y-yank-to-eol t)
