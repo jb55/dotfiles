@@ -258,7 +258,7 @@
       (notmuch-apply-face tag
                           (quote
                            (:foreground "cyan")))))))
- '(notmuch-wash-wrap-lines-length nil)
+ '(notmuch-wash-wrap-lines-length 80)
  '(olivetti-body-width 100 t)
  '(org-adapt-indentation nil)
  '(org-agenda-current-time-string
