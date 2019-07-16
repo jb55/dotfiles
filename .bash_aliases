@@ -4,7 +4,7 @@
 
 # sharefile
 export LPASS_HOME="$HOME/.config/lpass"
-export GNUPGHOME="$HOME/.gnupg/trezor"
+export GNUPGHOME="$HOME/.gnupg"
 export SHAREFILE_HOST='charon:public/s/'
 export KINDLE_FROM_EMAIL='jackbox55@gmail.com'
 export KINDLE_EMAIL='jb55@free.kindle.com'
