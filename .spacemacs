@@ -440,15 +440,12 @@ before packages are loaded."
             ))
           ("hu" "Unscheduled" search "-SCHEDULED & -DEADLINE")
           ("g" . "GTD contexts")
-          ("gw" "Work" tags-todo "work")
           ("gr" "Razor" tags-todo "razor")
           ("gt" "Tinker" tags-todo "tinker")
-          ("gp" "Project" tags-todo "project")
-          ("gp" "Vanessa" tags-todo "vanessa")
+          ("gp" "polyadvent" tags-todo "polyadvent")
           ("G" "GTD Block Agenda"
-           ((tags-todo "vanessa")
-            (tags-todo "tinker")
-            (tags-todo "projects"))
+           ((tags-todo "polyadvent")
+            )
            nil)
           ))
 
