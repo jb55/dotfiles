@@ -181,6 +181,7 @@
      (:name "github" :query "tag:github and not tag:busy and tag:inbox" :key "g" :sort-order subject-ascending)
      (:name "today" :query "date:today and tag:inbox" :key "1")
      (:name "rss" :query "tag:rss and tag:inbox and not tag:busy" :key "r" :sort-order from-ascending)
+     (:name "rss-busy" :query "tag:rss and tag:inbox and tag:busy" :key "R" :sort-order from-ascending)
      (:name "2-day" :query "date:yesterday.. and tag:inbox" :key "2"))))
  '(notmuch-search-line-faces
    (quote
