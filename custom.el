@@ -266,7 +266,7 @@
      (org-heading t)))
  '(org-agenda-files
    (quote
-    ("/home/jb55/docs/org/projects.org" "/home/jb55/docs/org/tasks.org" "/home/jb55/projects/razorcx/doc/org/todo.org")))
+    ("~/src/c/polyadvent/todo.org" "/home/jb55/docs/org/projects.org" "/home/jb55/docs/org/tasks.org" "/home/jb55/projects/razorcx/doc/org/todo.org")))
  '(org-agenda-time-grid
    (quote
     ((daily today require-timed)
