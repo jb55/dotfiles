@@ -15,6 +15,7 @@
 
     csharp
     csv
+    debug
     elm
     emacs-lisp
     emoji
