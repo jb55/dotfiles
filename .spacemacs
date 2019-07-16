@@ -53,6 +53,7 @@
 (setq jb55/additional-packages
   '( company-irony
      base16-theme
+     carbon-now-sh
      bison-mode
      emojify
      ereader
