@@ -105,6 +105,9 @@
 (setq jb55/light-theme 'spacemacs-light)
 (setq jb55/dark-theme 'base16-onedark)
 
+; needed for compilation hooks as well
+(require 'ansi-color)
+
 (defun jb55/at-work ()
   (let* ((time (decode-time))
          (hour (nth 2 time)))
@@ -274,7 +277,6 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
     (ansi-color-apply-on-region (point-min) (point-max))
     (toggle-read-only))
 
-  (require 'ansi-color)
   (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
   (add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
   (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
