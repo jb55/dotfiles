@@ -406,13 +406,11 @@ before packages are loaded."
   (setq org-capture-templates
         `(("t" "Task" entry (file+headline ,(jb55/make-org-path "tasks.org") "Unorganized")
            ,todo-task)
-          ("j" "Journal" entry (file+datetree ,(jb55/make-org-path "journal.org"))
-           "* %?\nEntered on %U\n  %i\n  %a")
           ("n" "Notes" entry (file+headline ,(jb55/make-org-path "notes.org") "Notes")
            ,(task-body "NOTE"))
-          ("w" "Work task" entry (file+headline "~/projects/razorcx/doc/org/todo.org" "Backlog")
+          ("w" "Razor task" entry (file+headline "~/projects/razorcx/doc/org/todo.org" "Current")
            ,todo-task)
-          ("v" "Viscal" entry (file+headline "~/src/c/viscal/TODOs.org" "Current")
+          ("o" "Openstamp task" entry (file+headline "~/projects/openstamp/openstamp-server/todo.org" "Current")
            ,todo-task)
           ))
 
