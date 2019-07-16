@@ -20,7 +20,7 @@
    (quote
     (spacemacs//python-sort-imports gofmt-before-save org-update-all-dblocks)))
  '(browse-url-browser-function (quote browse-url-generic))
- '(browse-url-generic-program "qutebrowser")
+ '(browse-url-generic-program "browser")
  '(company-clang-arguments (quote ("-Ideps")))
  '(company-quickhelp-mode t)
  '(compilation-message-face (quote default))
