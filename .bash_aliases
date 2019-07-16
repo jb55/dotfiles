@@ -54,6 +54,10 @@ alias myipaddress=myip
 alias ns="nix-shell -p"
 alias fzf="fzf --exact"
 alias u="cd .."
+alias scs="systemctl status"
+alias scsu="systemctl status --user"
+alias jc="journalctl -u"
+alias jcu="journalctl --user -u"
 
 ghclone () {
   cd "$(gh-clone "$@")"
