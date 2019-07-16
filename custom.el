@@ -53,8 +53,8 @@
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
  '(haskell-font-lock-symbols nil)
- '(haskell-hoogle-command nil t)
- '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s" t)
+ '(haskell-hoogle-command nil)
+ '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s")
  '(haskell-indentation-indent-leftmost t)
  '(haskell-interactive-mode-scroll-to-bottom t)
  '(haskell-interactive-popup-error nil t)
