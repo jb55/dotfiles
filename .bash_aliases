@@ -7,6 +7,7 @@ export LPASS_HOME="$HOME/.config/lpass"
 export GNUPGHOME="$HOME/.gnupg"
 export SHAREFILE_HOST='charon:public/s/'
 export KINDLE_FROM_EMAIL='jackbox55@gmail.com'
+export KINDLE_TXT_EMAIL='jb55@jb55.com'
 export KINDLE_EMAIL='jb55@free.kindle.com'
 export SHAREFILE_URL='https://jb55.com/s/'
 export SHARE_SS_DIR="$HOME/var/img/ss"
