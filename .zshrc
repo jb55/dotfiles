@@ -12,6 +12,7 @@
 # vi
 bindkey -v
 
+setopt HIST_IGNORE_SPACE
 setopt AUTO_PUSHD
 setopt PUSHD_MINUS
 setopt CDABLE_VARS
