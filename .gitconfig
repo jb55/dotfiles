@@ -9,7 +9,7 @@
   excludesfile = /Users/jb55/.gitignore_global
 	editor = nvim
 [sendemail]
-  smtpServer=/run/current-system/sw/bin/sendmail
+  smtpServer=/home/jb55/bin/sendmail
 [url "git@github.com:"]
   insteadOf = gh:
 [url "git@gl.blockstream.io:blockstream/"]
