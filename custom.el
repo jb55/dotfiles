@@ -199,12 +199,10 @@
       (propertize tag
                   (quote face)
                   (quote notmuch-tag-unread)))
-     ("flagged"
-      (notmuch-tag-format-image-data tag
-                                     (notmuch-tag-star-icon))
-      (propertize tag
-                  (quote face)
-                  (quote notmuch-tag-flagged)))
+     ("flagged" "*"
+      (notmuch-apply-face tag
+                          (quote
+                           (:foreground "gold"))))
      ("pr"
       (notmuch-apply-face tag
                           (quote
@@ -213,29 +211,19 @@
       (notmuch-apply-face tag
                           (quote
                            (:foreground "orange"))))
-     ("filed")
-     ("list")
-     ("github"
-      #("gh" 0 2
-        (face
-         ((:foreground "dim gray"))))
+     ("filed" "f"
       (notmuch-apply-face tag
                           (quote
                            (:foreground "dim gray"))))
-     ("inbox"
-      #("⬇" 0 1
-        (face
-         ((:foreground "white"))))
+     ("list")
+     ("github" "gh"
+      (notmuch-apply-face tag
+                          (quote
+                           (:foreground "dim gray"))))
+     ("inbox" "i"
       (notmuch-apply-face tag
                           (quote
                            (:foreground "white"))))
-     ("lightning"
-      #("⚡" 0 1
-        (face
-         ((:foreground "yellow"))))
-      (notmuch-apply-face tag
-                          (quote
-                           (:foreground "yellow"))))
      ("closed"
       (notmuch-apply-face tag
                           (quote
@@ -245,19 +233,17 @@
                           (quote
                            (:foreground "yellow"))))
      ("bot"
-      #("☃" 0 1
-        (face
-         ((:family "Noto Emoji" :weight bold :foreground "white smoke"))))
       (notmuch-apply-face tag
                           (quote
-                           (:family "Noto Emoji" :weight bold :foreground "white smoke"))))
-     ("busy"
-      #("☄" 0 1
-        (face
-         ((:foreground "cyan"))))
+                           (:foreground "dim gray"))))
+     ("busy" "b"
       (notmuch-apply-face tag
                           (quote
-                           (:foreground "cyan")))))))
+                           (:foreground "brown"))))
+     ("bitcoin" "btc"
+      (notmuch-apply-face tag
+                          (quote
+                           (:foreground "gold")))))))
  '(notmuch-wash-wrap-lines-length 80)
  '(olivetti-body-width 100 t)
  '(org-adapt-indentation nil)
