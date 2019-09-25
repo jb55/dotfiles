@@ -63,6 +63,10 @@ ghclone () {
   cd "$(gh-clone "$@")"
 }
 
+glclone () {
+  cd "$(gl-clone "$@")"
+}
+
 cdnp () {
   nix-build '<nixpkgs>' --no-out-link -A "$1"
   cd $(nix-path "$1")
