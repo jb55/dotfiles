@@ -52,7 +52,7 @@
   st = status -sb
   co = checkout
 [rebase]
-  autosquash = true
+    autosquash = true
 [push]
 	default = simple
 [rerere]
