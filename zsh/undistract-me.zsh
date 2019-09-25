@@ -12,16 +12,16 @@ function notifyosd-precmd() {
             ((cmd_time=$cmd_end - $cmd_start))
         fi
         if [ $retval -gt 0 ]; then
-            cmdstat="failed"
+            icon="cross-mark"
         else
-            cmdstat="success"
+            icon="check-mark"
         fi
-        if [ ! -z "$cmd" -a $cmd_time -gt 10 ]; then
+        if [ ! -z "$cmd" -a $cmd_time -gt 3 ]; then
+            timeout="$(((cmd_time / 3) * 1000))"
             if [ ! -z $SSH_TTY ] ; then
-                twmnc -i $cmdstat -t "$cmd_basename on `hostname`" -c "\"$cmd\" took $cmd_time seconds"
+                notify-send -t $timeout -i $icon "\"$cmd\" took $cmd_time seconds"
             else
-
-                twmnc -i $cmdstat -t "$cmd_basename" -c "\"$cmd\" ${cmd_time}s"
+                notify-send -t $timeout -i $icon "\"$cmd\" ${cmd_time}s"
             fi
         fi
         unset cmd
@@ -34,7 +34,7 @@ precmd_functions+=( notifyosd-precmd )
 # get command name and start the timer
 function notifyosd-preexec() {
     cmd=$1
-    cmd_basename=${${cmd:s/sudo //}[(ws: :)1]} 
+    cmd_basename=${${cmd:s/sudo //}[(ws: :)1]}
     cmd_start=`date +%s`
 }
 
