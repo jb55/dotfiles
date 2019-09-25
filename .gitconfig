@@ -38,6 +38,7 @@
   try = merge --no-commit --no-ff
   puff = pull --ff-only
   lgrep = log --grep
+  logbr = log origin/master..
   default = !git config branch.master.remote origin && git config branch.master.merge refs/heads/master
   lg1 = log --graph --branches --tags --remotes --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
   lg2 = log --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
