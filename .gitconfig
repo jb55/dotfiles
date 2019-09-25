@@ -55,6 +55,8 @@
     autosquash = true
 [pull]
 	ff = only
+[diff]
+	colorMoved = dimmed-zebra
 [push]
 	default = simple
 [rerere]
