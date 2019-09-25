@@ -1,5 +1,6 @@
 ;; -*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
+
 ;; It must be stored in your home directory.
 
 (setq jb55/base-layers
@@ -14,6 +15,7 @@
     (auto-completion :variables auto-completion-enable-help-tooltip t)
 
     csharp
+    react
     csv
     debug
     elm
@@ -63,6 +65,7 @@
      graphviz-dot-mode
      helm-pages
      jade-mode
+     meson-mode
      markdown-mode
      mastodon
      olivetti
@@ -148,7 +151,8 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers jb55/layers
    dotspacemacs-additional-packages jb55/additional-packages
-   dotspacemacs-frozen-packages '(ruby
+   dotspacemacs-frozen-packages '(react
+                                  ruby
                                   elixir
                                   fsharp
                                   )
