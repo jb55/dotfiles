@@ -12,6 +12,8 @@
   smtpServer=/run/current-system/sw/bin/sendmail
 [url "git@github.com:"]
   insteadOf = gh:
+[url "git@gl.blockstream.io:blockstream/"]
+  insteadOf = gl:
 [url "git@gitlab.com:"]
   insteadOf = gitlab:
 [url "jb55.com:git/"]
