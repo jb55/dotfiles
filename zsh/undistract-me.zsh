@@ -1,5 +1,5 @@
 # commands to ignore
-cmdignore=(htop tmux top vim)
+cmdignore=(htop tmux top vim git less bat)
 
 # end and compare timer, notify-send if needed
 function notifyosd-precmd() {
