@@ -17,7 +17,8 @@ function notifyosd-precmd() {
             icon="check-mark"
         fi
         if [ ! -z "$cmd" -a $cmd_time -gt 3 ]; then
-            timeout="$(((cmd_time / 3) * 1000))"
+            longtimeout="$(((cmd_time / 3) * 1000))"
+            timeout="$(btcs -t 15000 $longtimeout min)"
             if [ ! -z $SSH_TTY ] ; then
                 notify-send -t $timeout -i $icon "\"$cmd\" took $cmd_time seconds"
             else
