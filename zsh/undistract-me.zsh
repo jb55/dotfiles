@@ -1,5 +1,5 @@
 # commands to ignore
-cmdignore=(htop tmux top vim)
+cmdignore=(htop tmux top vim git less bat sacc fz fzf nix-shell rust-dev all-dev npm)
 
 
 function sec_to_human () {

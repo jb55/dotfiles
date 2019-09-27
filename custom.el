@@ -9,7 +9,7 @@
  '(ahs-default-range 'ahs-range-whole-buffer)
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil)
+ '(ahs-inhibit-face-list nil t)
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
@@ -19,7 +19,7 @@
  '(before-save-hook
    '(spacemacs//python-sort-imports gofmt-before-save org-update-all-dblocks))
  '(browse-url-browser-function 'browse-url-generic)
- '(browse-url-generic-program "browser")
+ '(browse-url-generic-program "open")
  '(company-clang-arguments '("-Ideps"))
  '(company-quickhelp-mode t)
  '(compilation-message-face 'default)
@@ -35,7 +35,7 @@
  '(elm-indent-offset 4)
  '(epg-gpg-home-directory "~/.gnupg")
  '(eshell-prompt-function 'jb55/eshell-prompt)
- '(evil-kill-on-visual-paste t)
+ '(evil-kill-on-visual-paste nil)
  '(evil-shift-width 2)
  '(evil-want-Y-yank-to-eol t)
  '(expand-region-contract-fast-key "V")
@@ -73,7 +73,7 @@
  '(haskell-process-type 'ghci)
  '(haskell-stylish-on-save nil t)
  '(haskell-tags-on-save nil)
- '(helm-echo-input-in-header-line nil)
+ '(helm-echo-input-in-header-line nil t)
  '(helm-ff-skip-boring-files t)
  '(highlight-changes-colors '("#d33682" "#6c71c4"))
  '(highlight-symbol-colors
