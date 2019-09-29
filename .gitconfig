@@ -29,6 +29,7 @@
 [gui]
   recentrepo = /Users/jb55/src/js/titania
 [alias]
+  l = log
   a = add
   au = add -u
   ca = commit --amend
@@ -57,7 +58,7 @@
   lg1 = log --graph --branches --tags --remotes --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(bold)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
   lg2 = log --date=relative --pretty=format:'%C(auto,yellow)%h%C(auto,magenta)%  %C(auto,blue)%>(12,trunc)%ad %C(auto,green) %C(auto,reset)%s%C(reset)% %C(bold) — %an%C(reset)%C(bold yellow)%d%C(reset)'
   lg = !"git lg1"
-  stat2 = log --stat --pretty=format:'%C(auto,yellow)%h%C(auto,magenta)%  %C(auto,blue)%>(12,trunc)%cr %C(auto,green)%aN %C(auto,red)%D %n%n   %C(auto,reset)%s%n'
+  stat2 = log --stat --pretty=format:'%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%>(12,trunc)%cr %C(auto,green)%aN %C(auto,red)%D %n%n   %C(auto,reset)%s%n'
   serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
   cloner = clone --recursive
   tagd = !"git tag --format='%(creatordate:short)%09%(refname:strip=2)' | sort"
