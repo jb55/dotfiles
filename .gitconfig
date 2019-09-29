@@ -29,18 +29,18 @@
 [gui]
   recentrepo = /Users/jb55/src/js/titania
 [alias]
-  l = log
-  line = log --oneline
   a = add
   au = add -u
-  s = status
-  c = commit
-  r = rebase
-  tg = log --date-order --tags --simplify-by-decoration --pretty=format:'%ai %h %d'
-  rc = rebase --continue
   ca = commit --amend
+  c = commit
   d = diff
   ds = diff --staged
+  line = log --oneline
+  l = log
+  rc = rebase --continue
+  r = rebase
+  s = status
+  tg = log --date-order --tags --simplify-by-decoration --pretty=format:'%ai %h %d'
   logbr = log origin/master..
   prs = log --no-merges --date=local --author-date-order --glob='pull/origin/*'
   prs-merged = log --merges --date=local --author-date-order --glob='pull/origin/*'
