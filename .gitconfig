@@ -40,8 +40,8 @@
   lgrep = log --grep
   logbr = log origin/master..
   default = !git config branch.master.remote origin && git config branch.master.merge refs/heads/master
-  lg1 = log --graph --branches --tags --remotes --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-  lg2 = log --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+  lg1 = log --graph --branches --tags --remotes --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(bold)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+  lg2 = log --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(bold)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
   lg3 = log --pretty=format:'%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%>(12,trunc)%ad %C(auto,green)%<(10,trunc)%aN%C(auto,reset)%s%C(auto,red)% gD% D'
   lg = !"git lg1"
   stat2 = log --stat --pretty=format:'%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%>(12,trunc)%cr %C(auto,green)%aN %C(auto,red)%D %n%n   %C(auto,reset)%s%n'

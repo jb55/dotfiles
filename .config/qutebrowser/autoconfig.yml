@@ -3,7 +3,5 @@
 
 config_version: 2
 settings:
-  tabs.position:
-    global: top
-  tabs.width:
-    global: 200
+  content.host_blocking.enabled:
+    global: false

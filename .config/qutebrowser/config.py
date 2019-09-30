@@ -84,7 +84,7 @@ config.set('url.searchengines', {
   'key': 'https://www.npmjs.org/browse/keyword/{}',
   'y': 'http://www.youtube.com/results?search_query={}',
   'h': 'http://holumbus.fh-wedel.de/hayoo/hayoo.html?query={}',
-  'lh': 'http://localhost:8080/?hoogle={}',
+  'lh': 'http://localhost:8080/?hoogle={} -package:Cabal',
   'hoogle': 'http://www.haskell.org/hoogle/?hoogle={}',
   'github': 'http://github.com/search?q={}',
   'r': 'https://old.reddit.com/r/{}',
