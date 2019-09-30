@@ -57,6 +57,7 @@
 	ff = only
 [diff]
 	colorMoved = dimmed-zebra
+	colorMovedWs = allow-indentation-change
 [push]
 	default = simple
 [rerere]
