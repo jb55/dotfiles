@@ -209,7 +209,7 @@ include "%L"
 <Multi_key> <minus> <comma>	     :	"¬"	U00AC 		# NOT SIGN
 <Multi_key> <asterisk> <o>              : "∘"   U2218           # RING OPERATOR (function composition)
 <Multi_key> <asterisk> <x>             : "⨯"   U2A2F           # CROSS PRODUCT
-<Multi_key> <asterisk>  <period>        : "⋅"   U22C5           # DOT OPERATOR (dot product)
+<Multi_key> <asterisk> <period> <period> : "⋅"   U22C5           # DOT OPERATOR (dot product)
 <Multi_key> <0> <slash>                 : "∅"   U2205           # EMPTY SET (thanks jsled!)
 <Multi_key> <slash> <0>                 : "∅"   U2205           # EMPTY SET
 # I'm hoping { can work as a set mnemonic
@@ -267,7 +267,6 @@ include "%L"
 #Now for some WTF integrals: ⨙ ⨚ 	
 <Multi_key> <d> <e> <l>	: "∇"	U2207	        # NABLA
 <Multi_key> <p> <a> <r> <t>   : "∂" U2202		# PARTIAL DIFFERENTIAL
-<Multi_key> <asterisk> <period> <period> <d>   : "∂" U2202	# PARTIAL DIFFERENTIAL
 <Multi_key> <R> <e>    		: "ℜ"	 U211C 	     	# BLACK-LETTER CAPITAL R (Real Part)
 <Multi_key> <I> <m>		: "ℑ"	 U2111		# BLACK-LETTER CAPTIAL I (Imaginary Part)
 <Multi_key> <h> <b> <a> <r>	:   "ℏ"	U210F	# PLANCK CONSTANT OVER TWO PI
@@ -449,33 +448,21 @@ include "%L"
 # Some archaic Greek.  If we only wanted *normal* characters we wouldn't be
 # doing this at all!
 # "period" will indicate a sort of variant of some kind; asterisk is still the "greek" marker
-<Multi_key> <asterisk> <period> <p>	: "ϖ"	U03D6		# GREEK PI SYMBOL
 # Reserving .f in case we want PHI SYMBOL.  Digamma was "w" sound anyway.
 <Multi_key> <asterisk> <period> <w>	: "ϝ"	U03DD		# GREEK SMALL LETTER DIGAMMA
 <Multi_key> <asterisk> <period> <W>	: "Ϝ"	U03DC		# GREEK CAPITAL LETTER DIGAMMA
 <Multi_key> <asterisk> <Q>	: "Ϟ"	U03DE	# GREEK LETTER QOPPA
 <Multi_key> <asterisk> <q>	: "ϟ"	U03DF	# GREEK SMALL LETTER QOPPA
-<Multi_key> <asterisk> <period> <Q>	: "Ϙ"	U03D8	# GREEK LETTER ARCHAIC QOPPA
-<Multi_key> <asterisk> <period> <q>	: "ϙ"	U03D9	# GREEK SMALL LETTER ARCHAIC QOPPA
 <Multi_key> <asterisk> <ampersand>	: "ϗ"	U03D7	# GREEK KAI SYMBOL
-<Multi_key> <asterisk> <period> <Z>	: "Ϡ"	U03E0	# GREEK LETTER SAMPI
-<Multi_key> <asterisk> <period> <z>	: "ϡ"	U03E1	# GREEK SMALL LETTER SAMPI
-<Multi_key> <asterisk> <period> <period> <Z> : "Ͳ"  U0372  # GREEK CAPITAL LETTER ARCHAIC SAMPI
-<Multi_key> <asterisk> <period> <period> <z> : "ͳ"  U0373  # GREEK SMALL LETTER ARCHAIC SAMPI
 # Sorry, couldn't think of better ones for these.  Might want .s for SAN.
 <Multi_key> <asterisk> <question>      : "Ϛ"	U03DA	# GREEK LETTER STIGMA
 <Multi_key> <asterisk> <slash>	       : "ϛ"	U03DB	# GREEK SMALL LETTER STIGMA
 <Multi_key> <asterisk> <apostrophe>    : "ʹ"	U02B9	# MODIFIER LETTER PRIME, canonically equivalent to U0374 GREEK NUMERAL SIGN
 # While we're at it...
-<Multi_key> <asterisk> <period> <apostrophe>	: "′"	U2032	# PRIME
-<Multi_key> <asterisk> <period> <quotedbl>      : "″"	U2033	# DOUBLE PRIME
 <Multi_key> <asterisk> <comma>	       : "͵"	U0375	# GREEK LOWER NUMERAL SIGN (for thousands)
 # Do we want BETA SYMBOL, RHO SYMBOL, KAPPA SYMBOL, PHI SYMBOL, THETA SYMBOL?
 # The format makes them obvious enough I guess.  PI SYMBOL is different enough
 # that there's no question, and it is separate from these.
-<Multi_key> <asterisk> <period> <b>    : "ϐ"	U03D0	# GREEK BETA SYMBOL
-<Multi_key> <asterisk> <period> <u>    : "ϑ"	U03D1	# GREEK THETA SYMBOL
-<Multi_key> <asterisk> <period> <Y>    : "ϒ"	U03D2	# GREEK UPSILON WITH HOOK SYMBOL
 <Multi_key> <asterisk> <period> <f>    : "ϕ"	U03D5	# GREEK PHI SYMBOL
 <Multi_key> <asterisk> <period> <k>    : "ϰ"	U03F0	# GREEK KAPPA SYMBOL
 <Multi_key> <asterisk> <period> <r>    : "ϱ"	U03F1	# GREEK RHO SYMBOL

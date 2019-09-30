@@ -9,7 +9,7 @@
  '(ahs-default-range 'ahs-range-whole-buffer)
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil)
+ '(ahs-inhibit-face-list nil t)
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
@@ -113,14 +113,12 @@
  '(js2-bounce-indent-p t)
  '(js2-strict-missing-semi-warning nil)
  '(ledger-reports
-   '(("balV" "ledger -V bal")
-     ("bal -V" "ledger bal -V")
-     ("cleared" "ledger ")
-     ("bal cleared" "ledger ")
+   (quote
+    (("bal realized" "%(binary) -f %(ledger-file) bal -V ")
      ("bal" "%(binary) -f %(ledger-file) bal")
      ("reg" "%(binary) -f %(ledger-file) reg")
      ("payee" "%(binary) -f %(ledger-file) reg @%(payee)")
-     ("account" "%(binary) -f %(ledger-file) reg %(account)")))
+     ("account" "%(binary) -f %(ledger-file) reg %(account)"))))
  '(link-hint-delete-trailing-paren t)
  '(linum-format " %7i ")
  '(magit-diff-use-overlays nil)
@@ -288,6 +286,7 @@
  '(smtpmail-smtp-service 587)
  '(standard-indent 4)
  '(tab-width 4)
+ '(url-handler-mode t)
  '(user-full-name "William Casarin")
  '(user-mail-address "jb55@jb55.com")
  '(vc-follow-symlinks t)

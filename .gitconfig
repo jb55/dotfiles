@@ -29,12 +29,21 @@
 [gui]
   recentrepo = /Users/jb55/src/js/titania
 [alias]
+  l = log
+  a = add
+  s = status
+  c = commit
+  ca = commit --amend
+  d = diff
+  ds = diff --staged
+  logbr = log origin/master..
   prs = log --no-merges --date=local --author-date-order --glob='pull/origin/*'
   prs-merged = log --merges --date=local --author-date-order --glob='pull/origin/*'
   refl = reflog --date=relative
   br = symbolic-ref --short HEAD
   bvr = branch -vr --sort=-committerdate
   ff = merge --ff-only
+  muff = merge --no-ff
   try = merge --no-commit --no-ff
   puff = pull --ff-only
   lgrep = log --grep
@@ -52,9 +61,9 @@
   st = status -sb
   co = checkout
 [rebase]
-    autosquash = true
+  autosquash = true
 [pull]
-	ff = only
+	rebase = true
 [diff]
 	colorMoved = dimmed-zebra
 	colorMovedWs = allow-indentation-change

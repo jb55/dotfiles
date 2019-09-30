@@ -25,6 +25,11 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
+
+if hostname == 'quiver':
+  config.set('zoom.default', 125)
+
+
 # Editor (and arguments) to use for the `open-editor` command. The
 # following placeholders are defined: * `{file}`: Filename of the file
 # to be edited. * `{line}`: Line in which the caret is found in the
