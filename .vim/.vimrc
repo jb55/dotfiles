@@ -11,62 +11,7 @@ if has('vim_starting')
  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" My Bundles here:
-
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet.vim'
-
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'dbakker/vim-projectroot'
-NeoBundle 'easymotion/vim-easymotion'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'joshdick/onedark.vim'
-NeoBundle 'haya14busa/incsearch.vim'
-NeoBundle 'jb55/typescript-ctags'
-NeoBundle 'jb55/vim-snippets'
-NeoBundle 'jceb/vim-orgmode'
-NeoBundle 'junegunn/fzf'
-NeoBundle 'junegunn/fzf.vim'
-NeoBundle 'junegunn/gv.vim'
-NeoBundle 'kana/vim-arpeggio'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'mbbill/undotree'
-NeoBundle 'michaeljsmith/vim-indent-object'
-NeoBundle 'osyo-manga/vim-over'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'rizzatti/dash.vim'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'vim-syntastic/syntastic'
-NeoBundle 'szw/vim-maximizer'
-NeoBundle 'tommcdo/vim-exchange'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'wting/rust.vim'
-NeoBundle 'zah/nimrod.vim'
-
-NeoBundle 'hecal3/vim-leader-guide'
-NeoBundle 'ctjhoa/spacevim'
-
-call neobundle#end()
-
 filetype plugin indent on
-
-NeoBundleCheck
-
-" }}}
 
 " Settings {{{
 set modeline
@@ -105,8 +50,8 @@ endif
 
 " Mappings {{{
 
-call arpeggio#map('i', '', 0, 'fd', '<Esc>')
-let g:arpeggio_timeoutlen = 100
+"call arpeggio#map('i', '', 0, 'fd', '<Esc>')
+"let g:arpeggio_timeoutlen = 100
 "let mapleader = "\<SPACE>"
 "let maplocalleader = "\<SPACE>"
 let mapleader = "\\"
