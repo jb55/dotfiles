@@ -90,9 +90,9 @@ baseLayout =
         Mirror tall -- ||| otherstuff
 
 layout = smartBorders
-       . mkToggle (Gapz ?? EOT)
        . mkToggle (Center ?? EOT)
        . mkToggle (TabbedFull ?? EOT)
+       . mkToggle (Gapz ?? EOT)
        . mkToggle (MIRROR ?? EOT)
        $ baseLayout
 
