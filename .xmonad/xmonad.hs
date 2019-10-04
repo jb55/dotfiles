@@ -45,23 +45,26 @@ instance UrgencyHook LibNotifyUrgencyHook where
         safeSpawn "notify-send" [show name, "workspace " ++ idx]
 
 data Center = Center deriving (Show, Read, Eq, Typeable)
-data CenterFull = CenterFull deriving (Show, Read, Eq, Typeable)
 data Maximized = Maximized deriving (Show, Read, Eq, Typeable)
+data Gapz = Gapz deriving (Show, Read, Eq, Typeable)
 
 orig (ModifiedLayout _   o) = o
 modi (ModifiedLayout mod _) = mod
 
 instance Transformer Center Window where
-    transform Center x k = k (centered x) (const x)
+    transform Center x k = k (centered x) (orig . orig)
+
+instance Transformer Gapz Window where
+    transform Gapz x k = k (spacingWithEdge gapSize x) orig
 
 centered = resizeHorizontal 300 . resizeHorizontalRight 300
 
--- gapSize = 10
--- sideGaps = False
+gapSize = 5
+sideGaps = False
 
--- allGaps = (U, taffySize + if sideGaps then gapSize else 0) :
---             if sideGaps then map (,gapSize) (enumFrom D)
---                         else []
+allGaps = (U, if sideGaps then gapSize else 0) :
+            if sideGaps then map (,gapSize) (enumFrom D)
+                        else []
 
 baseLayout =
     let
@@ -70,6 +73,7 @@ baseLayout =
         Mirror tall -- ||| otherstuff
 
 layout = smartBorders
+       . mkToggle (Gapz ?? EOT)
        . mkToggle (Center ?? EOT)
        . mkToggle (FULL ?? EOT)
        . mkToggle (MIRROR ?? EOT)
@@ -106,7 +110,7 @@ nWindows = fmap go get
                 . W.current
                 . windowset
 
-toggleGaps = sendMessage ToggleGaps
+toggleGaps = sendMessage (Toggle Gapz)
 toggleFull = sendMessage (Toggle FULL)
 toggleMirror = sendMessage (Toggle MIRROR)
 toggleCenter = sendMessage (Toggle Center)
@@ -118,6 +122,7 @@ myKeys = [
   , ("M-f", toggleFull)
   , ("M-c", toggleCenter)
   , ("M-m", toggleMirror)
+  , ("M-g", toggleGaps)
   -- , ("M-r", toggleFull)
   , ("M-v", sendKey shiftMask xK_Insert)
   ]
