@@ -19,7 +19,7 @@
  '(before-save-hook
    '(spacemacs//python-sort-imports gofmt-before-save org-update-all-dblocks))
  '(browse-url-browser-function 'browse-url-generic)
- '(browse-url-generic-program "open")
+ '(browse-url-generic-program "browser")
  '(company-clang-arguments '("-Ideps"))
  '(company-quickhelp-mode t)
  '(compilation-message-face 'default)
