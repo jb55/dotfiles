@@ -115,7 +115,7 @@ myKeys = [
     ("M-p", shellPromptHere myXPConfig)
   , ("M-a", focusUrgent)
   , ("M-d", toggleWS)
-  , ("M-r", toggleFull)
+  , ("M-f", toggleFull)
   , ("M-c", toggleCenter)
   , ("M-m", toggleMirror)
   -- , ("M-r", toggleFull)
