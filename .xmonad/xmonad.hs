@@ -117,7 +117,7 @@ myKeys = [
   , ("M-d", toggleWS)
   , ("M-r", toggleFull)
   , ("M-c", toggleCenter)
-  , ("M-S-m", toggleMirror)
+  , ("M-m", toggleMirror)
   -- , ("M-r", toggleFull)
   , ("M-v", sendKey shiftMask xK_Insert)
   ]
