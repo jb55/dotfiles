@@ -2,7 +2,7 @@
 
 "if 0 | endif
 
-" neobundle {{{
+" neobundle 
 
 if has('vim_starting')
  set nocompatible               " Be iMproved
@@ -13,7 +13,7 @@ endif
 
 filetype plugin indent on
 
-" Settings {{{
+" Settings 
 set modeline
 set modelines=1
 set nocp
@@ -46,9 +46,9 @@ endif
 "  colorscheme onedark
 "endif
 
-" }}}
+" 
 
-" Mappings {{{
+" Mappings 
 
 "call arpeggio#map('i', '', 0, 'fd', '<Esc>')
 "let g:arpeggio_timeoutlen = 100
@@ -133,9 +133,9 @@ vmap <Leader>=:: :Tabularize /::<CR>
 nmap <Leader>=: :Tabularize /:\zs<CR>
 vmap <Leader>=: :Tabularize /:\zs<CR>
 
-" }}}
+" 
 
-" Plugin Options {{{
+" Plugin Options 
 
 " neosnippet key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -210,9 +210,9 @@ let g:ctrlp_switch_buffer=0
 " fix gitgutter color
 highlight clear SignColumn
 
-" }}}
+" 
 
-" Autocommands {{{
+" Autocommands 
 
 augroup encrypted
   au!
@@ -288,9 +288,9 @@ au BufWritePost,FileWritePost ~/.Xdefaults,~/.Xresources silent! !xrdb -load % >
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 au BufRead,BufNewFile nginx.conf set ft=nginx
 au BufRead,BufNewFile wscript set syn=python
-" }}}
+" 
 
-" Commands {{{
+" Commands 
 
 function! PlaySound()
 " uncomment to annoy coworkers
@@ -336,6 +336,6 @@ function! s:WipeBuffersWithoutFiles()
 endfunction
 command! WipeNoFiles call s:WipeBuffersWithoutFiles()
 
-" }}}
+" 
 
 runtime! config/*.vim
