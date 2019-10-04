@@ -24,6 +24,7 @@ import XMonad.Layout.ResizableTile
 import XMonad.Layout.ResizeScreen
 import XMonad.Layout.Spacing
 import XMonad.Layout.Spiral
+import XMonad.Layout.Tabbed
 import XMonad.Layout.ToggleLayouts (ToggleLayout(ToggleLayout))
 import XMonad.Prompt
 import XMonad.Prompt.Shell
@@ -47,6 +48,7 @@ instance UrgencyHook LibNotifyUrgencyHook where
 data Center = Center deriving (Show, Read, Eq, Typeable)
 data Maximized = Maximized deriving (Show, Read, Eq, Typeable)
 data Gapz = Gapz deriving (Show, Read, Eq, Typeable)
+data TabbedFull = TabbedFull deriving (Show, Read, Eq, Typeable)
 
 orig (ModifiedLayout _   o) = o
 modi (ModifiedLayout mod _) = mod
@@ -55,12 +57,27 @@ instance Transformer Center Window where
     transform Center x k = k (centered x) (orig . orig)
 
 instance Transformer Gapz Window where
-    transform Gapz x k = k (spacingWithEdge gapSize x) orig
+    transform Gapz x k = k (smartSpacingWithEdge gapSize x) orig
+
+instance Transformer TabbedFull Window where
+    transform TabbedFull x k = k (tabs ||| Full) (const x)
 
 centered = resizeHorizontal 300 . resizeHorizontalRight 300
 
 gapSize = 5
 sideGaps = False
+
+ourFont = "xft:terminus:size=12"
+tabs = tabbed shrinkText tabTheme
+
+tabTheme =
+    defaultTheme {
+        fontName = ourFont
+      , inactiveBorderColor = "#282C34"
+      , activeBorderColor = "#282C34"
+      , activeColor = "#323742"
+      , inactiveColor = "#282C34"
+    }
 
 allGaps = (U, if sideGaps then gapSize else 0) :
             if sideGaps then map (,gapSize) (enumFrom D)
@@ -75,7 +92,7 @@ baseLayout =
 layout = smartBorders
        . mkToggle (Gapz ?? EOT)
        . mkToggle (Center ?? EOT)
-       . mkToggle (FULL ?? EOT)
+       . mkToggle (TabbedFull ?? EOT)
        . mkToggle (MIRROR ?? EOT)
        $ baseLayout
 
@@ -96,7 +113,7 @@ main = xmonad
 
 myXPConfig =
     defaultXPConfig {
-      font        = "xft:terminus:size=12",
+      font        = ourFont,
       height      = 20,
       borderColor = "#000000"
     }
@@ -111,7 +128,7 @@ nWindows = fmap go get
                 . windowset
 
 toggleGaps = sendMessage (Toggle Gapz)
-toggleFull = sendMessage (Toggle FULL)
+toggleFull = sendMessage (Toggle TabbedFull)
 toggleMirror = sendMessage (Toggle MIRROR)
 toggleCenter = sendMessage (Toggle Center)
 
