@@ -70,13 +70,16 @@ sideGaps = False
 ourFont = "xft:terminus:size=12"
 tabs = tabbed shrinkText tabTheme
 
+normalBg = "#282C34"
+lighterBg = "#323742"
+
 tabTheme =
     defaultTheme {
-        fontName = ourFont
-      , inactiveBorderColor = "#282C34"
-      , activeBorderColor = "#282C34"
-      , activeColor = "#323742"
-      , inactiveColor = "#282C34"
+        fontName            = ourFont
+      , inactiveBorderColor = lighterBg
+      , inactiveColor       = lighterBg
+      , activeBorderColor   = normalBg
+      , activeColor         = normalBg
     }
 
 allGaps = (U, if sideGaps then gapSize else 0) :
