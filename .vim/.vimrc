@@ -26,6 +26,8 @@ set hidden
 set nowrap
 set ruler
 set colorcolumn=80
+set t_Co=16
+highlight ColorColumn ctermbg=8
 set relativenumber
 set dir=~/.vim/tmp
 exe 'set t_kB=' . nr2char(27) . '[Z'
