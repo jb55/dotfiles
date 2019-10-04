@@ -113,6 +113,3 @@ PATH=$PATH:$HOME/dev/github/bitcoin/bitcoin/src
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 . `which env_parallel.bash`
-
-# added by travis gem
-[ -f /home/jb55/.travis/travis.sh ] && source /home/jb55/.travis/travis.sh
