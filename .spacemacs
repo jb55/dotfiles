@@ -25,6 +25,7 @@
     finance
     fsharp
     git
+    github
     go
     gtags
     html
