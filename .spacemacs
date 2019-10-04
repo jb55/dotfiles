@@ -55,10 +55,9 @@
 (setq jb55/additional-packages
   '( company-irony
      base16-theme
-     carbon-now-sh
+     editor-config
      bison-mode
      emojify
-     ereader
      forge
      glsl-mode
      gnu-apl-mode
