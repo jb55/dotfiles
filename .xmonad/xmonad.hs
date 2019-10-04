@@ -6,21 +6,22 @@
 import Data.Ratio
 import XMonad
 import XMonad.Actions.CycleWS
-import XMonad.Actions.UpdatePointer
 import XMonad.Actions.SpawnOn (shellPromptHere, manageSpawn)
+import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.UrgencyHook
-import XMonad.Layout.ResizeScreen
-import XMonad.Layout.LayoutModifier
-import qualified XMonad.Layout.HintedTile as HT
 import XMonad.Layout.Gaps
+import XMonad.Layout.Grid
+import XMonad.Layout.LayoutModifier
+import XMonad.Layout.Maximize
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
+import XMonad.Layout.ResizeScreen
 import XMonad.Layout.Spacing
 import XMonad.Layout.Spiral
 import XMonad.Layout.ToggleLayouts (ToggleLayout(ToggleLayout))
@@ -30,6 +31,7 @@ import XMonad.Util.EZConfig
 import XMonad.Util.NamedWindows
 import XMonad.Util.Paste
 import XMonad.Util.Run
+import qualified XMonad.Layout.HintedTile as HT
 
 import qualified XMonad.StackSet as W
 
@@ -43,30 +45,34 @@ instance UrgencyHook LibNotifyUrgencyHook where
         safeSpawn "notify-send" [show name, "workspace " ++ idx]
 
 data Center = Center deriving (Show, Read, Eq, Typeable)
+data CenterFull = CenterFull deriving (Show, Read, Eq, Typeable)
+data Maximized = Maximized deriving (Show, Read, Eq, Typeable)
+
+orig (ModifiedLayout _   o) = o
+modi (ModifiedLayout mod _) = mod
 
 instance Transformer Center Window where
     transform Center x k = k (centered x) (const x)
 
-
 centered = resizeHorizontal 300 . resizeHorizontalRight 300
-gapSize = 10
-taffySize = 25
-sideGaps = False
 
-allGaps = (U, taffySize + if sideGaps then gapSize else 0) :
-            if sideGaps then map (,gapSize) (enumFrom D)
-                        else []
+-- gapSize = 10
+-- sideGaps = False
+
+-- allGaps = (U, taffySize + if sideGaps then gapSize else 0) :
+--             if sideGaps then map (,gapSize) (enumFrom D)
+--                         else []
 
 baseLayout =
     let
         tall = ResizableTall 1 (3/100) (1/2) []
     in
-        tall ||| Mirror tall
--- ||| spiral (6/7)
+        Mirror tall -- ||| otherstuff
 
-layout =
-         smartBorders
-       . mkToggle (FULL ?? Center ?? EOT)
+layout = smartBorders
+       . mkToggle (Center ?? EOT)
+       . mkToggle (FULL ?? EOT)
+       . mkToggle (MIRROR ?? EOT)
        $ baseLayout
 
 main = xmonad
@@ -86,8 +92,8 @@ main = xmonad
 
 myXPConfig =
     defaultXPConfig {
-      font        = "xft:Inconsolata:size=14",
-      height      = 25,
+      font        = "xft:terminus:size=12",
+      height      = 20,
       borderColor = "#000000"
     }
 
@@ -102,8 +108,8 @@ nWindows = fmap go get
 
 toggleGaps = sendMessage ToggleGaps
 toggleFull = sendMessage (Toggle FULL)
+toggleMirror = sendMessage (Toggle MIRROR)
 toggleCenter = sendMessage (Toggle Center)
-toggleMaximized = toggleGaps >> toggleFull
 
 myKeys = [
     ("M-p", shellPromptHere myXPConfig)
@@ -111,8 +117,7 @@ myKeys = [
   , ("M-d", toggleWS)
   , ("M-r", toggleFull)
   , ("M-c", toggleCenter)
-  -- , ("M-S-m", toggleMirror)
-  -- , ("M-f", toggleMaximized)
+  , ("M-S-m", toggleMirror)
   -- , ("M-r", toggleFull)
   , ("M-v", sendKey shiftMask xK_Insert)
   ]
