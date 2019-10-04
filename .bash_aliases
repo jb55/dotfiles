@@ -23,6 +23,7 @@ md () {
     mandown README*
 }
 
+alias g=git
 alias info="info --vi-keys"
 alias ag="ag --pager=less"
 alias attach="grabssh; screen -rD"
