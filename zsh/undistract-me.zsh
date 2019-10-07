@@ -1,6 +1,24 @@
 # commands to ignore
 cmdignore=(htop tmux top vim git less bat sacc fz fzf nix-shell rust-dev all-dev npm)
 
+
+function sec_to_human () {
+    local H=''
+    local M=''
+    local S=''
+
+    local h=$(($1 / 3600))
+    [ $h -gt 0 ] && H="${h} hour " && [ $h -gt 1 ] && H="${H}s"
+
+    local m=$((($1 / 60) % 60))
+    [ $m -gt 0 ] && M="${m} min " && [ $m -gt 1 ] && M="${M}s"
+
+    local s=$(($1 % 60))
+    [ $s -gt 0 ] && S="${s} sec" && [ $s -gt 1 ] && S="${S}s"
+
+    echo $H$M$S
+}
+
 # end and compare timer, notify-send if needed
 function notifyosd-precmd() {
 	retval=$?
@@ -19,10 +37,11 @@ function notifyosd-precmd() {
         if [ ! -z "$cmd" -a $cmd_time -gt 3 ]; then
             longtimeout="$(((cmd_time / 3) * 1000))"
             timeout="$(btcs -t 15000 $longtimeout min)"
+            local human="$(sec_to_human $cmd_time)"
             if [ ! -z $SSH_TTY ] ; then
-                notify-send -t $timeout -i $icon "\"$cmd\" took $cmd_time seconds"
+                notify-send -t $timeout -i $icon "Command took $human" "$cmd"
             else
-                notify-send -t $timeout -i $icon "\"$cmd\" ${cmd_time}s"
+                notify-send -t $timeout -i $icon "Command took $human" "$cmd"
             fi
         fi
         unset cmd
