@@ -31,8 +31,11 @@
 [alias]
   l = log
   a = add
+  au = add -u
   s = status
   c = commit
+  r = rebase
+  rc = rebase --continue
   ca = commit --amend
   d = diff
   ds = diff --staged
