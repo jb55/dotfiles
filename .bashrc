@@ -113,3 +113,5 @@ PATH=$PATH:$HOME/dev/github/bitcoin/bitcoin/src
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 . `which env_parallel.bash`
+
+source $HOME/dotfiles/bash-undistract-me/undistract-me.sh
