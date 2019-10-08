@@ -111,6 +111,11 @@
 ; needed for compilation hooks as well
 (require 'ansi-color)
 
+(defun display-ansi-colors ()
+  (interactive)
+  (let ((inhibit-read-only t))
+    (ansi-color-apply-on-region (point-min) (point-max))))
+
 (defun jb55/at-work ()
   (let* ((time (decode-time))
          (hour (nth 2 time)))
