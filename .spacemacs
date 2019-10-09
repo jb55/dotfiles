@@ -325,6 +325,16 @@ before packages are loaded."
   (set-face-background 'fringe "#1e1f22")
   (set-face-foreground 'vertical-border "#1e1f22")
 
+  (defun jb55/compilation-finish (buffer status)
+    (call-process "notify-send" nil nil nil
+                  "-i" "emacs"
+                  "Emacs compilation"
+                  status))
+
+  (setq compilation-finish-functions
+        (append compilation-finish-functions
+                '(jb55/compilation-finish)))
+
   (defun jb55/notmuch-show-insert-header-p (part hide)
     ;; Show all part buttons except for the first part if it is text/plain.
     (let ((mime-type (notmuch-show-mime-type part)))
