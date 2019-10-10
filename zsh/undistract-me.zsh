@@ -1,5 +1,5 @@
 # commands to ignore
-cmdignore=(htop tmux top vim git less bat sacc fz fzf nix-shell rust-dev all-dev npm)
+cmdignore=(htop tmux top vim)
 
 
 function sec_to_human () {
@@ -19,9 +19,18 @@ function sec_to_human () {
     echo $H$M$S
 }
 
+# Function taken from undistract-me, get the current window id
+function active_window_id () {
+    if [[ -n $DISPLAY ]] ; then
+        xprop -root _NET_ACTIVE_WINDOW | awk '{print $5}'
+        return
+    fi
+    echo nowindowid
+}
+
 # end and compare timer, notify-send if needed
 function notifyosd-precmd() {
-	retval=$?
+    retval=$?
     if [[ ${cmdignore[(r)$cmd_basename]} == $cmd_basename ]]; then
         return
     else
@@ -34,7 +43,7 @@ function notifyosd-precmd() {
         else
             icon="check-mark"
         fi
-        if [ ! -z "$cmd" -a $cmd_time -gt 3 ]; then
+        if [ ! -z "$cmd" -a $cmd_time -gt 3 ] && [[ "$cmd_active_win" != "$(active_window_id)" ]]; then
             longtimeout="$(((cmd_time / 3) * 1000))"
             timeout="$(btcs -t 15000 $longtimeout min)"
             local human="$(sec_to_human $cmd_time)"
@@ -55,7 +64,8 @@ precmd_functions+=( notifyosd-precmd )
 function notifyosd-preexec() {
     cmd=$1
     cmd_basename=${${cmd:s/sudo //}[(ws: :)1]}
-    cmd_start=`date +%s`
+    cmd_start=$(date +%s)
+    cmd_active_win=$(active_window_id)
 }
 
 # make sure this plays nicely with any existing preexec
