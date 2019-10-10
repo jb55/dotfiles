@@ -324,6 +324,7 @@ before packages are loaded."
 
   (set-face-background 'fringe "#1e1f22")
   (set-face-foreground 'vertical-border "#1e1f22")
+  (setq gnus-inhibit-images nil)
 
   (defun jb55/compilation-finish (buffer status)
     (call-process "notify-send" nil nil nil
