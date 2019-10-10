@@ -1,7 +1,6 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-
 set -o vi
 
 # If not running interactively, don't do anything
@@ -55,7 +54,7 @@ unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+    #PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
     ;;
 *)
     ;;
@@ -106,7 +105,6 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:$HOME/dev/github/bitcoin/bitcoin/src
 
 # added by travis gem
 [ -f /Users/jb55/.travis/travis.sh ] && source /Users/jb55/.travis/travis.sh
