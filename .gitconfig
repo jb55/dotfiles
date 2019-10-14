@@ -35,7 +35,7 @@
   s = status
   c = commit
   r = rebase
-  tg = log --date-order --graph --tags --simplify-by-decoration --pretty=format:'%ai %h %d'
+  tg = log --date-order --tags --simplify-by-decoration --pretty=format:'%ai %h %d'
   rc = rebase --continue
   ca = commit --amend
   d = diff
