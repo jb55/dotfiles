@@ -61,6 +61,7 @@
      forge
      glsl-mode
      gnu-apl-mode
+     protobuf-mode
      graphviz-dot-mode
      helm-pages
      jade-mode
