@@ -359,6 +359,8 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (setq jb55/org-path "~/docs/org")
 
+  ;; fix really annoying clipboard race issue
+  (fset 'evil-visual-update-x-selection 'ignore)
   (jb55/error-config)
 
   (set-face-background 'fringe "#1e1f22")
