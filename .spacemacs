@@ -363,6 +363,7 @@ before packages are loaded."
   (fset 'evil-visual-update-x-selection 'ignore)
   (jb55/error-config)
 
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain)
   (set-face-background 'fringe "#1e1f22")
   (set-face-foreground 'vertical-border "#1e1f22")
   (setq gnus-inhibit-images nil)
