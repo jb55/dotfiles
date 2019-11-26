@@ -5,6 +5,7 @@
 # sharefile
 export LPASS_HOME="$HOME/.config/lpass"
 export GOPHERCLIENT=sacc
+export GOPHER=$GOPHERCLIENT
 export GNUPGHOME="$HOME/.gnupg"
 export SHAREFILE_HOST='charon:public/s/'
 export KINDLE_FROM_EMAIL='jackbox55@gmail.com'
