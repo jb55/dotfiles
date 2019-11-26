@@ -3,6 +3,7 @@
 # generic stuff for non-interactive shells
 
 # sharefile
+export BAT_STYLE=plain
 export LPASS_HOME="$HOME/.config/lpass"
 export GOPHERCLIENT=sacc
 export GOPHER=$GOPHERCLIENT
