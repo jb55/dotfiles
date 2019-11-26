@@ -58,23 +58,23 @@
 (setq jb55/additional-packages
   '( company-irony
      base16-theme
-     editor-config
      bison-mode
+     editor-config
      emojify
      forge
+     github-review
      glsl-mode
      gnu-apl-mode
-     protobuf-mode
      graphviz-dot-mode
      helm-pages
      jade-mode
-     meson-mode
      markdown-mode
-     meson-mode
      mastodon
+     meson-mode
      olivetti
      org-brain
      org-clock-csv
+     protobuf-mode
      shen-mode
      w3m
      weechat
