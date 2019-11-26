@@ -1,9 +1,18 @@
 {-# LANGUAGE TupleSections #-}
-{-# LANGUAGE TypeSynonymInstances #-}
+{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE KindSignatures #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StandaloneDeriving #-}
 {-# LANGUAGE TypeSynonymInstances #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 
 import Data.Ratio
+import Data.IORef
+import Control.Monad (when)
+import System.IO.Unsafe (unsafePerformIO)
+import System.Posix.Files (readSymbolicLink)
+import System.Posix.Signals (installHandler, sigUSR1, Handler(CatchOnce))
+import System.FilePath.Posix (takeBaseName)
 import XMonad
 import XMonad.Actions.CycleWS
 import XMonad.Actions.SpawnOn (shellPromptHere, manageSpawn)
@@ -32,6 +41,8 @@ import XMonad.Util.EZConfig
 import XMonad.Util.NamedWindows
 import XMonad.Util.Paste
 import XMonad.Util.Run
+import XMonad.Util.Font
+import XMonad.Util.Image
 import qualified XMonad.Layout.HintedTile as HT
 
 import qualified XMonad.StackSet as W
@@ -45,10 +56,25 @@ instance UrgencyHook LibNotifyUrgencyHook where
 
         safeSpawn "notify-send" [show name, "workspace " ++ idx]
 
+data OurTheme =
+      BasicTheme ThemeType String String
+    | FullTheme {
+          themeType :: ThemeType
+        , themeActiveColor   :: String
+        , themeInactiveColor :: String
+        , themeActiveText    :: String
+        , themeInactiveText  :: String
+      }
+    deriving (Show, Read, Eq, Typeable)
+
+getThemeType (BasicTheme typ _ _) = typ
+getThemeType FullTheme{..} = themeType
+
 data Center = Center deriving (Show, Read, Eq, Typeable)
 data Maximized = Maximized deriving (Show, Read, Eq, Typeable)
 data Gapz = Gapz deriving (Show, Read, Eq, Typeable)
-data TabbedFull = TabbedFull deriving (Show, Read, Eq, Typeable)
+data TabbedFull = TabbedFull OurTheme deriving (Show, Read, Eq, Typeable)
+data ThemeType = LightTheme | DarkTheme deriving (Show, Read, Eq, Typeable)
 
 orig (ModifiedLayout _   o) = o
 modi (ModifiedLayout mod _) = mod
@@ -60,7 +86,8 @@ instance Transformer Gapz Window where
     transform Gapz x k = k (smartSpacingWithEdge gapSize x) orig
 
 instance Transformer TabbedFull Window where
-    transform TabbedFull x k = k (tabs ||| Full) (const x)
+    transform (TabbedFull theme) x k =
+        k (tabs (mkTabTheme theme) ||| Full) (const x)
 
 -- TODO: this should be a ratio based off current screen width
 centeredGap = 250
@@ -70,19 +97,49 @@ gapSize = 5
 sideGaps = False
 
 ourFont = "xft:terminus:size=12"
-tabs = tabbed shrinkText tabTheme
+tabs = tabbed shrinkText
 
-normalBg = "#282C34"
-lighterBg = "#323742"
+baseTabTheme :: Theme
+baseTabTheme = defaultTheme { fontName = ourFont }
 
-tabTheme =
-    defaultTheme {
-        fontName            = ourFont
-      , inactiveBorderColor = lighterBg
-      , inactiveColor       = lighterBg
-      , activeBorderColor   = normalBg
-      , activeColor         = normalBg
+mkTabTheme FullTheme{..} =
+    baseTabTheme {
+        inactiveBorderColor = themeInactiveColor
+      , inactiveColor       = themeInactiveColor
+      , inactiveTextColor   = themeInactiveText
+      , activeColor         = themeActiveColor
+      , activeBorderColor   = themeActiveColor
+      , activeTextColor     = themeActiveText
     }
+mkTabTheme (BasicTheme _ active inactive) =
+    baseTabTheme {
+        inactiveBorderColor = inactive
+      , inactiveColor       = inactive
+      , activeColor         = active
+      , activeBorderColor   = active
+    }
+
+darkTheme :: OurTheme
+darkTheme = BasicTheme DarkTheme "#282C34" "#323742"
+
+
+--darkTheme :: OurTheme
+--darkTheme = FullTheme {
+--    themeActiveColor   = "#282C34"
+--  , themeInactiveColor = "#323742"
+--  , themeActiveText    = "#000000"
+--  , themeInactiveText  = "#777777"
+--}
+
+
+lightTheme :: OurTheme
+lightTheme = FullTheme {
+    themeType = LightTheme
+  , themeActiveColor   = "#FFFFFF"
+  , themeInactiveColor = "#EEEEEE"
+  , themeActiveText    = "#000000"
+  , themeInactiveText  = "#777777"
+}
 
 allGaps = (U, if sideGaps then gapSize else 0) :
             if sideGaps then map (,gapSize) (enumFrom D)
@@ -94,27 +151,58 @@ baseLayout =
     in
         Mirror tall -- ||| otherstuff
 
-layout = smartBorders
-       . mkToggle (Center ?? EOT)
-       . mkToggle (TabbedFull ?? EOT)
-       . mkToggle (Gapz ?? EOT)
-       . mkToggle (MIRROR ?? EOT)
-       $ baseLayout
+layout theme
+    = smartBorders
+    . mkToggle (Center ?? EOT)
+    . mkToggle ((TabbedFull theme) ?? EOT)
+    . mkToggle (Gapz ?? EOT)
+    . mkToggle (MIRROR ?? EOT)
+    $ baseLayout
 
-main = xmonad
-     $ withUrgencyHook LibNotifyUrgencyHook
-     $ ewmh
-     $ defaultConfig {
-             terminal    = "urxvtc"
-           , modMask     = mod4Mask
-           --, logHook     = updatePointer (1 / 2, 1 / 2) (0, 0)
-           , layoutHook  = layout
-           , startupHook = setWMName "LG3D"
-           , manageHook  = isFullscreen --> doFullFloat
-           , normalBorderColor = "#222"
-           , focusedBorderColor = "#BE5046"
-     }
-     `additionalKeysP` myKeys
+
+getTheme :: IO OurTheme
+getTheme = do
+  themePath <- readSymbolicLink "/home/jb55/.Xresources.d/themes/current"
+  case takeBaseName themePath of
+    "light" -> return lightTheme
+    _       -> return darkTheme
+
+
+myStartupHook :: Layout Window -> X ()
+myStartupHook lout = do
+  setWMName "LG3D"
+  setLayout lout -- needed until we have themeSwitch implemented
+
+readTheme :: IORef OurTheme -> OurTheme
+readTheme = unsafePerformIO . readIORef
+
+otherTheme :: OurTheme -> OurTheme
+otherTheme t =
+    case getThemeType t of
+      LightTheme -> darkTheme
+      DarkTheme  -> lightTheme
+
+myConfig theme =
+  let lout = layout theme
+      cfg = defaultConfig {
+                terminal    = "urxvtc"
+              , modMask            = mod4Mask
+              , layoutHook         = lout
+              , startupHook        = myStartupHook (Layout lout)
+              , manageHook         = manageSpawn <+> manageDocks
+              , normalBorderColor  = "#222"
+              , focusedBorderColor = "#BE5046"
+            }
+  in
+    withUrgencyHook LibNotifyUrgencyHook
+  $ ewmh
+  $ cfg
+  `additionalKeysP` (myKeys theme)
+
+main = do
+  installHandler sigUSR1 (CatchOnce doRestart) Nothing
+  theme <- getTheme
+  xmonad (myConfig theme)
 
 myXPConfig =
     defaultXPConfig {
@@ -132,19 +220,35 @@ nWindows = fmap go get
                 . W.current
                 . windowset
 
-toggleGaps = sendMessage (Toggle Gapz)
-toggleFull = sendMessage (Toggle TabbedFull)
-toggleMirror = sendMessage (Toggle MIRROR)
-toggleCenter = sendMessage (Toggle Center)
+toggleGaps       = sendMessage (Toggle Gapz)
+toggleFull theme = sendMessage (Toggle (TabbedFull theme))
+toggleMirror     = sendMessage (Toggle MIRROR)
+toggleCenter     = sendMessage (Toggle Center)
 
-myKeys = [
-    ("M-p", shellPromptHere myXPConfig)
+myKeys theme = [
+    ("M-p", spawn "dmenu_run -fn \"terminus-12\" -p \"run\"")
   , ("M-a", focusUrgent)
   , ("M-d", toggleWS)
-  , ("M-f", toggleFull)
+  , ("M-f", toggleFull theme)
   , ("M-c", toggleCenter)
   , ("M-m", toggleMirror)
   , ("M-g", toggleGaps)
   -- , ("M-r", toggleFull)
   , ("M-v", sendKey shiftMask xK_Insert)
   ]
+
+
+
+sendRestart :: IO ()
+sendRestart = do
+    dpy <- openDisplay ""
+    rw <- rootWindow dpy $ defaultScreen dpy
+    xmonad_restart <- internAtom dpy "XMONAD_RESTART" False
+    allocaXEvent $ \e -> do
+        setEventType e clientMessage
+        setClientMessageEvent e rw xmonad_restart 32 0 currentTime
+        sendEvent dpy rw False structureNotifyMask e
+    sync dpy False
+
+
+doRestart = spawn "xmonad --restart"
