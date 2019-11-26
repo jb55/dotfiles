@@ -360,16 +360,6 @@ before packages are loaded."
   (setq jb55/org-path "~/docs/org")
   (url-handler-mode 1)
 
-  ;; (require 'magit)
-
-  ;; (defun magit-merge-ff (rev &optional args nocommit)
-  ;;   (interactive (list (magit-read-other-branch-or-commit "Merge")
-  ;;                      (magit-merge-arguments)
-  ;;                      current-prefix-arg))
-  ;;   (magit-merge rev (cons "--ff-only" args) nocommit))
-
-  ;; (magit-define-popup-switch 'magit-merge-popup
-  ;;    ?f "Fast-forward merge" 'magit-merge-ff)
   (jb55/error-config)
 
   (set-face-background 'fringe "#1e1f22")
