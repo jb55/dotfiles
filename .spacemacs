@@ -358,7 +358,6 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (setq jb55/org-path "~/docs/org")
-  (url-handler-mode 1)
 
   (jb55/error-config)
 
