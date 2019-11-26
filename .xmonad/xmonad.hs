@@ -110,7 +110,7 @@ main = xmonad
            --, logHook     = updatePointer (1 / 2, 1 / 2) (0, 0)
            , layoutHook  = layout
            , startupHook = setWMName "LG3D"
-           , manageHook  = manageSpawn <+> manageDocks
+           , manageHook  = isFullscreen --> doFullFloat
            , normalBorderColor = "#222"
            , focusedBorderColor = "#BE5046"
      }
