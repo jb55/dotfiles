@@ -15,4 +15,4 @@ set smooth-scroll "true"
 set scroll-full-overlap 0.01
 set scroll-step 100
 
-set font "inconsolata 15"
+set font "terminus 11"
