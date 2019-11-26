@@ -135,9 +135,18 @@
   (interactive)
   (let ((before (current-kill 0)))
     (link-hint-copy-link)
-    (let ((after (current-kill 0)))
-      (if (not (eq after before))
-          (find-file after)))))
+    (let ((url (current-kill 0)))
+      (if (not (eq url before))
+          (with-current-buffer (get-buffer-create
+                                (generate-new-buffer-name "*link-hint-url*"))
+            (condition-case exception
+                (url-insert-file-contents url)
+              ('file-error
+               ;; In case the link is private repository github will respond with a
+               ;; temporary redirect 302 HTTP code and calculate the request-token
+               ;; with javascript. In this case open diff in browser
+               (browse-url url)))
+            (switch-to-buffer (current-buffer)))))))
 
 
 (defun jb55/determine-theme ()
