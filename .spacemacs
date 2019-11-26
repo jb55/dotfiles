@@ -312,6 +312,45 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   )
 
+(defun jb55/error-config ()
+  (defcustom next-error-message-highlight-p nil
+    "If non-nil, highlight the current error message in the ‘next-error’ buffer"
+    :type 'boolean
+    :group 'next-error
+    :version "??")
+
+  (defface next-error-message
+    '((t (:inherit highlight)))
+    "Face used to highlight the current error message in the ‘next-error’ buffer"
+    :group 'next-error
+    :version "??")
+
+  (defvar next-error-message-highlight-overlay
+    nil
+    "Overlay highlighting the current error message in the ‘next-error’ buffer")
+
+  (make-variable-buffer-local 'next-error-message-highlight-overlay)
+
+  (defun next-error-message-highlight ()
+    "Highlight the current error message in the ‘next-error’ buffer."
+    (when next-error-message-highlight-p
+      (with-current-buffer next-error-last-buffer
+        (when next-error-message-highlight-overlay
+          (delete-overlay next-error-message-highlight-overlay))
+        (save-excursion
+          (goto-char (point))
+          (let ((ol (make-overlay (line-beginning-position) (line-end-position))))
+            ;; do not override region highlighting
+            (overlay-put ol 'priority -50)
+            (overlay-put ol 'face 'next-error-message)
+            (overlay-put ol 'window (get-buffer-window))
+            (setf next-error-message-highlight-overlay ol))))))
+
+  (add-hook 'next-error-hook 'next-error-message-highlight)
+
+  (setq next-error-message-highlight-p t)
+  )
+
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
 This function is called at the very end of Spacemacs startup, after layer
@@ -331,6 +370,7 @@ before packages are loaded."
 
   ;; (magit-define-popup-switch 'magit-merge-popup
   ;;    ?f "Fast-forward merge" 'magit-merge-ff)
+  (jb55/error-config)
 
   (set-face-background 'fringe "#1e1f22")
   (set-face-foreground 'vertical-border "#1e1f22")
