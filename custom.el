@@ -5,11 +5,11 @@
  ;; If there is more than one, they won't work right.
  '(Linum-format "%7i ")
  '(ac-ispell-requires 4 t)
- '(ahs-case-fold-search nil)
- '(ahs-default-range (quote ahs-range-whole-buffer))
- '(ahs-idle-interval 0.25)
+ '(ahs-case-fold-search nil t)
+ '(ahs-default-range (quote ahs-range-whole-buffer) t)
+ '(ahs-idle-interval 0.25 t)
  '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil)
+ '(ahs-inhibit-face-list nil t)
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
@@ -37,6 +37,7 @@
  '(epg-gpg-home-directory "~/.gnupg")
  '(eshell-prompt-function 'jb55/eshell-prompt)
  '(evil-kill-on-visual-paste nil)
+ '(epg-gpg-program "gpg")
  '(evil-shift-width 2)
  '(evil-want-Y-yank-to-eol t)
  '(expand-region-contract-fast-key "V")
@@ -46,40 +47,40 @@
  '(fill-column 70)
  '(flycheck-clang-include-path (quote ("deps")))
  '(flycheck-clang-language-standard nil)
- '(flycheck-display-errors-function 'flycheck-pos-tip-error-messages)
+ '(flycheck-display-errors-function (quote flycheck-pos-tip-error-messages))
  '(flycheck-gcc-language-standard "c++11")
- '(flycheck-ghc-args '("-isrc"))
- '(flycheck-hlint-ignore-rules '("Eta reduce"))
+ '(flycheck-ghc-args (quote ("-isrc")))
+ '(flycheck-hlint-ignore-rules (quote ("Eta reduce")))
  '(flycheck-standard-error-navigation t)
- '(fringe-mode '(1 . 1) nil (fringe))
+ '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-hl-line-mode t)
- '(gnus-select-method '(nntp "nntp.lore.kernel.org"))
+ '(gnus-select-method (quote (nntp "nntp.lore.kernel.org")))
  '(grep-find-ignored-directories
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
  '(haskell-font-lock-symbols nil)
- '(haskell-hoogle-command nil)
- '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s")
+ '(haskell-hoogle-command nil t)
+ '(haskell-hoogle-url "http://localhost:8080/?hoogle=%s" t)
  '(haskell-indentation-indent-leftmost t)
  '(haskell-interactive-mode-scroll-to-bottom t)
  '(haskell-interactive-popup-error nil t)
  '(haskell-mode-hook
    (quote
-    (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)))
- '(haskell-notify-p t)
+    (turn-on-haskell-indent haskell-hook turn-on-hi2 flycheck-mode)) t)
+ '(haskell-notify-p t t)
  '(haskell-process-args-cabal-repl
    (quote
     ("--ghc-options=-ferror-spans -fshow-loaded-modules")))
  '(haskell-process-args-ghci
    (quote
     ("-isrc" "-XOverloadedStrings" "-ferror-spans" "-fshow-loaded-modules")))
- '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-auto-import-loaded-modules t t)
  '(haskell-process-log t)
- '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-suggest-remove-import-lines t t)
  '(haskell-process-type (quote ghci))
- '(haskell-stylish-on-save nil)
+ '(haskell-stylish-on-save nil t)
  '(haskell-tags-on-save nil)
- '(helm-echo-input-in-header-line nil)
+ '(helm-echo-input-in-header-line nil t)
  '(helm-ff-skip-boring-files t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
@@ -128,11 +129,12 @@
  '(js2-bounce-indent-p t)
  '(js2-strict-missing-semi-warning nil)
  '(ledger-reports
-   '(("bal realized" "%(binary) -f %(ledger-file) bal -V ")
+   (quote
+    (("bal realized" "%(binary) -f %(ledger-file) bal -V ")
      ("bal" "%(binary) -f %(ledger-file) bal")
      ("reg" "%(binary) -f %(ledger-file) reg")
      ("payee" "%(binary) -f %(ledger-file) reg @%(payee)")
-     ("account" "%(binary) -f %(ledger-file) reg %(account)")))
+     ("account" "%(binary) -f %(ledger-file) reg %(account)"))))
  '(link-hint-delete-trailing-paren t)
  '(linum-format " %7i ")
  '(magit-diff-use-overlays nil)
@@ -145,7 +147,7 @@
  '(mailcap-user-mime-data (quote (("zathura %s" "application/pdf" nil))))
  '(main-line-color1 "#1E1E1E")
  '(main-line-color2 "#111111")
- '(main-line-separator-style 'chamfer)
+ '(main-line-separator-style (quote chamfer))
  '(markdown-hide-urls t)
  '(mastodon-instance-url "https://maly.io")
  '(message-auto-save-directory "~/mail/drafts")
@@ -163,7 +165,7 @@
       (sign
        ("jb55@jb55.com" "5B2B1E4F62216BC74362AC61D4FBA2FC4535A2A9"))
       (encrypt
-       ("jb55@jb55.com" "8860420C3C135662EABEADF96342E010C44A6337" "5B2B1E4F62216BC74362AC61D4FBA2FC4535A2A9")))
+       ("jb55@jb55.com" "5B2B1E4F62216BC74362AC61D4FBA2FC4535A2A9")))
      (CMS
       (sign)
       (encrypt)))))
@@ -189,59 +191,74 @@
      (:name "rss" :query "tag:rss and tag:inbox and not tag:busy" :key "r" :sort-order from-ascending)
      (:name "rss-busy" :query "tag:rss and tag:inbox and tag:busy" :key "R" :sort-order from-ascending)
      (:name "2-day" :query "date:yesterday.. and tag:inbox" :key "2")
-     (:name "work" :query "tag:inbox and tag:work" :key "w" :sort-order subject-ascending)))
+     (:name "work" :query "tag:inbox and tag:work" :key "w" :sort-order subject-ascending))))
  '(notmuch-search-line-faces
-   '(("unread" . notmuch-search-unread-face)
-     ("flagged" . notmuch-search-flagged-face)))
+   (quote
+    (("unread" . notmuch-search-unread-face)
+     ("flagged" . notmuch-search-flagged-face))))
  '(notmuch-search-oldest-first nil)
- '(notmuch-search-sort-order 'newest-first)
+ '(notmuch-search-sort-order (quote newest-first))
  '(notmuch-show-all-tags-list t)
  '(notmuch-show-insert-text/plain-hook
-   '(notmuch-wash-convert-inline-patch-to-part notmuch-wash-wrap-long-lines notmuch-wash-tidy-citations notmuch-wash-elide-blank-lines notmuch-wash-excerpt-citations))
+   (quote
+    (notmuch-wash-convert-inline-patch-to-part notmuch-wash-wrap-long-lines notmuch-wash-tidy-citations notmuch-wash-elide-blank-lines notmuch-wash-excerpt-citations)))
  '(notmuch-tag-formats
-   '(("unread" "?"
-      (propertize tag 'face 'notmuch-tag-unread))
+   (quote
+    (("unread" "?"
+      (propertize tag
+                  (quote face)
+                  (quote notmuch-tag-unread)))
      ("flagged"
       #("*" 0 1
         (face ((:foreground "gold"))))
       (notmuch-apply-face tag
-                          '(:foreground "gold")))
+                          (quote
+                           (:foreground "gold"))))
      ("pr"
       (notmuch-apply-face tag
-                          '(:foreground "green")))
+                          (quote
+                           (:foreground "green"))))
      ("issue"
       (notmuch-apply-face tag
-                          '(:foreground "orange")))
+                          (quote
+                           (:foreground "orange"))))
      ("filed"
       #("f" 0 1
         (face ((:foreground "dim gray"))))
       (notmuch-apply-face tag
-                          '(:foreground "dim gray")))
+                          (quote
+                           (:foreground "dim gray"))))
      ("list")
      ("github"
       #("gh" 0 2
         (face ((:foreground "dim gray"))))
       (notmuch-apply-face tag
-                          '(:foreground "dim gray")))
+                          (quote
+                           (:foreground "dim gray"))))
      ("inbox"
       #("i" 0 1
         (face ((:foreground "white"))))
       (notmuch-apply-face tag
-                          '(:foreground "white")))
+                          (quote
+                           (:foreground "white"))))
      ("closed"
       (notmuch-apply-face tag
-                          '(:foreground "wheat")))
+                          (quote
+                           (:foreground "wheat"))))
      ("merged"
       (notmuch-apply-face tag
-                          '(:foreground "yellow")))
+                          (quote
+                           (:foreground "yellow"))))
      ("bot"
       (notmuch-apply-face tag
-                          '(:foreground "dim gray")))
+                          (quote
+                           (:foreground "dim gray"))))
      ("busy"
       #("b" 0 1
         (face ((:foreground "brown"))))
       (notmuch-apply-face tag
-                          '(:foreground "brown")))
+                          (quote
+                           (:foreground "brown"))))
      ("bitcoin"
       #("btc" 0 3
         (face ((:foreground "gold"))))
@@ -263,7 +280,7 @@
      (800 1000 1200 1400 1600 1800 2000))))
  '(org-archive-location "archive/%s_archive::")
  '(org-directory "~/docs/org")
- '(org-duration-format '((special . h:mm)))
+ '(org-duration-format (quote ((special . h:mm))))
  '(org-export-headline-levels 2)
  '(org-export-with-section-numbers nil)
  '(org-export-with-toc nil)
@@ -319,7 +336,7 @@
     ("monstercat.#general" "monstercat.#payments" "monstercat.#code")))
  '(weechat-auto-monitor-new-buffers t)
  '(weechat-modules '(weechat-button weechat-image weechat-complete))
- '(yas-snippet-dirs '("/home/jb55/.emacs.d/private/snippets/")))
+ '(yas-snippet-dirs '("/home/jb55/.emacs.d/private/snippets/"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
