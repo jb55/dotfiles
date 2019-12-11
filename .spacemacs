@@ -14,6 +14,7 @@
     (auto-completion :variables auto-completion-enable-help-tooltip t)
 
     csharp
+    confluence
     react
     csv
     debug
