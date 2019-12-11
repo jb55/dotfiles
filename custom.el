@@ -175,7 +175,7 @@
      (:name "rss" :query "tag:rss and tag:inbox and not tag:busy" :key "r" :sort-order from-ascending)
      (:name "rss-busy" :query "tag:rss and tag:inbox and tag:busy" :key "R" :sort-order from-ascending)
      (:name "2-day" :query "date:yesterday.. and tag:inbox" :key "2")
-     (:name "work" :query "tag:inbox and tag:work" :key "w")))
+     (:name "work" :query "tag:inbox and tag:work" :key "w" :sort-order subject-ascending)))
  '(notmuch-search-line-faces
    '(("unread" . notmuch-search-unread-face)
      ("flagged" . notmuch-search-flagged-face)))
