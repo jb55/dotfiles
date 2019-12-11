@@ -63,7 +63,7 @@ instance Transformer TabbedFull Window where
     transform TabbedFull x k = k (tabs ||| Full) (const x)
 
 -- TODO: this should be a ratio based off current screen width
-centeredGap = 230
+centeredGap = 250
 centered = resizeHorizontal centeredGap . resizeHorizontalRight centeredGap
 
 gapSize = 5
