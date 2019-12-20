@@ -37,6 +37,7 @@
   d = diff
   ds = diff --staged
   line = log --oneline
+  lineg = log --oneline --graph
   l = log
   rc = rebase --continue
   r = rebase
