@@ -7,7 +7,7 @@
   status = auto
 [core]
   excludesfile = /Users/jb55/.gitignore_global
-	editor = vim
+	editor = nvim
 [sendemail]
   smtpServer=/run/current-system/sw/bin/sendmail
 [url "git@github.com:"]
