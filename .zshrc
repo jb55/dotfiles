@@ -44,8 +44,8 @@ export NIX_PATH="dotfiles=$HOME/dotfiles:$NIX_PATH"
 [ -e $HOME/.profile ] && source $HOME/.profile
 
 # other
-export EDITOR="emacsclient -s $HOME/.emacs.d/server/server -c -a vim"
-export VISUAL="emacsclient -s $HOME/.emacs.d/server/server -c -a emacs"
+export EDITOR="edit"
+export VISUAL="edit-visual"
 export BROWSER="qbrowser"
 export PAGER=less
 export LESS="-R"
@@ -102,3 +102,5 @@ export FZF_DEFAULT_OPTS="--color=light"
 
 # added by travis gem
 [ -f /home/jb55/.travis/travis.sh ] && source /home/jb55/.travis/travis.sh
+
+eval "$(direnv hook zsh)"

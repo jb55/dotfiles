@@ -59,6 +59,7 @@
   '( company-irony
      base16-theme
      bison-mode
+     direnv
      editor-config
      emojify
      forge
@@ -111,6 +112,7 @@
 
 (setq jb55/light-theme 'spacemacs-light)
 (setq jb55/dark-theme 'base16-onedark)
+(setq jb55/current-theme jb55/dark-theme)
 
 ; needed for compilation hooks as well
 (require 'ansi-color)
@@ -127,12 +129,24 @@
          (<  hour 17))))
 
 (defun jb55/load-theme (theme)
-  (counsel-load-theme-action (symbol-name theme)))
+  (print (concat "loading theme " (symbol-name theme)))
+  (counsel-load-theme-action (symbol-name theme))
+  (setq jb55/current-theme theme))
 
-(defun jb55/themeswitch (theme)
-  (if (eq theme 'light) (jb55/load-theme jb55/light-theme)
-    (when (eq theme 'dark)
-      (jb55/load-theme jb55/dark-theme))))
+(setq jb55/themes
+      `(("light" . ,jb55/light-theme)
+        ("dark"  . ,jb55/dark-theme)))
+
+(defun jb55/themeswitch (&optional theme)
+  (interactive)
+  (let* ((neq (lambda (x) (not (eq (cdr x) jb55/current-theme))))
+         (tlist (seq-filter neq jb55/themes))
+         (selected (cond ((stringp theme) theme)
+                         ((and (symbolp theme) (not (eq nil theme))) (symbol-name theme))
+                         ((eq (length tlist) 1) (car (car tlist)))
+                         (t (cdr (assoc (completing-read "jb55's themes" tlist) tlist)))))
+         (th (cdr (assoc selected tlist))))
+    (if th (jb55/load-theme th))))
 
 (defun jb55/link-hint-download ()
   (interactive)
@@ -360,6 +374,13 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (setq jb55/org-path "~/docs/org")
+
+  (use-package direnv
+    ;; Ensures that external dependencies are available before they are called.
+    :hook (before-hack-local-variables . #'direnv-update-environment)
+    :config
+    (add-to-list 'direnv-non-file-modes 'vterm-mode)
+    (direnv-mode 1))
 
   ;; fix really annoying clipboard race issue
   (fset 'evil-visual-update-x-selection 'ignore)
