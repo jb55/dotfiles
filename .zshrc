@@ -102,3 +102,5 @@ export FZF_DEFAULT_OPTS="--color=light"
 
 # added by travis gem
 [ -f /home/jb55/.travis/travis.sh ] && source /home/jb55/.travis/travis.sh
+
+eval "$(direnv hook zsh)"
