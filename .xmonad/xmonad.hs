@@ -90,7 +90,7 @@ instance Transformer TabbedFull Window where
         k (tabs (mkTabTheme theme) ||| Full) (const x)
 
 -- TODO: this should be a ratio based off current screen width
-centeredGap = 250
+centeredGap = 270
 centered = resizeHorizontal centeredGap . resizeHorizontalRight centeredGap
 
 gapSize = 5
