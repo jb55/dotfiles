@@ -27,6 +27,7 @@ md () {
 }
 
 alias g=git
+alias vim=nvim
 alias info="info --vi-keys"
 alias ag="ag --pager=less"
 alias attach="grabssh; screen -rD"
