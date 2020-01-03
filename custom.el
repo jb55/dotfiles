@@ -158,7 +158,7 @@
  '(message-sendmail-f-is-evil nil)
  '(mm-html-inhibit-images t)
  '(mm-sign-option nil)
- '(mm-text-html-renderer (quote w3m))
+ '(mm-text-html-renderer (quote shr))
  '(mml-secure-key-preferences
    (quote
     ((OpenPGP
