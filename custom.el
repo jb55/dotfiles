@@ -345,6 +345,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(diff-refine-added ((t (:background "dark green"))))
- '(notmuch-message-summary-face ((t (:background "#353B45"))))
  '(notmuch-search-non-matching-authors ((t (:foreground "#353B45"))))
  '(notmuch-search-unread-face ((t nil))))
