@@ -31,8 +31,8 @@
 [alias]
   a = add
   au = add -u
+  f = fetch -p
   br = symbolic-ref --short HEAD
-  bvr = branch -vr --sort=-committerdate
   ca = commit --amend
   c = commit
   cloner = clone --recursive
@@ -42,13 +42,13 @@
   ff = merge --ff-only
   hash = !"git rev-parse HEAD | tr -d '\n' | xclip"
   lg1 = log --graph --branches --tags --remotes --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(bold)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-  lg2 = log --date=relative --pretty=format:'%C(auto,yellow)%h%C(auto,magenta)%  %C(auto,blue)%>(12,trunc)%ad %C(auto,green) %C(auto,reset)%s%C(reset)% %C(bold) — %an%C(reset)%C(bold yellow)%d%C(reset)'
+  lg2 = log --no-merges --topo-order --date=relative --pretty=format:'%C(auto,yellow)%h%C(auto,magenta)%  %C(auto,blue)%>(12,trunc)%ad %C(auto,green) %C(auto,reset)%s%C(reset)% %C(bold) — %an%C(reset)%C(bold yellow)%d%C(reset)'
+  lg3 = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(bold)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
   lg = !"git lg1"
   lgrep = log --grep
   line = log --oneline
   lineg = log --oneline --graph
   l = log
-  logbr = log origin/master..
   muff = merge --no-ff
   prs = log --no-merges --date=local --author-date-order --glob='pull/origin/*'
   prs-merged = log --merges --date=local --author-date-order --glob='pull/origin/*'
@@ -81,7 +81,7 @@
 [credential "https://git.monstercat.com"]
 	helper = /home/jb55/bin/flynn git-credentials
 [gpg]
-	program = ots-git
+	program = gpg
 [magit]
 	hideCampaign = true
 [github]
