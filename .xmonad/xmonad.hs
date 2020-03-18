@@ -189,7 +189,7 @@ myConfig theme =
               , modMask            = mod4Mask
               , layoutHook         = lout
               , startupHook        = myStartupHook (Layout lout)
-              -- , manageHook  = isFullscreen --> doFullFloat
+              , manageHook         = appName =? "Tabletop Simulator" --> doFullFloat -- doesn't show otherwise
               , normalBorderColor  = "#222"
               , focusedBorderColor = "#BE5046"
             }
