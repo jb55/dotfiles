@@ -377,7 +377,6 @@ before packages are loaded."
 
   (use-package direnv
     ;; Ensures that external dependencies are available before they are called.
-    :hook (before-hack-local-variables . #'direnv-update-environment)
     :config
     (add-to-list 'direnv-non-file-modes 'vterm-mode)
     (direnv-mode 1))
