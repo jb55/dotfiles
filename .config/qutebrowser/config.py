@@ -25,6 +25,7 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
+config.set('fonts.default_family', 'terminus')
 
 if hostname == 'quiver':
   config.set('zoom.default', 125)
