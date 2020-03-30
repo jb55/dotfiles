@@ -8,6 +8,7 @@
 
 import Data.Ratio
 import Data.IORef
+import Data.List
 import Data.Default (def)
 import Control.Monad (when)
 import System.IO.Unsafe (unsafePerformIO)
@@ -183,6 +184,15 @@ otherTheme t =
       LightTheme -> darkTheme
       DarkTheme  -> lightTheme
 
+shouldntFloat :: String -> Bool
+shouldntFloat = isPrefixOf "qutebrowser"
+
+shouldFloat :: Query Bool
+shouldFloat = do
+  fs   <- isFullscreen
+  name <- appName
+  return (fs && not (shouldntFloat name))
+
 myConfig theme =
   let lout = layout theme
       cfg = def {
@@ -190,7 +200,7 @@ myConfig theme =
               , modMask            = mod4Mask
               , layoutHook         = lout
               , startupHook        = myStartupHook (Layout lout)
-              , manageHook         = appName =? "Tabletop Simulator" --> doFullFloat -- doesn't show otherwise
+              , manageHook         = shouldFloat --> doFullFloat -- doesn't show otherwise
               , normalBorderColor  = "#222"
               , focusedBorderColor = "#BE5046"
             }
