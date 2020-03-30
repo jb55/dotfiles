@@ -8,6 +8,7 @@
 
 import Data.Ratio
 import Data.IORef
+import Data.Default (def)
 import Control.Monad (when)
 import System.IO.Unsafe (unsafePerformIO)
 import System.Posix.Files (readSymbolicLink)
@@ -100,7 +101,7 @@ ourFont = "xft:terminus:size=12"
 tabs = tabbed shrinkText
 
 baseTabTheme :: Theme
-baseTabTheme = defaultTheme { fontName = ourFont }
+baseTabTheme = def { fontName = ourFont }
 
 mkTabTheme FullTheme{..} =
     baseTabTheme {
@@ -184,7 +185,7 @@ otherTheme t =
 
 myConfig theme =
   let lout = layout theme
-      cfg = defaultConfig {
+      cfg = def {
                 terminal    = "urxvtc"
               , modMask            = mod4Mask
               , layoutHook         = lout
@@ -205,7 +206,7 @@ main = do
   xmonad (myConfig theme)
 
 myXPConfig =
-    defaultXPConfig {
+    def {
       font        = ourFont,
       height      = 20,
       borderColor = "#000000"
