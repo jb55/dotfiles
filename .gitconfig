@@ -42,6 +42,7 @@
   ff = merge --ff-only
   hash = !"git rev-parse HEAD | tr -d '\n' | xclip"
   lg1 = log --graph --branches --tags --remotes --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(bold)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+  lgl = log --format='%h  %cr  %s'
   lg2 = log --no-merges --topo-order --date=relative --pretty=format:'%C(auto,yellow)%h%C(auto,magenta)%  %C(auto,blue)%>(12,trunc)%ad %C(auto,green) %C(auto,reset)%s%C(reset)% %C(bold) — %an%C(reset)%C(bold yellow)%d%C(reset)'
   lg3 = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(bold)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
   lg = !"git lg1"
@@ -64,6 +65,7 @@
   tg = log --date-order --tags --simplify-by-decoration --pretty=format:'%ai %h %d'
   try = merge --no-commit --no-ff
   co = checkout
+  fixes = show -s --pretty='format:Fixes: %h (\"%s\")'
 [rebase]
   autosquash = true
 [pull]
