@@ -3,8 +3,11 @@
 # generic stuff for non-interactive shells
 
 # sharefile
+export RADV_PERFTEST=aco
 export BAT_STYLE=plain
+export BAT_THEME=base16
 export LPASS_HOME="$HOME/.config/lpass"
+export FUZZER=fzf
 export GOPHERCLIENT=sacc
 export GOPHER=$GOPHERCLIENT
 export GNUPGHOME="$HOME/.gnupg"
@@ -26,6 +29,7 @@ md () {
     mandown README*
 }
 
+alias e="edit -n"
 alias g=git
 alias vim=nvim
 alias info="info --vi-keys"
