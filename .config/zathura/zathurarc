@@ -11,8 +11,6 @@ set recolor-darkcolor  "#abb2bf"
 set recolor-keephue    "false"
 
 set scroll-page-aware "true"
-set smooth-scroll "true"
 set scroll-full-overlap 0.01
 set scroll-step 100
 
-set font "terminus 11"
