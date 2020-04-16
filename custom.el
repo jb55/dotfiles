@@ -267,7 +267,7 @@
          ((:foreground "gold")
           (:foreground "gold"))))
       (notmuch-apply-face tag
-                          '(:foreground "gold")))))
+                          '(:foreground "gold"))))))
  '(notmuch-wash-wrap-lines-length 100)
  '(olivetti-body-width 100 t)
  '(org-adapt-indentation nil)
