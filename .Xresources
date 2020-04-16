@@ -67,6 +67,6 @@ URxvt*scrollTtyKeypress:    true
 
 ! XTerm
 XTerm*boldFont: fixed
-URxvt*url-launcher: browser
+URxvt*url-launcher: /home/jb55/bin/browser
 
 
