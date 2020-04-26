@@ -1,5 +1,7 @@
 .*.swp
 .*.swo
+.env
+.out
 *.so
 *.pyc
 */tmp/*
