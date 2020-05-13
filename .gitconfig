@@ -29,43 +29,43 @@
 [gui]
   recentrepo = /Users/jb55/src/js/titania
 [alias]
-  l = log
   a = add
   au = add -u
+  f = fetch -p
+  br = symbolic-ref --short HEAD
   ca = commit --amend
   c = commit
+  cloner = clone --recursive
   d = diff
+  default = !git config branch.master.remote origin && git config branch.master.merge refs/heads/master
   ds = diff --staged
+  ff = merge --ff-only
+  hash = !"git rev-parse HEAD | tr -d '\n' | xclip"
+  lg1 = log --graph --branches --tags --remotes --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(bold)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+  lgl = log --format='%h  %cr  %s'
+  lg2 = log --no-merges --topo-order --date=relative --pretty=format:'%C(auto,yellow)%h%C(auto,magenta)%  %C(auto,blue)%>(12,trunc)%ad %C(auto,green) %C(auto,reset)%s%C(reset)% %C(bold) — %an%C(reset)%C(bold yellow)%d%C(reset)'
+  lg3 = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(bold)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+  lg = !"git lg1"
+  lgrep = log --grep
   line = log --oneline
   lineg = log --oneline --graph
   l = log
-  rc = rebase --continue
-  r = rebase
-  s = status
-  tg = log --date-order --tags --simplify-by-decoration --pretty=format:'%ai %h %d'
-  logbr = log origin/master..
+  muff = merge --no-ff
   prs = log --no-merges --date=local --author-date-order --glob='pull/origin/*'
   prs-merged = log --merges --date=local --author-date-order --glob='pull/origin/*'
-  refl = reflog --date=relative
-  br = symbolic-ref --short HEAD
-  bvr = branch -vr --sort=-committerdate
-  ff = merge --ff-only
-  muff = merge --no-ff
-  try = merge --no-commit --no-ff
   puff = pull --ff-only
-  lgrep = log --grep
-  logbr = log origin/master..
-  default = !git config branch.master.remote origin && git config branch.master.merge refs/heads/master
-  lg1 = log --graph --branches --tags --remotes --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(bold)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-  lg2 = log --date=relative --pretty=format:'%C(auto,yellow)%h%C(auto,magenta)%  %C(auto,blue)%>(12,trunc)%ad %C(auto,green) %C(auto,reset)%s%C(reset)% %C(bold) — %an%C(reset)%C(bold yellow)%d%C(reset)'
-  lg = !"git lg1"
-  stat2 = log --stat --pretty=format:'%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%>(12,trunc)%cr %C(auto,green)%aN %C(auto,red)%D %n%n   %C(auto,reset)%s%n'
+  rc = rebase --continue
+  refl = reflog --date=relative
+  r = rebase
   serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
-  cloner = clone --recursive
-  tagd = !"git tag --format='%(creatordate:short)%09%(refname:strip=2)' | sort"
-  hash = !"git rev-parse HEAD | tr -d '\n' | xclip"
+  s = status
+  stat2 = log --stat --pretty=format:'%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%>(12,trunc)%cr %C(auto,green)%aN %C(auto,red)%D %n%n   %C(auto,reset)%s%n'
   st = status -sb
+  tagd = !"git tag --format='%(creatordate:short)%09%(refname:strip=2)' | sort"
+  tg = log --date-order --tags --simplify-by-decoration --pretty=format:'%ai %h %d'
+  try = merge --no-commit --no-ff
   co = checkout
+  fixes = show -s --pretty='format:Fixes: %h (\"%s\")'
 [rebase]
   autosquash = true
 [pull]
@@ -83,7 +83,7 @@
 [credential "https://git.monstercat.com"]
 	helper = /home/jb55/bin/flynn git-credentials
 [gpg]
-	program = ots-git
+	program = gpg
 [magit]
 	hideCampaign = true
 [github]

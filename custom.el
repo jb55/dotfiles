@@ -5,11 +5,11 @@
  ;; If there is more than one, they won't work right.
  '(Linum-format "%7i ")
  '(ac-ispell-requires 4 t)
- '(ahs-case-fold-search nil t)
- '(ahs-default-range (quote ahs-range-whole-buffer) t)
- '(ahs-idle-interval 0.25 t)
+ '(ahs-case-fold-search nil)
+ '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil t)
+ '(ahs-inhibit-face-list nil)
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
@@ -20,7 +20,7 @@
    (quote
     (spacemacs//python-sort-imports gofmt-before-save org-update-all-dblocks)))
  '(browse-url-browser-function (quote browse-url-generic))
- '(browse-url-generic-program "browser")
+ '(browse-url-generic-program "/home/jb55/bin/browser")
  '(company-clang-arguments (quote ("-Ideps")))
  '(company-quickhelp-mode t)
  '(compilation-message-face (quote default))
@@ -35,9 +35,9 @@
  '(disaster-objdump "objdump -d -M att -Sl --no-show-raw-insn")
  '(elm-indent-offset 4)
  '(epg-gpg-home-directory "~/.gnupg")
- '(eshell-prompt-function 'jb55/eshell-prompt)
- '(evil-kill-on-visual-paste nil)
  '(epg-gpg-program "gpg")
+ '(eshell-prompt-function (quote jb55/eshell-prompt))
+ '(evil-kill-on-visual-paste nil)
  '(evil-shift-width 2)
  '(evil-want-Y-yank-to-eol t)
  '(expand-region-contract-fast-key "V")
@@ -140,7 +140,7 @@
  '(magit-diff-use-overlays nil)
  '(magit-log-margin (quote (nil age magit-log-margin-width nil 18)))
  '(magit-revision-insert-related-refs nil)
- '(magit-revision-show-gravatars nil)
+ '(magit-revision-show-gravatars nil t)
  '(magit-revision-use-hash-sections (quote quickest))
  '(mail-envelope-from (quote header))
  '(mail-specify-envelope-from nil)
@@ -172,7 +172,6 @@
  '(mml-secure-openpgp-encrypt-to-self
    (quote
     ("8860420C3C135662EABEADF96342E010C44A6337" "87D78CE40B38B817" "5B2B1E4F62216BC74362AC61D4FBA2FC4535A2A9")))
- '(notmuch-command "notmuch")
  '(notmuch-fcc-dirs ".Sent +sent -inbox -unread")
  '(notmuch-hello-tag-list-make-query "tag:inbox")
  '(notmuch-message-headers-visible t)
@@ -280,7 +279,7 @@
      ""
      (800 1000 1200 1400 1600 1800 2000))))
  '(org-archive-location "archive/%s_archive::")
- '(org-directory "~/docs/org")
+ '(org-directory "~/docs/org" t)
  '(org-duration-format (quote ((special . h:mm))))
  '(org-export-headline-levels 2)
  '(org-export-with-section-numbers nil)
@@ -321,7 +320,7 @@
      (indent-tabs-mode . f)
      (flycheck-clang-include-path "./include" "../include"))))
  '(send-mail-function (quote smtpmail-send-it))
- '(sendmail-program "sendmail")
+ '(sendmail-program "/home/jb55/bin/sendmail")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(smerge-command-prefix "m")
  '(smtpmail-smtp-server "smtp.jb55.com")

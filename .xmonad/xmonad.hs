@@ -189,7 +189,7 @@ myConfig theme =
               , modMask            = mod4Mask
               , layoutHook         = lout
               , startupHook        = myStartupHook (Layout lout)
-              , manageHook  = isFullscreen --> doFullFloat
+              , manageHook         = isFullscreen --> doFullFloat
               , normalBorderColor  = "#222"
               , focusedBorderColor = "#BE5046"
             }

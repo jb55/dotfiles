@@ -300,7 +300,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
             (if (= (user-uid) 0) " # " " $ ")))
 
   (load "~/src/elisp/notmuch/notmuch-github.el")
-  (load "~/src/elisp/overlays/overlays.el")
+  ;; (load "~/src/elisp/overlays/overlays.el")
 
   (defun cd-repo ()
     (interactive)
@@ -377,7 +377,7 @@ before packages are loaded."
 
   (use-package direnv
     ;; Ensures that external dependencies are available before they are called.
-    :hook (before-hack-local-variables . #'direnv-update-environment)
+    ;; :hook (before-hack-local-variables . #'direnv-update-environment)
     :config
     (add-to-list 'direnv-non-file-modes 'vterm-mode)
     (direnv-mode 1))
