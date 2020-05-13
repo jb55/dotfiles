@@ -8,6 +8,8 @@
 
 import Data.Ratio
 import Data.IORef
+import Data.List
+import Data.Default (def)
 import Control.Monad (when)
 import System.IO.Unsafe (unsafePerformIO)
 import System.Posix.Files (readSymbolicLink)
@@ -90,7 +92,7 @@ instance Transformer TabbedFull Window where
         k (tabs (mkTabTheme theme) ||| Full) (const x)
 
 -- TODO: this should be a ratio based off current screen width
-centeredGap = 250
+centeredGap = 270
 centered = resizeHorizontal centeredGap . resizeHorizontalRight centeredGap
 
 gapSize = 5
@@ -100,7 +102,7 @@ ourFont = "xft:terminus:size=12"
 tabs = tabbed shrinkText
 
 baseTabTheme :: Theme
-baseTabTheme = defaultTheme { fontName = ourFont }
+baseTabTheme = def { fontName = ourFont }
 
 mkTabTheme FullTheme{..} =
     baseTabTheme {
@@ -182,14 +184,23 @@ otherTheme t =
       LightTheme -> darkTheme
       DarkTheme  -> lightTheme
 
+shouldntFloat :: String -> Bool
+shouldntFloat = isPrefixOf "qutebrowser"
+
+shouldFloat :: Query Bool
+shouldFloat = do
+  fs   <- isFullscreen
+  name <- appName
+  return (fs && not (shouldntFloat name))
+
 myConfig theme =
   let lout = layout theme
-      cfg = defaultConfig {
+      cfg = def {
                 terminal    = "urxvtc"
               , modMask            = mod4Mask
               , layoutHook         = lout
               , startupHook        = myStartupHook (Layout lout)
-              , manageHook         = isFullscreen --> doFullFloat
+              , manageHook         = shouldFloat --> doFullFloat -- doesn't show otherwise
               , normalBorderColor  = "#222"
               , focusedBorderColor = "#BE5046"
             }
@@ -205,7 +216,7 @@ main = do
   xmonad (myConfig theme)
 
 myXPConfig =
-    defaultXPConfig {
+    def {
       font        = ourFont,
       height      = 20,
       borderColor = "#000000"

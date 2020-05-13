@@ -2,15 +2,6 @@
 
 "if 0 | endif
 
-" neobundle 
-
-if has('vim_starting')
- set nocompatible               " Be iMproved
-
- " Required:
- set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
 filetype plugin indent on
 
 " Settings 
@@ -40,13 +31,13 @@ if $VIM_CRONTAB == "true"
 endif
 
 " gvim fonts
-"if has("gui_running")
-"  colorscheme molokai
-"else
-"  set t_Co=256
-"  set clipboard=unnamed
-"  colorscheme onedark
-"endif
+" if has("gui_running")
+"   colorscheme molokai
+" else
+"   set t_Co=256
+"   set clipboard=unnamed
+"   colorscheme base16-onedark
+" endif
 
 " 
 
@@ -178,10 +169,6 @@ let g:syntastic_haskell_checkers = []
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_args = '~/.eslintrc'
 let g:syntastic_warning_symbol='⚠'
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
 let g:EasyMotion_leader_key = '<Leader>'
 

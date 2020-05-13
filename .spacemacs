@@ -183,7 +183,8 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers jb55/layers
    dotspacemacs-additional-packages jb55/additional-packages
-   dotspacemacs-frozen-packages '(react
+   dotspacemacs-frozen-packages '(swift
+                                  react
                                   ruby
                                   elixir
                                   fsharp
@@ -377,7 +378,6 @@ before packages are loaded."
 
   (use-package direnv
     ;; Ensures that external dependencies are available before they are called.
-    ;; :hook (before-hack-local-variables . #'direnv-update-environment)
     :config
     (add-to-list 'direnv-non-file-modes 'vterm-mode)
     (direnv-mode 1))

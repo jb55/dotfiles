@@ -59,6 +59,10 @@ fzt() {
   local dir=$(z -et | fzcmd) && cd "$dir"
 }
 
+fze() {
+  fzcmd | xargs edit
+}
+
 # fz helper
 fzcmd() {
   awk '{ print $2 }' | fzf --query="$1" --tac +s

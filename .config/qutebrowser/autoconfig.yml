@@ -6,7 +6,5 @@
 
 config_version: 2
 settings:
-  content.headers.user_agent:
-    accounts.google.com: Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/77.0
-  content.register_protocol_handler:
-    https://mail.google.com?extsrc=mailto&url=%25s: false
+  scrolling.smooth:
+    global: true
