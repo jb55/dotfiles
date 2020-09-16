@@ -469,24 +469,6 @@ before packages are loaded."
     "aTm" 'twittering-mentions-timeline
     )
 
-  (setq notmuch-saved-searches-work
-        (quote
-         ((:name "unread" :query "tag:unread and tag:inbox" :key "u")
-          (:name "flagged" :query "tag:flagged and tag:inbox" :key "f")
-          (:name "sent" :query "tag:sent" :key "t")
-          (:name "inbox" :query "tag:inbox and not tag:filed and not tag:noise" :key "i")
-          (:name "github" :query "tag:github and tag:inbox" :key "g")
-          (:name "internal" :query "tag:internal and tag:inbox" :key "m")
-          (:name "noise" :query "tag:noise and tag:inbox" :key "n")
-          (:name "report" :query "tag:report" :key "R")
-          (:name "dev" :query "tag:dev and (tag:inbox or tag:unmerged)" :key "d")
-          (:name "events" :query "tag:events and tag:inbox" :key "e")
-          (:name "filed" :query "tag:inbox and tag:filed" :key "I")
-          (:name "royalties" :query "tag:royalties and tag:inbox" :key "r")
-          (:name "today" :query "date:today and tag:inbox" :key "1")
-          (:name "2-day" :query "date:yesterday.. and tag:inbox" :key "2")
-          (:name "week" :query "date:week.. and tag:inbox" :key "3"))) )
-
   (defun notmuch-switch-to-home ()
     (setq message-signature-file "~/.signature")
     (setq notmuch-command "notmuch")
