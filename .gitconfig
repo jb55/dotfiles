@@ -56,6 +56,7 @@
   prs-merged = log --merges --date=local --author-date-order --glob='pull/origin/*'
   puff = pull --ff-only
   rc = rebase --continue
+  rv = remote -v
   refl = reflog --date=relative
   r = rebase
   serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
