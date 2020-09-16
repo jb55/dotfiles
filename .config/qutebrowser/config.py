@@ -50,10 +50,12 @@ c.editor.command = ['edit', '{file}']
 c.bindings.key_mappings = {'<Ctrl+6>': '<Ctrl+^>', '<Ctrl+Enter>': '<Ctrl+Return>', '<Ctrl+j>': '<Return>', '<Ctrl+m>': '<Return>', '<Ctrl+[>': '<Escape>', '<Enter>': '<Return>', '<Shift+Enter>': '<Return>', '<Shift+Return>': '<Return>'}
 
 # Bindings for normal mode
+config.unbind('r')
 config.bind('d', 'repeat 10 scroll down')
 config.bind('u', 'repeat 10 scroll up')
 config.bind('<Ctrl-d>', 'scroll-page 0 0.5')
 config.bind('<Ctrl-u>', 'scroll-page 0 -0.5')
+config.bind('<Ctrl-r>', 'reload')
 
 config.bind('e', 'open-editor')
 config.bind('co', 'tab-only')
