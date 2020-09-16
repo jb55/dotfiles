@@ -9,6 +9,7 @@ export BAT_THEME=base16
 export LPASS_HOME="$HOME/.config/lpass"
 export FUZZER=fzf
 export GOPHERCLIENT=sacc
+export GEMINICLIENT=av98
 export GOPHER=$GOPHERCLIENT
 export GNUPGHOME="$HOME/.gnupg"
 export SHAREFILE_HOST='charon:public/s/'
