@@ -30,12 +30,13 @@ URxvt.resize-font.bigger:  M-k
 !URxvt*font: xft:Source Code Pro:size=13:antialias=true;hinting=true,\
 !            xft:Kochi Gothic:antialias=true,hinting=true
 !URxvt*font: xft:PT Mono:size=11
-!URxvt*font: xft:Inconsolata:size=12:hinting=true
-urxvt.font: xft:terminus:antialias=false:pixelsize=16
+URxvt*font: xft:Inconsolata:size=14:hinting=true
+!urxvt.font: xft:terminus:antialias=false:pixelsize=14
 
 !xft:Inconsolata:size=18:antialias=true;hinting=true
 !
 /* URxvt*font: xft:Noto Serif:size=10:antialias=true;hinting=true */
+
 URxvt*internalBorder: 22
 URxvt*matcher.button: 1
 
