@@ -167,6 +167,20 @@
                (browse-url url)))
             (switch-to-buffer (current-buffer)))))))
 
+(defun jb55/mm-pipe-part-pdfnow (handle)
+  (mm-pipe-part handle "/home/jb55/bin/pdfnow markdown"))
+
+(defun jb55/do-notmuch-pdfnow ()
+  (notmuch-show-apply-to-current-part-handle #'jb55/mm-pipe-part-pdfnow))
+
+(defun jb55/notmuch-pdfnow ()
+  (interactive)
+  (if (window-live-p notmuch-tree-message-window)
+      (with-selected-window notmuch-tree-message-window
+        (progn
+          (goto-line 10)
+          (jb55/do-notmuch-pdfnow)))
+    (jb55/do-notmuch-pdfnow)))
 
 (defun jb55/determine-theme ()
   (if (jb55/at-work)
