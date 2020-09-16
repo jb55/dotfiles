@@ -10,9 +10,11 @@
 
     (c-c++ :variables
            c-c++-enable-clang-support t
+           c-c++-backend 'rtags
            )
 
     (auto-completion :variables auto-completion-enable-help-tooltip t)
+
 
     csharp
     confluence
