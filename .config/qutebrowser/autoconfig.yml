@@ -6,5 +6,5 @@
 
 config_version: 2
 settings:
-  scrolling.smooth:
-    global: true
+  content.host_blocking.enabled:
+    global: false

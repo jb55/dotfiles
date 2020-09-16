@@ -1,7 +1,7 @@
 [user]
   name = William Casarin
   email = jb55@jb55.com
-  signingkey = 0x5B2B1E4F62216BC74362AC61D4FBA2FC4535A2A9
+  signingkey = 0xE02D3FD4EB4585A63531C1D0E1BFCB90A1FF7A1C
 [color]
   diff = auto
   status = auto
@@ -55,6 +55,7 @@
   prs-merged = log --merges --date=local --author-date-order --glob='pull/origin/*'
   puff = pull --ff-only
   rc = rebase --continue
+  rv = remote -v
   refl = reflog --date=relative
   r = rebase
   serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
@@ -83,7 +84,7 @@
 [credential "https://git.monstercat.com"]
 	helper = /home/jb55/bin/flynn git-credentials
 [gpg]
-	program = gpg
+	program = /home/jb55/bin/ots-git
 [magit]
 	hideCampaign = true
 [github]

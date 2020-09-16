@@ -10,9 +10,11 @@
 
     (c-c++ :variables
            c-c++-enable-clang-support t
+           c-c++-backend 'rtags
            )
 
     (auto-completion :variables auto-completion-enable-help-tooltip t)
+
 
     csharp
     confluence
@@ -165,6 +167,20 @@
                (browse-url url)))
             (switch-to-buffer (current-buffer)))))))
 
+(defun jb55/mm-pipe-part-pdfnow (handle)
+  (mm-pipe-part handle "/home/jb55/bin/pdfnow markdown"))
+
+(defun jb55/do-notmuch-pdfnow ()
+  (notmuch-show-apply-to-current-part-handle #'jb55/mm-pipe-part-pdfnow))
+
+(defun jb55/notmuch-pdfnow ()
+  (interactive)
+  (if (window-live-p notmuch-tree-message-window)
+      (with-selected-window notmuch-tree-message-window
+        (progn
+          (goto-line 10)
+          (jb55/do-notmuch-pdfnow)))
+    (jb55/do-notmuch-pdfnow)))
 
 (defun jb55/determine-theme ()
   (if (jb55/at-work)
@@ -445,32 +461,13 @@ before packages are loaded."
     "wc" 'olivetti-mode
     "xb" 'jb55/link-hint-download
     "Jd" 'jb55/xref-find-def
-    "yj" 'notmuch-jump-search
+    "jd" 'dumb-jump-go
+    "jD" 'dumb-jump-go-prompt
     "is" 'company-yasnippet
-    "yi" 'notmuch-hello
-    "ys" 'notmuch-search
     "aTn" 'twittering-update-status-interactive
     "aTu" 'twittering-user-timeline
     "aTm" 'twittering-mentions-timeline
     )
-
-  (setq notmuch-saved-searches-work
-        (quote
-         ((:name "unread" :query "tag:unread and tag:inbox" :key "u")
-          (:name "flagged" :query "tag:flagged and tag:inbox" :key "f")
-          (:name "sent" :query "tag:sent" :key "t")
-          (:name "inbox" :query "tag:inbox and not tag:filed and not tag:noise" :key "i")
-          (:name "github" :query "tag:github and tag:inbox" :key "g")
-          (:name "internal" :query "tag:internal and tag:inbox" :key "m")
-          (:name "noise" :query "tag:noise and tag:inbox" :key "n")
-          (:name "report" :query "tag:report" :key "R")
-          (:name "dev" :query "tag:dev and (tag:inbox or tag:unmerged)" :key "d")
-          (:name "events" :query "tag:events and tag:inbox" :key "e")
-          (:name "filed" :query "tag:inbox and tag:filed" :key "I")
-          (:name "royalties" :query "tag:royalties and tag:inbox" :key "r")
-          (:name "today" :query "date:today and tag:inbox" :key "1")
-          (:name "2-day" :query "date:yesterday.. and tag:inbox" :key "2")
-          (:name "week" :query "date:week.. and tag:inbox" :key "3"))) )
 
   (defun notmuch-switch-to-home ()
     (setq message-signature-file "~/.signature")

@@ -30,6 +30,8 @@ if $VIM_CRONTAB == "true"
   set nowritebackup
 endif
 
+set clipboard+=unnamedplus
+
 " gvim fonts
 " if has("gui_running")
 "   colorscheme molokai
