@@ -27,7 +27,7 @@ URxvt.keysym.M-f:    perl:url-picker
 !URxvt*font: xft:Source Code Pro:size=13:antialias=true;hinting=true,\
 !            xft:Kochi Gothic:antialias=true,hinting=true
 !URxvt*font: xft:PT Mono:size=11
-URxvt*font: xft:Inconsolata:size=14:hinting=true
+URxvt*font: xft:Inconsolata:size=16:hinting=true
 !urxvt.font: xft:terminus:antialias=false:pixelsize=16
 
 !xft:Inconsolata:size=18:antialias=true;hinting=true
