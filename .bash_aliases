@@ -34,6 +34,7 @@ md () {
 alias e="edit -n"
 alias g=git
 alias vim=nvim
+alias feh="feh --conversion-timeout 2"
 alias info="info --vi-keys"
 alias ag="ag --pager=less"
 alias attach="grabssh; screen -rD"
