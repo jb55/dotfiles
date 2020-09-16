@@ -461,10 +461,9 @@ before packages are loaded."
     "wc" 'olivetti-mode
     "xb" 'jb55/link-hint-download
     "Jd" 'jb55/xref-find-def
-    "yj" 'notmuch-jump-search
+    "jd" 'dumb-jump-go
+    "jD" 'dumb-jump-go-prompt
     "is" 'company-yasnippet
-    "yi" 'notmuch-hello
-    "ys" 'notmuch-search
     "aTn" 'twittering-update-status-interactive
     "aTu" 'twittering-user-timeline
     "aTm" 'twittering-mentions-timeline
