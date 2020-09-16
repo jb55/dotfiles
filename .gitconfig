@@ -85,7 +85,7 @@
 [credential "https://git.monstercat.com"]
 	helper = /home/jb55/bin/flynn git-credentials
 [gpg]
-	program = gpg
+	program = /home/jb55/bin/ots-git
 [magit]
 	hideCampaign = true
 [github]
